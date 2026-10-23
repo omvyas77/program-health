@@ -1,0 +1,14 @@
+data/raw/
+warehouse/
+transform/target/
+transform/dbt_packages/
+transform/logs/
+.venv/
+__pycache__/
+.env
+secrets/
+sa.json
+*service-account*.json
+.quarto/
+brief/*_files/
+.DS_Store
