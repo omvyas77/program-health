@@ -1,0 +1,45 @@
+name: snapshot
+
+on:
+  schedule:
+    # 13:07 UTC: GitHub's scheduler is most delayed at the top of the hour
+    - cron: "7 13 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-snapshot.txt
+
+      - run: pip install -r requirements-snapshot.txt
+
+      - run: python -m ingest.cis_snapshot
+
+      - name: Commit the new snapshot
+        run: |
+          git add data/snapshots/cis
+          if git diff --cached --quiet; then
+            echo "no new snapshot"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "snapshot 2027-sp $(date -u +%F)"
+          # main may have moved while the job ran; the snapshot only adds a file, so rebase is safe
+          git pull --rebase
+          git push
