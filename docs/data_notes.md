@@ -46,6 +46,20 @@ Quirks in the sources and what I did about each. Dated by when I found them.
 
 **One more subject might belong to Gies (Oct 23, 2026).** The Course Explorer API lists exactly six subjects under Gies's college code, KM: ACCY, BADM, BDI, BUS, FIN, and MBA, which match config/gies_subjects.csv. DTX, Human-Centered Design and Design Thinking, lists Business Administration as its unit but college code KP. It is not added, because it belongs to another college.
 
+## Common Data Set
+
+**Fall 2024 CDS totals match IPEDS ADM2024 almost everywhere (Oct 23, 2026).** Of 51 comparisons (17 schools, three counts each), 44 match exactly and 50 are within 1%. The small differences are Maryland (14 fewer applicants, 5 fewer admits), Wisconsin (39 more applicants, 2 more admits), Washington (1 fewer enrolled), and UCLA (4 more applicants). These are from the draft and are rechecked once each value is verified.
+
+**Purdue's 2024-25 file states the wrong admits total (Oct 23, 2026).** Its C1 total for admits reads 30,272, the same number as its women applicants. Its in-state, out-of-state, and international admits add up to 39,272, which matches IPEDS. The draft keeps the file's number and flags it. Purdue's CDS covers West Lafayette, Purdue in Indianapolis, and Polytechnic Statewide from 2024-25 on, yet its Fall 2024 applicants and enrolled match IPEDS 243780 exactly, so the two report the same scope for that year.
+
+**Not every school reports the residency split (Oct 23, 2026).** Michigan, Northwestern, UCLA, Oregon's 2024-25 file, USC's 2024-25 file, and Wisconsin's 2024-25 file leave it blank. Maryland reports in-state and out-of-state only; the two add up to its total, so international students sit inside one of them. Minnesota's 2024-25 file reports 5,769 applicants and 4,419 admits of unknown residency.
+
+**Some PDFs can't be read as text (Oct 23, 2026).** Ohio State's two files and UCLA's 2024-25 file draw their numbers as shapes. Their values were read from rendered page images (data/manual/cds_c1_image_reads.csv) and, for Ohio State, agree three ways: the residency parts, the residency total, and the gender rows. UCLA's 2024-25 gender rows sum to 146,276 applicants, 4 more than IPEDS.
+
+**Illinois's and Wisconsin's 2025-26 workbooks carry a broken answer list (Oct 23, 2026).** Beside the form on the CDS-C sheet, and on the Answer Sheet tab, a list of field codes and values runs one row out of step from the full-time and part-time rows on, with #REF! errors in places. Only the form itself is read.
+
+**Penn State's CDS page links a dead folder (Oct 23, 2026).** Its link goes to a SharePoint folder that returns 404. The University Park files used are on the same office's site, found by search.
+
 ## Course Explorer
 
 **The public API has no enrollment status (Oct 23, 2026).** No response from the Course Explorer API carries enrollmentStatus, for Spring 2027 or Fall 2026, in cascade, detail, or section mode. The availability shown on the public course pages (Open, Closed, Open (Restricted)) is the field the registration watch was built on, but those pages sit behind bot protection that began returning empty responses to a script after several hundred requests. The daily snapshot records the section list from the API only, so it shows sections added and removed during registration but not which sections are closed.

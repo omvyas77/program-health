@@ -32,6 +32,10 @@ Data, Analytics, and Institutional Research (dair.illinois.edu) took over DMI's 
 - Student Enrollment (dair.illinois.edu/access-data/student-enrollment/), Fall 2013 to Fall 2026. Its Online Program filter identifies which Gies programs are online.
 - Retention and Graduation Rates (dair.illinois.edu/access-data/retention-and-graduation-rates/). First-fall to second-fall retention and four-, five-, and six-year graduation rates for first-time, full-time, degree-seeking undergraduates, by entering college. This answers whether Gies-level rates are public: they are, by college of entry.
 
+## Common Data Set
+
+Each school publishes its own Common Data Set; config/cds_files.csv lists the file used for 2024-25 (Fall 2024) and 2025-26 (Fall 2025), the official page it was found on, and any note about scope. Formats differ: PDF for most, Excel for Illinois, Maryland, Purdue, and Wisconsin's 2025-26, and web pages for Indiana and Nebraska. Rutgers-New Brunswick has not published a CDS since 2023-24. Section C1 (first-time, first-year applicants, admits, and enrolled, with the residency split where reported) is drafted by ingest/cds.py into data/manual/cds_c1_draft.csv and verified by hand against each file into data/manual/cds_c1.csv; data/manual/cds_c1_checklist.md lists every file and where to look.
+
 ## WICHE Knocking at the College Door
 
 The 11th edition projections dataset (December 2024), from wiche.edu/knocking/data/. The workbook was relabeled on Jan 31, 2025 with no values changed. High school graduates, actual and projected, for Illinois, the nation, and both Midwest definitions the file carries.
