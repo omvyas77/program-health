@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest build docs findings
+.PHONY: help snapshot ingest build docs findings forecast
 
 PYTHON := .venv/bin/python
 DBT := .venv/bin/dbt
@@ -30,3 +30,7 @@ docs: ## generate the dbt docs site
 findings: ## write docs/findings.md from the dbt analyses
 	$(DBT) compile --project-dir transform --profiles-dir transform --select "resource_type:analysis"
 	$(PYTHON) -m publish.findings
+
+forecast: ## backtest, then write data/marts/mart_projection
+	$(PYTHON) -m forecast.backtest
+	$(PYTHON) -m forecast.projection
