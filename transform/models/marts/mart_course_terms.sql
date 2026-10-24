@@ -18,5 +18,6 @@ select
     cast(c.dfw_rate as double) as dfw_rate,
     cast(c.c_or_below_w_rate as double) as c_or_below_w_rate,
     f.term_flag
-from {{ ref('int_gies_course_terms') }} as c
+from {{ ref('int_course_terms') }} as c
 left join {{ ref('stg_config__term_flags') }} as f on f.yearterm = c.yearterm
+where c.is_gies
