@@ -38,6 +38,8 @@ Quirks in the sources and what I did about each. Dated by when I found them.
 
 **How config/program_map.csv groups programs (Oct 23, 2026).** A family is the degree plus the major; the "+ Data Science" majors are their own families, concentrations roll up to their major, and renamed majors stay separate with a note where one appears to succeed another. Rows under 10KM8037BS count toward their major. Certificates, nondegree students, the MBA, and the PhD are one family each.
 
+**Gies has no online program code before Fall 2017 (Oct 24, 2026).** The archived curriculum reports for Fall 2012 to Fall 2016 list no Gies code ending in U. The online codes campus-wide in Fall 2016 belong to other colleges, among them Crop Sciences, Computer Science, and Education. The online MBA, 10KS9875MBAU, first appears in Fall 2017 with 787 students, so the online share of Gies graduate headcount goes from zero in Fall 2016 to 47.9% in Fall 2017.
+
 ## Other sources
 
 **The catalog has gaps before Fall 2017 (Oct 23, 2026).** There is no 2016-sp, 2016-su, 2016-wi, or 2017-wi file, so the 40 terms start with 2016-fa.
@@ -48,7 +50,15 @@ Quirks in the sources and what I did about each. Dated by when I found them.
 
 ## GPA dataset
 
-**13% of Gies sections have no schedule type (Oct 24, 2026).** 1,248 of the 9,675 Gies sections, all from 2011-fa to 2020-fa, leave Sched Type blank, so they can't be called online or in person. One more, in 2010-sp, has the code Q, which no catalog term defines. All 1,249 (60,119 graded students) are counted under mode "unknown" and left out of the online and in-person comparison rather than guessed. ST and RES, which appear elsewhere in the file, never appear in Gies rows.
+**13% of Gies sections have no schedule type (Oct 24, 2026).** 1,248 of the 9,675 Gies sections leave Sched Type blank, so they can't be called online or in person. Nearly all of them come from four whole terms, 2016-fa, 2017-sp, 2017-fa, and 2018-sp, where the field is blank on every row campus-wide; Fall 2018 is complete. The online and in-person comparison starts there. One more, in 2010-sp, has the code Q, which no catalog term defines. All 1,249 (60,119 graded students) are counted under mode "unknown" and left out of the online and in-person comparison rather than guessed. ST and RES, which appear elsewhere in the file, never appear in Gies rows.
+
+## Course catalog and TRE
+
+**Some sections carry two primary meeting types (Oct 24, 2026).** 60 of the 10,795 primary sections in the catalog files list two primary types in the same term; 49 of them pair a lecture-discussion with an online meeting. Sections offered are counted as distinct CRNs, so each counts once.
+
+**TRE switches its unit names to mixed case in Spring 2024 (Oct 24, 2026).** ACCOUNTANCY becomes Accountancy, and so on. The two spellings never appear in the same term, so units are matched without case. Business and Technical Writing is an English unit and is left out of Gies counts.
+
+**BUS has more TA listings than sections (Oct 24, 2026).** In Falls 2017 to 2019 TRE lists 54 to 60 BUS teaching assistants against 37 to 42 primary BUS sections, and 40 to 45 sections of every type. BUS TA listings drop to nearly none from Fall 2020 on.
 
 ## Common Data Set
 
