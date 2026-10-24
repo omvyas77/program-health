@@ -5,34 +5,22 @@
 
 import argparse
 import csv
-import hashlib
 import io
 import logging
 import sys
 import zipfile
-from datetime import UTC, datetime
 
 import openpyxl
 import pandas as pd
 
-from ingest.http import fetch, new_session, require_ok
+from ingest.http import new_session
 from ingest.paths import CONFIG, EXTRACTS, RAW
+from ingest.sources import download, update_manifest
 
 log = logging.getLogger("ipeds")
 
 RAW_IPEDS = RAW / "ipeds"
 EXTRACTS_IPEDS = EXTRACTS / "ipeds"
-MANIFEST = EXTRACTS / "manifest.csv"
-MANIFEST_COLUMNS = [
-    "source",
-    "url",
-    "retrieved_utc",
-    "last_modified",
-    "etag",
-    "bytes",
-    "sha256",
-    "file_used",
-]
 DICTIONARY_TITLES = EXTRACTS_IPEDS / "dictionary_titles.csv"
 
 
@@ -49,36 +37,6 @@ def read_files():
     names = [row["file"] for row in files]
     assert len(names) == len(set(names)), "config/ipeds_files.csv lists a file twice"
     return files
-
-
-def download(session, url, dest):
-    response = fetch(session, url)
-    content = require_ok(response)
-    dest.parent.mkdir(parents=True, exist_ok=True)
-    dest.write_bytes(content)
-    log.info("%s: %d bytes", dest.name, len(content))
-    return {
-        "source": f"ipeds/{dest.name}",
-        "url": url,
-        "retrieved_utc": datetime.now(UTC).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "last_modified": response.headers.get("Last-Modified", ""),
-        "etag": response.headers.get("ETag", ""),
-        "bytes": len(content),
-        "sha256": hashlib.sha256(content).hexdigest(),
-    }
-
-
-def update_manifest(new_rows):
-    rows = {}
-    if MANIFEST.exists():
-        with MANIFEST.open(newline="") as f:
-            rows = {row["source"]: row for row in csv.DictReader(f)}
-    rows.update({row["source"]: row for row in new_rows})
-    MANIFEST.parent.mkdir(parents=True, exist_ok=True)
-    with MANIFEST.open("w", newline="") as f:
-        writer = csv.DictWriter(f, fieldnames=MANIFEST_COLUMNS)
-        writer.writeheader()
-        writer.writerows(rows[source] for source in sorted(rows))
 
 
 def sheet_rows(workbook, name):
@@ -128,7 +86,7 @@ def download_dictionaries():
     manifest_rows, titles = [], []
     for row in read_files():
         dest = RAW_IPEDS / f"{row['file']}_Dict.zip"
-        manifest_row = download(session, row["dict_url"], dest)
+        manifest_row = download(session, row["dict_url"], dest, f"ipeds/{dest.name}")
         dictionary = read_dictionary(dest)
         manifest_rows.append(manifest_row | {"file_used": dictionary["workbook"]})
         titles.append(
@@ -196,7 +154,7 @@ def download_data():
     manifest_rows = []
     for row in read_files():
         dest = RAW_IPEDS / f"{row['file']}.zip"
-        manifest_row = download(session, row["url"], dest)
+        manifest_row = download(session, row["url"], dest, f"ipeds/{dest.name}")
         manifest_rows.append(manifest_row | {"file_used": extract(row["file"], dest, unitids)})
     update_manifest(manifest_rows)
 
