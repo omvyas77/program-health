@@ -2,8 +2,10 @@ name: snapshot
 
 on:
   schedule:
-    # 13:07 UTC: GitHub's scheduler is most delayed at the top of the hour
+    # 13:07 UTC: GitHub's scheduler is most delayed at the top of the hour. The 19:37 run is
+    # a backup for days GitHub drops the first; the script exits if today's file exists.
     - cron: "7 13 * * *"
+    - cron: "37 19 * * *"
   workflow_dispatch:
 
 permissions:
