@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest build docs
+.PHONY: help snapshot ingest build docs findings
 
 PYTHON := .venv/bin/python
 DBT := .venv/bin/dbt
@@ -26,3 +26,7 @@ build: ## run every dbt model and test into warehouse/gph.duckdb
 
 docs: ## generate the dbt docs site
 	$(DBT) docs generate --project-dir transform --profiles-dir transform
+
+findings: ## write docs/findings.md from the dbt analyses
+	$(DBT) compile --project-dir transform --profiles-dir transform --select "resource_type:analysis"
+	$(PYTHON) -m publish.findings
