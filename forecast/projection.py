@@ -1,5 +1,6 @@
 # Writes data/marts/mart_projection: history and projections for three series, one row per
-# series, fall, and scenario. low and high hold the 80% interval where the model gives one.
+# series, fall, and scenario. low and high hold the 80% interval where the model gives one. Also
+# writes mart_projection_assumptions, the undergraduate scenario inputs.
 #   gies_undergraduate_headcount: stock and flow, base, low, and high scenarios
 #   gies_online_graduate_headcount: exponential smoothing without trend, with an 80% interval
 #   uiuc_in_state_admit_rate_what_if: the WICHE what-if, once Illinois's CDS rows are verified
@@ -61,12 +62,25 @@ def build():
     return data
 
 
+def assumptions():
+    # The undergraduate scenario inputs, so the app's inputs can default to them without the
+    # warehouse.
+    inputs = undergrad.scenario_inputs(undergrad.history(), undergrad.INTAKE_RULE)
+    return pd.DataFrame(
+        [(scenario, f, t, c) for scenario, (f, t, c) in inputs.items()],
+        columns=["scenario", "first_time_freshmen", "new_transfers", "continuing_share"],
+    )
+
+
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     data = build()
     MARTS.mkdir(parents=True, exist_ok=True)
     data.to_parquet(MARTS / "mart_projection.parquet", index=False)
     data.to_csv(MARTS / "mart_projection.csv", index=False)
+    inputs = assumptions()
+    inputs.to_parquet(MARTS / "mart_projection_assumptions.parquet", index=False)
+    inputs.to_csv(MARTS / "mart_projection_assumptions.csv", index=False)
     for series, rows in data.groupby("series"):
         log.info("%s: %d rows", series, len(rows))
     log.info("wrote %s", (MARTS / "mart_projection.parquet").relative_to(ROOT))
