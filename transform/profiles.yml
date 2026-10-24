@@ -1,0 +1,8 @@
+# Paths are relative to the repo root: make build runs dbt from there with --project-dir.
+gph:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: warehouse/gph.duckdb
+      threads: 4

@@ -3,6 +3,7 @@ warehouse/
 transform/target/
 transform/dbt_packages/
 transform/logs/
+transform/.user.yml
 .venv/
 __pycache__/
 .env

@@ -1,0 +1,567 @@
+# Exported marts. Contracts are enforced, so renaming or retyping a column fails the
+# build: the Tableau workbook reads these columns through the Google Sheet.
+version: 2
+models:
+- name: mart_peer_metrics
+  description: One row per school, metric, and data year for the 18 Big Ten schools. Peer statistics leave
+    Illinois out; rank_of_18 ranks every school with a value, highest first.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - unitid
+        - metric
+        - data_year
+  columns:
+  - name: unitid
+    data_type: integer
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('stg_config__peers')
+          field: unitid
+  - name: school
+    data_type: varchar
+  - name: is_illinois
+    data_type: boolean
+  - name: control
+    data_type: varchar
+  - name: metric
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: data_year
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: data_year_label
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: value
+    data_type: double
+    data_tests:
+    - not_null
+  - name: numerator
+    data_type: bigint
+  - name: denominator
+    data_type: bigint
+  - name: peer_median_excl_il
+    data_type: double
+  - name: peer_p25
+    data_type: double
+  - name: peer_p75
+    data_type: double
+  - name: public_peer_median_excl_il
+    data_type: double
+  - name: rank_of_18
+    data_type: integer
+  - name: n_ranked
+    data_type: integer
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 1
+          max_value: 18
+  - name: is_provisional
+    data_type: boolean
+    data_tests:
+    - not_null
+  - name: source_file
+    data_type: varchar
+    data_tests:
+    - not_null
+- name: mart_funnel
+  description: First-time, first-year applicants, admits, and enrolled by school and fall, from IPEDS
+    (all residencies) and the Common Data Set (with the residency split where reported).
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - unitid
+        - fall_year
+        - source
+        - residency
+  columns:
+  - name: unitid
+    data_type: integer
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('stg_config__peers')
+          field: unitid
+  - name: school
+    data_type: varchar
+  - name: is_illinois
+    data_type: boolean
+  - name: control
+    data_type: varchar
+  - name: fall_year
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: fall_term
+    data_type: varchar
+  - name: source
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - ipeds
+          - cds
+  - name: residency
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - all
+          - in_state
+          - out_of_state
+          - international
+  - name: applicants
+    data_type: bigint
+  - name: admits
+    data_type: bigint
+  - name: enrolled
+    data_type: bigint
+  - name: admit_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: yield_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: is_provisional
+    data_type: boolean
+- name: mart_business_completions
+  description: IPEDS completions in business CIP codes, plus the all-fields total (CIP 99), by school,
+    award year, and award level.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - unitid
+        - academic_year
+        - award_level
+        - cipcode
+  columns:
+  - name: unitid
+    data_type: integer
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('stg_config__peers')
+          field: unitid
+  - name: school
+    data_type: varchar
+  - name: is_illinois
+    data_type: boolean
+  - name: control
+    data_type: varchar
+  - name: academic_year
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: award_year_end
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: award_level
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: award_level_label
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: cipcode
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: is_business
+    data_type: boolean
+  - name: is_optional_business
+    data_type: boolean
+  - name: completions_first_major
+    data_type: bigint
+  - name: completions_second_major
+    data_type: bigint
+  - name: is_provisional
+    data_type: boolean
+    data_tests:
+    - not_null
+  - name: source_file
+    data_type: varchar
+    data_tests:
+    - not_null
+- name: mart_gies_enrollment
+  description: Gies headcount by fall, program family, level, and modality, from DMI through Fall 2025
+    and DAIR after.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - fall_year
+        - program_family
+        - level
+        - modality
+  columns:
+  - name: fall_year
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: fall_term
+    data_type: varchar
+  - name: program_family
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: level
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - undergraduate
+          - graduate
+  - name: modality
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - residential
+          - online
+  - name: headcount
+    data_type: bigint
+    data_tests:
+    - not_null
+  - name: juniors_seniors
+    data_type: bigint
+  - name: source
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - dmi
+          - dair
+- name: mart_gies_new_students
+  description: Gies undergraduates by fall and student type, split by class level.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - fall_year
+        - student_type
+  columns:
+  - name: fall_year
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: fall_term
+    data_type: varchar
+  - name: student_type
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - first_time_freshman
+          - new_transfer
+          - readmit
+          - continuing
+  - name: headcount
+    data_type: bigint
+    data_tests:
+    - not_null
+  - name: freshman
+    data_type: bigint
+  - name: sophomore
+    data_type: bigint
+  - name: junior
+    data_type: bigint
+  - name: senior
+    data_type: bigint
+  - name: non_degree
+    data_type: bigint
+  - name: source
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - dmi
+          - dair
+- name: mart_course_terms
+  description: Gies course-terms from the GPA dataset, by mode. Grade distributions describe grading,
+    not learning.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - yearterm
+        - subject
+        - number
+        - mode
+  columns:
+  - name: yearterm
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: year
+    data_type: integer
+  - name: term
+    data_type: varchar
+  - name: subject
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: number
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: course_title
+    data_type: varchar
+  - name: course_level
+    data_type: integer
+  - name: is_undergraduate
+    data_type: boolean
+  - name: mode
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - in_person
+          - online
+          - unknown
+  - name: graded_sections
+    data_type: bigint
+  - name: students_graded
+    data_type: bigint
+  - name: w
+    data_type: bigint
+  - name: gpa
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 4
+  - name: a_range_share
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: dfw_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: c_or_below_w_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: term_flag
+    data_type: varchar
+- name: mart_section_spread
+  description: Spread of section GPAs within Gies course-terms that have three or more sections.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - yearterm
+        - subject
+        - number
+  columns:
+  - name: yearterm
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: subject
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: number
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: n_sections
+    data_type: bigint
+  - name: students_graded
+    data_type: bigint
+  - name: gpa_min
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 4
+  - name: gpa_max
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 4
+  - name: gpa_sd
+    data_type: double
+- name: mart_sections_offered
+  description: Gies sections offered by term, course, and schedule type, counted as distinct CRNs.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - yearterm
+        - subject
+        - number
+        - type_code
+  columns:
+  - name: yearterm
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: subject
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: number
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: type_code
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: type_label
+    data_type: varchar
+  - name: mode
+    data_type: varchar
+  - name: sections
+    data_type: bigint
+  - name: is_primary_type
+    data_type: boolean
+- name: mart_registration_watch
+  description: Primary sections per Gies course in each daily Spring 2027 snapshot, with sections added
+    and removed. The API carries no enrollment status, so this tracks the section list only.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - snapshot_date
+        - subject
+        - number
+  columns:
+  - name: snapshot_date
+    data_type: date
+    data_tests:
+    - not_null
+  - name: days_since_registration_open
+    data_type: integer
+  - name: subject
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: number
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: primary_sections
+    data_type: bigint
+  - name: sections_added_since_previous
+    data_type: bigint
+  - name: sections_removed_since_previous
+    data_type: bigint
+  - name: sections_added_since_open
+    data_type: bigint
+- name: mart_gies_outcomes
+  description: First-year retention and four- and six-year graduation by college of entry, for first-time,
+    full-time freshmen, with an all-colleges row.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - entry_college
+        - cohort_year
+        - outcome
+  columns:
+  - name: entry_college
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: is_gies
+    data_type: boolean
+  - name: cohort_year
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: outcome
+    data_type: varchar
+    data_tests:
+    - accepted_values:
+        arguments:
+          values:
+          - first_year_retention
+          - grad_4yr
+          - grad_6yr
+  - name: numerator
+    data_type: bigint
+  - name: denominator
+    data_type: bigint
+  - name: rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1

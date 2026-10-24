@@ -1,0 +1,85 @@
+version: 2
+
+sources:
+  - name: config
+    meta:
+      external_location: "read_csv('config/{name}.csv', header = true, all_varchar = true)"
+    tables:
+      - name: peers
+      - name: gies_subjects
+      - name: program_map
+      - name: ipeds_files
+      - name: ipeds_releases
+      - name: ipeds_exclusions
+      - name: cip_business
+      - name: term_flags
+      - name: registration
+
+  - name: ipeds
+    description: IPEDS complete data files for the 18 peers, every column as published text.
+    meta:
+      external_location: "read_parquet('data/extracts/ipeds/{pattern}.parquet', filename = true, union_by_name = true)"
+    tables:
+      - name: hd
+        meta: {pattern: "HD20??"}
+      - name: adm
+        meta: {pattern: "ADM20??"}
+      - name: ef_d
+        meta: {pattern: "EF20??D"}
+      - name: gr
+        meta: {pattern: "GR20??"}
+      - name: c_a
+        meta: {pattern: "C20??_A"}
+      - name: ef_cp
+        meta: {pattern: "EF20??CP"}
+      - name: ef_dist
+        meta: {pattern: "EF20??A_DIST"}
+      - name: gr_pell
+        meta: {pattern: "GR20??_PELL_SSL"}
+
+  - name: uiuc
+    tables:
+      - name: gpa
+        meta:
+          external_location: "read_parquet('data/extracts/gpa/uiuc-gpa-dataset.parquet')"
+      - name: catalog
+        meta:
+          external_location: "read_parquet('data/extracts/catalog/*.parquet')"
+      - name: tre
+        meta:
+          external_location: "read_parquet('data/extracts/tre/tre_counts.parquet')"
+      - name: cis_snapshots
+        meta:
+          external_location: "read_csv('data/snapshots/cis/*/*.csv', header = true, all_varchar = true, filename = true)"
+
+  - name: dmi
+    description: DMI fall reports, Fall 2012 to Fall 2025, from the Internet Archive.
+    meta:
+      external_location: "read_parquet('data/extracts/dmi/{name}.parquet')"
+    tables:
+      - name: enrollment_by_curriculum
+      - name: student_type
+
+  - name: dair
+    description: DAIR dashboard crosstabs downloaded by hand (docs/runbook.md).
+    meta:
+      external_location: "read_parquet('data/extracts/dair/{name}.parquet')"
+    tables:
+      - name: curriculum_level
+      - name: college_class_type
+      - name: online_programs
+      - name: retention_by_entry_college
+      - name: graduation_by_entry_college
+
+  - name: wiche
+    tables:
+      - name: hs_graduates
+        meta:
+          external_location: "read_parquet('data/extracts/wiche/hs_graduates.parquet')"
+
+  - name: manual
+    tables:
+      - name: cds_c1
+        description: Common Data Set C1 values, each checked by hand against its file.
+        meta:
+          external_location: "read_csv('data/manual/cds_c1.csv', header = true, all_varchar = true)"

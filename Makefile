@@ -1,7 +1,8 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest
+.PHONY: help snapshot ingest build docs
 
 PYTHON := .venv/bin/python
+DBT := .venv/bin/dbt
 
 help: ## list the targets
 	@grep -E '^[a-z]+:.*## ' $(MAKEFILE_LIST) | awk -F ':.*## ' '{printf "  %-10s %s\n", $$1, $$2}'
@@ -18,3 +19,10 @@ ingest: ## download every source and rebuild data/extracts
 	$(PYTHON) -m ingest.wiche
 	$(PYTHON) -m ingest.dmi
 	$(PYTHON) -m ingest.dair
+
+build: ## run every dbt model and test into warehouse/gph.duckdb
+	mkdir -p warehouse
+	$(DBT) build --project-dir transform --profiles-dir transform
+
+docs: ## generate the dbt docs site
+	$(DBT) docs generate --project-dir transform --profiles-dir transform
