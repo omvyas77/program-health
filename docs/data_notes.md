@@ -46,6 +46,10 @@ Quirks in the sources and what I did about each. Dated by when I found them.
 
 **One more subject might belong to Gies (Oct 23, 2026).** The Course Explorer API lists exactly six subjects under Gies's college code, KM: ACCY, BADM, BDI, BUS, FIN, and MBA, which match config/gies_subjects.csv. DTX, Human-Centered Design and Design Thinking, lists Business Administration as its unit but college code KP. It is not added, because it belongs to another college.
 
+## GPA dataset
+
+**13% of Gies sections have no schedule type (Oct 24, 2026).** 1,248 of the 9,675 Gies sections, all from 2011-fa to 2020-fa, leave Sched Type blank, so they can't be called online or in person. One more, in 2010-sp, has the code Q, which no catalog term defines. All 1,249 (60,119 graded students) are counted under mode "unknown" and left out of the online and in-person comparison rather than guessed. ST and RES, which appear elsewhere in the file, never appear in Gies rows.
+
 ## Common Data Set
 
 **Fall 2024 CDS totals match IPEDS ADM2024 almost everywhere (Oct 23, 2026).** Of 51 comparisons (17 schools, three counts each), 44 match exactly and 50 are within 1%. The small differences are Maryland (14 fewer applicants, 5 fewer admits), Wisconsin (39 more applicants, 2 more admits), Washington (1 fewer enrolled), and UCLA (4 more applicants). These are from the draft and are rechecked once each value is verified.
