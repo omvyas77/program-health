@@ -1,0 +1,37 @@
+unitid,school,cds_year,format,url,found_on,note
+145637,Illinois,2024-25,xlsx,https://uofi.box.com/shared/static/1m3p4sedkotywoec55zbnodc4oci5ctf.xlsx,https://dair.illinois.edu/access-data/common-data-set/,
+145637,Illinois,2025-26,xlsx,https://uofi.box.com/shared/static/orx4vnmzkt2drmgoiksxpfs39pr42uor.xlsx,https://dair.illinois.edu/access-data/common-data-set/,
+151351,Indiana,2024-25,html,https://iuapps.iu.edu/cds/?p=index&i=home&campus=Bloomington&year=2024&section=C.+First-Time%2C+%28Freshman%29+Admission,https://iuapps.iu.edu/cds/,"Web page, Bloomington campus, section C"
+151351,Indiana,2025-26,html,https://iuapps.iu.edu/cds/?p=index&i=home&campus=Bloomington&year=2025&section=C.+First-Time%2C+%28Freshman%29+Admission,https://iuapps.iu.edu/cds/,"Web page, Bloomington campus, section C"
+153658,Iowa,2024-25,pdf,https://provost.uiowa.edu/sites/provost.uiowa.edu/files/2025-09/cds_2425_0.pdf,https://provost.uiowa.edu/data-and-reports/common-data-set,
+153658,Iowa,2025-26,pdf,https://provost.uiowa.edu/sites/provost.uiowa.edu/files/2026-04/CDS_2526.pdf,https://provost.uiowa.edu/data-and-reports/common-data-set,
+163286,Maryland,2024-25,xlsx,https://irpa.umd.edu/InstitutionalData/CommonDataSet/CDS_2024-2025.xlsx,https://irpa.umd.edu/InstitutionalData/cds.html,
+163286,Maryland,2025-26,xlsx,https://irpa.umd.edu/InstitutionalData/CommonDataSet/CDS_2025-2026.xlsx,https://irpa.umd.edu/InstitutionalData/cds.html,
+170976,Michigan,2024-25,pdf,https://obp.umich.edu/wp-content/uploads/pubdata/cds/CDS_2024-25_UMAA.pdf,https://obp.umich.edu/campus-statistics/common-data-set/,
+170976,Michigan,2025-26,pdf,https://obp.umich.edu/wp-content/uploads/pubdata/cds/cds_2025-26_umaa.pdf,https://obp.umich.edu/campus-statistics/common-data-set/,
+171100,Michigan State,2024-25,pdf,https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/ir/docs/cds/cds-2024-2025.pdf,https://ir.msu.edu/cds,
+171100,Michigan State,2025-26,pdf,https://edge.sitecorecloud.io/michiganstab57e-msustrategi129d-prod9868-7e5e/media/project/msu/ir/docs/cds/cds-2025-2026.pdf,https://ir.msu.edu/cds,
+174066,Minnesota,2024-25,pdf,https://idr.umn.edu/sites/idr.umn.edu/files/cds_2024_2025_tc_2.pdf,https://idr.umn.edu/institutional-metrics-compliance-reporting/common-data-set,Twin Cities campus
+174066,Minnesota,2025-26,pdf,https://idr.umn.edu/sites/idr.umn.edu/files/cds_2025_2026_tc_0.pdf,https://idr.umn.edu/institutional-metrics-compliance-reporting/common-data-set,Twin Cities campus
+181464,Nebraska,2024-25,html,https://iea.unl.edu/common-data-set/c-first-time-first-year-admission/applications/,https://iea.unl.edu/common-data-set-2024-2025/,"Web page, section C, Applications; the 2024-25 book's pages live under /common-data-set/"
+181464,Nebraska,2025-26,html,https://iea.unl.edu/common-data-set-2025-2026/c-first-time-first-year-admission/applications/,https://iea.unl.edu/common-data-set-2025-2026/,"Web page, section C, Applications"
+147767,Northwestern,2024-25,pdf,https://enrollment.northwestern.edu/data/2024-2025.pdf,https://enrollment.northwestern.edu/data/common-data-set.html,
+147767,Northwestern,2025-26,pdf,https://enrollment.northwestern.edu/data/2025-2026.pdf,https://enrollment.northwestern.edu/data/common-data-set.html,
+204796,Ohio State,2024-25,pdf,https://irp.osu.edu/sites/default/files/documents/2025/11/CDS-2024-2025-The-Ohio-State-University-Columbus.pdf,https://irp.osu.edu/institutional-data-and-reports,Columbus campus; file found on irp.osu.edu by search
+204796,Ohio State,2025-26,pdf,https://irp.osu.edu/sites/default/files/documents/2026/03/CDS-2025-2026-OSU-Columbus-Campus.pdf,https://irp.osu.edu/institutional-data-and-reports,Columbus campus
+209551,Oregon,2024-25,pdf,https://uoregon.sharepoint.com/:b:/s/UOInstitutionalResearchPublicMaterials/EW5k4dUJKOROg-jLajeQUE4B9IdCoV7T8DoI8Fys7Eghkw?e=9y4y4S,https://data.uoregon.edu/uo-overview/common-data-set,SharePoint link
+209551,Oregon,2025-26,pdf,https://uoregon.sharepoint.com/:b:/s/UOInstitutionalResearchPublicMaterials/IQCLb9PtNAxlQJCsPE6Rb8vcAVNYDIH7gnTYVb6ekL74NGU?e=QOIWky,https://data.uoregon.edu/uo-overview/common-data-set,SharePoint link
+214777,Penn State,2024-25,pdf,https://opair.psu.edu/files/2025/04/CDS_2024_2025_University_Park1.pdf,https://opair.psu.edu/project/common-data-set/,"University Park; the office page links a SharePoint folder that returns 404, file found on opair.psu.edu by search"
+214777,Penn State,2025-26,pdf,https://opair.psu.edu/files/2026/06/UniversityPark_CDS_2025_2026.pdf,https://opair.psu.edu/project/common-data-set/,"University Park; the office page links a SharePoint folder that returns 404, file found on opair.psu.edu by search"
+243780,Purdue,2024-25,xlsx,https://www.purdue.edu/idata/wp-content/uploads/2026/04/CDS_2024-2025.xlsx,https://www.purdue.edu/idata/products-services/common-data-set/,"From 2024-25 covers West Lafayette, Purdue in Indianapolis, and Polytechnic Statewide; IPEDS 243780 is West Lafayette only"
+243780,Purdue,2025-26,xlsx,https://www.purdue.edu/idata/wp-content/uploads/2026/04/CDS-2025-2026.xlsx,https://www.purdue.edu/idata/products-services/common-data-set/,"From 2024-25 covers West Lafayette, Purdue in Indianapolis, and Polytechnic Statewide; IPEDS 243780 is West Lafayette only"
+186380,Rutgers,2024-25,none,,https://oirap.rutgers.edu/ReportingCommonDataSet.html,Not published; latest New Brunswick CDS is 2023-24
+186380,Rutgers,2025-26,none,,https://oirap.rutgers.edu/ReportingCommonDataSet.html,Not published; latest New Brunswick CDS is 2023-24
+110662,UCLA,2024-25,pdf,https://apb.ucla.edu/file/cedc749a-fd65-4935-b9ee-8a551f6de2fc,https://apb.ucla.edu/campus-statistics/common-data-set-undergraduate-profile,
+110662,UCLA,2025-26,pdf,https://apb.ucla.edu/file/f8f5c864-93be-4b44-b646-7807a685749f,https://apb.ucla.edu/campus-statistics/common-data-set-undergraduate-profile,
+123961,USC,2024-25,pdf,https://oir.usc.edu/wp-content/uploads/sites/3/2025/10/CDS_2024-2025_FINAL-3.pdf,https://oir.usc.edu/common-data-set-archive/common-data-set-2024-2025/,
+123961,USC,2025-26,pdf,https://oir.usc.edu/wp-content/uploads/sites/3/2026/10/CDS_2025-26_FINAL.pdf,https://oir.usc.edu/statistics-data-visualization/common-data-set/,
+236948,Washington,2024-25,pdf,https://finance.uw.edu/iads/files/docs/ipeds/common_data_set/cds_2024-2025_seattle.pdf,https://finance.uw.edu/iads/iads-teams/institutional-reporting-analysis,Seattle campus
+236948,Washington,2025-26,pdf,https://finance.uw.edu/iads/files/docs/ipeds/common_data_set/cds_2025-2026_seattle.pdf,https://finance.uw.edu/iads/iads-teams/institutional-reporting-analysis,Seattle campus
+240444,Wisconsin,2024-25,pdf,https://uwmadison.box.com/shared/static/cm3r7gc83w3eqjotfbva111dnin6toer,https://data.wisc.edu/common-data-set-and-rankings/,Box link; the page links the /s/ share form of the same file
+240444,Wisconsin,2025-26,xlsx,https://uwmadison.box.com/shared/static/ilx9kil11ninf8vwj1z87vumhuvpw4px,https://data.wisc.edu/common-data-set-and-rankings/,Box link; the page links the /s/ share form of the same file
