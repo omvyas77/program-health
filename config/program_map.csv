@@ -1,0 +1,117 @@
+dept,degree,major_code,conc_code,program_code,major_name,conc_name,first_fall,last_fall,program_family,level,modality,note
+,MS,5590,5500,1PKS5590MS,Management,Business Data Analytics,2026,2026,MS Management,graduate,residential,First appears in DAIR's Fall 2026 data; degree read from the program code.
+346,BS,0071,,10KM0071BS,Accountancy,,2012,2026,BS Accountancy,undergraduate,residential,
+346,BS,0071,,10KM8037BS,Accountancy,,2019,2026,BS Accountancy,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+346,BS,6077,,10KM6077BS,Accountancy + Data Science,,2023,2026,BS Accountancy + Data Science,undergraduate,residential,
+346,BS,6077,,10KM8037BS,Accountancy + Data Science,,2024,2026,BS Accountancy + Data Science,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,6146,,10KM6146BS,Business + Data Science,,2023,2026,BS Business + Data Science,undergraduate,residential,
+902,BS,6146,,10KM8037BS,Business + Data Science,,2024,2026,BS Business + Data Science,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,0079,0081,10KM0081BS,Business Administration,Organizational Administration,2012,2012,BS Business Administration,undergraduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,BS,5072,,10KM5072BS,Business Process Management,,2012,2020,BS Business Process Management,undergraduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,BS,5072,,10KM8037BS,Business Process Management,,2012,2019,BS Business Process Management,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+260,BS,0075,,10KM0075BS,Finance,,2012,2026,BS Finance,undergraduate,residential,
+260,BS,0075,,10KM8037BS,Finance,,2019,2026,BS Finance,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+260,BS,6076,,10KM6076BS,Finance + Data Science,,2022,2026,BS Finance + Data Science,undergraduate,residential,
+260,BS,6076,,10KM8037BS,Finance + Data Science,,2022,2026,BS Finance + Data Science,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,5070,,10KM5070BS,Information Sys & Info Tech,,2012,2023,BS Information Sys & Info Tech,undergraduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,BS,5070,,10KM8037BS,Information Sys & Info Tech,,2012,2020,BS Information Sys & Info Tech,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,5597,,10KM5597BS,Information Systems,,2017,2026,BS Information Systems,undergraduate,residential,Appears to succeed Information Sys & Info Tech (2012-2023); kept as its own family.
+902,BS,5597,,10KM8037BS,Information Systems,,2018,2026,BS Information Systems,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means. Appears to succeed Information Sys & Info Tech (2012-2023); kept as its own family."
+902,BS,5073,,10KM5073BS,Management,,2013,2026,BS Management,undergraduate,residential,
+902,BS,5073,,10KM8037BS,Management,,2021,2026,BS Management,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,5073,0086,10KM5073BS,Management,Entrepreneurship,2012,2022,BS Management,undergraduate,residential,
+902,BS,5073,0086,10KM8037BS,Management,Entrepreneurship,2012,2022,BS Management,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,5073,5074,10KM5073BS,Management,International Business,2012,2022,BS Management,undergraduate,residential,
+902,BS,5073,5074,10KM8037BS,Management,International Business,2012,2021,BS Management,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,5073,5075,10KM5073BS,Management,General Management,2012,2022,BS Management,undergraduate,residential,
+902,BS,5073,5075,10KM8037BS,Management,General Management,2012,2022,BS Management,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,1432,,10KM1432BS,Marketing,,2012,2026,BS Marketing,undergraduate,residential,
+902,BS,1432,,10KM8037BS,Marketing,,2012,2026,BS Marketing,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,5600,,10KM5600BS,Operations Management,,2017,2026,BS Operations Management,undergraduate,residential,
+902,BS,5600,,10KM8037BS,Operations Management,,2018,2026,BS Operations Management,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,5741,,10KM5741BS,STR BUS DEV & Entrepreneurship,,2020,2024,BS STR BUS DEV & Entrepreneurship,undergraduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,BS,5741,,10KM8037BS,STR BUS DEV & Entrepreneurship,,2020,2024,BS STR BUS DEV & Entrepreneurship,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+902,BS,6127,,10KM6127BS,"Strategy, Innovation & Entrep",,2023,2026,"BS Strategy, Innovation & Entrep",undergraduate,residential,Appears to succeed STR BUS DEV & Entrepreneurship (2020-2024); kept as its own family.
+902,BS,6127,,10KM8037BS,"Strategy, Innovation & Entrep",,2023,2026,"BS Strategy, Innovation & Entrep",undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means. Appears to succeed STR BUS DEV & Entrepreneurship (2020-2024); kept as its own family."
+902,BS,5071,,10KM5071BS,Supply Chain Management,,2012,2026,BS Supply Chain Management,undergraduate,residential,
+902,BS,5071,,10KM8037BS,Supply Chain Management,,2012,2026,BS Supply Chain Management,undergraduate,residential,"Shared program code 10KM8037BS, listed beside the major's own code; counted in the major because DMI counts these students in the college total. DMI does not say what the code means."
+346,CERT,6017,,1PKS6017CERU,Accounting Data Analytics,,2022,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,CERT,6140,,1PKS6140CERU,Accounting Foundations,,2023,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,CERT,6141,,1PKS6141CERU,CPA Pathways,,2023,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,CERT,6018,,1PKS6018CERU,Digital Marketing,,2023,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,CERT,6014,,1PKS6014CERU,Financial Management,,2023,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,CERT,6011,,1PKS6011CERU,Strategic Leadership & Mgmt,,2022,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,CERT,5187,,1PKS5187CERU,Taxation,,2023,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,CERT,6016,,1PKS6016CERU,Value Chain Management,,2023,2023,Graduate certificate,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,GCRT,6017,,1PKS6017GCRU,Accounting Data Analytics,,2024,2026,Graduate certificate,graduate,online,
+346,GCRT,6140,,1PKS6140GCRU,Accounting Foundations,,2024,2026,Graduate certificate,graduate,online,
+902,GCRT,6164,,1PKS6164GCRU,Business Analytics,,2024,2026,Graduate certificate,graduate,online,
+346,GCRT,6141,,1PKS6141GCRU,CPA Pathways,,2024,2026,Graduate certificate,graduate,online,
+902,GCRT,6018,,1PKS6018GCRU,Digital Marketing,,2024,2026,Graduate certificate,graduate,online,
+902,GCRT,6015,,1PKS6015GCRU,Entrpshp & Strategic Innov,,2024,2026,Graduate certificate,graduate,online,
+902,GCRT,6014,,1PKS6014GCRU,Financial Management,,2024,2026,Graduate certificate,graduate,online,
+,GCRT,6298,,1PKS6298GCRU,Healthcare Innov Design Entrep,,2026,2026,Graduate certificate,graduate,online,First appears in DAIR's Fall 2026 data; degree read from the program code.
+902,GCRT,6012,,1PKS6012GCRU,Managerial Econ & Bus Analysis,,2024,2026,Graduate certificate,graduate,online,
+902,GCRT,6165,,1PKS6165GCRU,Mergers and Acquisitions,,2024,2026,Graduate certificate,graduate,online,
+902,GCRT,6011,,1PKS6011GCRU,Strategic Leadership & Mgmt,,2024,2026,Graduate certificate,graduate,online,
+346,GCRT,5187,,1PKS5187GCRU,Taxation,,2024,2026,Graduate certificate,graduate,online,
+902,GCRT,6016,,1PKS6016GCRU,Value Chain Management,,2024,2026,Graduate certificate,graduate,online,
+346,MAS,0071,,10KS0071MAS,Accountancy,,2012,2018,MAS Accountancy,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,MAS,5666,,10KS5666MAS,Accountancy,,2019,2020,MAS Accountancy,graduate,residential,
+346,MAS,0071,5101,10KS0071MAS,Accountancy,Taxation,2012,2015,MAS Accountancy,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,MAS,5666,5101,10KS5666MAS,Accountancy,Taxation,2020,2026,MAS Accountancy,graduate,residential,
+346,MAS,0071,5469,10KS0071MAS,Accountancy,Info Technology and Control,2015,2015,MAS Accountancy,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,MAS,0071,5538,10KS0071MAS,Accountancy,Data Analytics in Accountancy,2017,2017,MAS Accountancy,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,MAS,5666,5538,10KS5666MAS,Accountancy,Data Analytics in Accountancy,2019,2026,MAS Accountancy,graduate,residential,
+346,MAS,5666,5899,10KS5666MAS,Accountancy,Financial Reporting& Assurance,2020,2026,MAS Accountancy,graduate,residential,
+938,MBA,9875,,10KS3924MBA2,Business Administration (MBA),,2014,2014,MBA,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026. Executive MBA."
+230,MBA,9875,,10KS9875MBA,Business Administration (MBA),,2012,2020,MBA,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+952,MBA,9875,,10KS9875MBAU,Business Administration (MBA),,2017,2026,MBA,graduate,online,
+938,MBA,9875,3924,10KS3924MBA2,Business Administration (MBA),Executive Program,2012,2018,MBA,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026. Executive MBA."
+230,MBA,9875,4064,10KS4064MBA,Business Administration (MBA),MBA,2012,2020,MBA,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+230,MBA,9875,4064,10KS9875MBA,Business Administration (MBA),MBA,2013,2013,MBA,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+230,MBA,9875,5468,10KS9875MBA,Business Administration (MBA),Corp Governance & Int Business,2018,2018,MBA,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+230,MBA,9875,5469,10KS9875MBA,Business Administration (MBA),Info Technology and Control,2015,2019,MBA,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+952,MBA,9875,5986,10KS9875MBAU,Business Administration (MBA),Entrpshp & Strategic Innov,2023,2026,MBA,graduate,online,
+346,MS,0071,,10KS0071MSK,Accountancy,,2012,2018,MS Accountancy,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,MS,5666,,10KS5666MSK,Accountancy,,2019,2026,MS Accountancy,graduate,residential,
+346,MS,0071,,1PKS0071MSU,Accountancy,,2017,2018,MS Accountancy,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,MS,5666,,1PKS5666MSU,Accountancy,,2019,2026,MS Accountancy,graduate,online,
+346,MS,5666,5538,10KS5666MSK,Accountancy,Data Analytics in Accountancy,2020,2025,MS Accountancy,graduate,residential,
+346,MS,5666,5538,1PKS5666MSU,Accountancy,Data Analytics in Accountancy,2021,2021,MS Accountancy,graduate,online,
+346,MS,5666,5900,1PKS5666MSU,Accountancy,Accountancy Analytics,2022,2026,MS Accountancy,graduate,online,
+902,MS,0079,,10KS0079MS,Business Administration,,2013,2021,MS Business Administration,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,MS,0079,5468,10KS0079MS,Business Administration,Corp Governance & Int Business,2015,2015,MS Business Administration,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,MS,5964,,1PKS5964MS,Business Analytics,,2021,2026,MS Business Analytics,graduate,residential,
+,MS,5964,,1PKS5964MSU,Business Analytics,,2026,2026,MS Business Analytics,graduate,online,First appears in DAIR's Fall 2026 data; degree read from the program code.
+902,MS,5964,5469,1PKS5964MS,Business Analytics,Info Technology and Control,2025,2025,MS Business Analytics,graduate,residential,
+902,MS,5964,5877,1PKS5964MS,Business Analytics,Data Analytics in Finance,2025,2025,MS Business Analytics,graduate,residential,
+260,MS,0075,,10KS0075MS,Finance,,2014,2016,MS Finance,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+260,MS,0075,,10KS0075MSK,Finance,,2012,2017,MS Finance,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+260,MS,5624,,10KS5624MSK,Finance,,2018,2026,MS Finance,graduate,residential,
+260,MS,5624,5466,10KS5624MSK,Finance,Accountancy,2020,2025,MS Finance,graduate,residential,
+260,MS,5624,5877,10KS5624MSK,Finance,Data Analytics in Finance,2020,2025,MS Finance,graduate,residential,
+902,MS,5590,,1PKS5590MS,Management,,2018,2026,MS Management,graduate,residential,
+902,MS,5590,,1PKS5590MSU,Management,,2020,2026,MS Management,graduate,online,
+346,MS,5187,,10KS5187MSK2,Taxation,,2012,2017,MS Taxation,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+902,MS,5148,,10KS5148MSK,Technology Management,,2012,2026,MS Technology Management,graduate,residential,
+902,MS,5148,5469,10KS5148MSK,Technology Management,Info Technology and Control,2018,2024,MS Technology Management,graduate,residential,
+902,MS,5148,5470,10KS5148MSK,Technology Management,Supply Chain Management,2015,2021,MS Technology Management,graduate,residential,
+902,MS,5148,5500,10KS5148MSK,Technology Management,Business Data Analytics,2016,2026,MS Technology Management,graduate,residential,
+346,NDEG,5666,,1EKS5666NDEU,Accountancy,,2020,2026,Nondegree,graduate,online,
+346,NDEG,0071,,1PKS0071NDEU,Accountancy,,2017,2018,Nondegree,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,NDEG,5666,,1PKS5666NDEU,Accountancy,,2019,2026,Nondegree,graduate,online,
+346,NDEG,0071,0073,1PKM0073NDEU,Accountancy,Accountancy Postb,2015,2018,Nondegree,undergraduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+952,NDEG,9875,,10KS9875NDEU,Business Administration (MBA),,2018,2023,Nondegree,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+952,NDEG,9875,,10LN9875NDEU,Business Administration (MBA),,2017,2018,Nondegree,graduate,online,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+952,NDEG,9875,,1EKS9875NDEU,Business Administration (MBA),,2020,2026,Nondegree,graduate,online,
+952,NDEG,9875,,1PKS9875NDEU,Business Administration (MBA),,2023,2026,Nondegree,graduate,online,
+902,NDEG,5590,,1EKS5590NDEU,Management,,2020,2026,Nondegree,graduate,online,
+902,NDEG,5590,,1PKS5590NDEU,Management,,2020,2026,Nondegree,graduate,online,
+952,NDEG,0067,,10KM0067NDEG,Nondegree,,2012,2026,Nondegree,undergraduate,residential,
+952,NONE,0070,,10KM0070NONE,Business Undeclared,,2012,2026,Business Undeclared,undergraduate,residential,Name changed over time: Curric Unassigned / Business Undeclared.
+346,PHD,0071,,10KS0071PHD,Accountancy,,2012,2018,PhD,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+346,PHD,5666,,10KS5666PHD,Accountancy,,2019,2026,PhD,graduate,residential,
+902,PHD,0079,,10KS0079PHD,Business Administration,,2012,2026,PhD,graduate,residential,
+260,PHD,0075,,10KS0075PHD,Finance,,2012,2017,PhD,graduate,residential,"Modality inferred from the program code: codes ending in U are online, which matches DAIR's Online Program flag for every Gies code in Fall 2025 and Fall 2026."
+260,PHD,5624,,10KS5624PHD,Finance,,2018,2026,PhD,graduate,residential,
