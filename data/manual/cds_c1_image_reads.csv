@@ -1,0 +1,28 @@
+unitid,cds_year,column,value,page,note
+204796,2024-25,applicants_total,72829,page 14,residency table total; men 35783 + women 37046 on page 13 agree
+204796,2024-25,admits_total,44116,page 14,residency table total; men 21328 + women 22788 on page 13 agree
+204796,2024-25,enrolled_total,9607,page 14,residency table total; men 4582 + women 5025 on page 13 agree
+204796,2024-25,applicants_in_state,23393,page 14,
+204796,2024-25,admits_in_state,13407,page 14,
+204796,2024-25,enrolled_in_state,6116,page 14,
+204796,2024-25,applicants_out_of_state,37540,page 14,
+204796,2024-25,admits_out_of_state,22140,page 14,
+204796,2024-25,enrolled_out_of_state,2639,page 14,
+204796,2024-25,applicants_international,11896,page 14,
+204796,2024-25,admits_international,8569,page 14,
+204796,2024-25,enrolled_international,852,page 14,
+204796,2025-26,applicants_total,81392,page 14,residency table total; men 39510 + women 41882 on page 13 agree
+204796,2025-26,admits_total,40047,page 14,residency table total; men 19444 + women 20603 on page 13 agree
+204796,2025-26,enrolled_total,8248,page 14,residency table total; men 3872 + women 4376 on page 13 agree
+204796,2025-26,applicants_in_state,25273,page 14,
+204796,2025-26,admits_in_state,11395,page 14,
+204796,2025-26,enrolled_in_state,5609,page 14,
+204796,2025-26,applicants_out_of_state,42898,page 14,
+204796,2025-26,admits_out_of_state,19914,page 14,
+204796,2025-26,enrolled_out_of_state,2101,page 14,
+204796,2025-26,applicants_international,13221,page 14,
+204796,2025-26,admits_international,8738,page 14,
+204796,2025-26,enrolled_international,538,page 14,
+110662,2024-25,applicants_total,146276,page 13,sum of men 64521 + women 75193 + another gender 2193 + unknown 4369; IPEDS ADM2024 has 146272
+110662,2024-25,admits_total,13114,page 13,sum of men 5220 + women 7381 + another gender 173 + unknown 340
+110662,2024-25,enrolled_total,6610,page 13,sum of men 2525 + women 4002 + another gender 79 + unknown 4
