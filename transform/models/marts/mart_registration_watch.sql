@@ -46,9 +46,14 @@ select
     c.subject,
     c.number,
     cast(count(distinct now.crn) as bigint) as primary_sections,
-    cast(count(distinct now.crn) filter (where before.crn is null) as bigint)
-        as sections_added_since_previous,
-    cast((
+    -- The first snapshot has nothing before it, so both of its since-previous counts are null.
+    cast(
+        case
+            when c.previous_date is not null
+                then count(distinct now.crn) filter (where before.crn is null)
+        end as bigint
+    ) as sections_added_since_previous,
+    cast(case when c.previous_date is not null then (
         select count(*)
         from primary_sections as p
         where p.snapshot_date = c.previous_date and p.subject = c.subject and p.number = c.number
@@ -57,7 +62,7 @@ select
                 where q.snapshot_date = c.snapshot_date and q.subject = c.subject
                     and q.number = c.number
             )
-    ) as bigint) as sections_removed_since_previous,
+    ) end as bigint) as sections_removed_since_previous,
     cast(
         case
             when c.snapshot_date > c.baseline_date
