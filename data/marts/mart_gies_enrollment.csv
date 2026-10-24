@@ -1,0 +1,329 @@
+fall_year,fall_term,program_family,level,modality,headcount,juniors_seniors,source
+2012,Fall 2012,BS Accountancy,undergraduate,residential,962,787,dmi
+2012,Fall 2012,BS Business Administration,undergraduate,residential,1,1,dmi
+2012,Fall 2012,BS Business Process Management,undergraduate,residential,32,26,dmi
+2012,Fall 2012,BS Finance,undergraduate,residential,501,392,dmi
+2012,Fall 2012,BS Information Sys & Info Tech,undergraduate,residential,34,24,dmi
+2012,Fall 2012,BS Management,undergraduate,residential,111,85,dmi
+2012,Fall 2012,BS Marketing,undergraduate,residential,198,152,dmi
+2012,Fall 2012,BS Supply Chain Management,undergraduate,residential,58,55,dmi
+2012,Fall 2012,Business Undeclared,undergraduate,residential,924,20,dmi
+2012,Fall 2012,MAS Accountancy,graduate,residential,247,,dmi
+2012,Fall 2012,MBA,graduate,residential,401,,dmi
+2012,Fall 2012,MS Accountancy,graduate,residential,136,,dmi
+2012,Fall 2012,MS Finance,graduate,residential,130,,dmi
+2012,Fall 2012,MS Taxation,graduate,residential,31,,dmi
+2012,Fall 2012,MS Technology Management,graduate,residential,102,,dmi
+2012,Fall 2012,Nondegree,undergraduate,residential,83,0,dmi
+2012,Fall 2012,PhD,graduate,residential,91,,dmi
+2013,Fall 2013,BS Accountancy,undergraduate,residential,989,809,dmi
+2013,Fall 2013,BS Business Process Management,undergraduate,residential,35,29,dmi
+2013,Fall 2013,BS Finance,undergraduate,residential,460,354,dmi
+2013,Fall 2013,BS Information Sys & Info Tech,undergraduate,residential,48,41,dmi
+2013,Fall 2013,BS Management,undergraduate,residential,109,78,dmi
+2013,Fall 2013,BS Marketing,undergraduate,residential,207,162,dmi
+2013,Fall 2013,BS Supply Chain Management,undergraduate,residential,70,69,dmi
+2013,Fall 2013,Business Undeclared,undergraduate,residential,983,40,dmi
+2013,Fall 2013,MAS Accountancy,graduate,residential,274,,dmi
+2013,Fall 2013,MBA,graduate,residential,352,,dmi
+2013,Fall 2013,MS Accountancy,graduate,residential,142,,dmi
+2013,Fall 2013,MS Business Administration,graduate,residential,19,,dmi
+2013,Fall 2013,MS Finance,graduate,residential,121,,dmi
+2013,Fall 2013,MS Taxation,graduate,residential,31,,dmi
+2013,Fall 2013,MS Technology Management,graduate,residential,125,,dmi
+2013,Fall 2013,Nondegree,undergraduate,residential,72,0,dmi
+2013,Fall 2013,PhD,graduate,residential,100,,dmi
+2014,Fall 2014,BS Accountancy,undergraduate,residential,1023,827,dmi
+2014,Fall 2014,BS Business Process Management,undergraduate,residential,29,24,dmi
+2014,Fall 2014,BS Finance,undergraduate,residential,485,390,dmi
+2014,Fall 2014,BS Information Sys & Info Tech,undergraduate,residential,51,45,dmi
+2014,Fall 2014,BS Management,undergraduate,residential,103,81,dmi
+2014,Fall 2014,BS Marketing,undergraduate,residential,221,175,dmi
+2014,Fall 2014,BS Supply Chain Management,undergraduate,residential,90,89,dmi
+2014,Fall 2014,Business Undeclared,undergraduate,residential,975,57,dmi
+2014,Fall 2014,MAS Accountancy,graduate,residential,296,,dmi
+2014,Fall 2014,MBA,graduate,residential,311,,dmi
+2014,Fall 2014,MS Accountancy,graduate,residential,144,,dmi
+2014,Fall 2014,MS Business Administration,graduate,residential,46,,dmi
+2014,Fall 2014,MS Finance,graduate,residential,118,,dmi
+2014,Fall 2014,MS Taxation,graduate,residential,28,,dmi
+2014,Fall 2014,MS Technology Management,graduate,residential,106,,dmi
+2014,Fall 2014,Nondegree,undergraduate,residential,73,0,dmi
+2014,Fall 2014,PhD,graduate,residential,92,,dmi
+2015,Fall 2015,BS Accountancy,undergraduate,residential,945,805,dmi
+2015,Fall 2015,BS Business Process Management,undergraduate,residential,36,28,dmi
+2015,Fall 2015,BS Finance,undergraduate,residential,550,452,dmi
+2015,Fall 2015,BS Information Sys & Info Tech,undergraduate,residential,47,39,dmi
+2015,Fall 2015,BS Management,undergraduate,residential,100,68,dmi
+2015,Fall 2015,BS Marketing,undergraduate,residential,221,175,dmi
+2015,Fall 2015,BS Supply Chain Management,undergraduate,residential,92,92,dmi
+2015,Fall 2015,Business Undeclared,undergraduate,residential,1026,59,dmi
+2015,Fall 2015,MAS Accountancy,graduate,residential,307,,dmi
+2015,Fall 2015,MBA,graduate,residential,288,,dmi
+2015,Fall 2015,MS Accountancy,graduate,residential,143,,dmi
+2015,Fall 2015,MS Business Administration,graduate,residential,49,,dmi
+2015,Fall 2015,MS Finance,graduate,residential,137,,dmi
+2015,Fall 2015,MS Taxation,graduate,residential,24,,dmi
+2015,Fall 2015,MS Technology Management,graduate,residential,138,,dmi
+2015,Fall 2015,Nondegree,undergraduate,online,5,0,dmi
+2015,Fall 2015,Nondegree,undergraduate,residential,78,0,dmi
+2015,Fall 2015,PhD,graduate,residential,80,,dmi
+2016,Fall 2016,BS Accountancy,undergraduate,residential,916,769,dmi
+2016,Fall 2016,BS Business Process Management,undergraduate,residential,40,32,dmi
+2016,Fall 2016,BS Finance,undergraduate,residential,526,448,dmi
+2016,Fall 2016,BS Information Sys & Info Tech,undergraduate,residential,83,71,dmi
+2016,Fall 2016,BS Management,undergraduate,residential,108,80,dmi
+2016,Fall 2016,BS Marketing,undergraduate,residential,230,175,dmi
+2016,Fall 2016,BS Supply Chain Management,undergraduate,residential,85,85,dmi
+2016,Fall 2016,Business Undeclared,undergraduate,residential,1015,71,dmi
+2016,Fall 2016,MAS Accountancy,graduate,residential,243,,dmi
+2016,Fall 2016,MBA,graduate,residential,254,,dmi
+2016,Fall 2016,MS Accountancy,graduate,residential,153,,dmi
+2016,Fall 2016,MS Business Administration,graduate,residential,48,,dmi
+2016,Fall 2016,MS Finance,graduate,residential,176,,dmi
+2016,Fall 2016,MS Taxation,graduate,residential,24,,dmi
+2016,Fall 2016,MS Technology Management,graduate,residential,119,,dmi
+2016,Fall 2016,Nondegree,undergraduate,online,1,0,dmi
+2016,Fall 2016,Nondegree,undergraduate,residential,98,0,dmi
+2016,Fall 2016,PhD,graduate,residential,76,,dmi
+2017,Fall 2017,BS Accountancy,undergraduate,residential,870,743,dmi
+2017,Fall 2017,BS Business Process Management,undergraduate,residential,35,32,dmi
+2017,Fall 2017,BS Finance,undergraduate,residential,587,486,dmi
+2017,Fall 2017,BS Information Sys & Info Tech,undergraduate,residential,113,93,dmi
+2017,Fall 2017,BS Information Systems,undergraduate,residential,3,3,dmi
+2017,Fall 2017,BS Management,undergraduate,residential,118,81,dmi
+2017,Fall 2017,BS Marketing,undergraduate,residential,249,199,dmi
+2017,Fall 2017,BS Operations Management,undergraduate,residential,1,1,dmi
+2017,Fall 2017,BS Supply Chain Management,undergraduate,residential,79,77,dmi
+2017,Fall 2017,Business Undeclared,undergraduate,residential,934,76,dmi
+2017,Fall 2017,MAS Accountancy,graduate,residential,220,,dmi
+2017,Fall 2017,MBA,graduate,online,787,,dmi
+2017,Fall 2017,MBA,graduate,residential,221,,dmi
+2017,Fall 2017,MS Accountancy,graduate,online,29,,dmi
+2017,Fall 2017,MS Accountancy,graduate,residential,142,,dmi
+2017,Fall 2017,MS Business Administration,graduate,residential,52,,dmi
+2017,Fall 2017,MS Finance,graduate,residential,241,,dmi
+2017,Fall 2017,MS Taxation,graduate,residential,26,,dmi
+2017,Fall 2017,MS Technology Management,graduate,residential,92,,dmi
+2017,Fall 2017,Nondegree,graduate,online,166,,dmi
+2017,Fall 2017,Nondegree,undergraduate,online,2,0,dmi
+2017,Fall 2017,Nondegree,undergraduate,residential,114,0,dmi
+2017,Fall 2017,PhD,graduate,residential,74,,dmi
+2018,Fall 2018,BS Accountancy,undergraduate,residential,817,708,dmi
+2018,Fall 2018,BS Business Process Management,undergraduate,residential,17,16,dmi
+2018,Fall 2018,BS Finance,undergraduate,residential,630,523,dmi
+2018,Fall 2018,BS Information Sys & Info Tech,undergraduate,residential,103,103,dmi
+2018,Fall 2018,BS Information Systems,undergraduate,residential,25,12,dmi
+2018,Fall 2018,BS Management,undergraduate,residential,92,69,dmi
+2018,Fall 2018,BS Marketing,undergraduate,residential,240,205,dmi
+2018,Fall 2018,BS Operations Management,undergraduate,residential,11,7,dmi
+2018,Fall 2018,BS Supply Chain Management,undergraduate,residential,85,83,dmi
+2018,Fall 2018,Business Undeclared,undergraduate,residential,1021,89,dmi
+2018,Fall 2018,MAS Accountancy,graduate,residential,207,,dmi
+2018,Fall 2018,MBA,graduate,online,1592,,dmi
+2018,Fall 2018,MBA,graduate,residential,207,,dmi
+2018,Fall 2018,MS Accountancy,graduate,online,173,,dmi
+2018,Fall 2018,MS Accountancy,graduate,residential,173,,dmi
+2018,Fall 2018,MS Business Administration,graduate,residential,55,,dmi
+2018,Fall 2018,MS Finance,graduate,residential,239,,dmi
+2018,Fall 2018,MS Management,graduate,residential,15,,dmi
+2018,Fall 2018,MS Technology Management,graduate,residential,78,,dmi
+2018,Fall 2018,Nondegree,graduate,online,258,,dmi
+2018,Fall 2018,Nondegree,undergraduate,online,2,0,dmi
+2018,Fall 2018,Nondegree,undergraduate,residential,97,0,dmi
+2018,Fall 2018,PhD,graduate,residential,76,,dmi
+2019,Fall 2019,BS Accountancy,undergraduate,residential,878,744,dmi
+2019,Fall 2019,BS Business Process Management,undergraduate,residential,7,7,dmi
+2019,Fall 2019,BS Finance,undergraduate,residential,641,523,dmi
+2019,Fall 2019,BS Information Sys & Info Tech,undergraduate,residential,68,68,dmi
+2019,Fall 2019,BS Information Systems,undergraduate,residential,57,40,dmi
+2019,Fall 2019,BS Management,undergraduate,residential,92,63,dmi
+2019,Fall 2019,BS Marketing,undergraduate,residential,227,172,dmi
+2019,Fall 2019,BS Operations Management,undergraduate,residential,23,17,dmi
+2019,Fall 2019,BS Supply Chain Management,undergraduate,residential,73,73,dmi
+2019,Fall 2019,Business Undeclared,undergraduate,residential,944,62,dmi
+2019,Fall 2019,MAS Accountancy,graduate,residential,191,,dmi
+2019,Fall 2019,MBA,graduate,online,2448,,dmi
+2019,Fall 2019,MBA,graduate,residential,202,,dmi
+2019,Fall 2019,MS Accountancy,graduate,online,303,,dmi
+2019,Fall 2019,MS Accountancy,graduate,residential,199,,dmi
+2019,Fall 2019,MS Business Administration,graduate,residential,47,,dmi
+2019,Fall 2019,MS Finance,graduate,residential,244,,dmi
+2019,Fall 2019,MS Management,graduate,residential,21,,dmi
+2019,Fall 2019,MS Technology Management,graduate,residential,110,,dmi
+2019,Fall 2019,Nondegree,graduate,online,306,,dmi
+2019,Fall 2019,Nondegree,undergraduate,residential,105,0,dmi
+2019,Fall 2019,PhD,graduate,residential,71,,dmi
+2020,Fall 2020,BS Accountancy,undergraduate,residential,828,730,dmi
+2020,Fall 2020,BS Business Process Management,undergraduate,residential,4,4,dmi
+2020,Fall 2020,BS Finance,undergraduate,residential,666,554,dmi
+2020,Fall 2020,BS Information Sys & Info Tech,undergraduate,residential,6,6,dmi
+2020,Fall 2020,BS Information Systems,undergraduate,residential,112,93,dmi
+2020,Fall 2020,BS Management,undergraduate,residential,88,66,dmi
+2020,Fall 2020,BS Marketing,undergraduate,residential,248,199,dmi
+2020,Fall 2020,BS Operations Management,undergraduate,residential,30,24,dmi
+2020,Fall 2020,BS STR BUS DEV & Entrepreneurship,undergraduate,residential,19,7,dmi
+2020,Fall 2020,BS Supply Chain Management,undergraduate,residential,78,77,dmi
+2020,Fall 2020,Business Undeclared,undergraduate,residential,910,88,dmi
+2020,Fall 2020,MAS Accountancy,graduate,residential,164,,dmi
+2020,Fall 2020,MBA,graduate,online,3539,,dmi
+2020,Fall 2020,MBA,graduate,residential,85,,dmi
+2020,Fall 2020,MS Accountancy,graduate,online,454,,dmi
+2020,Fall 2020,MS Accountancy,graduate,residential,76,,dmi
+2020,Fall 2020,MS Business Administration,graduate,residential,25,,dmi
+2020,Fall 2020,MS Finance,graduate,residential,148,,dmi
+2020,Fall 2020,MS Management,graduate,online,155,,dmi
+2020,Fall 2020,MS Management,graduate,residential,45,,dmi
+2020,Fall 2020,MS Technology Management,graduate,residential,65,,dmi
+2020,Fall 2020,Nondegree,graduate,online,417,,dmi
+2020,Fall 2020,PhD,graduate,residential,71,,dmi
+2021,Fall 2021,BS Accountancy,undergraduate,residential,728,663,dmi
+2021,Fall 2021,BS Finance,undergraduate,residential,675,555,dmi
+2021,Fall 2021,BS Information Sys & Info Tech,undergraduate,residential,1,1,dmi
+2021,Fall 2021,BS Information Systems,undergraduate,residential,134,116,dmi
+2021,Fall 2021,BS Management,undergraduate,residential,87,64,dmi
+2021,Fall 2021,BS Marketing,undergraduate,residential,285,230,dmi
+2021,Fall 2021,BS Operations Management,undergraduate,residential,34,22,dmi
+2021,Fall 2021,BS STR BUS DEV & Entrepreneurship,undergraduate,residential,34,18,dmi
+2021,Fall 2021,BS Supply Chain Management,undergraduate,residential,97,97,dmi
+2021,Fall 2021,Business Undeclared,undergraduate,residential,1032,105,dmi
+2021,Fall 2021,MAS Accountancy,graduate,residential,223,,dmi
+2021,Fall 2021,MBA,graduate,online,4288,,dmi
+2021,Fall 2021,MS Accountancy,graduate,online,545,,dmi
+2021,Fall 2021,MS Accountancy,graduate,residential,206,,dmi
+2021,Fall 2021,MS Business Administration,graduate,residential,2,,dmi
+2021,Fall 2021,MS Business Analytics,graduate,residential,26,,dmi
+2021,Fall 2021,MS Finance,graduate,residential,240,,dmi
+2021,Fall 2021,MS Management,graduate,online,587,,dmi
+2021,Fall 2021,MS Management,graduate,residential,72,,dmi
+2021,Fall 2021,MS Technology Management,graduate,residential,107,,dmi
+2021,Fall 2021,Nondegree,graduate,online,304,,dmi
+2021,Fall 2021,Nondegree,undergraduate,residential,58,0,dmi
+2021,Fall 2021,PhD,graduate,residential,66,,dmi
+2022,Fall 2022,BS Accountancy,undergraduate,residential,686,578,dmi
+2022,Fall 2022,BS Finance,undergraduate,residential,747,592,dmi
+2022,Fall 2022,BS Finance + Data Science,undergraduate,residential,2,2,dmi
+2022,Fall 2022,BS Information Systems,undergraduate,residential,128,106,dmi
+2022,Fall 2022,BS Management,undergraduate,residential,81,57,dmi
+2022,Fall 2022,BS Marketing,undergraduate,residential,315,262,dmi
+2022,Fall 2022,BS Operations Management,undergraduate,residential,35,27,dmi
+2022,Fall 2022,BS STR BUS DEV & Entrepreneurship,undergraduate,residential,38,32,dmi
+2022,Fall 2022,BS Supply Chain Management,undergraduate,residential,86,86,dmi
+2022,Fall 2022,Business Undeclared,undergraduate,residential,922,89,dmi
+2022,Fall 2022,Graduate certificate,graduate,online,37,,dmi
+2022,Fall 2022,MAS Accountancy,graduate,residential,184,,dmi
+2022,Fall 2022,MBA,graduate,online,3961,,dmi
+2022,Fall 2022,MS Accountancy,graduate,online,475,,dmi
+2022,Fall 2022,MS Accountancy,graduate,residential,153,,dmi
+2022,Fall 2022,MS Business Analytics,graduate,residential,99,,dmi
+2022,Fall 2022,MS Finance,graduate,residential,309,,dmi
+2022,Fall 2022,MS Management,graduate,online,596,,dmi
+2022,Fall 2022,MS Management,graduate,residential,91,,dmi
+2022,Fall 2022,MS Technology Management,graduate,residential,79,,dmi
+2022,Fall 2022,Nondegree,graduate,online,273,,dmi
+2022,Fall 2022,Nondegree,undergraduate,residential,77,0,dmi
+2022,Fall 2022,PhD,graduate,residential,64,,dmi
+2023,Fall 2023,BS Accountancy,undergraduate,residential,642,559,dmi
+2023,Fall 2023,BS Accountancy + Data Science,undergraduate,residential,37,30,dmi
+2023,Fall 2023,BS Business + Data Science,undergraduate,residential,1,1,dmi
+2023,Fall 2023,BS Finance,undergraduate,residential,715,598,dmi
+2023,Fall 2023,BS Finance + Data Science,undergraduate,residential,64,47,dmi
+2023,Fall 2023,BS Information Sys & Info Tech,undergraduate,residential,1,1,dmi
+2023,Fall 2023,BS Information Systems,undergraduate,residential,115,106,dmi
+2023,Fall 2023,BS Management,undergraduate,residential,85,66,dmi
+2023,Fall 2023,BS Marketing,undergraduate,residential,313,265,dmi
+2023,Fall 2023,BS Operations Management,undergraduate,residential,34,25,dmi
+2023,Fall 2023,BS STR BUS DEV & Entrepreneurship,undergraduate,residential,16,16,dmi
+2023,Fall 2023,"BS Strategy, Innovation & Entrep",undergraduate,residential,21,12,dmi
+2023,Fall 2023,BS Supply Chain Management,undergraduate,residential,66,66,dmi
+2023,Fall 2023,Business Undeclared,undergraduate,residential,929,85,dmi
+2023,Fall 2023,Graduate certificate,graduate,online,95,,dmi
+2023,Fall 2023,MAS Accountancy,graduate,residential,172,,dmi
+2023,Fall 2023,MBA,graduate,online,3330,,dmi
+2023,Fall 2023,MS Accountancy,graduate,online,397,,dmi
+2023,Fall 2023,MS Accountancy,graduate,residential,166,,dmi
+2023,Fall 2023,MS Business Analytics,graduate,residential,104,,dmi
+2023,Fall 2023,MS Finance,graduate,residential,291,,dmi
+2023,Fall 2023,MS Management,graduate,online,702,,dmi
+2023,Fall 2023,MS Management,graduate,residential,87,,dmi
+2023,Fall 2023,MS Technology Management,graduate,residential,138,,dmi
+2023,Fall 2023,Nondegree,graduate,online,239,,dmi
+2023,Fall 2023,Nondegree,undergraduate,residential,73,0,dmi
+2023,Fall 2023,PhD,graduate,residential,69,,dmi
+2024,Fall 2024,BS Accountancy,undergraduate,residential,620,544,dmi
+2024,Fall 2024,BS Accountancy + Data Science,undergraduate,residential,135,109,dmi
+2024,Fall 2024,BS Business + Data Science,undergraduate,residential,18,13,dmi
+2024,Fall 2024,BS Finance,undergraduate,residential,669,537,dmi
+2024,Fall 2024,BS Finance + Data Science,undergraduate,residential,168,135,dmi
+2024,Fall 2024,BS Information Systems,undergraduate,residential,103,96,dmi
+2024,Fall 2024,BS Management,undergraduate,residential,76,61,dmi
+2024,Fall 2024,BS Marketing,undergraduate,residential,291,240,dmi
+2024,Fall 2024,BS Operations Management,undergraduate,residential,36,27,dmi
+2024,Fall 2024,BS STR BUS DEV & Entrepreneurship,undergraduate,residential,6,6,dmi
+2024,Fall 2024,"BS Strategy, Innovation & Entrep",undergraduate,residential,31,22,dmi
+2024,Fall 2024,BS Supply Chain Management,undergraduate,residential,54,54,dmi
+2024,Fall 2024,Business Undeclared,undergraduate,residential,923,104,dmi
+2024,Fall 2024,Graduate certificate,graduate,online,159,,dmi
+2024,Fall 2024,MAS Accountancy,graduate,residential,162,,dmi
+2024,Fall 2024,MBA,graduate,online,3345,,dmi
+2024,Fall 2024,MS Accountancy,graduate,online,444,,dmi
+2024,Fall 2024,MS Accountancy,graduate,residential,174,,dmi
+2024,Fall 2024,MS Business Analytics,graduate,residential,129,,dmi
+2024,Fall 2024,MS Finance,graduate,residential,283,,dmi
+2024,Fall 2024,MS Management,graduate,online,881,,dmi
+2024,Fall 2024,MS Management,graduate,residential,116,,dmi
+2024,Fall 2024,MS Technology Management,graduate,residential,121,,dmi
+2024,Fall 2024,Nondegree,graduate,online,250,,dmi
+2024,Fall 2024,Nondegree,undergraduate,residential,67,0,dmi
+2024,Fall 2024,PhD,graduate,residential,68,,dmi
+2025,Fall 2025,BS Accountancy,undergraduate,residential,567,497,dmi
+2025,Fall 2025,BS Accountancy + Data Science,undergraduate,residential,193,172,dmi
+2025,Fall 2025,BS Business + Data Science,undergraduate,residential,33,29,dmi
+2025,Fall 2025,BS Finance,undergraduate,residential,649,521,dmi
+2025,Fall 2025,BS Finance + Data Science,undergraduate,residential,280,242,dmi
+2025,Fall 2025,BS Information Systems,undergraduate,residential,64,59,dmi
+2025,Fall 2025,BS Management,undergraduate,residential,59,45,dmi
+2025,Fall 2025,BS Marketing,undergraduate,residential,259,216,dmi
+2025,Fall 2025,BS Operations Management,undergraduate,residential,27,24,dmi
+2025,Fall 2025,"BS Strategy, Innovation & Entrep",undergraduate,residential,27,17,dmi
+2025,Fall 2025,BS Supply Chain Management,undergraduate,residential,59,55,dmi
+2025,Fall 2025,Business Undeclared,undergraduate,residential,1030,129,dmi
+2025,Fall 2025,Graduate certificate,graduate,online,154,,dmi
+2025,Fall 2025,MAS Accountancy,graduate,residential,123,,dmi
+2025,Fall 2025,MBA,graduate,online,3572,,dmi
+2025,Fall 2025,MS Accountancy,graduate,online,511,,dmi
+2025,Fall 2025,MS Accountancy,graduate,residential,177,,dmi
+2025,Fall 2025,MS Business Analytics,graduate,residential,99,,dmi
+2025,Fall 2025,MS Finance,graduate,residential,198,,dmi
+2025,Fall 2025,MS Management,graduate,online,926,,dmi
+2025,Fall 2025,MS Management,graduate,residential,93,,dmi
+2025,Fall 2025,MS Technology Management,graduate,residential,91,,dmi
+2025,Fall 2025,Nondegree,graduate,online,303,,dmi
+2025,Fall 2025,Nondegree,undergraduate,residential,82,0,dmi
+2025,Fall 2025,PhD,graduate,residential,64,,dmi
+2026,Fall 2026,BS Accountancy,undergraduate,residential,632,545,dair
+2026,Fall 2026,BS Accountancy + Data Science,undergraduate,residential,212,194,dair
+2026,Fall 2026,BS Business + Data Science,undergraduate,residential,36,31,dair
+2026,Fall 2026,BS Finance,undergraduate,residential,730,610,dair
+2026,Fall 2026,BS Finance + Data Science,undergraduate,residential,367,332,dair
+2026,Fall 2026,BS Information Systems,undergraduate,residential,43,42,dair
+2026,Fall 2026,BS Management,undergraduate,residential,45,40,dair
+2026,Fall 2026,BS Marketing,undergraduate,residential,227,191,dair
+2026,Fall 2026,BS Operations Management,undergraduate,residential,22,14,dair
+2026,Fall 2026,"BS Strategy, Innovation & Entrep",undergraduate,residential,27,19,dair
+2026,Fall 2026,BS Supply Chain Management,undergraduate,residential,64,58,dair
+2026,Fall 2026,Business Undeclared,undergraduate,residential,1171,119,dair
+2026,Fall 2026,Graduate certificate,graduate,online,115,,dair
+2026,Fall 2026,MAS Accountancy,graduate,residential,128,,dair
+2026,Fall 2026,MBA,graduate,online,3847,,dair
+2026,Fall 2026,MS Accountancy,graduate,online,488,,dair
+2026,Fall 2026,MS Accountancy,graduate,residential,135,,dair
+2026,Fall 2026,MS Business Analytics,graduate,online,32,,dair
+2026,Fall 2026,MS Business Analytics,graduate,residential,83,,dair
+2026,Fall 2026,MS Finance,graduate,residential,145,,dair
+2026,Fall 2026,MS Management,graduate,online,975,,dair
+2026,Fall 2026,MS Management,graduate,residential,68,,dair
+2026,Fall 2026,MS Technology Management,graduate,residential,56,,dair
+2026,Fall 2026,Nondegree,graduate,online,306,,dair
+2026,Fall 2026,Nondegree,undergraduate,residential,76,0,dair
+2026,Fall 2026,PhD,graduate,residential,65,,dair

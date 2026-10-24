@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest build docs findings forecast
+.PHONY: help snapshot ingest build docs findings forecast export app
 
 PYTHON := .venv/bin/python
 DBT := .venv/bin/dbt
@@ -34,3 +34,9 @@ findings: ## write docs/findings.md from the dbt analyses
 forecast: ## backtest, then write data/marts/mart_projection
 	$(PYTHON) -m forecast.backtest
 	$(PYTHON) -m forecast.projection
+
+export: ## write the dbt marts to data/marts
+	$(PYTHON) -m publish.export
+
+app: ## run the Streamlit app locally
+	$(PYTHON) -m streamlit run app/streamlit_app.py
