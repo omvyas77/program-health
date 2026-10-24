@@ -1,0 +1,5 @@
+# Community Cloud reads this file before the repo's own, so the app installs only what it uses.
+streamlit==1.66.1
+altair==6.3.0
+pandas==3.0.6
+pyarrow==26.0.0
