@@ -1,0 +1,55 @@
+# Data notes
+
+Quirks in the sources and what I did about each. Dated by when I found them.
+
+## IPEDS
+
+**Penn State's reporting unit changes for three collection years (Oct 23, 2026).** In the 2019-20 winter and spring collections, Penn State reported all of its campuses under the main campus UNITID, 214777. In 2020-21 and 2021-22 it reported them under a new UNITID, 495767, "The Pennsylvania State University", which no longer appears in the directory. From 2022-23 on, 214777 covers University Park only. The all-campus figures are about twice the size: 15,989 first-year students enrolled in fall 2019 against 8,075 in fall 2018 and 9,216 in fall 2022, and full-time retention of 87 to 88% against 91 to 93% in the years around them. I left Penn State out of every file from those collections rather than map 495767 to 214777, because the numbers describe a different institution. That covers ADM, EF D, GR, EF A_DIST, and GR_PELL_SSL for 2019 to 2021, C for 2020 and 2021, and EF CP for 2020 (it is reported in even years only). C2019_A comes from the fall 2019 collection, before the change, and stays. In those years the peer median is the median of the other 16 schools, and charts show Penn State as missing with a note.
+
+**Online campuses are reported in different ways (Oct 23, 2026).** Illinois reports its online programs, the iMBA among them, under its own UNITID, so 40.1% of its graduate students were exclusively online in fall 2024. Penn State reports World Campus as a separate institution (479956), and Purdue Global reports as its own institution (489779). I compare each school as reported and say on the online-share charts that Penn State's and Purdue's online students sit outside the main campus figures. The University of Maryland Global Campus (163204) is a separate university in the Maryland system, not part of College Park, so it doesn't apply.
+
+**Five dictionaries contradict themselves about the year (Oct 23, 2026).** GR2020, GR2024, GR2024_PELL_SSL, GR2021_PELL_SSL, and C2022_A each carry one title, label, or description that disagrees with the rest of the file. docs/ipeds_variables.md lists them and the label I used. The data settles the graduation files: every GR file's cohort matches the full-time cohort EF D reports six falls earlier, with median ratios of 0.999 to 1.000, so GR2020 is the 2014 cohort and GR2024 is the 2018 cohort.
+
+**Older files pad their codes (Oct 23, 2026).** Files up to 2019 write AWLEVEL as "05" and GRTYPE and EFDELEV with a leading space (" 2"). The extracts keep the source text unchanged; staging trims and casts every code to an integer.
+
+**Completions files carry a grand-total row (Oct 23, 2026).** CIPCODE "99" holds the total across all fields and equals the sum of the other codes. Sums leave it out, and it stays as a cross-check.
+
+**Two definition changes break trends (Oct 23, 2026).** The retention cohort adds inclusions from fall 2017 on, so rates before and after aren't strictly comparable. Completions switch from the 2010 to the 2020 CIP classification in C2020_A, and 30.7102, Business Analytics, exists only from 2019-20 awards on.
+
+## DMI and DAIR
+
+**DMI's reports moved to DAIR (Oct 23, 2026).** Every dmi.illinois.edu/stuenr/ page now redirects to the DAIR homepage. Fall 2012 to Fall 2025 come from the Internet Archive's copies of the original DMI pages, pinned in config/dmi_pages.csv; Fall 2026 and the missing Fall 2024 student types come from DAIR's Statistical Abstract dashboard. The archived Fall 2025 pages reproduce every anchor checked before the build exactly: 9,640 Gies students, 3,329 undergraduate and 6,311 graduate, 3,572 in the MBA, 1,030 in Business Undeclared, 787 first-time freshmen, and 84 new transfers.
+
+**The curriculum report changed shape in Fall 2020 (Oct 23, 2026).** From Fall 2012 to Fall 2019 it has 20 columns. Fall 2020 adds full-time and part-time counts for undergraduate, graduate, professional, and total, for 28. Columns are matched by their header text, so both layouts load into one table with the new columns empty before Fall 2020.
+
+**Every fall's curricula add up to DMI's college total (Oct 23, 2026).** The ingest checks it and stops if any fall disagrees. None does.
+
+**Undergraduate majors appear twice (Oct 23, 2026).** Most BS majors are listed once under their own academic program code and again under 10KM8037BS. In Fall 2025 Finance has 351 students under 10KM0075BS and 298 under 10KM8037BS. Both rows count toward the college total, so they are different students. DMI does not say what 10KM8037BS means, and config/program_map.csv leaves it marked.
+
+**A program code ending in U marks an online program (Oct 23, 2026).** DAIR's Student Enrollment dashboard flags every program as online or not (data/manual/dair/online_programs_*.csv). In Fall 2025 and Fall 2026 all 23 online codes end in U (the 3,572-student MBA, 10KS9875MBAU, among them) and none of the 23 other codes does. config/program_map.csv uses that rule, and for the 36 older curricula DAIR doesn't list, modality is inferred from it and the row says so.
+
+**The Fall 2024 ten-day abstract is missing from the archive (Oct 23, 2026).** It was never captured. DAIR's College, Class, Type sheet fills it: 661 first-year students and 79 new transfers. DAIR labels first-time freshmen "First Year Student"; the numbers are the same students, as Fall 2025 shows (787 in both).
+
+**DAIR and the archived DMI pages agree for Fall 2025 (Oct 23, 2026).** All 61 Gies curricula match on total headcount and on juniors plus seniors, and the college totals match: 9,640 students, 3,329 undergraduate and 6,311 graduate. Student types match too.
+
+**DAIR's exports have their own quirks (Oct 23, 2026).** Files are UTF-16 and tab-separated. The curriculum sheet exports either one row per curriculum and level or one column per level, depending on how it is downloaded; the ingest reads both. The doctoral column is labeled "Grad 2 (Master)" but holds the PhD students (64 in Fall 2025). In the graduation file the label "Size of Adjusted Cohort" appears twice: the copy followed by two spaces holds the cohort size, and the other repeats the graduate count. Its year groups are not cumulative, so a six-year rate adds the 3-, 4-, 5-, and 6-year groups. The retention file's "Avg. Retention Rate" row reads 1 throughout and is ignored in favor of the counts.
+
+**Every online program on campus follows the U convention (Oct 23, 2026).** DAIR's Online Program filter, downloaded for all colleges, lists 100 online program codes in Fall 2025 and 108 in Fall 2026, and every one ends in U.
+
+**How config/program_map.csv groups programs (Oct 23, 2026).** A family is the degree plus the major; the "+ Data Science" majors are their own families, concentrations roll up to their major, and renamed majors stay separate with a note where one appears to succeed another. Rows under 10KM8037BS count toward their major. Certificates, nondegree students, the MBA, and the PhD are one family each.
+
+## Other sources
+
+**The catalog has gaps before Fall 2017 (Oct 23, 2026).** There is no 2016-sp, 2016-su, 2016-wi, or 2017-wi file, so the 40 terms start with 2016-fa.
+
+**WICHE's file carries two Midwests (Oct 23, 2026).** WICHE's own Midwest (code _M) and the Census Bureau's (code CM) both fall 16% from the class of 2023 to the class of 2041: 760,548 to 638,923 and 777,916 to 657,001. I use WICHE's, since the findings quoted are WICHE's.
+
+**One more subject might belong to Gies (Oct 23, 2026).** The Course Explorer API lists exactly six subjects under Gies's college code, KM: ACCY, BADM, BDI, BUS, FIN, and MBA, which match config/gies_subjects.csv. DTX, Human-Centered Design and Design Thinking, lists Business Administration as its unit but college code KP. It is not added, because it belongs to another college.
+
+## Course Explorer
+
+**The public API has no enrollment status (Oct 23, 2026).** No response from the Course Explorer API carries enrollmentStatus, for Spring 2027 or Fall 2026, in cascade, detail, or section mode. The availability shown on the public course pages (Open, Closed, Open (Restricted)) is the field the registration watch was built on, but those pages sit behind bot protection that began returning empty responses to a script after several hundred requests. The daily snapshot records the section list from the API only, so it shows sections added and removed during registration but not which sections are closed.
+
+**Some sections have no section number (Oct 23, 2026).** The API lists 13 independent study sections in Spring 2027 with no section number, for example ACCY 199, CRN 10033. The snapshot writes them with a blank section.
+
+**A few sections mix meeting types (Oct 23, 2026).** ACCY CRNs 71766 and 77038 each have a Lecture-Discussion meeting and an Online Lab meeting. The snapshot keeps both codes, as "LCD;OLB".
