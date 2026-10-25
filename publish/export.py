@@ -1,6 +1,8 @@
 # Writes every dbt mart to data/marts as parquet and csv, sorted so reruns on unchanged data give
 # unchanged files. The Streamlit app reads these; mart_projection is written by forecast/.
+# Names on the command line export only those marts, as the daily snapshot job does.
 
+import argparse
 import logging
 import sys
 
@@ -30,9 +32,14 @@ def export(con, name):
 
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
+    parser = argparse.ArgumentParser()
+    parser.add_argument("marts", nargs="*", help="marts to export; every mart if none")
+    names = parser.parse_args().marts or mart_names()
+    unknown = sorted(set(names) - set(mart_names()))
+    assert not unknown, f"not dbt marts: {unknown}"
     MARTS.mkdir(parents=True, exist_ok=True)
     con = duckdb.connect(str(WAREHOUSE), read_only=True)
-    for name in mart_names():
+    for name in names:
         export(con, name)
     log.info("wrote %s", MARTS.relative_to(ROOT))
     return 0

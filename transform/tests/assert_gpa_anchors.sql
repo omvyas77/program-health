@@ -1,7 +1,9 @@
--- GPA dataset anchors, as of wadefagen/datasets commit c6618ca.
+-- GPA dataset anchors, as of wadefagen/datasets commit c6618ca. The
+-- row count covers the terms that commit holds, through Winter 2026, so a later commit that adds
+-- terms still passes and one that revises those terms fails.
 with checks as (
     select
-        count(*) as rows_total,
+        count(*) filter (where year < 2026 or yearterm = '2026-wi') as rows_total,
         min(students) as smallest_section,
         count(*) filter (
             where students != a_plus + a + a_minus + b_plus + b + b_minus + c_plus + c + c_minus

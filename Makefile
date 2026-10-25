@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest build docs findings forecast export app
+.PHONY: help snapshot ingest build docs findings forecast export app publish report
 
 PYTHON := .venv/bin/python
 DBT := .venv/bin/dbt
@@ -40,3 +40,9 @@ export: ## write the dbt marts to data/marts
 
 app: ## run the Streamlit app locally
 	$(PYTHON) -m streamlit run app/streamlit_app.py
+
+publish: ## write data/marts to the Google Sheet (needs SHEET_ID)
+	$(PYTHON) -m publish.sheets
+
+report: ## write the registration watch report
+	$(PYTHON) -m publish.registration_report
