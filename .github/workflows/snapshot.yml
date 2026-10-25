@@ -12,7 +12,8 @@ permissions:
   contents: write
 
 concurrency:
-  group: snapshot
+  # Shared with refresh.yml: both commit data/marts, so they never run at the same time.
+  group: data
   cancel-in-progress: false
 
 jobs:
@@ -30,11 +31,26 @@ jobs:
 
       - run: pip install -r requirements-snapshot.txt
 
-      - run: python -m ingest.cis_snapshot
+      - name: Take the snapshot
+        id: snapshot
+        run: |
+          python -m ingest.cis_snapshot
+          if [ -n "$(git status --porcelain data/snapshots/cis)" ]; then
+            echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Rebuild the registration watch and its report
+        if: steps.snapshot.outputs.new == 'true'
+        run: |
+          mkdir -p warehouse
+          dbt build --project-dir transform --profiles-dir transform --select +mart_registration_watch
+          python -m publish.export mart_registration_watch
+          python -m publish.registration_report
 
       - name: Commit the new snapshot
         run: |
-          git add data/snapshots/cis
+          git add data/snapshots/cis data/marts/mart_registration_watch.parquet \
+            data/marts/mart_registration_watch.csv reports/registration_watch_2027-sp.md
           if git diff --cached --quiet; then
             echo "no new snapshot"
             exit 0
@@ -42,6 +58,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git commit -m "snapshot 2027-sp $(date -u +%F)"
-          # main may have moved while the job ran; the snapshot only adds a file, so rebase is safe
+          # main may have moved while the job ran. Only this job and refresh.yml write these
+          # files, and the shared concurrency group keeps them apart, so the rebase is clean.
           git pull --rebase
           git push
