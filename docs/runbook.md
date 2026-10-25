@@ -39,3 +39,38 @@ Retention and Graduation Rates: https://dair.illinois.edu/access-data/retention-
 2. Download the sheet Retention Rates by College Data Table as retention_by_entry_college.csv.
 3. Open the Graduation Rate Data Table tab with the same selections.
 4. Download the sheet Graduation Rates by College Non-Cumulative Data Table as graduation_by_entry_college.csv. It carries graduate counts by year group, so four- and six-year rates can be computed from counts.
+
+## The weekly refresh
+
+.github/workflows/refresh.yml runs Mondays at 11:17 UTC and can be started by hand from the Actions tab (refresh, then Run workflow). It sends a HEAD request for every source in data/extracts/manifest.csv and treats a source as changed when its Last-Modified or ETag differs from the manifest. It reruns the ingest for changed sources only, then runs dbt build, the forecast, the export, and pytest. It publishes to the Google Sheet only if all of them pass, appends a row per mart to mart_refresh_log, and commits.
+
+When a check fails, the run commits only its log row (published is false), leaves the Sheet and the rest of main untouched, and fails, so GitHub sends an email. The run page shows which step failed.
+
+## When the refresh opens an issue
+
+The refresh lists new upstream files but never ingests them by itself. An issue titled "New upstream files: ..." means one of two things.
+
+- A new IPEDS file, such as ADM2025. Read its dictionary first: check that every variable the staging model for its family uses is still there with the same meaning, and record it in docs/ipeds_variables.md. Copy the file's URL and its dictionary's from the IPEDS Data Center year page into config/ipeds_files.csv, add the collection's release to config/ipeds_releases.csv as provisional, then run make ingest and make build.
+- A new course catalog term, such as 2027-sp. Add it to TERMS in ingest/catalog.py and update the count the module asserts, then run python -m ingest.catalog and make build.
+
+Close the issue once the file is in.
+
+## When NCES finalizes a collection
+
+NCES releases provisional data first and revised, final data about a year later. The refresh notices the revised files, because their ETags change, and re-ingests them. The provisional flag comes from config/ipeds_releases.csv, so change that collection's release_type to final by hand when NCES's release schedule (nces.ed.gov/ipeds/survey-components/data-release-schedule) says the final files are out.
+
+## Sources the refresh can't check
+
+The DMI pages are frozen Internet Archive captures. The DAIR crosstabs (above) and the Common Data Set files (data/manual/cds_c1_checklist.md) are downloaded by hand once a year, after each fall's data is posted.
+
+## Keeping the scheduled workflows running
+
+GitHub disables scheduled workflows in a public repository after 60 days without activity. The daily snapshot commits and the weekly refresh commits keep this one active. If a workflow ever shows as disabled, open the Actions tab, pick the workflow, and choose Enable workflow.
+
+## The Streamlit app
+
+Community Cloud redeploys the app on every push to main, so the registration page updates with each daily snapshot. The app sleeps after 12 hours without traffic, and anyone can wake it with one click. Open it yourself before sending the link or walking into an interview.
+
+## Publishing by hand
+
+make publish writes every mart in data/marts to the Google Sheet. It needs SHEET_ID set to the Sheet's ID and the service account key at ~/.config/gies-program-health/sa.json, or its contents in GCP_SA_KEY.
