@@ -52,6 +52,8 @@ Quirks in the sources and what I did about each. Dated by when I found them.
 
 **13% of Gies sections have no schedule type (Oct 24, 2026).** 1,248 of the 9,675 Gies sections leave Sched Type blank, so they can't be called online or in person. Nearly all of them come from four whole terms, 2016-fa, 2017-sp, 2017-fa, and 2018-sp, where the field is blank on every row campus-wide; Fall 2018 is complete. The online and in-person comparison starts there. One more, in 2010-sp, has the code Q, which no catalog term defines. All 1,249 (60,119 graded students) are counted under mode "unknown" and left out of the online and in-person comparison rather than guessed. ST and RES, which appear elsewhere in the file, never appear in Gies rows.
 
+**Where grades are recorded changed over time (Oct 25, 2026).** The GPA data lists each section that recorded grades, and that was sometimes the discussion rather than the lecture. In Fall 2019, 40 of the 346 Gies sections in the data were discussion-type; by Fall 2025 none were. ACCY 201 ran 3 primary sections in both falls, but its grades sat under 20 sections in Fall 2019 and 2 in Fall 2025. Counts of graded sections, and anything divided by them, move with this bookkeeping as well as with class size.
+
 ## Course catalog and TRE
 
 **Some sections carry two primary meeting types (Oct 24, 2026).** 60 of the 10,795 primary sections in the catalog files list two primary types in the same term; 49 of them pair a lecture-discussion with an online meeting. Sections offered are counted as distinct CRNs, so each counts once.
