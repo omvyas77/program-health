@@ -788,63 +788,24 @@ order by c.yearterm, c.subject, c.number
 
 ```sql
 -- 6c.5 Watch list: Gies undergraduate courses averaging 150 or more graded students per term offered, with 15% or more at C or below or withdrawing in at least two of the last four long terms
--- Thresholds chosen Oct 24, 2026. A course on this list is a question for its department about
+-- Thresholds chosen Oct 24, 2026, and kept as the watch_* vars in dbt_project.yml; the list itself
+-- is mart_course_watch_list. A course on this list is a question for its department about
 -- preparation, placement, and support, not a verdict on its teaching.
-with last_four as (
-    select yearterm, year, term
-    from (select distinct yearterm, year, term from "int_course_terms")
-    where term in ('Fall', 'Spring')
-    order by (year * 10 + case term when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end) desc
-    limit 4
-),
-
-course_terms as (
-    select
-        c.yearterm,
-        c.year,
-        c.term,
-        c.subject,
-        c.number,
-        max(c.course_title) as course_title,
-        sum(c.students_graded) as graded,
-        sum(c.w) as w,
-        sum(c.c_or_below_w) as c_or_below_w,
-        sum(c.dfw) as dfw
-    from "int_course_terms" as c
-    inner join last_four as l on l.yearterm = c.yearterm
-    where c.is_gies and c.is_undergraduate
-    group by c.yearterm, c.year, c.term, c.subject, c.number
-),
-
-courses as (
-    select
-        subject,
-        number,
-        max(course_title) as course_title,
-        count(*) as terms_offered,
-        avg(graded) as avg_graded,
-        count(*) filter (where c_or_below_w / (graded + w) >= 0.15) as terms_at_threshold,
-        string_agg(
-            yearterm || ' ' || printf('%.1f%%', 100 * (c_or_below_w / (graded + w))), ', '
-            order by (year * 10 + case term when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end)
-        ) as by_term,
-        sum(c_or_below_w) / sum(graded + w) as pooled_c_or_below_w,
-        sum(dfw) / sum(graded + w) as pooled_dfw
-    from course_terms
-    group by subject, number
-)
-
 select
-    subject || ' ' || number as "Course",
+    course as "Course",
     course_title as "Title",
-    terms_offered as "Terms offered",
-    printf('%,d', cast(round(avg_graded) as bigint)) as "Graded per term offered",
-    terms_at_threshold as "Terms at 15% or more",
-    by_term as "C or below or W, by term",
-    printf('%.1f%%', 100 * (pooled_c_or_below_w)) as "C or below or W, four terms",
-    printf('%.1f%%', 100 * (pooled_dfw)) as "DFW, four terms"
-from courses
-where avg_graded >= 150 and terms_at_threshold >= 2
+    any_value(terms_offered) as "Terms offered",
+    printf('%,d', cast(round(any_value(graded_per_term_offered)) as bigint)) as "Graded per term offered",
+    any_value(terms_at_threshold) as "Terms at 15% or more",
+    string_agg(
+        yearterm || ' ' || printf('%.1f%%', 100 * (c_or_below_w_rate)), ', '
+        order by (year * 10 + case term when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end)
+    ) as "C or below or W, by term",
+    printf('%.1f%%', 100 * (any_value(course_c_or_below_w_rate))) as "C or below or W, four terms",
+    printf('%.1f%%', 100 * (any_value(course_dfw_rate))) as "DFW, four terms"
+from "mart_course_watch_list"
+where is_on_watch_list
+group by subject, number, course, course_title
 order by subject, number
 ```
 
@@ -1236,72 +1197,78 @@ order by (year * 10 + case term when 'Spring' then 1 when 'Summer' then 2 when '
 
 </details>
 
-## 6d.2 Graded students per section by Gies subject and long term, Fall 2016 to Fall 2025
+## 6d.2 Graded students per primary section by Gies subject and long term, Fall 2016 to Fall 2025
 
 | Term | ACCY | BADM | BDI | BUS | FIN | MBA | All Gies |
 |---|---:|---:|---:|---:|---:|---:|---:|
-| 2016-fa | 40.2 | 61.1 |  | 25.6 | 41.8 | 46.9 | 45.5 |
-| 2017-sp | 33.4 | 60.3 |  | 37.5 | 40.9 | 41.7 | 44.9 |
-| 2017-fa | 40.3 | 65.0 |  | 27.1 | 50.6 | 49.2 | 49.4 |
-| 2018-sp | 35.2 | 78.0 |  | 36.0 | 36.8 | 48.0 | 51.3 |
-| 2018-fa | 44.2 | 80.0 |  | 26.5 | 51.7 | 48.2 | 55.7 |
-| 2019-sp | 41.2 | 93.5 |  | 33.7 | 53.2 | 50.0 | 62.0 |
-| 2019-fa | 43.4 | 86.7 |  | 28.6 | 55.2 | 171.5 | 63.0 |
-| 2020-sp | 44.7 | 84.0 |  | 45.9 | 64.4 | 171.1 | 68.6 |
-| 2020-fa | 67.1 | 111.5 |  | 44.1 | 65.9 | 490.2 | 93.1 |
-| 2021-sp | 69.4 | 99.3 | 46.0 | 47.0 | 72.8 | 439.9 | 92.7 |
-| 2021-fa | 67.3 | 111.9 | 28.0 | 34.8 | 63.1 | 748.8 | 91.1 |
-| 2022-sp | 72.6 | 103.3 | 39.2 | 45.6 | 81.2 | 696.0 | 93.3 |
-| 2022-fa | 71.3 | 94.3 | 45.0 | 45.2 | 70.1 | 505.0 | 86.2 |
-| 2023-sp | 69.2 | 95.8 | 58.8 | 64.7 | 78.0 | 495.8 | 88.3 |
-| 2023-fa | 70.5 | 88.8 | 53.7 | 46.7 | 72.4 | 525.8 | 82.9 |
-| 2024-sp | 67.6 | 96.8 | 44.0 | 69.2 | 87.9 | 477.6 | 90.5 |
-| 2024-fa | 72.5 | 95.9 | 52.5 | 50.5 | 79.9 | 546.3 | 88.7 |
-| 2025-sp | 70.9 | 97.6 | 43.5 | 70.5 | 95.3 | 427.2 | 93.6 |
-| 2025-fa | 81.9 | 100.8 | 30.5 | 47.7 | 87.0 | 429.4 | 94.6 |
+| 2016-fa | 42.3 | 50.6 |  | 22.7 | 39.6 | 42.2 | 42.5 |
+| 2017-sp | 29.4 | 44.7 |  | 15.0 | 39.8 | 20.8 | 36.8 |
+| 2017-fa | 40.7 | 53.8 |  | 21.3 | 50.0 | 44.3 | 45.3 |
+| 2018-sp | 33.4 | 60.0 |  | 36.0 | 37.4 | 37.3 | 45.3 |
+| 2018-fa | 43.1 | 64.4 |  | 21.3 | 49.7 | 38.6 | 49.7 |
+| 2019-sp | 36.4 | 80.3 |  | 16.8 | 47.0 | 50.0 | 53.9 |
+| 2019-fa | 45.3 | 73.6 |  | 21.6 | 45.3 | 120.0 | 55.9 |
+| 2020-sp | 39.7 | 67.1 |  | 32.8 | 46.3 | 171.1 | 56.5 |
+| 2020-fa | 36.0 | 80.8 |  | 10.8 | 45.4 | 267.4 | 54.5 |
+| 2021-sp | 52.5 | 83.4 | 46.0 | 42.7 | 45.7 | 439.9 | 71.6 |
+| 2021-fa | 42.0 | 92.5 | 14.0 | 24.0 | 49.9 | 374.4 | 65.8 |
+| 2022-sp | 47.8 | 86.4 | 39.2 | 27.0 | 58.6 | 348.0 | 68.3 |
+| 2022-fa | 52.1 | 80.7 | 36.0 | 28.8 | 57.4 | 252.5 | 66.1 |
+| 2023-sp | 45.2 | 84.2 | 39.2 | 53.9 | 66.4 | 247.9 | 68.9 |
+| 2023-fa | 50.6 | 80.6 | 40.2 | 29.2 | 60.9 | 262.9 | 65.1 |
+| 2024-sp | 41.6 | 83.1 | 36.7 | 52.9 | 78.5 | 238.8 | 69.1 |
+| 2024-fa | 51.9 | 82.5 | 30.0 | 24.9 | 64.6 | 273.2 | 65.7 |
+| 2025-sp | 47.3 | 82.1 | 34.8 | 49.8 | 86.3 | 213.6 | 72.4 |
+| 2025-fa | 56.0 | 89.0 | 20.3 | 26.2 | 68.6 | 214.7 | 69.8 |
 
 <details><summary>SQL</summary>
 
 ```sql
--- 6d.2 Graded students per section by Gies subject and long term, Fall 2016 to Fall 2025
--- Both counts come from the GPA dataset, which holds only sections with 21 or more graded
--- students, so this is the average size of those sections.
+-- 6d.2 Graded students per primary section by Gies subject and long term, Fall 2016 to Fall 2025
+-- Graded students from the GPA dataset over primary sections from the catalog, for course-terms
+-- with both. The GPA data leaves out sections of 20 or fewer graded students, so the figure runs
+-- a little low. The GPA data's own section count isn't used: where grades were recorded moved from
+-- discussions to lectures over these years (docs/data_notes.md). Chosen by Om on Oct 25, 2026.
+with both_counts as (
+    select *
+    from "mart_course_sections"
+    where term in ('Fall', 'Spring') and primary_sections > 0 and students_graded > 0
+)
+
 select
     yearterm as "Term",
     printf(
         '%.1f',
         sum(students_graded) filter (where subject = 'ACCY')
-        / sum(graded_sections) filter (where subject = 'ACCY')
+        / sum(primary_sections) filter (where subject = 'ACCY')
     ) as "ACCY",
     printf(
         '%.1f',
         sum(students_graded) filter (where subject = 'BADM')
-        / sum(graded_sections) filter (where subject = 'BADM')
+        / sum(primary_sections) filter (where subject = 'BADM')
     ) as "BADM",
     printf(
         '%.1f',
         sum(students_graded) filter (where subject = 'BDI')
-        / sum(graded_sections) filter (where subject = 'BDI')
+        / sum(primary_sections) filter (where subject = 'BDI')
     ) as "BDI",
     printf(
         '%.1f',
         sum(students_graded) filter (where subject = 'BUS')
-        / sum(graded_sections) filter (where subject = 'BUS')
+        / sum(primary_sections) filter (where subject = 'BUS')
     ) as "BUS",
     printf(
         '%.1f',
         sum(students_graded) filter (where subject = 'FIN')
-        / sum(graded_sections) filter (where subject = 'FIN')
+        / sum(primary_sections) filter (where subject = 'FIN')
     ) as "FIN",
     printf(
         '%.1f',
         sum(students_graded) filter (where subject = 'MBA')
-        / sum(graded_sections) filter (where subject = 'MBA')
+        / sum(primary_sections) filter (where subject = 'MBA')
     ) as "MBA",
-    printf('%.1f', sum(students_graded) / sum(graded_sections)) as "All Gies"
-from "int_course_terms"
-where is_gies and term in ('Fall', 'Spring')
-    and (year * 10 + case term when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end) >= (2016 * 10 + case 'Fall' when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end)
+    printf('%.1f', sum(students_graded) / sum(primary_sections)) as "All Gies"
+from both_counts
 group by yearterm, year, term
 order by (year * 10 + case term when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end)
 ```
@@ -1382,6 +1349,7 @@ order by 1, subject, number
 |---|---:|---:|---:|---:|---:|---:|
 | 2026-10-23 | -10 | 509 | 225 |  |  |  |
 | 2026-10-24 | -9 | 509 | 225 | 0 | 0 |  |
+| 2026-10-25 | -8 | 509 | 225 | 0 | 0 |  |
 
 <details><summary>SQL</summary>
 
