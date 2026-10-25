@@ -15,7 +15,11 @@ peer_stats as (
         quantile_cont(value, 0.25) filter (where not is_illinois) as peer_p25,
         quantile_cont(value, 0.75) filter (where not is_illinois) as peer_p75,
         median(value) filter (where not is_illinois and control = 'public')
-            as public_peer_median_excl_il
+            as public_peer_median_excl_il,
+        quantile_cont(value, 0.25) filter (where not is_illinois and control = 'public')
+            as public_peer_p25,
+        quantile_cont(value, 0.75) filter (where not is_illinois and control = 'public')
+            as public_peer_p75
     from metric_values
     group by metric, data_year
 )
@@ -35,6 +39,8 @@ select
     s.peer_p25,
     s.peer_p75,
     s.public_peer_median_excl_il,
+    s.public_peer_p25,
+    s.public_peer_p75,
     cast(rank() over (partition by v.metric, v.data_year order by v.value desc) as integer)
         as rank_of_18,
     cast(count(*) over (partition by v.metric, v.data_year) as integer) as n_ranked,

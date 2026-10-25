@@ -23,6 +23,8 @@ grade_counts as (
         + 2.33 * c_plus + 2.0 * c + 1.67 * c_minus + 1.33 * d_plus + 1.0 * d + 0.67 * d_minus
             as points,
         a_plus + a + a_minus as a_range,
+        b_plus + b + b_minus as b_range,
+        c_plus + c + c_minus as c_range,
         d_plus + d + d_minus + f as d_or_f,
         c_plus + c + c_minus + d_plus + d + d_minus + f as c_or_below
     from sections
@@ -43,6 +45,9 @@ select
     sum(w) as w,
     sum(points) as grade_points,
     sum(a_range) as a_range,
+    sum(b_range) as b_range,
+    sum(c_range) as c_range,
+    sum(d_or_f) as d_or_f,
     sum(d_or_f) + sum(w) as dfw,
     sum(c_or_below) + sum(w) as c_or_below_w,
     sum(points) / sum(students) as gpa,

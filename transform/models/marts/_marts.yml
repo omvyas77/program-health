@@ -58,6 +58,10 @@ models:
     data_type: double
   - name: public_peer_median_excl_il
     data_type: double
+  - name: public_peer_p25
+    data_type: double
+  - name: public_peer_p75
+    data_type: double
   - name: rank_of_18
     data_type: integer
   - name: n_ranked
@@ -372,6 +376,22 @@ models:
     data_type: bigint
   - name: w
     data_type: bigint
+  - name: grade_a
+    data_type: bigint
+    data_tests:
+    - not_null
+  - name: grade_b
+    data_type: bigint
+    data_tests:
+    - not_null
+  - name: grade_c
+    data_type: bigint
+    data_tests:
+    - not_null
+  - name: grade_d_f
+    data_type: bigint
+    data_tests:
+    - not_null
   - name: gpa
     data_type: double
     data_tests:
@@ -565,3 +585,147 @@ models:
         arguments:
           min_value: 0
           max_value: 1
+- name: mart_course_watch_list
+  description: Gies undergraduate courses over the last four long terms, one row per course and term,
+    with course-level measures and the watch-list flag. Thresholds are the watch_* vars in dbt_project.yml.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - subject
+        - number
+        - yearterm
+  columns:
+  - name: subject
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: number
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: course
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: course_title
+    data_type: varchar
+  - name: yearterm
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: year
+    data_type: integer
+  - name: term
+    data_type: varchar
+  - name: students_graded
+    data_type: bigint
+    data_tests:
+    - not_null
+  - name: w
+    data_type: bigint
+  - name: c_or_below_w_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: dfw_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: is_term_at_threshold
+    data_type: boolean
+    data_tests:
+    - not_null
+  - name: terms_offered
+    data_type: bigint
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 1
+          max_value: 4
+  - name: graded_per_term_offered
+    data_type: double
+  - name: terms_at_threshold
+    data_type: bigint
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 4
+  - name: course_c_or_below_w_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: course_dfw_rate
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: is_on_watch_list
+    data_type: boolean
+    data_tests:
+    - not_null
+- name: mart_course_sections
+  description: Primary sections offered (catalog, distinct CRNs) next to graded sections and students
+    (GPA dataset), one row per Gies course and term.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - yearterm
+        - subject
+        - number
+  columns:
+  - name: yearterm
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: year
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: term
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: subject
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: number
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: course
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: course_level
+    data_type: integer
+  - name: is_undergraduate
+    data_type: boolean
+  - name: primary_sections
+    data_type: bigint
+  - name: graded_sections
+    data_type: bigint
+  - name: students_graded
+    data_type: bigint
+  - name: students_per_graded_section
+    data_type: double

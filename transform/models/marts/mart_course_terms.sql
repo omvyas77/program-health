@@ -1,5 +1,7 @@
 -- Gies course-terms from the GPA dataset. Only sections with 21 or more graded students are in
--- the data, so graded_sections counts those. Grades are not learning outcomes.
+-- the data, so graded_sections counts those. grade_a to grade_d_f count graded students by band
+-- (A+ to A-, B+ to B-, C+ to C-, D+ to F) and add up to students_graded. Grades are not
+-- learning outcomes.
 select
     c.yearterm,
     c.year,
@@ -13,6 +15,10 @@ select
     cast(c.graded_sections as bigint) as graded_sections,
     cast(c.students_graded as bigint) as students_graded,
     cast(c.w as bigint) as w,
+    cast(c.a_range as bigint) as grade_a,
+    cast(c.b_range as bigint) as grade_b,
+    cast(c.c_range as bigint) as grade_c,
+    cast(c.d_or_f as bigint) as grade_d_f,
     cast(c.gpa as double) as gpa,
     cast(c.a_range_share as double) as a_range_share,
     cast(c.dfw_rate as double) as dfw_rate,
