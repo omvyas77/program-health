@@ -507,7 +507,8 @@ models:
     data_type: boolean
 - name: mart_registration_watch
   description: Primary sections per Gies course in each daily Spring 2027 snapshot, with sections added
-    and removed. The API carries no enrollment status, so this tracks the section list only.
+    and removed and, from Oct 27, 2026, the course pages' enrollment status. Closed share is not a fill
+    rate.
   config:
     contract:
       enforced: true
@@ -540,6 +541,21 @@ models:
   - name: sections_removed_since_previous
     data_type: bigint
   - name: sections_added_since_open
+    data_type: bigint
+  - name: sections_with_status
+    data_type: bigint
+  - name: closed_sections
+    data_type: bigint
+  - name: restricted_sections
+    data_type: bigint
+  - name: closed_share
+    data_type: double
+    data_tests:
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 1
+  - name: reopened_since_previous
     data_type: bigint
 - name: mart_gies_outcomes
   description: First-year retention and four- and six-year graduation by college of entry, for first-time,

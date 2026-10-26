@@ -95,3 +95,33 @@ def sections_chart(frame, title):
         .configure_axis(gridColor=GRID, domainColor=GRID)
         .configure_title(anchor="start", fontSize=15)
     )
+
+
+def closed_share_chart(frame, title):
+    x = alt.X("days_since_registration_open:Q", title="Days since registration opened")
+    y = alt.Y(
+        "closed_percent:Q", title="Primary sections closed (%)", scale=alt.Scale(domain=[0, 100])
+    )
+    data = frame.assign(closed_percent=100 * frame.closed_share)
+    line = alt.Chart(data).mark_line(color=BLUE, strokeWidth=2).encode(x=x, y=y)
+    dots = (
+        alt.Chart(data)
+        .mark_point(color=BLUE, filled=True, size=64, stroke="white", strokeWidth=2)
+        .encode(
+            x=x,
+            y=y,
+            tooltip=[
+                alt.Tooltip("snapshot_date:T", title="Snapshot", format="%b %-d, %Y"),
+                alt.Tooltip("closed_sections:Q", title="Closed"),
+                alt.Tooltip("sections_with_status:Q", title="Primary sections with a status"),
+                alt.Tooltip("restricted_sections:Q", title="Open (Restricted)"),
+            ],
+        )
+    )
+    opening = alt.Chart().mark_rule(color="#8a8984", strokeWidth=1).encode(x=alt.datum(0))
+    return (
+        (line + dots + opening)
+        .properties(title=title, height=260)
+        .configure_axis(gridColor=GRID, domainColor=GRID)
+        .configure_title(anchor="start", fontSize=15)
+    )

@@ -12,3 +12,13 @@
 {% macro blank_to_empty(column) -%}
     coalesce(trim({{ column }}), '')
 {%- endmacro %}
+
+{#- True once a file matches the pattern. DuckDB fails on a read over an empty glob, so a model
+    over files that don't exist yet checks first. -#}
+{% macro files_exist(pattern) %}
+    {% if execute %}
+        {% set result = run_query("select count(*) from glob('" ~ pattern ~ "')") %}
+        {{ return(result.columns[0].values()[0] > 0) }}
+    {% endif %}
+    {{ return(false) }}
+{% endmacro %}

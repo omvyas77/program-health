@@ -51,6 +51,10 @@ sources:
       - name: cis_snapshots
         meta:
           external_location: "read_csv('data/snapshots/cis/*/*.csv', header = true, all_varchar = true, filename = true)"
+      - name: cis_status
+        description: Enrollment status from the daily 8:14 am Central pass over the Gies course pages.
+        meta:
+          external_location: "read_csv('data/snapshots/cis_status/*/*.csv', header = true, all_varchar = true, filename = true)"
 
   - name: dmi
     description: DMI fall reports, Fall 2012 to Fall 2025, from the Internet Archive.

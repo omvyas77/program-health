@@ -1,6 +1,6 @@
 # Writes reports/registration_watch_2027-sp.md from the exported mart_registration_watch after
-# each snapshot: where registration stands, the courses that added sections since it opened, and
-# what changed since the previous snapshot.
+# each snapshot: where registration stands, the courses that added sections since it opened, what
+# changed since the previous snapshot, and, once the course-page pass has run, closed sections.
 
 import logging
 import sys
@@ -14,10 +14,12 @@ log = logging.getLogger("registration_report")
 
 OUT = ROOT / "reports" / "registration_watch_2027-sp.md"
 NOTE = (
-    "The Course Explorer API doesn't report whether a section is open or closed, so this tracks "
-    "the section list. A section added after registration opens can mean demand ran ahead of the "
-    "schedule; it can also be a room or staffing change. Primary sections are lectures, "
-    "lecture-discussions, online lectures, and seminars, not discussions or labs."
+    "Enrollment status comes from the public course pages, read once a day at 8:14 am Central "
+    "with permission from the university's Tech Services. Closed isn't the same as full, and Open "
+    "(Restricted) means seats held for certain students; the closed share counts Closed only. A "
+    "section added after registration opens can mean demand ran ahead of the schedule; it can "
+    "also be a room or staffing change. Primary sections are lectures, lecture-discussions, "
+    "online lectures, and seminars, not discussions or labs."
 )
 
 
@@ -93,6 +95,7 @@ def report(watch):
                 )
             )
         lines += [""]
+    lines += status_lines(watch) + [""]
     lines += [
         NOTE,
         "",
@@ -100,6 +103,51 @@ def report(watch):
         "",
     ]
     return "\n".join(lines)
+
+
+def status_lines(watch):
+    lines = ["## Closed sections", ""]
+    known = watch[watch.sections_with_status > 0]
+    if known.empty:
+        return lines + [
+            "Enrollment status from the Gies course pages starts with the Oct 27, 2026 pass, read "
+            "at 8:14 am Central."
+        ]
+    dates = sorted(known.snapshot_date.unique())
+    today = known[known.snapshot_date == dates[-1]].set_index("course")
+    closed, total = int(today.closed_sections.sum()), int(today.sections_with_status.sum())
+    restricted = int(today.restricted_sections.sum())
+    lines.append(
+        f"As of the {day(pd.Timestamp(dates[-1]))} status pass, {closed:,} of {total:,} Gies "
+        f"primary sections ({100 * closed / total:.1f}%) were closed, and "
+        f"{restricted:,} {'was' if restricted == 1 else 'were'} Open (Restricted)."
+    )
+    full = today[today.closed_sections == today.sections_with_status]
+    if not full.empty:
+        rows = [(c, int(r.sections_with_status)) for c, r in full.sort_index().iterrows()]
+        lines += ["", render_table(["Course with every primary section closed", "Sections"], rows)]
+    if len(dates) > 1:
+        before = known[known.snapshot_date == dates[-2]].set_index("course")
+        joined = today.join(before[["closed_sections"]], rsuffix="_before", how="left")
+        moved = joined[
+            (joined.closed_sections != joined.closed_sections_before.fillna(0))
+            | (joined.reopened_since_previous.fillna(0) > 0)
+        ]
+        lines += ["", f"Since the {day(pd.Timestamp(dates[-2]))} pass:", ""]
+        if moved.empty:
+            lines.append("No Gies course's closed count changed.")
+        else:
+            rows = [
+                (
+                    c,
+                    int(0 if pd.isna(r.closed_sections_before) else r.closed_sections_before),
+                    int(r.closed_sections),
+                    int(0 if pd.isna(r.reopened_since_previous) else r.reopened_since_previous),
+                )
+                for c, r in moved.sort_index().iterrows()
+            ]
+            lines.append(render_table(["Course", "Closed before", "Closed now", "Reopened"], rows))
+    return lines
 
 
 def main():
