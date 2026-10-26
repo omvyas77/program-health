@@ -40,6 +40,12 @@ Retention and Graduation Rates: https://dair.illinois.edu/access-data/retention-
 3. Open the Graduation Rate Data Table tab with the same selections.
 4. Download the sheet Graduation Rates by College Non-Cumulative Data Table as graduation_by_entry_college.csv. It carries graduate counts by year group, so four- and six-year rates can be computed from counts.
 
+## The daily status pass
+
+.github/workflows/status.yml reads enrollment status from the Gies course pages once a day, on the terms Tech Services approved on Oct 26, 2026: two seconds between requests and a start at 8:14 am Central. It is scheduled at 13:14 and 14:14 UTC so one of them is 8:14 in Chicago on either side of daylight saving time, and the script itself runs only between 8:14 and 8:44 Central, so the other run, and any run GitHub starts too late, exits without a request. It takes its course list from the morning's API snapshot, makes about 250 requests over roughly ten minutes, writes data/snapshots/cis_status/2027-sp/ with each CRN and its status, rebuilds the registration watch, and commits. It stops by itself after the last day to add in config/registration.csv.
+
+Never run it outside that window, by hand or otherwise. If a run fails with an HTTP 202 and an empty body, the site's bot protection has challenged it: do not retry or change the request pattern; write to Tech Services, who approved the pass, and ask them to allow it.
+
 ## The weekly refresh
 
 .github/workflows/refresh.yml runs Mondays at 11:17 UTC and can be started by hand from the Actions tab (refresh, then Run workflow). It sends a HEAD request for every source in data/extracts/manifest.csv and treats a source as changed when its Last-Modified or ETag differs from the manifest. It reruns the ingest for changed sources only, then runs dbt build, the forecast, the export, and pytest. It publishes to the Google Sheet only if all of them pass, appends a row per mart to mart_refresh_log, and commits.

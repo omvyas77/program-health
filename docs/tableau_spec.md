@@ -329,7 +329,7 @@ Single column: Course Choice, Grade Bands By Term (360), Gies A-Range Trend (300
 
 Question: where is capacity tight?
 
-Layout: Course Choice control under the title; Sections By Term above Students By Term (both full width, aligned on the same term axis); Students Per Section (left half) beside Registration Curve (right half); footer.
+Layout: Course Choice control under the title; Sections By Term above Students By Term (both full width, aligned on the same term axis); Students Per Section (left half) beside the two Registration Curve sheets (right half); the two Closed Share sheets side by side; footer.
 
 ### Calculated fields, data source mart_course_sections
 
@@ -372,16 +372,30 @@ Layout: Course Choice control under the title; Sections By Term above Students B
   - **Registration Gies Total**: Columns Days Since Registration Open (continuous); Rows SUM(Primary Sections); Line, 2 pt, #2A78D6, markers on. Reference line at constant 0 on the column axis, solid #8C8C8C, label "Registration opens Nov 2". Title: "Gies lists <Sections At Latest Snapshot> primary sections for Spring 2027 as of <Latest Snapshot>; registration <ATTR(Registration Status)>".
   - **Registration Chosen Course**: same, filtered to Is Chosen Course True (in context). Title: "<Course Choice>: <Sections At Latest Snapshot> primary sections for Spring 2027". A course with no Spring 2027 sections leaves this sheet blank; its caption says so: "Blank when the course has no Spring 2027 primary sections."
 - Tooltip: "<Snapshot Date>, <Days Since Registration Open> days from opening: <Primary Sections> primary sections; <Sections Added Since Previous> added and <Sections Removed Since Previous> removed since the previous snapshot."
-- Caption under both: "The Course Explorer API doesn't report whether a section is open or closed, so this tracks the section list. A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change."
+- Caption under both: "A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change."
+
+### Sheet: Closed Share
+
+Enrollment status from the daily 8:14 am Central pass over the course pages, from Oct 27, 2026.
+
+- Data source mart_registration_watch. Filters: Is Chosen Course True (in context); SUM(Sections With Status) greater than 0, as a measure filter.
+- Calculated field **Closed Share Gies** = `SUM([Closed Sections]) / SUM([Sections With Status])`, used for the Gies-wide line.
+- Two small sheets, stacked like the registration curves:
+  - **Closed Share Gies**: Columns Days Since Registration Open (continuous); Rows Closed Share Gies, percent, one decimal, axis fixed 0% to 100%; Line, 2 pt, #2A78D6, markers on; filter only Sections With Status above 0 (no course filter). Title: "<Closed Share Gies at the latest snapshot> of Gies primary sections were closed as of <Latest Snapshot>".
+  - **Closed Share Chosen Course**: the same with Is Chosen Course True, using `SUM([Closed Sections]) / SUM([Sections With Status])`. Title: "<Course Choice>: <closed> of <with status> primary sections closed".
+- Reference line at constant 0 on the column axis, as on the registration curves.
+- Tooltip: "<Snapshot Date>: <Closed Sections> closed and <Restricted Sections> Open (Restricted) of <Sections With Status> primary sections; <Reopened Since Previous> reopened since the previous pass."
+- Caption: "Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only."
+- Check: empty until the first pass on Oct 27, 2026; then the values in reports/registration_watch_2027-sp.md.
 - Check (Oct 25, 2026): 509 primary sections, registration opens in 8 days; ACCY 201 3 sections. These change daily.
 
 ### Info text
 
-"Primary sections are lectures, lecture-discussions, online lectures, online lecture-discussions, and seminars in the course catalog, counted once per CRN; discussions and labs are left out. The catalog covers Fall 2016 on. Graded students come from the GPA dataset, which leaves out sections of 20 or fewer graded students and leaves out W. The registration watch reads the Course Explorer API once a day; it has no seat counts or open/closed status. Registration for Spring 2027 opens Nov 2, 2026, and the last day to add is Feb 1, 2027."
+"Primary sections are lectures, lecture-discussions, online lectures, online lecture-discussions, and seminars in the course catalog, counted once per CRN; discussions and labs are left out. The catalog covers Fall 2016 on. Graded students come from the GPA dataset, which leaves out sections of 20 or fewer graded students and leaves out W. The registration watch reads the Course Explorer API once a day for the section list, and the public course pages once a day at 8:14 am Central for each section's status, with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students. There are no seat counts or caps. Registration for Spring 2027 opens Nov 2, 2026, and the last day to add is Feb 1, 2027."
 
 ### Phone layout
 
-Single column: Course Choice, Sections By Term (220), Students By Term (220), Students Per Section (240), Registration Gies Total (220), Registration Chosen Course (220), footer.
+Single column: Course Choice, Sections By Term (220), Students By Term (220), Students Per Section (240), Registration Gies Total (220), Registration Chosen Course (220), Closed Share Gies (200), Closed Share Chosen Course (200), footer.
 
 ## After building
 

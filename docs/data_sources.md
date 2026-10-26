@@ -20,6 +20,10 @@ wadefagen/datasets, course-catalog/data/{term}.csv, at the same commit: 40 terms
 
 courses.illinois.edu/cisapp/explorer, documented as public with no authentication (answers.illinois.edu/88215). The daily snapshot reads the Spring 2027 section list for the six Gies subjects. The API carries no enrollment status; see docs/data_notes.md.
 
+## Course Explorer course pages
+
+courses.illinois.edu/schedule/2027/spring/{subject}/{number}. The pages show each section's availability (Open, Closed, Open (Restricted)), which the API doesn't. On Oct 26, 2026, the university's Tech Services approved one automated pass a day over the Gies course pages, with two seconds between requests and a start at 8:14 am Central, between their status updates. ingest/cis_status.py makes that pass from Oct 27, 2026 through Feb 1, 2027, the last day to add, and keeps only each CRN and its status in data/snapshots/cis_status/.
+
 ## DMI enrollment reports, through the Internet Archive
 
 The Division of Management Information published two fall reports this project uses: Enrollment by Curriculum and Class Level (stuenr/class/enrfaYY.htm) and the Statistical Abstract of Ten-Day Enrollment (stuenr/abstracts/faYY_ten2.htm). DMI's site now redirects to DAIR, so Fall 2012 to Fall 2025 come from the Internet Archive's copies of the original pages. config/dmi_pages.csv pins the capture used for each page. The ten-day abstract for Fall 2024 was never captured.
