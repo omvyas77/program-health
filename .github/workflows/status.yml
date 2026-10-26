@@ -2,27 +2,33 @@ name: status
 
 on:
   schedule:
-    # 8:14 am Central, the start time Tech Services set. GitHub schedules in UTC: 13:14 UTC is
-    # 8:14 while Chicago is on daylight time (through Oct 31, 2026) and 14:14 UTC is 8:14 after.
-    # The script checks Chicago time and runs only from 8:14 to 8:44, so the other run exits.
-    - cron: "14 13 * * *"
-    - cron: "14 14 * * *"
+    # GitHub has been starting scheduled jobs three to four hours late, so five runs start early
+    # and the first to begin waits, making no request, until 8:14 am Central, the start Tech
+    # Services set. Later runs find the day done and exit. 9:20 UTC is under five hours before
+    # 8:14 in either season, inside GitHub's six-hour job limit.
+    - cron: "20 9 * * *"
+    - cron: "20 10 * * *"
+    - cron: "20 11 * * *"
+    - cron: "20 12 * * *"
+    - cron: "20 13 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  # Shared with snapshot.yml and refresh.yml: all three commit data/marts.
-  group: data
-  cancel-in-progress: false
-
 jobs:
   status:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 350
+    # One pass at a time: a run waiting for 8:14 holds this group, and runs queued behind it start
+    # after it has pushed, find the day's file, and exit. It doesn't hold the data group, so a
+    # waiting run never blocks the snapshot or refresh jobs.
+    concurrency:
+      group: status
+      cancel-in-progress: false
+    outputs:
+      new: ${{ steps.status.outputs.new }}
     steps:
-      # The branch's latest commit, so the pass sees this morning's API snapshot.
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.ref_name }}
@@ -35,7 +41,7 @@ jobs:
 
       - run: pip install -r requirements-snapshot.txt
 
-      - name: Read enrollment status from the course pages
+      - name: Wait for 8:14 Central and read enrollment status
         id: status
         run: |
           python -m ingest.cis_status
@@ -43,24 +49,55 @@ jobs:
             echo "new=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Rebuild the registration watch and its report
+      - name: Commit the statuses
         if: steps.status.outputs.new == 'true'
+        run: |
+          git add data/snapshots/cis_status
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "status 2027-sp $(date -u +%F)"
+          git pull --rebase --autostash
+          git push
+
+  rebuild:
+    needs: status
+    if: needs.status.outputs.new == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    # Shared with snapshot.yml and refresh.yml: all three commit data/marts.
+    concurrency:
+      group: data
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-snapshot.txt
+
+      - run: pip install -r requirements-snapshot.txt
+
+      - name: Rebuild the registration watch and its report
         run: |
           mkdir -p warehouse
           dbt build --project-dir transform --profiles-dir transform --select +mart_registration_watch
           python -m publish.export mart_registration_watch
           python -m publish.registration_report
 
-      - name: Commit the statuses
+      - name: Commit the rebuilt watch
         run: |
-          git add data/snapshots/cis_status data/marts/mart_registration_watch.parquet \
-            data/marts/mart_registration_watch.csv reports/registration_watch_2027-sp.md
+          git add data/marts/mart_registration_watch.parquet data/marts/mart_registration_watch.csv \
+            reports/registration_watch_2027-sp.md
           if git diff --cached --quiet; then
-            echo "no new statuses"
+            echo "nothing changed"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "status 2027-sp $(date -u +%F)"
+          git commit -m "registration watch $(date -u +%F)"
           git pull --rebase --autostash
           git push

@@ -2,7 +2,14 @@ from datetime import datetime
 from pathlib import Path
 
 from ingest.cis_snapshot import parse_cascade
-from ingest.cis_status import CENTRAL, KNOWN_STATUSES, in_window, parse_course_page, write_statuses
+from ingest.cis_status import (
+    CENTRAL,
+    KNOWN_STATUSES,
+    in_window,
+    parse_course_page,
+    seconds_to_wait,
+    write_statuses,
+)
 
 FIXTURES = Path(__file__).parent / "fixtures" / "cis"
 
@@ -35,3 +42,16 @@ def test_written_file_holds_only_crn_and_status(tmp_path):
     lines = path.read_text().splitlines()
     assert lines[0] == "snapshot_utc,crn,status"
     assert len(lines) == len(availability) + 1
+
+
+def test_an_early_start_waits_until_8_14_and_a_late_one_skips():
+    def at(utc):
+        return datetime.fromisoformat(utc).astimezone(CENTRAL)
+
+    # 9:20 UTC on Nov 3 is 3:20 CST: wait 4 h 54 min, until 8:14.
+    assert seconds_to_wait(at("2026-11-03T09:20:00+00:00")) == (4 * 60 + 54) * 60
+    # Inside the window, start now.
+    assert seconds_to_wait(at("2026-11-03T14:20:00+00:00")) == 0
+    # After 8:44, or more than 5 h 45 min early, don't start at all.
+    assert seconds_to_wait(at("2026-11-03T14:45:00+00:00")) is None
+    assert seconds_to_wait(at("2026-11-03T08:00:00+00:00")) is None
