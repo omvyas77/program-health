@@ -13,3 +13,5 @@ sa.json
 .quarto/
 brief/*_files/
 .DS_Store
+brief/fonts/static/
+brief/brief.typ
