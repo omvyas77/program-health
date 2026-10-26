@@ -17,10 +17,10 @@ def new_session():
     return session
 
 
-def fetch(session, url, method="GET"):
+def fetch(session, url, method="GET", gap=REQUEST_GAP_S):
     failure = None
     for attempt in range(RETRIES + 1):
-        time.sleep(REQUEST_GAP_S)
+        time.sleep(gap)
         try:
             response = session.request(method, url, timeout=TIMEOUT_S, allow_redirects=True)
         except (requests.Timeout, requests.ConnectionError) as err:

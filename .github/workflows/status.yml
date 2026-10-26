@@ -1,0 +1,66 @@
+name: status
+
+on:
+  schedule:
+    # 8:14 am Central, the start time Tech Services set. GitHub schedules in UTC: 13:14 UTC is
+    # 8:14 while Chicago is on daylight time (through Oct 31, 2026) and 14:14 UTC is 8:14 after.
+    # The script checks Chicago time and runs only from 8:14 to 8:44, so the other run exits.
+    - cron: "14 13 * * *"
+    - cron: "14 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  # Shared with snapshot.yml and refresh.yml: all three commit data/marts.
+  group: data
+  cancel-in-progress: false
+
+jobs:
+  status:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # The branch's latest commit, so the pass sees this morning's API snapshot.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref_name }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-snapshot.txt
+
+      - run: pip install -r requirements-snapshot.txt
+
+      - name: Read enrollment status from the course pages
+        id: status
+        run: |
+          python -m ingest.cis_status
+          if [ -n "$(git status --porcelain data/snapshots/cis_status)" ]; then
+            echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Rebuild the registration watch and its report
+        if: steps.status.outputs.new == 'true'
+        run: |
+          mkdir -p warehouse
+          dbt build --project-dir transform --profiles-dir transform --select +mart_registration_watch
+          python -m publish.export mart_registration_watch
+          python -m publish.registration_report
+
+      - name: Commit the statuses
+        run: |
+          git add data/snapshots/cis_status data/marts/mart_registration_watch.parquet \
+            data/marts/mart_registration_watch.csv reports/registration_watch_2027-sp.md
+          if git diff --cached --quiet; then
+            echo "no new statuses"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "status 2027-sp $(date -u +%F)"
+          git pull --rebase --autostash
+          git push
