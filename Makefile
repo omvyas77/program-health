@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest build docs findings forecast export app publish report
+.PHONY: help snapshot ingest build docs findings forecast export app publish report brief
 
 PYTHON := .venv/bin/python
 DBT := .venv/bin/dbt
@@ -46,3 +46,8 @@ publish: ## write data/marts to the Google Sheet (needs SHEET_ID)
 
 report: ## write the registration watch report
 	$(PYTHON) -m publish.registration_report
+
+brief: build ## render brief/brief.pdf from the warehouse
+	$(DBT) compile --project-dir transform --profiles-dir transform --select "resource_type:analysis" -q
+	$(PYTHON) -m brief.figures
+	QUARTO_PYTHON=$(abspath $(PYTHON)) quarto render brief/brief.qmd --to typst
