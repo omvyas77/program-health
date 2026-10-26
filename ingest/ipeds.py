@@ -122,7 +122,7 @@ def decode(raw, label):
     raise ValueError(f"{label} is neither utf-8 nor cp1252")
 
 
-def extract(file, zip_path, unitids):
+def peer_rows(zip_path, unitids):
     with zipfile.ZipFile(zip_path) as z:
         name = choose_csv(z.namelist())
         text, encoding = decode(z.read(name), name)
@@ -130,7 +130,12 @@ def extract(file, zip_path, unitids):
     # NN.NNNN form and blanks stay blank. Typing happens in dbt staging.
     source = pd.read_csv(io.StringIO(text), dtype=str, keep_default_na=False)
     assert "UNITID" in source.columns, f"{name}: no UNITID column in {list(source.columns)[:5]}"
-    kept = source[source["UNITID"].str.strip().isin(unitids)]
+    kept = source[source["UNITID"].str.strip().isin(unitids)].reset_index(drop=True)
+    return name, encoding, len(source), kept
+
+
+def extract(file, zip_path, unitids):
+    name, encoding, source_rows, kept = peer_rows(zip_path, unitids)
     missing = sorted(unitids - set(kept["UNITID"].str.strip()))
     EXTRACTS_IPEDS.mkdir(parents=True, exist_ok=True)
     kept.to_parquet(EXTRACTS_IPEDS / f"{file}.parquet", index=False)
@@ -140,7 +145,7 @@ def extract(file, zip_path, unitids):
         name,
         encoding,
         len(kept),
-        len(source),
+        source_rows,
         18 - len(missing),
     )
     if missing:

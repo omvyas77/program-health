@@ -1,18 +1,27 @@
 # Weekly refresh, first step: decide which sources changed since data/extracts/manifest.csv was
 # written, rerun the ingest for those only, and list files that have newly appeared upstream.
-# A source counts as changed when a HEAD request returns a different Last-Modified or ETag from
-# the manifest's. New files are listed, not ingested: a new IPEDS year needs its dictionary read
-# and a new catalog term needs a code change, so both wait for a person.
-# Writes a JSON summary for the workflow's later steps.
+# A HEAD request comes first; when its Last-Modified or ETag differs from the manifest's, the file
+# is downloaded and checked. An IPEDS file counts as changed only if the peer rows it yields (or,
+# for a dictionary, its title and release line) differ from what is committed: NCES serves copies
+# of the same file zipped at different times to different networks, so neither headers nor zip
+# bytes settle it (HD2024 on Oct 25, 2026). Other files count as changed when their SHA-256
+# differs. New files are listed, not ingested: a new IPEDS year needs its
+# dictionary read and a new catalog term needs a code change, so both
+# wait for a person. Writes a JSON summary for the workflow's later steps.
 
 import argparse
 import csv
+import hashlib
 import json
 import logging
 import sys
+import tempfile
+from pathlib import Path
+
+import pandas as pd
 
 from ingest import catalog, gpa, ipeds, tre, wiche
-from ingest.http import fetch, new_session
+from ingest.http import fetch, new_session, require_ok
 from ingest.paths import CONFIG
 from ingest.sources import MANIFEST, WADEFAGEN_REPO, github_head, wadefagen_url
 
@@ -55,12 +64,40 @@ def head(session, url):
     return response.headers
 
 
-def changed_files(session, manifest, prefix, url_for):
+def content_differs(session, url, source, row):
+    content = require_ok(fetch(session, url))
+    return hashlib.sha256(content).hexdigest() != row["sha256"]
+
+
+def ipeds_extract_differs(session, url, source, row):
+    name = Path(source).stem
+    with tempfile.TemporaryDirectory() as folder:
+        path = Path(folder) / Path(source).name
+        path.write_bytes(require_ok(fetch(session, url)))
+        if name.endswith("_Dict"):
+            dictionary = ipeds.read_dictionary(path)
+            with ipeds.DICTIONARY_TITLES.open(newline="") as f:
+                stored = {r["file"]: r for r in csv.DictReader(f)}[name.removesuffix("_Dict")]
+            return (str(dictionary["title"]), str(dictionary["release"])) != (
+                stored["title"],
+                stored["release"],
+            )
+        _, _, _, kept = ipeds.peer_rows(path, ipeds.read_peer_unitids())
+    return not kept.equals(pd.read_parquet(ipeds.EXTRACTS_IPEDS / f"{name}.parquet"))
+
+
+def changed_files(session, manifest, prefix, url_for, confirm=content_differs):
     changed = []
     for source, row in manifest.items():
-        if source.startswith(prefix) and differs(row, head(session, url_for(source, row))):
-            log.info("%s changed", source)
-            changed.append(source)
+        if not source.startswith(prefix):
+            continue
+        url = url_for(source, row)
+        if differs(row, head(session, url)):
+            if confirm(session, url, source, row):
+                log.info("%s changed", source)
+                changed.append(source)
+            else:
+                log.info("%s: new headers, same content", source)
     return changed
 
 
@@ -120,7 +157,9 @@ def check(session):
     manifest = read_manifest()
     files = read_ipeds_files()
     changed = {
-        "ipeds": changed_files(session, manifest, "ipeds/", lambda source, row: row["url"]),
+        "ipeds": changed_files(
+            session, manifest, "ipeds/", lambda source, row: row["url"], ipeds_extract_differs
+        ),
         "wiche": changed_files(session, manifest, "wiche/", lambda source, row: row["url"]),
     } | check_wadefagen(session, manifest)
     return {
