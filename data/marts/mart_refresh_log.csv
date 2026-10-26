@@ -37,3 +37,17 @@ run_utc,trigger,git_sha,mart,rows,sources_changed,new_ipeds_files,new_catalog_te
 2026-10-25T22:43:45Z,workflow_dispatch,c7de04fd9d8d11506fe77aa6b30627ff6bd86d52,mart_registration_watch,675,ipeds: 2 files,,,149,0,0,True
 2026-10-25T22:43:45Z,workflow_dispatch,c7de04fd9d8d11506fe77aa6b30627ff6bd86d52,mart_section_spread,1039,ipeds: 2 files,,,149,0,0,True
 2026-10-25T22:43:45Z,workflow_dispatch,c7de04fd9d8d11506fe77aa6b30627ff6bd86d52,mart_sections_offered,6506,ipeds: 2 files,,,149,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_business_completions,6121,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_course_sections,5611,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_course_terms,4174,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_course_watch_list,308,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_funnel,195,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_gies_enrollment,328,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_gies_new_students,60,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_gies_outcomes,487,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_peer_metrics,2996,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_projection,41,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_projection_assumptions,3,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_registration_watch,675,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_section_spread,1039,none,,,153,0,0,True
+2026-10-26T17:24:49Z,schedule,11298d7e7e5a95ae68b7f9733148987e9285314d,mart_sections_offered,6506,none,,,153,0,0,True
