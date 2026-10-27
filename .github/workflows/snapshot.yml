@@ -68,3 +68,12 @@ jobs:
           # files, and the shared concurrency group keeps them apart, so the rebase is clean.
           git pull --rebase
           git push
+
+      # After the commit, so a Sheets error can't hold back the snapshot. Tableau Public reads
+      # the Sheet once a day; without this its registration tab would change only on Mondays.
+      - name: Publish the watch to the Google Sheet
+        if: steps.snapshot.outputs.new == 'true'
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+        run: python -m publish.sheets mart_registration_watch

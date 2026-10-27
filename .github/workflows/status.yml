@@ -103,3 +103,10 @@ jobs:
           git commit -m "registration watch $(date -u +%F)"
           git pull --rebase --autostash
           git push
+
+      # As in snapshot.yml: after the commit, so the Sheet carries the day's closed share.
+      - name: Publish the watch to the Google Sheet
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          SHEET_ID: ${{ secrets.SHEET_ID }}
+        run: python -m publish.sheets mart_registration_watch
