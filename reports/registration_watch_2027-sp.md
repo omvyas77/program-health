@@ -1,12 +1,12 @@
 # Spring 2027 registration watch
 
-As of the Oct 25, 2026 snapshot, registration opens in 8 days, on Nov 2, 2026. Gies lists 509 primary sections across 225 courses.
+As of the Oct 27, 2026 snapshot, registration opens in 6 days, on Nov 2, 2026. Gies lists 509 primary sections across 225 courses.
 
 ## Sections added since registration opened
 
 Registration hasn't opened yet.
 
-## Since the previous snapshot, Oct 24, 2026
+## Since the previous snapshot, Oct 25, 2026
 
 No Gies course gained or lost a primary section.
 
