@@ -63,13 +63,13 @@ The online origins start in Fall 2021, once five falls exist. With 2 to 5 foreca
 
 This is a what-if, not a forecast, and it is institution-level. If UIUC's in-state applicants rise and fall with Illinois's public and private high school graduates from Fall 2025 on, and in-state yield holds at its Fall 2025 level, what in-state admit rate keeps in-state enrollment flat through Fall 2035? Flat enrollment at a fixed yield needs the same number of admits each year, so the answer is Fall 2025's in-state admits divided by each year's projected in-state applicants. WICHE projects 144,561 Illinois graduates in the class of 2025 and 119,005 in the class of 2035, 17.7% fewer.
 
-The what-if reads only verified Common Data Set rows (data/manual/cds_c1.csv) and is left out of the mart until Illinois's are verified.
+The what-if reads only verified Common Data Set rows (data/manual/cds_c1.csv). Illinois's Fall 2025 in-state figures are 29,419 applicants, 14,509 admits (49.3%), and 6,587 enrolled (a yield of 45.4%). Holding in-state enrollment flat as the class of 2035 shrinks would take an in-state admit rate of 59.9% by Fall 2035. This leans on two simplifications: that in-state applicants move one for one with Illinois graduates, and that yield holds; neither is likely to hold exactly, which is why it is a what-if.
 
 ## What would change the outlook
 
 Each 50 more first-time freshmen a year adds 143 undergraduates by Fall 2030. Each 0.01 added to c adds 109. If freshmen hold at Fall 2026's 901 instead of the three-year mean, the base reaches 4,180 by Fall 2030 instead of 3,841.
 
-<!-- YOU: two sentences for the brief on what would change the outlook. -->
+Holding freshmen at Fall 2026's 901 instead of the three-year mean of 783 would add about 340 undergraduates by Fall 2030, about as much as the whole high scenario. A one-point change in the share who continue moves Fall 2030 by about 110, so intake, not continuation, is the number to watch.
 
 ## Decisions
 
