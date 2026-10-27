@@ -129,7 +129,7 @@ courses.illinois.edu wasn't requested. Its pages are read only by the approved d
 | ci | Every push today | Pass |
 | snapshot | Oct 26, 19:11 and 23:17 UTC | Failed. The job builds only the registration watch's models on an empty warehouse, and dbt's default test selection also picked assert_course_sections_match_sources, which reads mart_course_sections. It began once the status columns made the watch read int_type_codes. |
 | snapshot | Oct 27, 00:49 UTC, started by hand | Pass, PASS=13, after adding --indirect-selection cautious to snapshot.yml and status.yml. The same failure and fix were reproduced first on an empty warehouse in the fresh clone. |
-| status | First pass Oct 27 at 8:14 am Central | Its rebuild job had the same selection and would have failed the same way; it has the same fix. |
+| status | Oct 27, scheduled from 9:20 UTC | Never started before the window closed: GitHub ran none of the five morning runs in time. The workflow now starts the evening before and relays to fresh runs (data_notes.md, runbook.md). Its rebuild job has the same test-selection fix. |
 
 Snapshots are named by UTC date and the API shows only the current state, so Oct 26 has no snapshot (data_notes.md). Both daily jobs now also write the mart_registration_watch tab to the Google Sheet after they commit, so Tableau's registration curves follow the day's data instead of waiting for Monday's refresh.
 
