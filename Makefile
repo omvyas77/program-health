@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest build docs findings forecast export app publish report brief
+.PHONY: help snapshot ingest build docs findings forecast export app publish report brief guide all
 
 PYTHON := .venv/bin/python
 DBT := .venv/bin/dbt
@@ -51,3 +51,8 @@ brief: build ## render brief/brief.pdf from the warehouse
 	$(DBT) compile --project-dir transform --profiles-dir transform --select "resource_type:analysis" -q
 	$(PYTHON) -m brief.figures
 	QUARTO_PYTHON=$(abspath $(PYTHON)) quarto render brief/brief.qmd --to typst
+
+guide: ## render brief/guide.pdf
+	QUARTO_PYTHON=$(abspath $(PYTHON)) quarto render brief/guide.qmd --to typst
+
+all: ingest build forecast export ## download every source, then build, forecast, and export
