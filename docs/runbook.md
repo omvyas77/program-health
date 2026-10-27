@@ -46,6 +46,16 @@ Retention and Graduation Rates: https://dair.illinois.edu/access-data/retention-
 
 Never run it outside that window, by hand or otherwise. If a run fails with an HTTP 202 and an empty body, the site's bot protection has challenged it: do not retry or change the request pattern; write to Tech Services, who approved the pass, and ask them to allow it.
 
+## Starting a new registration term
+
+The registration watch is built for Spring 2027. For another term:
+
+1. Ask Tech Services again before reading the course pages for the new term. Their Oct 26, 2026 approval covers the Spring 2027 Gies pages through Feb 1, 2027.
+2. Add a row to config/registration.csv with the term, the first day of registration, and the last day to add.
+3. In ingest/cis_snapshot.py, set TERM and the year and semester in API_BASE; in ingest/cis_status.py, the year and semester in WEB_BASE. Snapshots for the new term land in their own folders under data/snapshots/.
+4. Rename the report in publish/registration_report.py and the files the workflows commit.
+5. Run make snapshot once by hand to check the API, then let the scheduled jobs take over. The status pass needs no test run: never run it outside 8:14 to 8:44 Central.
+
 ## The weekly refresh
 
 .github/workflows/refresh.yml runs Mondays at 11:17 UTC and can be started by hand from the Actions tab (refresh, then Run workflow). It sends a HEAD request for every source in data/extracts/manifest.csv and treats a source as changed when its Last-Modified or ETag differs from the manifest. It reruns the ingest for changed sources only, then runs dbt build, the forecast, the export, and pytest. It publishes to the Google Sheet only if all of them pass, appends a row per mart to mart_refresh_log, and commits.
