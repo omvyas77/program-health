@@ -1,0 +1,65 @@
+---
+format:
+  typst:
+    papersize: us-letter
+    margin:
+      x: 0.7in
+      y: 0.5in
+    mainfont: "Source Serif 4"
+    fontsize: 9.5pt
+    font-paths: ["fonts"]
+    page-numbering: false
+    include-in-header:
+      - text: |
+          #set text(lang: "en", hyphenate: true)
+          #set par(leading: 0.55em, spacing: 0.75em)
+          #show heading: set text(font: "Source Sans 3", weight: "semibold", size: 10.5pt)
+          #show heading: set block(above: 0.9em, below: 0.45em)
+execute:
+  echo: false
+  warning: false
+jupyter: python3
+---
+
+```{=typst}
+#text(font: "Source Sans 3", size: 17pt, weight: "semibold")[Gies program health: a one-page guide]
+#v(-0.5em)
+#text(font: "Source Sans 3", size: 9.5pt, fill: rgb("#555555"))[For faculty and staff with five minutes. An independent project built from public data, not affiliated with or endorsed by the University of Illinois.]
+```
+
+```{python}
+#| output: asis
+# The annotated screenshot, once it exists, capped in height so the guide stays one page;
+# the page reads complete without it.
+from pathlib import Path
+
+if Path("guide_screenshot.png").exists():
+    print("![](guide_screenshot.png){height=2.0in fig-align=\"center\"}")
+```
+
+The dashboard shows how Gies programs are doing, from enrollment and Illinois's standing among the 18 Big Ten universities to course grades and the Spring 2027 schedule. It is meant to point to questions worth asking, and every chart says what it can and can't show.
+
+## The four dashboards
+
+| Dashboard | The question it answers |
+|----|------------------------------|
+| Overview | How are Gies programs doing? Headcount, the online share, retention, and business degrees in four numbers, then headcount by program group. |
+| Peers | Where does Illinois stand among the Big Ten? Pick a metric; see every school, Illinois over time, and admission against yield. |
+| Courses | Where should an assessment committee look? Grades by course and term, the Gies-wide trend, a watch list, and how much sections of one course differ. |
+| Scheduling | Where is capacity tight? Sections and graded students by course, students per section, and daily registration curves. |
+
+## How to read the charts
+
+Blue is Illinois or Gies; gray dots are the other Big Ten schools. The shaded band is the middle half of the peers, their 25th to 75th percentiles, with Illinois left out. Hollow marks are provisional IPEDS data, which can still change. Dashed lines are projections. On Peers, choose a metric and whether to compare with all 18 schools or the 16 public ones. On Courses and Scheduling, one course choice drives both dashboards. The Definitions button at the top right of each dashboard opens the full definitions, and Revert in the toolbar under the dashboard resets every choice.
+
+## Six definitions
+
+**First-year retention:** the share of a fall's first-time, full-time freshmen who are enrolled again the next fall. **Six-year graduation rate:** the share of an entering cohort who graduate within six years. **Yield:** the share of admitted applicants who enroll. **DFW rate:** D and F grades plus withdrawals, over graded students plus withdrawals. **Students per section:** graded students over primary sections, lectures and seminars rather than discussions or labs; it runs a little low because the grade data leave out sections of 20 or fewer students. **Closed share:** primary sections marked Closed on the course pages over primary sections with a status.
+
+## Four cautions
+
+Most peer figures describe the whole university, not Gies; only the enrollment reports and the retention and graduation tables by college of entry are Gies figures. Grades describe grading, not learning, so a high or rising A share is a reason to look, not a verdict. A closed section isn't necessarily full, and Open (Restricted) means seats held for certain students. Small differences are noise: a rank can move on a tenth of a point.
+
+## When the data refreshes, and reporting a problem
+
+Every Monday the pipeline checks each source for changes and republishes; during registration it records the schedule every morning, reading section status at 8:14 am Central. The dashboards pick up the data once a day, and each shows its refresh date in the footer. To report a problem or ask a question, open an issue at github.com/omvyas77/program-health/issues.
