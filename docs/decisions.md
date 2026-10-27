@@ -51,3 +51,7 @@ The choices that shape what this project says, newest last, each with the reason
 ## Registration status (Oct 26, 2026)
 
 **Tech Services approved one pass a day over the Gies course pages:** two seconds between requests, starting at 8:14 am Central, through Feb 1, 2027. GitHub starts scheduled jobs hours late, so the job starts early and waits until 8:14, and it skips a day rather than start after 8:44. Closed share counts sections marked Closed; Open (Restricted) counts as open. See data_notes.md and runbook.md.
+
+**The registration watch reaches the Sheet every day,** written by the snapshot and status jobs after they commit, while every other tab still waits for the Monday refresh. Tableau Public reads the Sheet once a day, and registration is the one dataset that changes daily.
+
+**The daily jobs run a test only when they built everything it reads** (dbt's cautious selection). They build the registration watch alone, and a test that also reads the course marts broke both Oct 26 snapshot runs.

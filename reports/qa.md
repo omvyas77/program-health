@@ -11,6 +11,7 @@ The final checks, run before the application deadline. The two that need a publi
 | Secrets | Pass. The one private_key line in the history is a planning note's QA instruction. |
 | Links | Pass. 15 of 15 resolve; two NCES paths are download folders with no index page, and the files under them load. |
 | PDFs render | Pass. brief/brief.pdf is 4 pages, brief/guide.pdf is 1 page. |
+| Scheduled jobs | Fixed. Both Oct 26 snapshot runs had failed; the cause is fixed and a run by hand passed. Oct 26 has no snapshot. |
 | The app wakes; the dashboard shows its refresh date | Not run. The app isn't deployed and the dashboards aren't published. |
 
 ## A fresh clone runs make all
@@ -120,6 +121,17 @@ courses.illinois.edu wasn't requested. Its pages are read only by the approved d
 |---|---:|---|
 | brief/brief.pdf | 4 | make brief (Quarto 1.10.19, Typst 0.15.1) |
 | brief/guide.pdf | 1 | make guide; still one page with a 2.0 in screenshot in place |
+
+## Scheduled jobs
+
+| Workflow | Last runs | Result |
+|---|---|---|
+| ci | Every push today | Pass |
+| snapshot | Oct 26, 19:11 and 23:17 UTC | Failed. The job builds only the registration watch's models on an empty warehouse, and dbt's default test selection also picked assert_course_sections_match_sources, which reads mart_course_sections. It began once the status columns made the watch read int_type_codes. |
+| snapshot | Oct 27, 00:49 UTC, started by hand | Pass, PASS=13, after adding --indirect-selection cautious to snapshot.yml and status.yml. The same failure and fix were reproduced first on an empty warehouse in the fresh clone. |
+| status | First pass Oct 27 at 8:14 am Central | Its rebuild job had the same selection and would have failed the same way; it has the same fix. |
+
+Snapshots are named by UTC date and the API shows only the current state, so Oct 26 has no snapshot (data_notes.md). Both daily jobs now also write the mart_registration_watch tab to the Google Sheet after they commit, so Tableau's registration curves follow the day's data instead of waiting for Monday's refresh.
 
 ## Not run yet
 
