@@ -2,27 +2,35 @@ name: status
 
 on:
   schedule:
-    # GitHub has been starting scheduled jobs three to four hours late, so five runs start early
-    # and the first to begin waits, making no request, until 8:14 am Central, the start Tech
-    # Services set. Later runs find the day done and exit. 9:20 UTC is under five hours before
-    # 8:14 in either season, inside GitHub's six-hour job limit.
+    # GitHub starts this repo's scheduled jobs two to six hours late, and on Oct 27, 2026 none of
+    # the morning runs started before 8:44 Central. So the chain starts the evening before (0:20
+    # and 2:20 UTC are 6:20 to 9:20 pm Central): a run too far from 8:14 sleeps, making no
+    # request, then starts a fresh run, which begins within seconds, until one can wait for 8:14
+    # inside the job limit (ingest/cis_status.py). The morning runs stay as backups.
+    - cron: "20 0 * * *"
+    - cron: "20 2 * * *"
     - cron: "20 9 * * *"
-    - cron: "20 10 * * *"
     - cron: "20 11 * * *"
-    - cron: "20 12 * * *"
     - cron: "20 13 * * *"
   workflow_dispatch:
+    inputs:
+      check_relay:
+        description: Only start the next run, to check the hand-off. Reads nothing.
+        type: boolean
+        default: false
 
 permissions:
   contents: write
+  # to start the next run in the chain
+  actions: write
 
 jobs:
   status:
     runs-on: ubuntu-latest
     timeout-minutes: 350
-    # One pass at a time: a run waiting for 8:14 holds this group, and runs queued behind it start
-    # after it has pushed, find the day's file, and exit. It doesn't hold the data group, so a
-    # waiting run never blocks the snapshot or refresh jobs.
+    # One run at a time: a sleeping or waiting run holds this group. GitHub keeps one run pending
+    # behind it and cancels any older pending one, and whichever starts follows the same plan, so
+    # the chain survives. It doesn't hold the data group, so it never blocks the snapshot or refresh.
     concurrency:
       group: status
       cancel-in-progress: false
@@ -41,13 +49,20 @@ jobs:
 
       - run: pip install -r requirements-snapshot.txt
 
-      - name: Wait for 8:14 Central and read enrollment status
+      - name: Wait for 8:14 Central and read enrollment status, or relay
         id: status
+        if: ${{ !inputs.check_relay }}
         run: |
           python -m ingest.cis_status
           if [ -n "$(git status --porcelain data/snapshots/cis_status)" ]; then
             echo "new=true" >> "$GITHUB_OUTPUT"
           fi
+
+      - name: Start the next run in the chain
+        if: steps.status.outputs.relay == 'true' || inputs.check_relay
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run status.yml --ref "${{ github.ref_name }}"
 
       - name: Commit the statuses
         if: steps.status.outputs.new == 'true'

@@ -2,14 +2,17 @@
 # The Course Explorer API has no status field, and on Oct 26, 2026 Tech Services approved one
 # automated pass a day over the Gies course pages on two conditions: two seconds between
 # requests, and a start at 8:14 am Central, which falls between their status updates. GitHub
-# starts scheduled jobs hours late, so the workflow starts early and this waits, making no
-# request, until 8:14. It runs only from 8:14 to 8:44 Central and stops after the last day to
-# add. Its course list comes from the latest API snapshot, so it makes no API calls. Only each
+# starts this repo's scheduled jobs two to six hours late and ends any job after six, so the
+# workflow starts the evening before and relays: a run too far from 8:14 sleeps, making no
+# request, then has the workflow start a fresh run, until one is close enough to wait for 8:14.
+# It runs only from 8:14 to 8:44 Central and stops after the last day to add. Its course list
+# comes from the latest API snapshot, so it makes no API calls. Only each
 # CRN and its status are kept: the instructor cell is never read and no page is saved. A
 # bot-protection challenge stops the pass with nothing written; it is never worked around.
 
 import csv
 import logging
+import os
 import sys
 import time
 from datetime import UTC, datetime, timedelta
@@ -27,8 +30,14 @@ log = logging.getLogger("cis_status")
 WEB_BASE = "https://courses.illinois.edu/schedule/2027/spring"
 CENTRAL = ZoneInfo("America/Chicago")
 WINDOW = (clock(8, 14), clock(8, 44))
-# GitHub ends a job after six hours; the earliest scheduled start is about five hours before 8:14.
-MAX_WAIT = timedelta(hours=5, minutes=45)
+# The workflow's job timeout is 350 minutes. A run waits for 8:14 only when the wait and a
+# ten-minute pass fit inside it; a relay sleeps less than that and leaves its successor about two
+# hours before 8:14. A run more than 16 hours off is a scheduled run that started after the day's
+# window, and the evening's relay already covers the next one.
+MAX_WAIT = timedelta(hours=5)
+RELAY_SLEEP = timedelta(hours=5, minutes=15)
+RELAY_LEAD = timedelta(hours=2)
+MAX_LEAD = timedelta(hours=16)
 REQUEST_GAP_S = 2.0
 COLUMNS = ["snapshot_utc", "crn", "status"]
 KNOWN_STATUSES = {
@@ -46,16 +55,35 @@ def in_window(now_central):
     return WINDOW[0] <= now_central.time() <= WINDOW[1]
 
 
-def seconds_to_wait(now_central):
-    # None when the window has passed or is too far off to wait for; otherwise how long to sleep.
-    start = now_central.replace(
-        hour=WINDOW[0].hour, minute=WINDOW[0].minute, second=0, microsecond=0
-    )
+def next_start(now_central):
+    # 8:14 today until the window closes at 8:44, then 8:14 tomorrow.
+    day = now_central.date()
+    if now_central.time() > WINDOW[1]:
+        day += timedelta(days=1)
+    return datetime.combine(day, WINDOW[0], tzinfo=CENTRAL)
+
+
+def plan(now_central):
+    # ("run", seconds to wait before the pass), ("relay", seconds to sleep before handing off to a
+    # fresh run), or ("skip", None). The gap is taken in UTC: subtracting two datetimes that share
+    # a ZoneInfo compares wall clocks and is an hour off across the Nov 1 change to standard time.
     if in_window(now_central):
-        return 0
-    if now_central < start and start - now_central <= MAX_WAIT:
-        return (start - now_central).total_seconds()
-    return None
+        return "run", 0
+    ahead = next_start(now_central).astimezone(UTC) - now_central.astimezone(UTC)
+    if ahead <= MAX_WAIT:
+        return "run", ahead.total_seconds()
+    if ahead <= MAX_LEAD:
+        return "relay", min(RELAY_SLEEP, ahead - RELAY_LEAD).total_seconds()
+    return "skip", None
+
+
+def hand_off():
+    # The workflow reads this output and starts the next run, which begins within seconds; only
+    # scheduled starts are delayed.
+    output = os.environ.get("GITHUB_OUTPUT")
+    if output:
+        with open(output, "a") as f:
+            f.write("relay=true\n")
 
 
 def course_list(term_dir):
@@ -110,16 +138,22 @@ def write_statuses(statuses, path, snapshot_utc):
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     central = datetime.now(UTC).astimezone(CENTRAL)
-    if central.date() > read_last_day_to_add():
+    action, wait = plan(central)
+    if action == "skip":
+        log.info("%s Central is too far from the next 8:14; the evening relay covers it", central)
+        return 0
+    day = next_start(central).date()
+    if day > read_last_day_to_add():
         log.info("past the last day to add; nothing to do")
         return 0
-    path = STATUS_SNAPSHOTS / TERM / f"{central.date()}.csv"
+    path = STATUS_SNAPSHOTS / TERM / f"{day}.csv"
     if path.exists():
         log.info("%s already exists", path.relative_to(ROOT))
         return 0
-    wait = seconds_to_wait(central)
-    if wait is None:
-        log.info("%s Central can't start a pass between 8:14 and 8:44 today", central)
+    if action == "relay":
+        log.info("sleeping %.0f minutes, then handing off to a fresh run", wait / 60)
+        time.sleep(wait)
+        hand_off()
         return 0
     if wait:
         log.info("waiting %.0f minutes, until 8:14 Central", wait / 60)
