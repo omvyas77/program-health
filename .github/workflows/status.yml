@@ -84,7 +84,9 @@ jobs:
       - name: Rebuild the registration watch and its report
         run: |
           mkdir -p warehouse
-          dbt build --project-dir transform --profiles-dir transform --select +mart_registration_watch
+          # cautious: skip tests that also read marts this job doesn't build
+          dbt build --project-dir transform --profiles-dir transform --select +mart_registration_watch \
+            --indirect-selection cautious
           python -m publish.export mart_registration_watch
           python -m publish.registration_report
 
