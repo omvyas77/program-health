@@ -94,7 +94,7 @@ A scheduled job reads the Spring 2027 schedule from Course Explorer every day. A
 
 ## Outlook
 
-I project Gies undergraduate headcount as a stock and flow: next fall's undergraduates are the first-time freshmen and new transfers who arrive plus the share of this fall's undergraduates who continue. The base scenario holds freshmen at `{python} n.base_freshmen` and transfers at `{python} n.base_transfers` a year, their mean over Falls `{python} n.intake_first_fall` to `{python} n.LATEST_FALL`, and the continuing share at `{python} n.base_c_pct`, the median of the last five fall-to-fall transitions outside covid. It reaches `{python} n.base_2030` undergraduates by Fall `{python} n.LAST_PROJECTED_FALL`, with low and high scenarios of `{python} n.low_2030` and `{python} n.high_2030` (@fig-projection).
+I project Gies undergraduate headcount as a stock and flow: next fall's undergraduates are the new freshmen and transfers plus the share of this fall's who continue. The base scenario holds freshmen at `{python} n.base_freshmen` and transfers at `{python} n.base_transfers` a year, their mean over Falls `{python} n.intake_first_fall` to `{python} n.LATEST_FALL`, and the continuing share at `{python} n.base_c_pct`, the median of the last five fall-to-fall transitions outside covid. It reaches `{python} n.base_2030` undergraduates by Fall `{python} n.LAST_PROJECTED_FALL`, with low and high scenarios of `{python} n.low_2030` and `{python} n.high_2030` (@fig-projection).
 
 ![Gies undergraduate headcount, actual and projected.](figures/projection.svg){#fig-projection width=90% fig-alt="Line of Gies undergraduate headcount from 2012 to 2026 with the base projection to 2030 and a shaded low-to-high range"}
 
@@ -113,11 +113,10 @@ lead = (
 )
 if n.what_if_ready:
     print(
-        f"{lead} If UIUC's in-state applicants fell in step and in-state yield held at its Fall "
-        f"{n.WICHE_FROM} level of {n.in_state_yield_2025}, keeping in-state enrollment flat "
-        f"would take an in-state admit rate of {n.in_state_admit_2035} by Fall {n.WICHE_TO}, "
-        f"against {n.in_state_admit_2025} in Fall {n.WICHE_FROM}. This is a what-if for the "
-        "whole university, not a forecast."
+        f"{lead} If UIUC's in-state applicants fell in step and in-state yield held at "
+        f"{n.in_state_yield_2025}, flat in-state enrollment would need an in-state admit rate of "
+        f"{n.in_state_admit_2035} by Fall {n.WICHE_TO}, against {n.in_state_admit_2025} in Fall "
+        f"{n.WICHE_FROM}: a what-if for the whole university, not a forecast."
     )
 else:
     print(
@@ -132,15 +131,15 @@ Public data stop where the questions get specific. Student records would give re
 
 ## Methods and sources
 
-Every number in this brief is computed from the project's data marts by code in the repository; the analysis tables behind it are in docs/findings.md, and the projection's equations and backtest in docs/projection_method.md. Peer medians are the median of the 17 Big Ten schools other than Illinois. Penn State is missing from its 2019 to 2021 IPEDS collections, when it reported all campuses together.
+Every number here is computed by code in the repository; the analysis tables are in docs/findings.md and the projection method in docs/projection_method.md. Peer medians are the median of the 17 Big Ten schools other than Illinois. Penn State is missing from its 2019 to 2021 IPEDS collections, when it reported all campuses together.
 
 ```{=typst}
 #set text(size: 8.5pt)
 ```
 
 1. NCES, Integrated Postsecondary Education Data System, complete data files.
-2. UIUC Division of Management Information, enrollment reports, Fall 2012 to Fall 2025, via the Internet Archive.
-3. UIUC Data, Analytics, and Institutional Research, Statistical Abstract; Retention and Graduation Rates.
+2. UIUC Division of Management Information enrollment reports, 2012 to 2025, via the Internet Archive.
+3. UIUC DAIR, Statistical Abstract and Retention and Graduation Rates dashboards.
 4. W. Fagen-Ulmschneider, UIUC GPA dataset and course catalog, github.com/wadefagen/datasets.
 5. UIUC Course Explorer API, daily Spring 2027 snapshots.
 6. Common Data Sets of the Big Ten universities, 2024-25 and 2025-26.

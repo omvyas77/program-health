@@ -299,7 +299,7 @@ def projection():
     last_fall, last_value = actual.index.max(), actual.iloc[-1]
     projected = wide.loc[wide.index > last_fall]
     years = [last_fall, *projected.index]
-    fig, ax = plt.subplots(figsize=(WIDTH, 1.95))
+    fig, ax = plt.subplots(figsize=(WIDTH, 1.8))
     fig.subplots_adjust(top=0.95, bottom=0.08)
     ax.fill_between(
         years,
