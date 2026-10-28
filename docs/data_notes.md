@@ -54,6 +54,8 @@ Quirks in the sources and what I did about each. Dated by when I found them.
 
 **Where grades are recorded changed over time (Oct 25, 2026).** The GPA data lists each section that recorded grades, and that was sometimes the discussion rather than the lecture. In Fall 2019, 40 of the 346 Gies sections in the data were discussion-type; by Fall 2025 none were. ACCY 201 ran 3 primary sections in both falls, but its grades sat under 20 sections in Fall 2019 and 2 in Fall 2025. Counts of graded sections, and anything divided by them, move with this bookkeeping as well as with class size.
 
+**The source has no Spring 2012 (Oct 28, 2026).** The dataset's changelog for Mar 25, 2026 says the rows labeled Spring 2012 were a copy of Summer 2012 and were removed. The extract has 2012-su and 2012-fa and nothing for 2012-sp; Summer 2011 is missing too. On a chart with one bar per term name, 2011-fa sits next to 2012-fa with no visible gap, so the Grades dashboard's definitions say so. Trends by fall are unaffected.
+
 ## Course catalog and TRE
 
 **Some sections carry two primary meeting types (Oct 24, 2026).** 60 of the 10,795 primary sections in the catalog files list two primary types in the same term; 49 of them pair a lecture-discussion with an online meeting. Sections offered are counted as distinct CRNs, so each counts once.

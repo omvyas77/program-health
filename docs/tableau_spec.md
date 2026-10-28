@@ -1,6 +1,6 @@
 # Tableau spec
 
-Four dashboards in one Tableau Public workbook, built from the Google Sheet the pipeline writes. Each dashboard answers one question. Every title states a finding and takes its numbers from fields, so it stays true when the weekly refresh changes the data. The check values are the numbers each sheet showed on Oct 25, 2026, from docs/findings.md and the marts; tick each one off when the sheet is built.
+Six dashboards in one Tableau Public workbook, built from the Google Sheet the pipeline writes, published at https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview. Each dashboard answers one question. Every title states a finding and takes its numbers from fields, so it stays true when the weekly refresh changes the data. The check values are the numbers each sheet showed on Oct 25, 2026 (Oct 28 for the registration watch), from docs/findings.md and the marts; tick each one off when the sheet is built.
 
 ## Connecting
 
@@ -45,10 +45,11 @@ Data source mart_refresh_log.
 - Marks: Text. Put Last Refresh on Text, formatted as a date, "mmm d, yyyy".
 - Text, 9 point, #6B6A66: "Sources: IPEDS (National Center for Education Statistics); University of Illinois enrollment reports from the Division of Management Information and DAIR; the UIUC GPA and course catalog datasets (wadefagen/datasets); daily Course Explorer snapshots. Data refreshed <Last Refresh>. An independent project, not affiliated with or endorsed by the University of Illinois. github.com/omvyas77/program-health"
 - No title, no tooltip.
+- Last Refresh is the latest weekly refresh. The daily snapshot and status jobs write only the registration tab and add no row to the log, so the registration titles carry their own snapshot date.
 
-### Course parameter (shared by Courses and Scheduling)
+### Course parameter (shared by Grades, Sections, and Registration)
 
-- **Course Choice**: String, List. Under "When workbook opens", fill from field mart_course_sections, Course. Current value ACCY 201. Show the parameter control as a single-value dropdown on both dashboards; it keeps the two in step.
+- **Course Choice**: String, List. Under "When workbook opens", fill from field mart_course_sections, Course. Current value ACCY 201. Show the parameter control as a single-value dropdown on all three dashboards; it keeps them in step.
 
 ### Peer set parameter (used on Peers)
 
@@ -259,11 +260,11 @@ END
 
 Single column: the two controls, Dot Plot (height 520), Illinois Over Time (300), Admit And Yield (360), footer.
 
-## Dashboard 3: Courses
+## Dashboard 3: Grades
 
-Question: where should an assessment committee look?
+Question: how are grades changing?
 
-Layout: the Course Choice control under the title; Grade Bands By Term (left half) beside Gies A-Range Trend (right half); Watch List (full width); Section Spread (full width); footer.
+Layout: the Course Choice control and the grade-band legend under the title; Grade Bands By Term (full width); Gies A-Range Trend (full width); footer.
 
 ### Calculated fields, data source mart_course_terms
 
@@ -279,6 +280,7 @@ Layout: the Course Choice control under the title; Grade Bands By Term (left hal
 
 - Data source mart_course_terms. Filters: Is Chosen Course True (add to context); Is Long Term True.
 - Columns: Yearterm, sorted by MIN(Term Order) ascending. Rows: Measure Values with SUM(Grade A), SUM(Grade B), SUM(Grade C), SUM(Grade D F), SUM(W), in that order. Marks: Bar, stacked. Quick table calculation on Measure Values: Percent of Total, computed using Measure Names, so each bar adds to 100% of graded students plus W.
+- Size: one notch below the widest, so a thin gap separates the terms. Axis title "Share of graded students plus W"; Yearterm labels rotated.
 - Color: Measure Names with the grade band colors under Look; rename them "A range", "B range", "C range", "D or F", "W".
 - Tooltip: "<Course>, <Yearterm>: <Measure Values> <Measure Names>". Add SUM(Students Graded) to Tooltip as "<SUM(Students Graded)> graded students".
 - Title: "<Course Choice>: <A share in the latest long term> of grades were in the A range in <latest long term>" with **Latest Chosen Term** = `{ FIXED [Course] : MAX(IF [Is Long Term] THEN [Term Order] END) }` and **A Share Latest Chosen Term** = `SUM(IF [Term Order] = [Latest Chosen Term] THEN [Grade A] END) / SUM(IF [Term Order] = [Latest Chosen Term] THEN [Students Graded] END)`. Use ATTR of a calc **Latest Chosen Yearterm** = `IF [Term Order] = [Latest Chosen Term] THEN [Yearterm] END` (MAX) for the term name.
@@ -287,23 +289,44 @@ Layout: the Course Choice control under the title; Grade Bands By Term (left hal
 ### Sheet: Gies A-Range Trend
 
 - Data source mart_course_terms. Filters: Is Undergraduate True; Is Long Term True.
-- Columns: Term Date, continuous exact date, axis by year. Rows: A Range Share, percent, one decimal. Marks: Line, 2 pt, #2A78D6, with markers.
+- Columns: Term Date, continuous exact date, axis by year. Rows: A Range Share, percent, one decimal in tooltips, no decimals on the axis. Both axis titles cleared. Marks: Line, 2 pt, #2A78D6, with markers.
 - Reference band on the date axis, Per Table, constant values from #2020-01-01# to #2021-03-01#, fill #F0EFEC, label "Covid grading terms (credit/no credit allowed)".
 - Tooltip: "<Yearterm>: <A Range Share> of grades in Gies undergraduate courses were in the A range, from <SUM(Students Graded)> graded students." (Yearterm on Detail.)
 - Title: "<Latest fall A share> of grades in Gies undergraduate courses were in the A range in Fall <latest fall>, up from <first fall A share> in Fall <first fall>" with **Latest Fall Year** = `{ FIXED : MAX(IF [Term] = 'Fall' THEN [Year] END) }`, **First Fall Year** = `{ FIXED : MIN(IF [Term] = 'Fall' THEN [Year] END) }`, and the two shares as `{ FIXED : SUM(IF [Term] = 'Fall' AND [Year] = [Latest Fall Year] AND [Is Undergraduate] THEN [Grade A] END) / SUM(IF [Term] = 'Fall' AND [Year] = [Latest Fall Year] AND [Is Undergraduate] THEN [Students Graded] END) }` and the same for First Fall Year.
-- Subtitle: "Grades describe grading, not learning. Within-course change accounts for 17.5 of the 21.7-point rise from Fall 2015 to Fall 2025 (docs/findings.md, 6c.3)."
+- Subtitle: "Grades describe grading, not learning. Within-course change accounts for 17.5 of the 21.7-point rise from Fall 2015 to Fall 2025". The two figures are typed from docs/findings.md, 6c.3, so recheck them when a new fall arrives.
 - Check: 54.4% in Fall 2010, 80.0% in Fall 2025; 2020-sp to 2021-sp inside the shaded band.
+
+### Info text
+
+"From the UIUC GPA dataset: sections with 21 or more graded students, Spring 2010 to Winter 2026. Graded students leave out W. A range is A+, A, and A-. The grade bars divide by graded students plus W, so a bar's A range can sit slightly below the share in the title, which divides by graded students. Covid grading terms (Spring 2020 to Spring 2021) allowed credit/no credit and nearly eliminated W. The source has no Spring 2012: the rows once labeled Spring 2012 were a copy of Summer 2012 and were removed. Grades describe grading, not learning. Undergraduate courses are numbered below 500."
+
+### Phone layout
+
+Single column: Course Choice, Grade Bands By Term (360), Gies A-Range Trend (300), footer.
+
+## Dashboard 4: Course Watch
+
+Question: where should an assessment committee look?
+
+Layout: Watch List (left, about two thirds) beside Watch List Totals (right), in one horizontal container; Section Spread (full width); footer. No course control: both sheets show every course that qualifies.
 
 ### Sheet: Watch List
 
 - Data source mart_course_watch_list. Filter: Is On Watch List True.
 - Calculated field **Term Order**: as on mart_course_terms.
-- Rows: Course, Course Title. Columns: Yearterm, sorted by MIN(Term Order). Marks: Square. Color: AVG(C Or Below W Rate), Blue sequential, range from 0 to 0.3 fixed. Text: AVG(C Or Below W Rate), percent, one decimal. Border: none.
-- A second text table to its right (same rows): AVG(Graded Per Term Offered) as "Graded per term", AVG(Course C Or Below W Rate) as "Four terms", AVG(Course Dfw Rate) as "DFW, four terms". Build it as a separate sheet, Watch List Totals, and place it beside Watch List.
+- Rows: Course, Course Title (widen the Course Title header so titles aren't cut). Columns: Yearterm, sorted by MIN(Term Order). Marks: Square. Color: AVG(C Or Below W Rate), Blue sequential, range from 0 to 0.3 fixed. Text: AVG(C Or Below W Rate), percent, one decimal. Border: none.
 - Tooltip: "<Course> <Course Title>, <Yearterm>: <C Or Below W Rate> of <SUM(Students Graded) + SUM(W)> students got C or below or withdrew; DFW <Dfw Rate>."
 - Title: "<COUNTD(Course)> Gies undergraduate courses had 15% or more of students at C or below or withdrawing in at least two of the last four long terms"
 - Subtitle: "Courses averaging 150 or more graded students per term offered. A course here is a question about preparation, placement, and support, not a verdict on its teaching."
 - Check: 5 courses (ACCY 201, ACCY 202, ACCY 301, ACCY 303, FIN 300); FIN 300 23.3% over four terms, 25.8% in 2024-sp.
+
+### Sheet: Watch List Totals
+
+- Data source mart_course_watch_list. Filter: Is On Watch List True.
+- Rows: Course, sorted as on Watch List. Columns: Measure Names. Text: AVG(Graded Per Term Offered) as "Graded per term" (number, no decimals); AVG(Course C Or Below W Rate) as "Four terms" and AVG(Course Dfw Rate) as "DFW, four terms" (percent, one decimal).
+- Fit: Standard here and on Watch List, with the same row height, so the rows line up course by course. Show the Course header here too, so each row reads on its own if the two drift apart.
+- Title: "Four-term averages".
+- Check: ACCY 201 441, 18.2%, 5.4%; ACCY 202 335, 15.7%, 2.6%; ACCY 301 194, 15.4%, 4.1%; ACCY 303 184, 15.8%, 4.9%; FIN 300 202, 23.3%, 7.4%.
 
 ### Sheet: Section Spread
 
@@ -319,17 +342,17 @@ Layout: the Course Choice control under the title; Grade Bands By Term (left hal
 
 ### Info text
 
-"From the UIUC GPA dataset: sections with 21 or more graded students, Spring 2010 to Winter 2026. Graded students leave out W. A range is A+, A, and A-. C or below or W counts C+ through F plus W over graded students plus W; DFW counts D+ through F plus W. Covid grading terms (Spring 2020 to Spring 2021) allowed credit/no credit and nearly eliminated W. Grades describe grading, not learning, and a course on the watch list is a question for its department, not a verdict on its teaching. Undergraduate courses are numbered below 500."
+"From the UIUC GPA dataset: sections with 21 or more graded students, Spring 2010 to Winter 2026, undergraduate courses (numbered below 500) only. C or below or W counts C+ through F plus W over graded students plus W; DFW counts D+ through F plus W. A course is on the watch list when it averages 150 or more graded students per term offered and has 15% or more at C or below or W in at least two of the last four fall and spring terms. Section spread covers courses with three or more sections in a term; no section or instructor is identified. A course on the watch list is a question for its department, not a verdict on its teaching."
 
 ### Phone layout
 
-Single column: Course Choice, Grade Bands By Term (360), Gies A-Range Trend (300), Watch List (fit width; hide Watch List Totals), Section Spread (fit width), footer.
+Single column: Watch List (fit width), Section Spread (fit width), footer. Hide Watch List Totals.
 
-## Dashboard 4: Scheduling
+## Dashboard 5: Sections
 
 Question: where is capacity tight?
 
-Layout: Course Choice control under the title; Sections By Term above Students By Term (both full width, aligned on the same term axis); Students Per Section (left half) beside the two Registration Curve sheets (right half); the two Closed Share sheets side by side; footer.
+Layout: the Course Choice control under the title; Sections By Term, Students By Term, and Students Per Section, each full width, stacked on one term axis; footer.
 
 ### Calculated fields, data source mart_course_sections
 
@@ -359,10 +382,24 @@ Layout: Course Choice control under the title; Sections By Term above Students B
 
 - Calculated field **Students Per Primary Section**: `SUM([Students Graded]) / SUM(IF NOT ISNULL([Students Graded]) THEN [Primary Sections] END)`. Graded students come from the GPA data, which leaves out sections of 20 or fewer, so the figure runs a little low; the sections are the catalog's lectures and seminars. The GPA data's own section count isn't used, because where grades were recorded moved from discussions to lectures over these years (docs/data_notes.md). Chosen Oct 25, 2026.
 - Filters: Is Chosen Course True; Is Long Term True; Year at least 2016.
-- Columns: Term Date, continuous. Rows: Students Per Primary Section, one decimal. Marks: Line, 2 pt, #2A78D6, markers on.
+- Columns: Term Date, continuous, with the axis range copied from Sections By Term, so each point sits over its bar. Rows: Students Per Primary Section, one decimal. Marks: Line, 2 pt, #2A78D6, markers on.
 - Tooltip: "<Course>, <Yearterm>: <Students Per Primary Section> graded students per primary section."
 - Title: "<Course Choice>: <latest value> graded students per primary section in Fall <Latest Graded Fall>, against <Fall 2019 value> in Fall 2019", with **Per Section Latest Fall** = `[Students Latest Fall] / [Sections Latest Fall]` and **Per Section Fall 2019** = `[Students Fall 2019] / [Sections Fall 2019]`.
 - Check: ACCY 201 201.3 in Fall 2019 and 162.7 in Fall 2025. Gies-wide, across courses with both counts: 55.9 and 69.8 (docs/findings.md, 6d.2).
+
+### Info text
+
+"Primary sections are lectures, lecture-discussions, online lectures, online lecture-discussions, and seminars in the course catalog, counted once per CRN; discussions and labs are left out. The catalog covers Fall 2016 on. Graded students come from the GPA dataset, which leaves out sections of 20 or fewer graded students and leaves out W."
+
+### Phone layout
+
+Single column: Course Choice, Sections By Term (220), Students By Term (220), Students Per Section (240), footer.
+
+## Dashboard 6: Registration
+
+Question: how is the Spring 2027 schedule filling?
+
+Layout: the Course Choice control under the title; Registration Gies Total beside Registration Chosen Course, with the registration caption under them; Closed Share Gies beside Closed Share Chosen Course, with the closed-share caption under them; footer.
 
 ### Sheet: Registration Curve
 
@@ -371,6 +408,7 @@ Layout: Course Choice control under the title; Sections By Term above Students B
 - Two panes in one sheet would need two scales, so build it as two small sheets stacked:
   - **Registration Gies Total**: Columns Days Since Registration Open (continuous); Rows SUM(Primary Sections); Line, 2 pt, #2A78D6, markers on. Reference line at constant 0 on the column axis, solid #8C8C8C, label "Registration opens Nov 2". Title: "Gies lists <Sections At Latest Snapshot> primary sections for Spring 2027 as of <Latest Snapshot>; registration <ATTR(Registration Status)>".
   - **Registration Chosen Course**: same, filtered to Is Chosen Course True (in context). Title: "<Course Choice>: <Sections At Latest Snapshot> primary sections for Spring 2027". A course with no Spring 2027 sections leaves this sheet blank; its caption says so: "Blank when the course has no Spring 2027 primary sections."
+- Column axis title on both: "Days from the start of registration".
 - Tooltip: "<Snapshot Date>, <Days Since Registration Open> days from opening: <Primary Sections> primary sections; <Sections Added Since Previous> added and <Sections Removed Since Previous> removed since the previous snapshot."
 - Caption under both: "A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change."
 
@@ -383,23 +421,23 @@ Enrollment status from the daily 8:14 am Central pass over the course pages, fro
 - Two small sheets, stacked like the registration curves:
   - **Closed Share Gies**: Columns Days Since Registration Open (continuous); Rows Closed Share Gies, percent, one decimal, axis fixed 0% to 100%; Line, 2 pt, #2A78D6, markers on; filter only Sections With Status above 0 (no course filter). Title: "<Closed Share Gies at the latest snapshot> of Gies primary sections were closed as of <Latest Snapshot>".
   - **Closed Share Chosen Course**: the same with Is Chosen Course True, using `SUM([Closed Sections]) / SUM([Sections With Status])`. Title: "<Course Choice>: <closed> of <with status> primary sections closed".
-- Reference line at constant 0 on the column axis, as on the registration curves.
+- Reference line at constant 0 on the column axis, labeled "Registration opens Nov 2", and the column axis titled "Days from the start of registration", as on the registration curves.
 - Tooltip: "<Snapshot Date>: <Closed Sections> closed and <Restricted Sections> Open (Restricted) of <Sections With Status> primary sections; <Reopened Since Previous> reopened since the previous pass."
 - Caption: "Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only."
 - Check: the first pass ran Oct 28, 2026; the values match reports/registration_watch_2027-sp.md.
-- Check (Oct 25, 2026): 509 primary sections, registration opens in 8 days; ACCY 201 3 sections. These change daily.
+- Check (Oct 28, 2026): 509 primary sections, registration opens in 5 days; 2.4% closed, 12 of 509; ACCY 201 3 sections, 0 of 3 closed. These change daily.
 
 ### Info text
 
-"Primary sections are lectures, lecture-discussions, online lectures, online lecture-discussions, and seminars in the course catalog, counted once per CRN; discussions and labs are left out. The catalog covers Fall 2016 on. Graded students come from the GPA dataset, which leaves out sections of 20 or fewer graded students and leaves out W. The registration watch reads the Course Explorer API once a day for the section list, and the public course pages once a day at 8:14 am Central for each section's status, with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students. There are no seat counts or caps. Registration for Spring 2027 opens Nov 2, 2026, and the last day to add is Feb 1, 2027."
+"The registration watch reads the Course Explorer API once a day for the section list, and the public course pages once a day at 8:14 am Central for each section's status, with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only. There are no seat counts or caps. Registration for Spring 2027 opens Nov 2, 2026, and the last day to add is Feb 1, 2027."
 
 ### Phone layout
 
-Single column: Course Choice, Sections By Term (220), Students By Term (220), Students Per Section (240), Registration Gies Total (220), Registration Chosen Course (220), Closed Share Gies (200), Closed Share Chosen Course (200), footer.
+Single column: Course Choice, Registration Gies Total (220), Registration Chosen Course (220), Closed Share Gies (200), Closed Share Chosen Course (200), footer.
 
 ## After building
 
 1. Check every value listed under Check against the dashboards, and against docs/findings.md where it says so.
 2. Switch Metric Choice through all 16 metrics and Peer Set both ways; every title should read as a sentence and every dot plot should have 16 to 18 schools (17 for Penn State's missing years).
-3. Pick three courses in Course Choice, one on the watch list, one graduate course, and one with no Spring 2027 sections, and confirm nothing breaks.
+3. Pick three courses in Course Choice, one on the watch list, one graduate course, and one with no Spring 2027 sections, and confirm nothing breaks on Grades, Sections, or Registration.
 4. Save to Tableau Public with "Keep my data in sync with Google Sheets" ticked, open the published workbook in a private window, and check the phone layout from a phone.

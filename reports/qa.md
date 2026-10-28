@@ -1,6 +1,6 @@
 # Final QA, Oct 26, 2026
 
-The final checks, run before the application deadline. The two that need a published dashboard or a deployed app are listed at the end as not run yet.
+The final checks, run before the application deadline. The published dashboards were checked on Oct 28 (Published dashboards, below). What still waits on the deployed app or on time is listed at the end as not run yet.
 
 | Check | Result |
 |---|---|
@@ -44,12 +44,12 @@ Numbers typed as text, and why each is safe to type:
 | brief, README | 2012, 2025, 2024-25, 2025-26, 11th, 2024 | Years and editions in the reference list | The sources |
 | guide, README | 20, 21 | The GPA dataset leaves out sections of 20 or fewer students | The dataset's README |
 | guide | 25th, 75th | The peer band is the interquartile range | docs/tableau_spec.md |
-| guide, README | 8:14, Oct 27, 2026 | The approved start time and first day of the status pass | Tech Services' reply; .github/workflows/status.yml |
+| guide, README | 8:14, Oct 28, 2026 | The approved start time and the first day the status pass ran | Tech Services' reply; .github/workflows/status.yml |
 | README | 3.12, 1.5 | Python and Quarto versions | requirements and Makefile |
 
 The drafted docs (docs/my_notes.md, docs/decisions.md, docs/projection_method.md) were checked against the marts and docs/findings.md: 4,940 students added and 4,781 of them online, residential graduate 1,068 to 680, 901 freshmen, Accountancy juniors and seniors 663 to 545, Accountancy + Data Science 194, 17.5 of the 21.7-point rise within courses, 1.4% D, F, or W, 7th of 18 in retention, 14th of 18 in business share, the 6,506-row largest mart, the in-state funnel (29,419 applicants, 14,509 admits, 6,587 enrolled) and the 59.9% what-if. The two outlook figures in projection_method.md were recomputed by hand from the stock-and-flow recursion: holding 901 freshmen adds 118 x (1 + 0.781 + 0.781^2 + 0.781^3) = 338, and one point of continuation adds about 107 by Fall 2030.
 
-Not audited yet: dashboard titles. They'll be checked against tableau_spec.md once the workbook is published.
+Dashboard titles were audited against tableau_spec.md on Oct 28, 2026, under Published dashboards.
 
 ## Prose check
 
@@ -133,13 +133,35 @@ courses.illinois.edu wasn't requested. Its pages are read only by the approved d
 
 The run started by hand at 00:49 UTC on Oct 27 was 7:49 pm on Oct 26 in Central time. Snapshots were then named by UTC date, so it was filed as Oct 27 and both Oct 27 runs found it and exited. Since Oct 28 they are named by Central date and that file is Oct 26's, so the day with no snapshot is Oct 27 (data_notes.md). Both daily jobs now also write the mart_registration_watch tab to the Google Sheet after they commit, so Tableau's registration curves follow the day's data instead of waiting for Monday's refresh.
 
+## Published dashboards, Oct 28, 2026
+
+The workbook at https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview, opened in a fresh browser at 1400 by 1000: six dashboards, tabs on, opening on Overview. Title numbers were read off the page and compared with the Check lines in docs/tableau_spec.md; chart marks were compared by eye against their axes, and the Grades bars by measuring the rendered bands.
+
+| Dashboard | Values checked | Result |
+|---|---|---|
+| Overview | 10,095, +2.7% since Fall 2021; 89.4%, 5,763 of 6,443; 94.8% against 93.0%; 14th of 18, 9.5% against 16.7%; 5,155 to 10,095 with 4,781 of the added students online; the table's Fall 2017 and Fall 2026 columns | Pass |
+| Peers | 7 of 18 on retention with all 18 schools, Illinois 94.8%; admitted 42.4% against a peer median of 58.1%, yield 28.8%; the over-time lines | Pass |
+| Grades | ACCY 201 57.8% in Fall 2025; 80.0% in Fall 2025, up from 54.4% in Fall 2010; the Fall 2025 bar's five bands against 282, 129, 53, 24, and 4 of 492 | Pass |
+| Course Watch | 5 courses; FIN 300 25.8% in 2024-sp and 23.3% over four terms; all five rows of four-term averages; widest section spread 1.04 points | Pass |
+| Sections | ACCY 201: 3 primary sections in Fall 2025 against 3 in Fall 2019; 604 and 488 graded students; 162.7 per section against 201.3 | Pass |
+| Registration | 509 primary sections as of Oct 28, 2026, registration opens in 5 days; 2.4% closed, 12 of 509, as in reports/registration_watch_2027-sp.md; ACCY 201 3 sections, 0 of 3 closed | Pass |
+| Footer | "Data refreshed Oct 26,2026", the last weekly refresh in mart_refresh_log | Pass; the date is missing a space after the comma |
+
+Display issues still open on Oct 28, none of which changes a number:
+
+- "ACCY 201 :" has a space before the colon on Sections By Term, Registration Chosen Course, and Closed Share Chosen Course.
+- The two closed-share sheets title their axis "Days Since Registration Open" and label the reference line "Registration Opens Nov 2"; the curves above them say "Days from the start of registration" and "Registration opens Nov 2".
+- Overview's legend names and the headcount table's row names are cut off.
+- The four-term averages beside the watch list carry no course names and don't line up with its rows; the course titles are cut off.
+- The Grades info button reads "Defintions", and its text doesn't mention the missing Spring 2012 (data_notes.md).
+- The first upload, gies-program-health, is still on the profile beside GiesProgramHealth.
+
 ## Not run yet
 
 | Check | Waiting on |
 |---|---|
 | The app wakes from sleep | Deploying to Streamlit Community Cloud |
-| The dashboard shows its refresh date | Publishing the Tableau workbook |
-| Numbers in dashboard titles | Publishing the Tableau workbook |
+| Tableau follows the Sheet each day | Oct 29: once Tableau Public syncs, the Registration titles should move from Oct 28 to Oct 29. The public page doesn't show whether sync is on |
 | Reading the brief, the guide, and the README aloud | Om |
 
 ## Every computed value in the brief
