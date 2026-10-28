@@ -71,7 +71,7 @@ Every source is public; docs/data_sources.md has the details and docs/data_notes
 
 - IPEDS describes whole universities, so the peer comparisons are about Illinois, not Gies. Gies figures come only from the enrollment reports and DAIR's tables by college of entry.
 - Grades describe grading, not learning. The grade data cover sections with 21 or more graded students.
-- The registration watch has no seat counts or caps. A closed section isn't necessarily full, and status starts with the Oct 27, 2026 pass.
+- The registration watch has no seat counts or caps. A closed section isn't necessarily full, and status starts with the Oct 28, 2026 pass.
 - The undergraduate projection matched a naive forecast in its backtest rather than beating it; docs/projection_method.md says so plainly.
 - Of the Common Data Set rows, only Illinois's are verified so far; the rest are drafts in data/manual/cds_c1_draft.csv.
 

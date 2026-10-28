@@ -1,5 +1,5 @@
 -- Primary sections per course in each daily snapshot, with the sections added and removed
--- since the previous snapshot and since registration opened, and from Oct 27, 2026 the course
+-- since the previous snapshot and since registration opened, and from Oct 28, 2026 the course
 -- pages' enrollment status. closed_share is closed sections over sections with a status; a
 -- closed section isn't necessarily full, and Open (Restricted) counts as open.
 with section_types as (

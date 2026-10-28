@@ -22,7 +22,7 @@ courses.illinois.edu/cisapp/explorer, documented as public with no authenticatio
 
 ## Course Explorer course pages
 
-courses.illinois.edu/schedule/2027/spring/{subject}/{number}. The pages show each section's availability (Open, Closed, Open (Restricted)), which the API doesn't. On Oct 26, 2026, the university's Tech Services approved one automated pass a day over the Gies course pages, with two seconds between requests and a start at 8:14 am Central, between their status updates. ingest/cis_status.py makes that pass from Oct 27, 2026 through Feb 1, 2027, the last day to add, and keeps only each CRN and its status in data/snapshots/cis_status/.
+courses.illinois.edu/schedule/2027/spring/{subject}/{number}. The pages show each section's availability (Open, Closed, Open (Restricted)), which the API doesn't. On Oct 26, 2026, the university's Tech Services approved one automated pass a day over the Gies course pages, with two seconds between requests and a start at 8:14 am Central, between their status updates. ingest/cis_status.py makes that pass from Oct 28, 2026 (the Oct 27 pass never ran) through Feb 1, 2027, the last day to add, and keeps only each CRN and its status in data/snapshots/cis_status/.
 
 ## DMI enrollment reports, through the Internet Archive
 

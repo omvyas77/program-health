@@ -131,7 +131,7 @@ courses.illinois.edu wasn't requested. Its pages are read only by the approved d
 | snapshot | Oct 27, 00:49 UTC, started by hand | Pass, PASS=13, after adding --indirect-selection cautious to snapshot.yml and status.yml. The same failure and fix were reproduced first on an empty warehouse in the fresh clone. |
 | status | Oct 27, scheduled from 9:20 UTC | Never started before the window closed: GitHub ran none of the five morning runs in time. The workflow now starts the evening before and relays to fresh runs (data_notes.md, runbook.md). Its rebuild job has the same test-selection fix. |
 
-Snapshots are named by UTC date and the API shows only the current state, so Oct 26 has no snapshot (data_notes.md). Both daily jobs now also write the mart_registration_watch tab to the Google Sheet after they commit, so Tableau's registration curves follow the day's data instead of waiting for Monday's refresh.
+The run started by hand at 00:49 UTC on Oct 27 was 7:49 pm on Oct 26 in Central time. Snapshots were then named by UTC date, so it was filed as Oct 27 and both Oct 27 runs found it and exited. Since Oct 28 they are named by Central date and that file is Oct 26's, so the day with no snapshot is Oct 27 (data_notes.md). Both daily jobs now also write the mart_registration_watch tab to the Google Sheet after they commit, so Tableau's registration curves follow the day's data instead of waiting for Monday's refresh.
 
 ## Not run yet
 

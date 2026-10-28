@@ -3,7 +3,8 @@ name: snapshot
 on:
   schedule:
     # 13:07 UTC: GitHub's scheduler is most delayed at the top of the hour. The 19:37 run is
-    # a backup for days GitHub drops the first; the script exits if today's file exists.
+    # a backup for days GitHub drops the first; the script exits if the file for today, Central
+    # time, exists.
     - cron: "7 13 * * *"
     - cron: "37 19 * * *"
   workflow_dispatch:
@@ -63,7 +64,7 @@ jobs:
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git commit -m "snapshot 2027-sp $(date -u +%F)"
+          git commit -m "snapshot 2027-sp $(TZ=America/Chicago date +%F)"
           # main may have moved while the job ran. Only this job and refresh.yml write these
           # files, and the shared concurrency group keeps them apart, so the rebase is clean.
           git pull --rebase

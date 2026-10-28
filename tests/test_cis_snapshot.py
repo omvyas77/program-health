@@ -2,11 +2,12 @@
 # names, the department contact, and the department head removed.
 
 import csv
+from datetime import date, datetime
 from pathlib import Path
 
 import pytest
 
-from ingest.cis_snapshot import COLUMNS, parse_cascade, validate, write_snapshot
+from ingest.cis_snapshot import COLUMNS, parse_cascade, snapshot_day, validate, write_snapshot
 
 FIXTURES = Path(__file__).parent / "fixtures" / "cis"
 
@@ -58,3 +59,15 @@ def test_validate_fails_when_a_subject_returns_nothing():
     rows = bdi_rows()
     with pytest.raises(AssertionError, match="ACCY"):
         validate(rows, ["BDI", "ACCY"], previous_count=None)
+
+
+def test_a_late_evening_snapshot_keeps_its_central_date():
+    def day(utc):
+        return snapshot_day(datetime.fromisoformat(utc))
+
+    # The run started by hand at 7:49 pm CDT on Oct 26, 2026, already Oct 27 in UTC.
+    assert day("2026-10-27T00:49:22+00:00") == date(2026, 10, 26)
+    assert day("2026-10-28T18:39:00+00:00") == date(2026, 10, 28)
+    # After the change to standard time, 11:30 pm CST on Nov 2 and 12:30 am on Nov 3.
+    assert day("2026-11-03T05:30:00+00:00") == date(2026, 11, 2)
+    assert day("2026-11-03T06:30:00+00:00") == date(2026, 11, 3)

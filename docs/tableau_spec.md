@@ -376,7 +376,7 @@ Layout: Course Choice control under the title; Sections By Term above Students B
 
 ### Sheet: Closed Share
 
-Enrollment status from the daily 8:14 am Central pass over the course pages, from Oct 27, 2026.
+Enrollment status from the daily 8:14 am Central pass over the course pages, from Oct 28, 2026.
 
 - Data source mart_registration_watch. Filters: Is Chosen Course True (in context); SUM(Sections With Status) greater than 0, as a measure filter.
 - Calculated field **Closed Share Gies** = `SUM([Closed Sections]) / SUM([Sections With Status])`, used for the Gies-wide line.
@@ -386,7 +386,7 @@ Enrollment status from the daily 8:14 am Central pass over the course pages, fro
 - Reference line at constant 0 on the column axis, as on the registration curves.
 - Tooltip: "<Snapshot Date>: <Closed Sections> closed and <Restricted Sections> Open (Restricted) of <Sections With Status> primary sections; <Reopened Since Previous> reopened since the previous pass."
 - Caption: "Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only."
-- Check: empty until the first pass on Oct 27, 2026; then the values in reports/registration_watch_2027-sp.md.
+- Check: the first pass ran Oct 28, 2026; the values match reports/registration_watch_2027-sp.md.
 - Check (Oct 25, 2026): 509 primary sections, registration opens in 8 days; ACCY 201 3 sections. These change daily.
 
 ### Info text

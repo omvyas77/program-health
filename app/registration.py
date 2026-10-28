@@ -43,7 +43,7 @@ st.altair_chart(
 st.subheader("Enrollment status")
 if watch.sections_with_status.fillna(0).sum() == 0:
     st.info(
-        "Enrollment status from the Gies course pages starts with the Oct 27, 2026 pass, "
+        "Enrollment status from the Gies course pages starts with the Oct 28, 2026 pass, "
         "read at 8:14 am Central."
     )
 else:

@@ -9,6 +9,7 @@ import logging
 import sys
 from collections import Counter
 from datetime import UTC, date, datetime
+from zoneinfo import ZoneInfo
 
 from lxml import etree
 
@@ -18,6 +19,7 @@ from ingest.paths import CONFIG, ROOT, SNAPSHOTS
 log = logging.getLogger("cis_snapshot")
 
 TERM = "2027-sp"
+CENTRAL = ZoneInfo("America/Chicago")
 API_BASE = "https://courses.illinois.edu/cisapp/explorer/schedule/2027/spring"
 MAX_ROW_CHANGE = 0.20
 COLUMNS = [
@@ -75,6 +77,13 @@ def parse_cascade(subject_xml, subject):
     return rows
 
 
+def snapshot_day(started):
+    # Named by the Central date, the day it describes, as the status pass is. GitHub starts this
+    # job hours late, and a run after 7 pm Central (6 pm in winter) is already tomorrow in UTC:
+    # filed under that date it would stop tomorrow's own run and be paired with tomorrow's pass.
+    return started.astimezone(CENTRAL).date()
+
+
 def snapshot_subject(session, subject):
     response = fetch(session, f"{API_BASE}/{subject}.xml?mode=cascade")
     rows = parse_cascade(require_ok(response), subject)
@@ -123,7 +132,7 @@ def write_snapshot(rows, path, snapshot_utc):
 def main():
     logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(message)s")
     started = datetime.now(UTC)
-    today = started.date()
+    today = snapshot_day(started)
     if today > read_last_day_to_add():
         log.info("past the last day to add for %s, nothing to collect", TERM)
         return 0

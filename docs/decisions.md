@@ -59,3 +59,7 @@ The choices that shape what this project says, newest last, each with the reason
 ## Status schedule (Oct 27, 2026)
 
 **The status pass relays from the evening before.** Scheduled runs here start two to six hours late, and on Oct 27 none started in time. A GitHub job can't wait more than six hours, so the run that starts in the evening sleeps, then starts a fresh run, which GitHub starts within seconds, until one is close enough to wait for 8:14. It costs only runner time, which is free for a public repository, and it needs no outside scheduler holding a GitHub token. See runbook.md.
+
+## Snapshot dates (Oct 28, 2026)
+
+**API snapshots are named by the Central date, the day they describe,** as the status pass already was. The watch pairs each day's statuses with that day's snapshot, and GitHub starts the snapshot job hours late: a run after 7 pm Central is already the next day in UTC, so under UTC names it took the next day's name, stopped that day's own run, and would have been paired with the next morning's statuses. It happened once: the Oct 26 snapshot, taken at 7:49 pm, was filed as Oct 27 and is renamed. See data_notes.md.

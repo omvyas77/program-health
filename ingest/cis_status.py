@@ -17,18 +17,16 @@ import sys
 import time
 from datetime import UTC, datetime, timedelta
 from datetime import time as clock
-from zoneinfo import ZoneInfo
 
 from lxml import html
 
-from ingest.cis_snapshot import TERM, read_last_day_to_add
+from ingest.cis_snapshot import CENTRAL, TERM, read_last_day_to_add
 from ingest.http import fetch, new_session, require_ok
 from ingest.paths import ROOT, SNAPSHOTS, STATUS_SNAPSHOTS
 
 log = logging.getLogger("cis_status")
 
 WEB_BASE = "https://courses.illinois.edu/schedule/2027/spring"
-CENTRAL = ZoneInfo("America/Chicago")
 WINDOW = (clock(8, 14), clock(8, 44))
 # The workflow's job timeout is 350 minutes. A run waits for 8:14 only when the wait and a
 # ten-minute pass fit inside it; a relay sleeps less than that and leaves its successor about two

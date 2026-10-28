@@ -14,4 +14,4 @@ What I took from docs/findings.md, before writing the brief.
 
 - What I don't trust yet: the online and in-person comparison, because the two often serve different students; graded students per section, because the GPA data leaves out small sections; and the projection, which only matched a naive forecast in the backtest. I'd present all three with those caveats attached.
 
-- The registration watch is the piece I'm most curious about. Until Tech Services approved the course-page pass, I could only see sections being added and removed; from Oct 27 I'll see which close first, which is the closest public data gets to where demand outruns the schedule.
+- The registration watch is the piece I'm most curious about. Until Tech Services approved the course-page pass, I could only see sections being added and removed; from Oct 28 I'll see which close first, which is the closest public data gets to where demand outruns the schedule.

@@ -110,7 +110,7 @@ def status_lines(watch):
     known = watch[watch.sections_with_status > 0]
     if known.empty:
         return lines + [
-            "Enrollment status from the Gies course pages starts with the Oct 27, 2026 pass, read "
+            "Enrollment status from the Gies course pages starts with the Oct 28, 2026 pass, read "
             "at 8:14 am Central."
         ]
     dates = sorted(known.snapshot_date.unique())
