@@ -39,18 +39,20 @@ if Path("guide_screenshot.png").exists():
 
 The dashboard shows how Gies programs are doing, from enrollment and Illinois's standing among the 18 Big Ten universities to course grades and the Spring 2027 schedule. It is meant to point to questions worth asking, and every chart says what it can and can't show.
 
-## The four dashboards
+## The six dashboards
 
 | Dashboard | The question it answers |
-|----|------------------------------|
+|-------|------------------------------|
 | Overview | How are Gies programs doing? Headcount, the online share, retention, and business degrees in four numbers, then headcount by program group. |
 | Peers | Where does Illinois stand among the Big Ten? Pick a metric; see every school, Illinois over time, and admission against yield. |
-| Courses | Where should an assessment committee look? Grades by course and term, the Gies-wide trend, a watch list, and how much sections of one course differ. |
-| Scheduling | Where is capacity tight? Sections and graded students by course, students per section, and daily registration curves. |
+| Grades | How are grades changing? Grade bands by term for one course, and the Gies-wide A-range trend. |
+| Course Watch | Where should an assessment committee look? Large courses with many grades at C or below or withdrawals, and how much sections of one course differ. |
+| Sections | Where is capacity tight? Sections, graded students, and students per section for one course since 2016. |
+| Registration | How is the Spring 2027 schedule filling? Daily registration curves and the share of sections closed. |
 
 ## How to read the charts
 
-Blue is Illinois or Gies; gray dots are the other Big Ten schools. The shaded band is the middle half of the peers, their 25th to 75th percentiles, with Illinois left out. Hollow marks are provisional IPEDS data, which can still change. Dashed lines are projections. On Peers, choose a metric and whether to compare with all 18 schools or the 16 public ones. On Courses and Scheduling, one course choice drives both dashboards. The Definitions button at the top right of each dashboard opens the full definitions, and Revert in the toolbar under the dashboard resets every choice.
+Blue is Illinois or Gies; gray dots are the other Big Ten schools. The shaded band is the middle half of the peers, their 25th to 75th percentiles, with Illinois left out. Hollow marks are provisional IPEDS data, which can still change. On Peers, choose a metric and whether to compare with all 18 schools or the 16 public ones. On Grades, Sections, and Registration, one course choice drives all three. The Definitions button at the top right of each dashboard opens the full definitions, and Revert in the toolbar under the dashboard resets every choice.
 
 ## Six definitions
 
