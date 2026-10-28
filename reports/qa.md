@@ -1,6 +1,6 @@
 # Final QA, Oct 26, 2026
 
-The final checks, run before the application deadline. The published dashboards were checked on Oct 28 (Published dashboards, below). What still waits on the deployed app or on time is listed at the end as not run yet.
+The final checks, run before the application deadline. The published dashboards were checked on Oct 28 (Published dashboards, below). So was the deployed app (Streamlit app, below). What still waits on time is listed at the end as not run yet.
 
 | Check | Result |
 |---|---|
@@ -156,11 +156,24 @@ Display issues still open on Oct 28, none of which changes a number:
 - The Grades info button reads "Defintions", and its text doesn't mention the missing Spring 2012 (data_notes.md).
 - The first upload, gies-program-health, is still on the profile beside GiesProgramHealth.
 
+## Streamlit app, Oct 28, 2026
+
+https://gies-program-health.streamlit.app/, opened in a fresh browser and compared with data/marts.
+
+| Page | Values checked | Result |
+|---|---|---|
+| Enrollment scenarios | Base 3,841 undergraduates in Fall 2030, up from 3,652 in Fall 2026, low 3,632 and high 4,171; online graduate headcount holds at 5,763, 80% range 3,682 to 7,844; footer "latest Oct 28, 2026" | Pass |
+| Enrollment scenarios, changed input | 900 freshmen a year gives 4,176 in Fall 2030, 335 above base: 117 more freshmen times (1 + 0.781 + 0.781^2 + 0.781^3) | Pass, run headless with Streamlit's AppTest |
+| Registration watch | Oct 28, 2026, opens in 5 days on Nov 2, 509 primary sections across 225 courses; ACCY 410 0 of 14 closed; every section closed in ACCY 321, BADM 303, and BADM 366, as in reports/registration_watch_2027-sp.md | Pass |
+
+Two fixes came out of it. The closed-share chart scaled its day axis to the one status pass and ticked in half days; both registration charts now share one axis of whole days from the first snapshot to opening day. And the marts were cached by name only, which on Community Cloud would have kept serving the first snapshot after later pushes; the cache now keys on the file's modification time.
+
 ## Not run yet
 
 | Check | Waiting on |
 |---|---|
-| The app wakes from sleep | Deploying to Streamlit Community Cloud |
+| The app wakes from sleep | 12 hours without traffic |
+| The app picks up a new snapshot without a restart | Oct 29: the footer should read Oct 29 once that day's snapshot is pushed |
 | Tableau follows the Sheet each day | Oct 29: once Tableau Public syncs, the Registration titles should move from Oct 28 to Oct 29. The public page doesn't show whether sync is on |
 | Reading the brief, the guide, and the README aloud | Om |
 

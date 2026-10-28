@@ -71,8 +71,19 @@ def scenario_chart(long, band, title, subtitle, y_title, band_label):
     )
 
 
-def sections_chart(frame, title):
-    x = alt.X("days_since_registration_open:Q", title="Days since registration opened")
+def day_axis(span):
+    # Both registration charts share one axis of whole days. With a single status pass, an
+    # automatic scale would zoom to that one day and tick in half days.
+    return alt.X(
+        "days_since_registration_open:Q",
+        title="Days since registration opened",
+        scale=alt.Scale(domain=span),
+        axis=alt.Axis(format="d", tickMinStep=1),
+    )
+
+
+def sections_chart(frame, title, span):
+    x = day_axis(span)
     y = alt.Y("primary_sections:Q", title="Primary sections", scale=alt.Scale(zero=True))
     line = alt.Chart(frame).mark_line(color=BLUE, strokeWidth=2).encode(x=x, y=y)
     dots = (
@@ -97,8 +108,8 @@ def sections_chart(frame, title):
     )
 
 
-def closed_share_chart(frame, title):
-    x = alt.X("days_since_registration_open:Q", title="Days since registration opened")
+def closed_share_chart(frame, title, span):
+    x = day_axis(span)
     y = alt.Y(
         "closed_percent:Q", title="Primary sections closed (%)", scale=alt.Scale(domain=[0, 100])
     )

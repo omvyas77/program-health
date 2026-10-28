@@ -11,8 +11,15 @@ REPO = "https://github.com/omvyas77/program-health"
 
 
 @st.cache_data
+def _read(path, mtime_ns):
+    return pd.read_parquet(path)
+
+
 def read(name):
-    return pd.read_parquet(MARTS / f"{name}.parquet")
+    # Community Cloud pulls each push into the running app without restarting it, so a cache keyed
+    # on the name alone would keep serving yesterday's snapshot. The file's mtime changes on pull.
+    path = MARTS / f"{name}.parquet"
+    return _read(path, path.stat().st_mtime_ns)
 
 
 def footer():

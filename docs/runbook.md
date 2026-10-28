@@ -89,7 +89,7 @@ GitHub disables scheduled workflows in a public repository after 60 days without
 
 ## The Streamlit app
 
-Community Cloud redeploys the app on every push to main, so the registration page updates with each daily snapshot. The app sleeps after 12 hours without traffic, and anyone can wake it with one click. Open it yourself before sending the link or walking into an interview.
+The app is at https://gies-program-health.streamlit.app/. Community Cloud pulls every push to main into the running app without restarting it; app/marts.py caches each mart by its file time, so the registration page picks up each daily snapshot. The app sleeps after 12 hours without traffic, and anyone can wake it with one click. Open it yourself before sending the link or walking into an interview.
 
 ## Publishing by hand
 

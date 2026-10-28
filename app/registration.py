@@ -13,6 +13,7 @@ as_of = watch.snapshot_date.max()
 latest = watch[watch.snapshot_date == as_of]
 days = int(latest.days_since_registration_open.iloc[0])
 opens = as_of - pd.Timedelta(days=days)
+span = [int(watch.days_since_registration_open.min()), max(0, days)]
 
 st.title("Spring 2027 registration watch")
 if days < 0:
@@ -36,6 +37,7 @@ st.altair_chart(
     charts.sections_chart(
         one,
         f"{course}: {now} primary section{'s' if now != 1 else ''} as of {as_of:%b %-d}",
+        span,
     ),
     width="stretch",
 )
@@ -57,6 +59,7 @@ else:
                 known,
                 f"{course}: {int(last.closed_sections)} of {int(last.sections_with_status)} "
                 f"primary sections closed as of {last.snapshot_date:%b %-d}",
+                span,
             ),
             width="stretch",
         )
