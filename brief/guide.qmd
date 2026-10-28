@@ -12,6 +12,7 @@ format:
     include-in-header:
       - text: |
           #set text(lang: "en", hyphenate: true)
+          #show link: set text(fill: rgb("#2a78d6"))
           #set par(leading: 0.55em, spacing: 0.75em)
           #show heading: set text(font: "Source Sans 3", weight: "semibold", size: 10.5pt)
           #show heading: set block(above: 0.9em, below: 0.45em)
@@ -25,6 +26,7 @@ jupyter: python3
 #text(font: "Source Sans 3", size: 17pt, weight: "semibold")[Gies program health: a one-page guide]
 #v(-0.5em)
 #text(font: "Source Sans 3", size: 9.5pt, fill: rgb("#555555"))[For faculty and staff with five minutes. An independent project built from public data, not affiliated with or endorsed by the University of Illinois.]
+#parbreak()
 ```
 
 ```{python}
@@ -37,7 +39,7 @@ if Path("guide_screenshot.png").exists():
     print("![](guide_screenshot.png){height=2.0in fig-align=\"center\"}")
 ```
 
-The dashboard shows how Gies programs are doing, from enrollment and Illinois's standing among the 18 Big Ten universities to course grades and the Spring 2027 schedule. It is meant to point to questions worth asking, and every chart says what it can and can't show.
+The dashboard shows how Gies programs are doing, from enrollment and Illinois's standing among the 18 Big Ten universities to course grades and the Spring 2027 schedule. It is meant to point to questions worth asking, and every chart says what it can and can't show. It is on [Tableau Public](https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview), and the enrollment scenarios and the registration watch are also in a [Streamlit app](https://gies-program-health.streamlit.app/).
 
 ## The six dashboards
 
@@ -64,4 +66,4 @@ Most peer figures describe the whole university, not Gies; only the enrollment r
 
 ## When the data refreshes, and reporting a problem
 
-Every Monday the pipeline checks each source for changes and republishes; during registration it records the schedule every morning, reading section status at 8:14 am Central. The dashboards pick up the data once a day, and each shows its refresh date in the footer. To report a problem or ask a question, open an issue at github.com/omvyas77/program-health/issues.
+Every Monday the pipeline checks each source for changes and republishes; during registration it records the schedule every morning, reading section status at 8:14 am Central. The dashboards pick up the data once a day. Each footer shows the last weekly refresh, and the registration charts give the date of their latest snapshot. To report a problem or ask a question, open an issue at github.com/omvyas77/program-health/issues.

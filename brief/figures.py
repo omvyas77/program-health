@@ -125,7 +125,8 @@ def enrollment():
     """)
     wide = data.pivot(index="fall_year", columns="program_group", values="headcount").fillna(0)
     fig, ax = plt.subplots(figsize=(WIDTH, 2.0))
-    fig.subplots_adjust(top=0.84, bottom=0.08)
+    # Room above the axes for the two-row legend, so it can't run into a two-line title.
+    fig.subplots_adjust(top=0.77, bottom=0.08)
     bottom = None
     for group, color in GROUPS.items():
         ax.bar(

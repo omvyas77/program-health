@@ -1,18 +1,18 @@
-# Final QA, Oct 26, 2026
+# Final QA, Oct 26 to 28, 2026
 
 The final checks, run before the application deadline. The published dashboards were checked on Oct 28 (Published dashboards, below). So was the deployed app (Streamlit app, below). What still waits on time is listed at the end as not run yet.
 
 | Check | Result |
 |---|---|
 | A fresh clone runs make all | Pass. Exit 0 in 11 minutes, dbt PASS=153, and the rebuilt marts match the committed ones. |
-| Number audit | Pass. 155 values in the brief are computed by brief/numbers.py; no analytic number is typed by hand in the brief, the guide, or the README. |
-| Prose check | Pass. No banned words, em dashes, or emoji; the 8 exclamation-point hits are spreadsheet cell references. |
+| Number audit | Pass. 159 values in the brief are computed by brief/numbers.py; no analytic number is typed by hand in the brief, the guide, or the README. |
+| Prose check | Pass, rerun Oct 28. No banned words, em dashes, or emoji; every exclamation-point hit is Markdown image syntax, the != operator, or a spreadsheet reference. |
 | Privacy | Pass. No instructor names in any committed file. |
-| Secrets | Pass. The one private_key line in the history is a planning note's QA instruction. |
-| Links | Pass. 15 of 15 resolve; two NCES paths are download folders with no index page, and the files under them load. |
-| PDFs render | Pass. brief/brief.pdf is 4 pages, brief/guide.pdf is 1 page. |
+| Secrets | Pass, rerun Oct 28. Every hit in the history is this report quoting its own search terms or a planning note's instruction to search. |
+| Links | Pass, rerun Oct 28. 17 of 17 resolve, among them the Tableau workbook and the Streamlit app; two NCES paths are download folders with no index page, and the files under them load. |
+| PDFs render | Pass, rerendered Oct 28 with that day's snapshot and first closed share. brief/brief.pdf is 4 pages, brief/guide.pdf is 1 page, and both link to the dashboards, the app, and the repository. |
 | Scheduled jobs | Fixed. Both Oct 26 snapshot runs had failed; the cause is fixed and a run by hand passed. Oct 26 has no snapshot. |
-| The app wakes; the dashboard shows its refresh date | Not run. The app isn't deployed and the dashboards aren't published. |
+| Published dashboards and app | Pass on Oct 28: every title number matches; the app's numbers match the marts (sections below). |
 
 ## A fresh clone runs make all
 
@@ -29,7 +29,7 @@ The same run also showed that data/marts/mart_funnel had been exported before Il
 
 ## Number audit
 
-Every number in the brief's text comes from an inline expression; the brief has no hand-typed analytic numbers. The table at the bottom lists all 155 expressions and their current values.
+Every number in the brief's text comes from an inline expression; the brief has no hand-typed analytic numbers. The table at the bottom lists all 159 computed values and their current values.
 
 Numbers typed as text, and why each is safe to type:
 
@@ -55,18 +55,13 @@ Dashboard titles were audited against tableau_spec.md on Oct 28, 2026, under Pub
 
 Every tracked Markdown and Quarto file and the app's Python strings, searched for a list of banned words, em dashes, emoji, and exclamation points. Untracked planning notes, which quote the list, are skipped.
 
-| File | Line | Hit |
+| Where | Exclamation-point hits | What they are |
 |---|---:|---|
-| data/manual/cds_c1_checklist.md | 11 | exclamation point |
-| data/manual/cds_c1_checklist.md | 19 | exclamation point |
-| data/manual/cds_c1_checklist.md | 67 | exclamation point |
-| data/manual/cds_c1_checklist.md | 74 | exclamation point |
-| data/manual/cds_c1_checklist.md | 226 | exclamation point |
-| data/manual/cds_c1_checklist.md | 235 | exclamation point |
-| data/manual/cds_c1_checklist.md | 310 | exclamation point |
-| docs/data_notes.md | 75 | exclamation point |
+| README.md, brief/brief.qmd, brief/guide.qmd | 8 | Markdown image syntax, and != in the brief's Python |
+| docs/findings.md | 1 | != in SQL |
+| data/manual/cds_c1_checklist.md, docs/data_notes.md | 8 | Spreadsheet references (CDS-C!C49) and Excel's #REF! error |
 
-All 8 are spreadsheet references (CDS-C!C49) and Excel's #REF! error, not exclamations. No banned words, em dashes, or emoji.
+None is an exclamation. No banned words, em dashes, or emoji. Rerun Oct 28 after the last edits to the brief, the guide, the README, and the docs.
 
 ## Privacy
 
@@ -83,11 +78,11 @@ The three mentions are a sentence saying the Primary Instructor column is droppe
 
 | Search over git log -p --all | Lines |
 |---|---:|
-| private_key | 1 (a planning note's QA instruction) |
-| BEGIN PRIVATE KEY | 0 |
-| client_email | 0 |
-| sk-ant- | 0 |
-| AIza | 0 |
+| private_key | 4: a planning note's instruction to search, and this report naming it |
+| BEGIN PRIVATE KEY | 1: this table |
+| client_email | 1: this table |
+| sk-ant- | 1: this table |
+| AIza | 1: this table |
 
 The service account key stays outside the repository, in ~/.config/gies-program-health and in GitHub Secrets.
 
@@ -104,6 +99,7 @@ Every URL in the README, docs/, and brief/ was requested once, 1 s apart, with a
 | dair.illinois.edu/access-data/statistical-abstract/ | 200 |
 | dair.illinois.edu/access-data/student-enrollment/ | 200 |
 | dmi.illinois.edu/stuenr/ | 200, redirects to DAIR, as data_notes.md says |
+| gies-program-health.streamlit.app | 303 to Community Cloud's cookie check for scripts; loads in a browser |
 | github.com/omvyas77/program-health | 200 |
 | github.com/omvyas77/program-health/issues | 200 |
 | github.com/wadefagen/datasets | 200 |
@@ -111,6 +107,7 @@ Every URL in the README, docs/, and brief/ was requested once, 1 s apart, with a
 | nces.ed.gov/ipeds/survey-components/data-release-schedule | 200 |
 | nces.ed.gov/ipeds/complete-data-files/ | 404 for the folder; HD2024.zip under it returns 200 |
 | nces.ed.gov/ipeds/datacenter/data/ | 403 for the folder; HD2022.zip under it returns 200 |
+| public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview | 200 |
 | wiche.edu/knocking/data/ | 200 |
 
 courses.illinois.edu wasn't requested. Its pages are read only by the approved daily pass, between 8:14 and 8:44 am Central. Every relative link in the README points to a file that exists.
@@ -119,7 +116,7 @@ courses.illinois.edu wasn't requested. Its pages are read only by the approved d
 
 | File | Pages | Rendered with |
 |---|---:|---|
-| brief/brief.pdf | 4 | make brief (Quarto 1.10.19, Typst 0.15.1) |
+| brief/brief.pdf | 4 | make brief (Quarto 1.10.19, Typst 0.15.1), Oct 28, from the Oct 28 snapshot |
 | brief/guide.pdf | 1 | make guide; still one page with a 2.0 in screenshot in place |
 
 ## Scheduled jobs
@@ -147,7 +144,7 @@ The workbook at https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHe
 | Registration | 509 primary sections as of Oct 28, 2026, registration opens in 5 days; 2.4% closed, 12 of 509, as in reports/registration_watch_2027-sp.md; ACCY 201 3 sections, 0 of 3 closed | Pass |
 | Footer | "Data refreshed Oct 26,2026", the last weekly refresh in mart_refresh_log | Pass; the date is missing a space after the comma |
 
-Display issues still open on Oct 28, none of which changes a number:
+Display issues found on Oct 28, none of which changes a number. Om fixed them that evening; the Oct 29 morning check confirms each one (Not run yet, below).
 
 - "ACCY 201 :" has a space before the colon on Sections By Term, Registration Chosen Course, and Closed Share Chosen Course.
 - The two closed-share sheets title their axis "Days Since Registration Open" and label the reference line "Registration Opens Nov 2"; the curves above them say "Days from the start of registration" and "Registration opens Nov 2".
@@ -173,6 +170,7 @@ Two fixes came out of it. The closed-share chart scaled its day axis to the one 
 | Check | Waiting on |
 |---|---|
 | The app wakes from sleep | 12 hours without traffic |
+| The Oct 28 display fixes in Tableau | The Oct 29 morning check |
 | The app picks up a new snapshot without a restart | Oct 29: the footer should read Oct 29 once that day's snapshot is pushed |
 | Tableau follows the Sheet each day | Oct 29: once Tableau Public syncs, the Registration titles should move from Oct 28 to Oct 29. The public page doesn't show whether sync is on |
 | Reading the brief, the guide, and the README aloud | Om |
@@ -180,7 +178,7 @@ Two fixes came out of it. The closed-share chart scaled its day axis to the one 
 ## Every computed value in the brief
 
 <details>
-<summary>155 inline expressions, their section, and their value on Oct 26, 2026</summary>
+<summary>159 computed values, their section, and their value on Oct 28, 2026</summary>
 
 | Section | Expression | Value |
 |---|---|---|
@@ -196,37 +194,37 @@ Two fixes came out of it. The closed-share chart scaled its day axis to the one 
 | Summary | `n.a_range_2025` | 80.0% |
 | Summary | `n.GRADES_LAST_FALL` | 2025 |
 | Summary | `n.SHIFT_FROM_FALL` | 2015 |
-| Summary | `n.watch_count` | 5 |
+| Summary | `n.word(n.watch_count)` | five |
 | Summary | `n.base_2030` | 3,841 |
 | Summary | `n.LAST_PROJECTED_FALL` | 2030 |
-| Online programs carried Gies's g | `n.gies_total` | 10,095 |
-| Online programs carried Gies's g | `n.LATEST_FALL` | 2026 |
-| Online programs carried Gies's g | `n.gies_total_first` | 5,155 |
-| Online programs carried Gies's g | `n.FIRST_CHART_FALL` | 2017 |
-| Online programs carried Gies's g | `n.online_added` | 4,781 |
-| Online programs carried Gies's g | `n.gies_added` | 4,940 |
-| Online programs carried Gies's g | `n.online_share` | 89.4% |
-| Online programs carried Gies's g | `n.online_count` | 5,763 |
-| Online programs carried Gies's g | `n.graduate_count` | 6,443 |
-| Online programs carried Gies's g | `n.mba_online` | 3,847 |
-| Online programs carried Gies's g | `n.graduate_peak` | 6,666 |
-| Online programs carried Gies's g | `n.graduate_peak_fall` | 2021 |
-| Online programs carried Gies's g | `n.graduate_decline_five` | 3.3% |
-| Online programs carried Gies's g | `n.undergrad_change_five` | 15.4% |
-| Online programs carried Gies's g | `n.undergrad_total_five_earlier` | 3,165 |
-| Online programs carried Gies's g | `n.undergrad_total` | 3,652 |
-| Online programs carried Gies's g | `n.freshmen_latest` | 901 |
-| Online programs carried Gies's g | `n.first_new_students_fall` | 2012 |
-| Online programs carried Gies's g | `n.freshmen_range_last_fall` | 2023 |
-| Online programs carried Gies's g | `n.freshmen_range_low` | 560 |
-| Online programs carried Gies's g | `n.freshmen_range_high` | 673 |
-| Online programs carried Gies's g | `n.accy_js_then` | 663 |
-| Online programs carried Gies's g | `n.FIVE_FALLS_EARLIER` | 2021 |
-| Online programs carried Gies's g | `n.accy_js_now` | 545 |
-| Online programs carried Gies's g | `n.fin_js_then` | 555 |
-| Online programs carried Gies's g | `n.fin_js_now` | 610 |
-| Online programs carried Gies's g | `n.data_science_first_fall` | 2022 |
-| Online programs carried Gies's g | `n.data_science_js` | 557 |
+| Online programs carried Gies's growth | `n.gies_total` | 10,095 |
+| Online programs carried Gies's growth | `n.LATEST_FALL` | 2026 |
+| Online programs carried Gies's growth | `n.gies_total_first` | 5,155 |
+| Online programs carried Gies's growth | `n.FIRST_CHART_FALL` | 2017 |
+| Online programs carried Gies's growth | `n.online_added` | 4,781 |
+| Online programs carried Gies's growth | `n.gies_added` | 4,940 |
+| Online programs carried Gies's growth | `n.online_share` | 89.4% |
+| Online programs carried Gies's growth | `n.online_count` | 5,763 |
+| Online programs carried Gies's growth | `n.graduate_count` | 6,443 |
+| Online programs carried Gies's growth | `n.mba_online` | 3,847 |
+| Online programs carried Gies's growth | `n.graduate_peak` | 6,666 |
+| Online programs carried Gies's growth | `n.graduate_peak_fall` | 2021 |
+| Online programs carried Gies's growth | `n.graduate_decline_five` | 3.3% |
+| Online programs carried Gies's growth | `n.undergrad_change_five` | 15.4% |
+| Online programs carried Gies's growth | `n.undergrad_total_five_earlier` | 3,165 |
+| Online programs carried Gies's growth | `n.undergrad_total` | 3,652 |
+| Online programs carried Gies's growth | `n.freshmen_latest` | 901 |
+| Online programs carried Gies's growth | `n.first_new_students_fall` | 2012 |
+| Online programs carried Gies's growth | `n.freshmen_range_last_fall` | 2023 |
+| Online programs carried Gies's growth | `n.freshmen_range_low` | 560 |
+| Online programs carried Gies's growth | `n.freshmen_range_high` | 673 |
+| Online programs carried Gies's growth | `n.accy_js_then` | 663 |
+| Online programs carried Gies's growth | `n.FIVE_FALLS_EARLIER` | 2021 |
+| Online programs carried Gies's growth | `n.accy_js_now` | 545 |
+| Online programs carried Gies's growth | `n.fin_js_then` | 555 |
+| Online programs carried Gies's growth | `n.fin_js_now` | 610 |
+| Online programs carried Gies's growth | `n.data_science_first_fall` | 2022 |
+| Online programs carried Gies's growth | `n.data_science_js` | 557 |
 | Illinois among its Big Ten peers | `n.retention_label` | Fall 2023 cohort returning in fall 2024 |
 | Illinois among its Big Ten peers | `n.retention` | 94.8% |
 | Illinois among its Big Ten peers | `n.retention_rank` | 7th |
@@ -264,36 +262,36 @@ Two fixes came out of it. The closed-share chart scaled its day axis to the one 
 | Illinois among its Big Ten peers | `n.pell_gap` | 10.9 |
 | Illinois among its Big Ten peers | `n.pell_wider_or_narrower` | wider |
 | Illinois among its Big Ten peers | `n.pell_gap_median` | 6.3 |
-| What course grades can and can't | `n.GRADES_FIRST_FALL` | 2010 |
-| What course grades can and can't | `n.a_range_2010` | 54.4% |
-| What course grades can and can't | `n.gpa_2010` | 3.38 |
-| What course grades can and can't | `n.GRADES_LAST_FALL` | 2025 |
-| What course grades can and can't | `n.a_range_2025` | 80.0% |
-| What course grades can and can't | `n.gpa_2025` | 3.72 |
-| What course grades can and can't | `n.graded_2025` | 13,070 |
-| What course grades can and can't | `n.campus_a_2010` | 48.6% |
-| What course grades can and can't | `n.campus_a_2025` | 69.8% |
-| What course grades can and can't | `n.campus_gpa_2010` | 3.21 |
-| What course grades can and can't | `n.campus_gpa_2025` | 3.52 |
-| What course grades can and can't | `n.gies_trend` | 1.9 |
-| What course grades can and can't | `n.campus_trend` | 1.6 |
-| What course grades can and can't | `n.SHIFT_FROM_FALL` | 2015 |
-| What course grades can and can't | `n.SHIFT_TO_FALL` | 2025 |
-| What course grades can and can't | `n.shift_total` | 21.7 |
-| What course grades can and can't | `n.shift_courses` | 48 |
-| What course grades can and can't | `n.shift_within` | 17.5 |
-| What course grades can and can't | `n.shift_mix` | 0.5 |
-| What course grades can and can't | `n.shift_interaction` | 1.6 |
-| What course grades can and can't | `n.shift_entering` | 2.2 |
-| What course grades can and can't | `n.dfw_2025` | 1.4% |
-| What course grades can and can't | `n.watch_count` | 5 |
-| What course grades can and can't | `n.watch_min_graded` | 150 |
-| What course grades can and can't | `n.watch_min_rate` | 15% |
-| What course grades can and can't | `n.watch_min_terms` | 2 |
-| What course grades can and can't | `n.watch_courses` | ACCY 201, ACCY 202, ACCY 301, ACCY 303, and FIN 300 |
-| What course grades can and can't | `n.watch_top_rate` | 23.3% |
-| What course grades can and can't | `n.watch_top_course` | FIN 300 |
-| What course grades can and can't | `n.spread_max` | 1.04 |
+| What course grades can and can't tell an assessment committee | `n.GRADES_FIRST_FALL` | 2010 |
+| What course grades can and can't tell an assessment committee | `n.a_range_2010` | 54.4% |
+| What course grades can and can't tell an assessment committee | `n.gpa_2010` | 3.38 |
+| What course grades can and can't tell an assessment committee | `n.GRADES_LAST_FALL` | 2025 |
+| What course grades can and can't tell an assessment committee | `n.a_range_2025` | 80.0% |
+| What course grades can and can't tell an assessment committee | `n.gpa_2025` | 3.72 |
+| What course grades can and can't tell an assessment committee | `n.graded_2025` | 13,070 |
+| What course grades can and can't tell an assessment committee | `n.campus_a_2010` | 48.6% |
+| What course grades can and can't tell an assessment committee | `n.campus_a_2025` | 69.8% |
+| What course grades can and can't tell an assessment committee | `n.campus_gpa_2010` | 3.21 |
+| What course grades can and can't tell an assessment committee | `n.campus_gpa_2025` | 3.52 |
+| What course grades can and can't tell an assessment committee | `n.gies_trend` | 1.9 |
+| What course grades can and can't tell an assessment committee | `n.campus_trend` | 1.6 |
+| What course grades can and can't tell an assessment committee | `n.SHIFT_FROM_FALL` | 2015 |
+| What course grades can and can't tell an assessment committee | `n.SHIFT_TO_FALL` | 2025 |
+| What course grades can and can't tell an assessment committee | `n.shift_total` | 21.7 |
+| What course grades can and can't tell an assessment committee | `n.shift_courses` | 48 |
+| What course grades can and can't tell an assessment committee | `n.shift_within` | 17.5 |
+| What course grades can and can't tell an assessment committee | `n.shift_mix` | 0.5 |
+| What course grades can and can't tell an assessment committee | `n.shift_interaction` | 1.6 |
+| What course grades can and can't tell an assessment committee | `n.shift_entering` | 2.2 |
+| What course grades can and can't tell an assessment committee | `n.dfw_2025` | 1.4% |
+| What course grades can and can't tell an assessment committee | `n.word(n.watch_count)` | five |
+| What course grades can and can't tell an assessment committee | `n.watch_min_graded` | 150 |
+| What course grades can and can't tell an assessment committee | `n.watch_min_rate` | 15% |
+| What course grades can and can't tell an assessment committee | `n.word(n.watch_min_terms)` | two |
+| What course grades can and can't tell an assessment committee | `n.watch_courses` | ACCY 201, ACCY 202, ACCY 301, ACCY 303, and FIN 300 |
+| What course grades can and can't tell an assessment committee | `n.watch_top_rate` | 23.3% |
+| What course grades can and can't tell an assessment committee | `n.watch_top_course` | FIN 300 |
+| What course grades can and can't tell an assessment committee | `n.spread_max` | 1.04 |
 | Where scheduling is tight | `n.sections_2025` | 518 |
 | Where scheduling is tight | `n.SECTIONS_TO_FALL` | 2025 |
 | Where scheduling is tight | `n.sections_2019` | 480 |
@@ -302,12 +300,16 @@ Two fixes came out of it. The closed-share chart scaled its day axis to the one 
 | Where scheduling is tight | `n.students_2025` | 30,067 |
 | Where scheduling is tight | `n.per_section_2019` | 55.9 |
 | Where scheduling is tight | `n.per_section_2025` | 69.8 |
-| Where scheduling is tight | `n.fewer_sections_count` | 5 |
+| Where scheduling is tight | `n.word(n.fewer_sections_count)` | five |
 | Where scheduling is tight | `n.fewer_sections_list` | ACCY 500, ACCY 505, BADM 509, BADM 572, and FIN 321 |
-| Where scheduling is tight | `n.snapshot_date` | Oct 25, 2026 |
-| Where scheduling is tight | `n.registration_status` | registration opens in 8 days, on Nov 2, 2026 |
+| Where scheduling is tight | `n.snapshot_date` | Oct 28, 2026 |
 | Where scheduling is tight | `n.registration_sections` | 509 |
 | Where scheduling is tight | `n.registration_courses` | 225 |
+| Where scheduling is tight | `n.registration_status` | registration opens in five days, on Nov 2, 2026 |
+| Where scheduling is tight | `n.fully_closed` | ACCY 321, BADM 303, BADM 366 |
+| Where scheduling is tight | `n.closed_sections` | 12 |
+| Where scheduling is tight | `n.sections_with_status` | 509 |
+| Where scheduling is tight | `n.closed_share` | 2.4% |
 | Outlook | `n.base_freshmen` | 783 |
 | Outlook | `n.base_transfers` | 83 |
 | Outlook | `n.intake_first_fall` | 2024 |

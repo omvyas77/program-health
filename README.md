@@ -73,7 +73,7 @@ Every source is public; docs/data_sources.md has the details and docs/data_notes
 - Grades describe grading, not learning. The grade data cover sections with 21 or more graded students.
 - The registration watch has no seat counts or caps. A closed section isn't necessarily full, and status starts with the Oct 28, 2026 pass.
 - The undergraduate projection matched a naive forecast in its backtest rather than beating it; docs/projection_method.md says so plainly.
-- Of the Common Data Set rows, only Illinois's are verified so far; the rest are drafts in data/manual/cds_c1_draft.csv.
+- Of the Common Data Sets, only Illinois's figures are verified, and only they are used, in the in-state what-if. The other schools' rows are unverified drafts in data/manual/cds_c1_draft.csv and feed no number.
 
 ## Decisions and documentation
 

@@ -64,6 +64,12 @@ def points(x, digits=1):
     return f"{abs(100 * x):.{digits}f}"
 
 
+def word(k):
+    # Counts under ten read as words in prose.
+    words = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+    return words[k] if 0 <= k < 10 else f"{k:,}"
+
+
 def ordinal(k):
     suffix = "th" if 10 <= k % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(k % 10, "th")
     return f"{k}{suffix}"
@@ -291,11 +297,11 @@ SNAPSHOT_DATE, SNAPSHOT_DAYS = one("""
 """)
 snapshot_date = f"{SNAPSHOT_DATE:%b} {SNAPSHOT_DATE.day}, {SNAPSHOT_DATE.year}"
 if SNAPSHOT_DAYS < 0:
-    registration_status = f"registration opens in {-SNAPSHOT_DAYS} days, on Nov 2, 2026"
+    registration_status = f"registration opens in {word(-SNAPSHOT_DAYS)} days, on Nov 2, 2026"
 elif SNAPSHOT_DAYS == 0:
     registration_status = "registration opens that day"
 else:
-    registration_status = f"registration had been open {SNAPSHOT_DAYS} days"
+    registration_status = f"registration had been open {word(SNAPSHOT_DAYS)} days"
 registration_sections = count(
     one(f"""
     select sum(primary_sections) from mart_registration_watch
@@ -315,6 +321,25 @@ sections_added_since_open = count(
     where snapshot_date = '{SNAPSHOT_DATE}'
 """)
 )
+_closed, _with_status = one(f"""
+    select coalesce(sum(closed_sections), 0), coalesce(sum(sections_with_status), 0)
+    from mart_registration_watch where snapshot_date = '{SNAPSHOT_DATE}'
+""")
+status_ready = _with_status > 0
+closed_sections = count(_closed)
+sections_with_status = count(_with_status)
+closed_share = pct(_closed / _with_status) if status_ready else None
+fully_closed = [
+    r[0]
+    for r in con()
+    .sql(f"""
+        select subject || ' ' || number from mart_registration_watch
+        where snapshot_date = '{SNAPSHOT_DATE}' and sections_with_status > 0
+            and closed_sections = sections_with_status
+        order by 1
+    """)
+    .fetchall()
+]
 
 # Outlook
 FRESHMEN_LEVER = 50

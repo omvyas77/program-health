@@ -11,6 +11,7 @@ format:
     include-in-header:
       - text: |
           #set text(lang: "en", hyphenate: true)
+          #show link: set text(fill: rgb("#2a78d6"))
           #set par(leading: 0.58em)
           #show heading: set text(font: "Source Sans 3", weight: "semibold", size: 12pt)
           #show heading: set block(above: 1.1em, below: 0.6em)
@@ -39,20 +40,20 @@ from brief import numbers as n
 ```{=typst}
 #text(font: "Source Sans 3", size: 19pt, weight: "semibold")[Gies program health]
 #v(-0.6em)
-#text(font: "Source Sans 3", size: 10.5pt, fill: rgb("#555555"))[Enrollment, Big Ten peers, course grades, and scheduling at the Gies College of Business, from public data. Om Vyas, #datetime.today().display("[month repr:long] [day padding:none], [year]").]
+#text(font: "Source Sans 3", size: 10.5pt, fill: rgb("#555555"))[Enrollment, Big Ten peers, course grades, and scheduling at Gies, from public data. Om Vyas, #datetime.today().display("[month repr:long] [day padding:none], [year]").]
 #v(-0.3em)
-#text(size: 8.5pt, style: "italic", fill: rgb("#555555"))[An independent analysis built only from public data, not affiliated with or endorsed by the University of Illinois. Code and data: github.com/omvyas77/program-health.]
+#text(size: 8.5pt, fill: rgb("#555555"))[#emph[An independent analysis built only from public data, not affiliated with or endorsed by the University of Illinois.] Dashboards: #link("https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview")[Tableau Public]. App: #link("https://gies-program-health.streamlit.app/")[gies-program-health.streamlit.app]. Code and data: #link("https://github.com/omvyas77/program-health")[github.com/omvyas77/program-health].]
 ```
 
 ## Summary
 
-Gies grew from `{python} n.gies_total_first` students in Fall `{python} n.FIRST_CHART_FALL` to `{python} n.gies_total` in Fall `{python} n.LATEST_FALL`, and online graduate programs account for `{python} n.online_added` of the `{python} n.gies_added` added; undergraduate headcount has since risen `{python} n.undergrad_change_five` in five years. Illinois ranks `{python} n.retention_rank` of 18 Big Ten schools in first-year retention but `{python} n.biz_share_rank` in the share of its bachelor's degrees awarded in business. In Gies undergraduate courses, `{python} n.a_range_2025` of grades were in the A range in Fall `{python} n.GRADES_LAST_FALL`, and most of the rise since Fall `{python} n.SHIFT_FROM_FALL` happened within the same courses, so grades tell an assessment committee where to look, not what students learned. `{python} n.watch_count` large courses stand out for the share of students at C or below or withdrawing. My projection puts undergraduate headcount at `{python} n.base_2030` by Fall `{python} n.LAST_PROJECTED_FALL`, though in a backtest it only matched a naive forecast.
+Gies grew from `{python} n.gies_total_first` students in Fall `{python} n.FIRST_CHART_FALL` to `{python} n.gies_total` in Fall `{python} n.LATEST_FALL`, and online graduate programs account for `{python} n.online_added` of the `{python} n.gies_added` added; undergraduate headcount has since risen `{python} n.undergrad_change_five` in five years. Illinois ranks `{python} n.retention_rank` of 18 Big Ten schools in first-year retention but `{python} n.biz_share_rank` in the share of its bachelor's degrees awarded in business. In Gies undergraduate courses, `{python} n.a_range_2025` of grades were in the A range in Fall `{python} n.GRADES_LAST_FALL`, and most of the rise since Fall `{python} n.SHIFT_FROM_FALL` happened within the same courses, so grades tell an assessment committee where to look, not what students learned. Among large courses, `{python} n.word(n.watch_count)` stand out for the share of students at C or below or withdrawing. My projection puts undergraduate headcount at `{python} n.base_2030` by Fall `{python} n.LAST_PROJECTED_FALL`, though in a backtest it only matched a naive forecast.
 
 ## Online programs carried Gies's growth
 
 Gies enrolled `{python} n.gies_total` students in Fall `{python} n.LATEST_FALL`, up from `{python} n.gies_total_first` in Fall `{python} n.FIRST_CHART_FALL`, and online graduate programs account for `{python} n.online_added` of the `{python} n.gies_added` students added (@fig-enrollment). The curriculum reports list no Gies program code ending in U, the marker for an online program, before Fall `{python} n.FIRST_CHART_FALL`. By Fall `{python} n.LATEST_FALL`, `{python} n.online_share` of Gies graduate students, `{python} n.online_count` of `{python} n.graduate_count`, were in an online program, `{python} n.mba_online` of them in the online MBA.
 
-![Gies fall headcount by program group.](figures/enrollment.svg){#fig-enrollment width=90% fig-alt="Stacked bars of Gies fall headcount by program group from Fall 2017 to Fall 2026"}
+![Gies fall headcount by program group.](figures/enrollment.svg){#fig-enrollment width=85% fig-alt="Stacked bars of Gies fall headcount by program group from Fall 2017 to Fall 2026"}
 
 Growth has since shifted from graduate to undergraduate students. Graduate headcount peaked at `{python} n.graduate_peak` in Fall `{python} n.graduate_peak_fall` and was `{python} n.graduate_decline_five` lower in Fall `{python} n.LATEST_FALL`, while undergraduate headcount rose `{python} n.undergrad_change_five`, from `{python} n.undergrad_total_five_earlier` to `{python} n.undergrad_total`. Fall `{python} n.LATEST_FALL` brought `{python} n.freshmen_latest` first-time freshmen; from Fall `{python} n.first_new_students_fall` to Fall `{python} n.freshmen_range_last_fall` the entering class ranged from `{python} n.freshmen_range_low` to `{python} n.freshmen_range_high`.
 
@@ -64,7 +65,7 @@ IPEDS reports the whole university, so these comparisons describe Illinois rathe
 
 Illinois retains first-year students well. Of the `{python} n.retention_label`, `{python} n.retention` returned, `{python} n.retention_rank` of the 18 Big Ten schools and above the peer median of `{python} n.retention_median` (@fig-peers). Retention `{python} n.retention_direction` `{python} n.retention_gain` percentage points from the `{python} n.retention_then_label`, while the peer median `{python} n.retention_median_direction` `{python} n.retention_median_change`. Six-year graduation for the `{python} n.grad6_label` was `{python} n.grad6`, against a peer median of `{python} n.grad6_median`. By college of entry, DAIR puts Gies ahead of the campus: `{python} n.gies_grad6` of Gies's `{python} n.grads_matching_cohort` entrants graduated within six years, against `{python} n.campus_grad6` campus-wide, and `{python} n.gies_retention` of its Fall `{python} n.RETENTION_COHORT` freshmen returned, against `{python} n.campus_retention`.
 
-![Illinois among the 18 Big Ten schools, latest year.](figures/peers.svg){#fig-peers width=90% fig-alt="Dot plots of the 18 Big Ten schools on first-year retention and on the business share of bachelor's degrees, with Illinois highlighted"}
+![Illinois among the 18 Big Ten schools, latest year.](figures/peers.svg){#fig-peers width=85% fig-alt="Dot plots of the 18 Big Ten schools on first-year retention and on the business share of bachelor's degrees, with Illinois highlighted"}
 
 Admission has become more selective. Illinois drew `{python} n.applicants` applicants for its `{python} n.admit_label`, up from `{python} n.applicants_then` five years earlier, and admitted `{python} n.admit`, `{python} n.admit_drop` points below the `{python} n.admit_then_label` and below the peer median of `{python} n.admit_median`. Of those admitted, `{python} n.yield_rate` enrolled, against a peer median of `{python} n.yield_median`.
 
@@ -76,31 +77,58 @@ Grades in Gies undergraduate courses have risen faster than grades across campus
 
 The rise happened inside courses, not through a shift in which courses students took. From Fall `{python} n.SHIFT_FROM_FALL` to Fall `{python} n.SHIFT_TO_FALL` the A-range share rose `{python} n.shift_total` points. In the `{python} n.shift_courses` courses taught in both terms, `{python} n.shift_within` points came from higher shares within the same courses, `{python} n.shift_mix` from enrollment moving toward courses that already graded higher, and `{python} n.shift_interaction` from the two together; courses added or dropped account for the other `{python} n.shift_entering` (@fig-grades, right).
 
-![Grades in undergraduate courses.](figures/grades.svg){#fig-grades width=90% fig-alt="Lines of the A-range share in Gies and all undergraduate courses by fall, and bars splitting the rise into within-course change, mix, interaction, and courses added or dropped"}
+![Grades in undergraduate courses.](figures/grades.svg){#fig-grades width=85% fig-alt="Lines of the A-range share in Gies and all undergraduate courses by fall, and bars splitting the rise into within-course change, mix, interaction, and courses added or dropped"}
 
 Grades describe grading, not learning. A rising share of A grades can reflect better-prepared students, changes in how courses assess, or changes in how they grade, and these data can't tell those apart. What they can do is show a committee where direct evidence would be worth collecting.
 
-Failing and withdrawing are rare (`{python} n.dfw_2025` of grades in Gies undergraduate courses in Fall `{python} n.GRADES_LAST_FALL` were D, F, or W), so the share at C or below or withdrawing says more. In `{python} n.watch_count` courses with `{python} n.watch_min_graded` or more graded students a term, `{python} n.watch_min_rate` or more of students were at C or below or withdrew in at least `{python} n.watch_min_terms` of the last four long terms: `{python} n.watch_courses` (`{python} n.watch_top_rate` over four terms in `{python} n.watch_top_course`). Each is a question for its department about preparation, placement, and support, not a verdict on its teaching.
+Failing and withdrawing are rare (`{python} n.dfw_2025` of grades in Gies undergraduate courses in Fall `{python} n.GRADES_LAST_FALL` were D, F, or W), so the share at C or below or withdrawing says more. In `{python} n.word(n.watch_count)` courses with `{python} n.watch_min_graded` or more graded students a term, `{python} n.watch_min_rate` or more of students were at C or below or withdrew in at least `{python} n.word(n.watch_min_terms)` of the last four long terms: `{python} n.watch_courses` (`{python} n.watch_top_rate` over four terms in `{python} n.watch_top_course`). Each is a question for its department about preparation, placement, and support, not a verdict on teaching.
 
 Sections of one course differ too: in the last four long terms, section GPAs within a Gies undergraduate course were up to `{python} n.spread_max` points apart. That shows where common assessments or rubrics could be compared, not which section graded correctly.
 
-AACSB's 2026 Global Standards take effect in 2027-28, after a 2026-27 pilot year with about 30 schools, and continuous improvement reviews with visits from 2027-28 on use them [8]. Standard 5 asks for direct and indirect measures of learning tied to stated competencies; grade distributions are neither, but they show where to apply such measures first. The watch list belongs under Standard 6, learner progression, and section spread is a place for Standard 7's review of teaching effectiveness to start.
+AACSB's 2026 Global Standards take effect in 2027-28, after a 2026-27 pilot year with about 30 schools, and continuous improvement reviews with visits from 2027-28 on use them [8]. Standard 5 asks for direct and indirect measures of learning tied to stated competencies; grade distributions are neither, but they show where to apply such measures first. The watch list belongs under Standard 6, learner progression, and section spread is a place for Standard 7’s review of teaching effectiveness to start.
 
 ## Where scheduling is tight
 
-Gies offered `{python} n.sections_2025` primary sections, lectures and seminars rather than discussions or labs, in Fall `{python} n.SECTIONS_TO_FALL`, against `{python} n.sections_2019` in Fall `{python} n.SECTIONS_FROM_FALL`, while graded students rose from `{python} n.students_2019` to `{python} n.students_2025`. Graded students per primary section went from `{python} n.per_section_2019` to `{python} n.per_section_2025`. That runs a little low, because the GPA data leave out sections of 20 or fewer graded students; I don't use the GPA data's own section count, because grades moved from discussion sections to lectures over these years. `{python} n.fewer_sections_count` courses ran fewer primary sections in Fall `{python} n.SECTIONS_TO_FALL` than in Fall `{python} n.SECTIONS_FROM_FALL` while their graded students rose: `{python} n.fewer_sections_list`.
+Gies offered `{python} n.sections_2025` primary sections, lectures and seminars rather than discussions or labs, in Fall `{python} n.SECTIONS_TO_FALL`, against `{python} n.sections_2019` in Fall `{python} n.SECTIONS_FROM_FALL`, while graded students rose from `{python} n.students_2019` to `{python} n.students_2025`. Graded students per primary section went from `{python} n.per_section_2019` to `{python} n.per_section_2025`. That runs a little low, because the GPA data leave out sections of 20 or fewer graded students. In `{python} n.word(n.fewer_sections_count)` courses, graded students rose while primary sections fell from Fall `{python} n.SECTIONS_FROM_FALL` to Fall `{python} n.SECTIONS_TO_FALL`: `{python} n.fewer_sections_list`.
 
-A scheduled job reads the Spring 2027 schedule from Course Explorer every day. As of `{python} n.snapshot_date`, `{python} n.registration_status`, and Gies listed `{python} n.registration_sections` primary sections in `{python} n.registration_courses` courses. The public schedule shows sections added and removed but has no seat counts, caps, waitlists, or open and closed status. The usual scheduling measure, average enrollment over average enrollment cap, needs exactly what is missing, so a section added during registration is a hint of demand and nothing more.
+```{python}
+#| output: asis
+lead = (
+    f"As of {n.snapshot_date}, the daily snapshot of the Spring 2027 schedule from Course "
+    f"Explorer listed {n.registration_sections} Gies primary sections in "
+    f"{n.registration_courses} courses, and {n.registration_status}. The API has no seat "
+    "counts, caps, waitlists, or status, so a second job, approved by the university's Tech "
+    "Services, reads each section's status from the public course pages at 8:14 am Central."
+)
+if n.status_ready:
+    if not n.fully_closed:
+        full = "no course had every primary section closed"
+    elif len(n.fully_closed) == 1:
+        full = f"one course, {n.fully_closed[0]}, had every primary section closed"
+    else:
+        names = ", ".join(n.fully_closed[:-1]) + f", and {n.fully_closed[-1]}"
+        names = names.replace(", and", " and") if len(n.fully_closed) == 2 else names
+        full = f"{n.word(len(n.fully_closed))} courses had every primary section closed: {names}"
+    lead += (
+        f" That day {n.closed_sections} of {n.sections_with_status} primary sections "
+        f"({n.closed_share}) were closed, and {full}."
+    )
+print(
+    lead + " A closed section isn't necessarily full: the usual scheduling measure, average "
+    "enrollment over average enrollment cap, needs caps and waitlists that neither source has, "
+    "so a section added or closed during registration is a hint of demand and nothing more."
+)
+```
 
 ## Outlook
 
 I project Gies undergraduate headcount as a stock and flow: next fall's undergraduates are the new freshmen and transfers plus the share of this fall's who continue. The base scenario holds freshmen at `{python} n.base_freshmen` and transfers at `{python} n.base_transfers` a year, their mean over Falls `{python} n.intake_first_fall` to `{python} n.LATEST_FALL`, and the continuing share at `{python} n.base_c_pct`, the median of the last five fall-to-fall transitions outside covid. It reaches `{python} n.base_2030` undergraduates by Fall `{python} n.LAST_PROJECTED_FALL`, with low and high scenarios of `{python} n.low_2030` and `{python} n.high_2030` (@fig-projection).
 
-![Gies undergraduate headcount, actual and projected.](figures/projection.svg){#fig-projection width=90% fig-alt="Line of Gies undergraduate headcount from 2012 to 2026 with the base projection to 2030 and a shaded low-to-high range"}
+![Gies undergraduate headcount, actual and projected.](figures/projection.svg){#fig-projection width=85% fig-alt="Line of Gies undergraduate headcount from 2012 to 2026 with the base projection to 2030 and a shaded low-to-high range"}
 
 In a backtest from Fall `{python} n.BACKTEST_FIRST_ORIGIN` on, the model's mean absolute percentage error was `{python} n.model_1yr` one year ahead and `{python} n.model_4yr` four years ahead, against `{python} n.naive_1yr` and `{python} n.naive_4yr` for simply carrying the last fall forward. That margin is too small to call a win: the model matches the naive forecast rather than beating it. Most of its error comes from guessing intake. Given the freshmen and transfers who actually arrived, the one-year error falls to `{python} n.actual_intake_1yr`.
 
-So the levers are intake and continuation. Each `{python} n.FRESHMEN_LEVER` more freshmen a year adds `{python} n.plus_50_freshmen` undergraduates by Fall `{python} n.LAST_PROJECTED_FALL`, and each percentage point of continuing share adds `{python} n.plus_point_c`. If freshmen held at Fall `{python} n.LATEST_FALL`'s `{python} n.freshmen_latest`, the base would reach `{python} n.freshmen_hold`.
+So the levers are intake and continuation. Each `{python} n.FRESHMEN_LEVER` more freshmen a year adds `{python} n.plus_50_freshmen` undergraduates by Fall `{python} n.LAST_PROJECTED_FALL`, and each percentage point of continuing share adds `{python} n.plus_point_c`. If freshmen held at Fall `{python} n.LATEST_FALL`’s `{python} n.freshmen_latest`, the base would reach `{python} n.freshmen_hold`.
 
 Online graduate headcount is projected flat at `{python} n.online_count`, with an 80% range of `{python} n.online_low_2030` to `{python} n.online_high_2030` by Fall `{python} n.LAST_PROJECTED_FALL`; a damped trend, which carried the programs' early growth forward, lost to the naive forecast at every horizon.
 
