@@ -1,24 +1,31 @@
 # Spring 2027 registration watch
 
-As of the Oct 28, 2026 snapshot, registration opens in 5 days, on Nov 2, 2026. Gies lists 509 primary sections across 225 courses.
+As of the Oct 29, 2026 snapshot, registration opens in 4 days, on Nov 2, 2026. Gies lists 507 primary sections across 223 courses.
 
 ## Sections added since registration opened
 
 Registration hasn't opened yet.
 
-## Since the previous snapshot, Oct 26, 2026
+## Since the previous snapshot, Oct 28, 2026
 
-No Gies course gained or lost a primary section.
+| Course | Primary sections | Added | Removed |
+|---|---:|---:|---:|
+| FIN 424 | 0 | 0 | 1 |
+| FIN 527 | 0 | 0 | 1 |
 
 ## Closed sections
 
-As of the Oct 28, 2026 status pass, 12 of 509 Gies primary sections (2.4%) were closed, and 492 were Open (Restricted).
+As of the Oct 29, 2026 status pass, 12 of 507 Gies primary sections (2.4%) were closed, and 490 were Open (Restricted).
 
 | Course with every primary section closed | Sections |
 |---|---:|
 | ACCY 321 | 2 |
 | BADM 303 | 2 |
 | BADM 366 | 2 |
+
+Since the Oct 28, 2026 pass:
+
+No Gies course's closed count changed.
 
 Enrollment status comes from the public course pages, read once a day at 8:14 am Central with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only. A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change. Primary sections are lectures, lecture-discussions, online lectures, and seminars, not discussions or labs.
 
