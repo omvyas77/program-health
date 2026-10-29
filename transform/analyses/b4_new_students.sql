@@ -1,4 +1,4 @@
--- 6b.4 New Gies first-time freshmen and transfers, Fall 2012 to Fall 2026
+-- B4 New Gies first-time freshmen and transfers, Fall 2012 to Fall 2026
 -- Class levels come from credit hours, so many first-time freshmen start with sophomore standing.
 select
     fall_year as "Fall",

@@ -1,8 +1,8 @@
--- 6d.2 Graded students per primary section by Gies subject and long term, Fall 2016 to Fall 2025
+-- D2 Graded students per primary section by Gies subject and long term, Fall 2016 to Fall 2025
 -- Graded students from the GPA dataset over primary sections from the catalog, for course-terms
 -- with both. The GPA data leaves out sections of 20 or fewer graded students, so the figure runs
 -- a little low. The GPA data's own section count isn't used: where grades were recorded moved from
--- discussions to lectures over these years (docs/data_notes.md). Chosen by Om on Oct 25, 2026.
+-- discussions to lectures over these years (docs/data_notes.md).
 {%- set subjects = ['ACCY', 'BADM', 'BDI', 'BUS', 'FIN', 'MBA'] %}
 with both_counts as (
     select *

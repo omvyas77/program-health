@@ -1,4 +1,4 @@
--- 6e.1 Teachers Ranked as Excellent listings per 100 primary sections, by Gies subject and long term, Fall 2016 to Spring 2025
+-- E1 Teachers Ranked as Excellent listings per 100 primary sections, by Gies subject and long term, Fall 2016 to Spring 2025
 -- TRE lists by unit: Accountancy is ACCY, Business Administration BADM, Finance FIN, Business
 -- BUS, Business Data and Innovation BDI, and the MBA units MBA. Business and Technical Writing
 -- belongs to English and is left out. Unit names switch to mixed case in 2024-sp, so they are

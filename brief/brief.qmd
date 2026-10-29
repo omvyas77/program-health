@@ -85,7 +85,7 @@ Failing and withdrawing are rare (`{python} n.dfw_2025` of grades in Gies underg
 
 Sections of one course differ too: in the last four long terms, section GPAs within a Gies undergraduate course were up to `{python} n.spread_max` points apart. That shows where common assessments or rubrics could be compared, not which section graded correctly.
 
-AACSB's 2026 Global Standards take effect in 2027-28, after a 2026-27 pilot year with about 30 schools, and continuous improvement reviews with visits from 2027-28 on use them [8]. Standard 5 asks for direct and indirect measures of learning tied to stated competencies; grade distributions are neither, but they show where to apply such measures first. The watch list belongs under Standard 6, learner progression, and section spread is a place for Standard 7’s review of teaching effectiveness to start.
+AACSB's 2026 Global Standards, ratified in April 2026, took effect on July 1, 2026; continuous improvement reviews visiting in 2026-27 may use either the 2020 or the 2026 standards, and visits from 2027-28 on must use the 2026 standards [8]. Standard 5 asks for direct and indirect measures of learning tied to stated competencies; grade distributions are neither, but they show where to apply such measures first. The watch list belongs under Standard 6, learner progression, and section spread is a place for Standard 7’s review of teaching effectiveness to start.
 
 ## Where scheduling is tight
 
@@ -124,7 +124,7 @@ print(
 
 I project Gies undergraduate headcount as a stock and flow: next fall's undergraduates are the new freshmen and transfers plus the share of this fall's who continue. The base scenario holds freshmen at `{python} n.base_freshmen` and transfers at `{python} n.base_transfers` a year, their mean over Falls `{python} n.intake_first_fall` to `{python} n.LATEST_FALL`, and the continuing share at `{python} n.base_c_pct`, the median of the last five fall-to-fall transitions outside covid. It reaches `{python} n.base_2030` undergraduates by Fall `{python} n.LAST_PROJECTED_FALL`, with low and high scenarios of `{python} n.low_2030` and `{python} n.high_2030` (@fig-projection).
 
-![Gies undergraduate headcount, actual and projected.](figures/projection.svg){#fig-projection width=85% fig-alt="Line of Gies undergraduate headcount from 2012 to 2026 with the base projection to 2030 and a shaded low-to-high range"}
+![Gies undergraduate headcount, actual and projected.](figures/projection.svg){#fig-projection width=75% fig-alt="Line of Gies undergraduate headcount from 2012 to 2026 with the base projection to 2030 and a shaded low-to-high range"}
 
 In a backtest from Fall `{python} n.BACKTEST_FIRST_ORIGIN` on, the model's mean absolute percentage error was `{python} n.model_1yr` one year ahead and `{python} n.model_4yr` four years ahead, against `{python} n.naive_1yr` and `{python} n.naive_4yr` for simply carrying the last fall forward. That margin is too small to call a win: the model matches the naive forecast rather than beating it. Most of its error comes from guessing intake. Given the freshmen and transfers who actually arrived, the one-year error falls to `{python} n.actual_intake_1yr`.
 

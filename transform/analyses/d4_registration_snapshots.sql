@@ -1,4 +1,4 @@
--- 6d.4 Spring 2027 primary sections in each daily snapshot, Gies subjects
+-- D4 Spring 2027 primary sections in each daily snapshot, Gies subjects
 -- Registration opens Nov 2, 2026. The Course Explorer API carries no enrollment status, so the
 -- watch tracks sections added and removed, not seats or closed sections.
 select

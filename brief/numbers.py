@@ -233,8 +233,8 @@ gies_retention, gies_retained, gies_cohort = (
 campus_retention = pct(outcome("All colleges", "first_year_retention", RETENTION_COHORT)[2])
 
 # Grades: the first and last falls in the GPA data, and the shift-share's two falls, which
-# transform/analyses/f6c_3_shift_share.sql fixes.
-GRADES = "f6c_1_grades_by_term"
+# transform/analyses/c3_shift_share.sql fixes.
+GRADES = "c1_grades_by_term"
 GRADES_FIRST_FALL, GRADES_LAST_FALL = one(
     "select min(year), max(year) from mart_course_terms where term = 'Fall'"
 )
@@ -250,35 +250,35 @@ campus_gpa_2010 = cell(GRADES, "Campus GPA", Term=_first)
 campus_gpa_2025 = cell(GRADES, "Campus GPA", Term=_last)
 dfw_2025 = cell(GRADES, "Gies DFW", Term=_last)
 graded_2025 = cell(GRADES, "Gies graded", Term=_last)
-TRENDS = "f6c_2_grade_trends"
+TRENDS = "c2_grade_trends"
 gies_trend = f"{value(cell(TRENDS, 'A-range per year', Courses='Gies', Terms='Fall')):.1f}"
 campus_trend = f"{value(cell(TRENDS, 'A-range per year', Courses='Campus', Terms='Fall')):.1f}"
-SHIFT = "f6c_3_shift_share"
+SHIFT = "c3_shift_share"
 shift_total = f"{value(cell(SHIFT, 'Value', Row=3)):.1f}"
 shift_within = f"{value(cell(SHIFT, 'Value', Row=7)):.1f}"
 shift_mix = f"{value(cell(SHIFT, 'Value', Row=8)):.1f}"
 shift_interaction = f"{value(cell(SHIFT, 'Value', Row=9)):.1f}"
 shift_entering = f"{value(cell(SHIFT, 'Value', Row=10)):.1f}"
 shift_courses = cell(SHIFT, "Value", Row=4).split(" in ")[1].split()[0]
-watch = finding("f6c_5_watch_list")[1]
+watch = finding("c5_watch_list")[1]
 watch_count = len(watch)
 watch_courses = ", ".join(r[0] for r in watch[:-1]) + f", and {watch[-1][0]}"
 watch_top = max(watch, key=lambda r: value(r[6]))
 watch_top_course, watch_top_rate = watch_top[0], watch_top[6]
-spread_max = f"{max(value(r[6]) for r in finding('f6c_6_section_spread')[1]):.2f}"
-_online = "f6c_8_online_in_person_summary"
+spread_max = f"{max(value(r[6]) for r in finding('c6_section_spread')[1]):.2f}"
+_online = "c8_online_in_person_summary"
 online_pairs = cell(_online, "Course-terms", Terms="Other terms")
 online_courses = cell(_online, "Courses", Terms="Other terms")
 online_a_gap = f"{value(cell(_online, 'Median A-range difference', Terms='Other terms')):.1f}"
 
 # Scheduling: Fall 2019, the last fall before covid, against the last fall with grades, the
-# comparison transform/analyses/f6d_3_sections_against_students.sql makes.
+# comparison transform/analyses/d3_sections_against_students.sql makes.
 SECTIONS_FROM_FALL, SECTIONS_TO_FALL = 2019, GRADES_LAST_FALL
 _from, _to = f"{SECTIONS_FROM_FALL}-fa", f"{SECTIONS_TO_FALL}-fa"
-SECTIONS = "f6d_1_primary_sections"
+SECTIONS = "d1_primary_sections"
 sections_2019 = cell(SECTIONS, "All Gies", Term=_from)
 sections_2025 = cell(SECTIONS, "All Gies", Term=_to)
-PER = "f6d_2_students_per_section"
+PER = "d2_students_per_section"
 per_section_2019 = cell(PER, "All Gies", Term=_from)
 per_section_2025 = cell(PER, "All Gies", Term=_to)
 students_2019 = count(
@@ -288,7 +288,7 @@ students_2025 = count(
     one(f"select sum(students_graded) from mart_course_sections where yearterm = '{_to}'")
 )
 fewer_sections_more_students = [
-    r[1] for r in finding("f6d_3_sections_against_students")[1] if r[0].startswith("Fewer")
+    r[1] for r in finding("d3_sections_against_students")[1] if r[0].startswith("Fewer")
 ]
 SNAPSHOT_DATE, SNAPSHOT_DAYS = one("""
     select snapshot_date, max(days_since_registration_open) from mart_registration_watch

@@ -1,4 +1,4 @@
--- Common Data Set C1, only the rows Om has checked against each school's file.
+-- Common Data Set C1, only the rows checked by hand against each school's file.
 select
     cast(unitid as integer) as unitid,
     cds_year,

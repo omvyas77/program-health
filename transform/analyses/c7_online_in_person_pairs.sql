@@ -1,4 +1,4 @@
--- 6c.7 Online and in-person sections of the same Gies undergraduate course in the same long term, Fall 2018 on
+-- C7 Online and in-person sections of the same Gies undergraduate course in the same long term, Fall 2018 on
 -- Online and in-person sections often serve different students, so a gap here describes the
 -- sections, not the format.
 -- Schedule type is blank on every row from 2016-fa to 2018-sp.

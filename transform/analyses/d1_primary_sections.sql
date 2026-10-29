@@ -1,4 +1,4 @@
--- 6d.1 Primary sections offered by Gies subject and long term, Fall 2016 to Fall 2026
+-- D1 Primary sections offered by Gies subject and long term, Fall 2016 to Fall 2026
 -- Lecture, lecture-discussion, online, online lecture, online lecture-discussion, and seminar
 -- types, counted as distinct CRNs in the course catalog, so a section with two primary meeting
 -- types counts once. The catalog has no files before Fall 2016.

@@ -19,7 +19,7 @@ models:
       +materialized: table
 
 vars:
-  # The course watch list, chosen by Om on Oct 24, 2026: Gies undergraduate courses averaging at
+  # The course watch list: Gies undergraduate courses averaging at
   # least watch_min_graded graded students per long term offered, with watch_min_rate or more at
   # C or below or withdrawing in at least watch_min_terms of the last four long terms.
   watch_min_graded: 150

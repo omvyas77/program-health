@@ -1,4 +1,4 @@
--- 6a.2 Business completions with and without 30.7102 Business Analytics, Illinois and peer median
+-- A2 Business completions with and without 30.7102 Business Analytics, Illinois and peer median
 -- 30.7102 exists only in the 2020 CIP classification, used from 2019-20 awards on.
 with paired as (
     select

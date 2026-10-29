@@ -1,7 +1,7 @@
 from ingest.paths import TRANSFORM
 from publish.findings import ANALYSES, render_table, title
 
-# Rows from 6d.2 as the warehouse returns them; BDI had no graded sections in Fall 2016.
+# Rows from D2 as the warehouse returns them; BDI had no graded sections in Fall 2016.
 COLUMNS = ["Term", "ACCY", "BADM", "BDI"]
 ROWS = [("2016-fa", "40.2", "61.1", None), ("2021-sp", "69.4", "99.3", "46.0")]
 
@@ -24,6 +24,6 @@ def test_every_analysis_has_a_numbered_title_matching_its_file():
     titles = [title(s) for s in sources]
     assert len(set(titles)) == len(titles)
     for source, text in zip(sources, titles, strict=True):
-        # f6c_5_watch_list.sql carries the title "6c.5 ...".
-        section, number = source.stem[1:].split("_")[:2]
-        assert text.startswith(f"{section}.{number} "), f"{source.name}: {text}"
+        # c5_watch_list.sql carries the title "C5 ...".
+        label = source.stem.split("_")[0].upper()
+        assert text.startswith(f"{label} "), f"{source.name}: {text}"

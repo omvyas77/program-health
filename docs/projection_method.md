@@ -1,6 +1,6 @@
 # Projection method
 
-The base projection has Gies undergraduate headcount rising from 3,652 in Fall 2026 to 3,841 in Fall 2030, with low and high scenarios of 3,632 and 4,171. Online graduate headcount is projected flat at 5,763, with an 80% interval of 3,682 to 7,844 by Fall 2030. In the backtest the undergraduate model did about as well as the naive forecast, not clearly better, and the plan's model for the online series lost to naive at every horizon, so it was replaced. `make forecast` reruns both and rewrites data/marts/mart_projection and reports/backtest.md.
+The base projection has Gies undergraduate headcount rising from 3,652 in Fall 2026 to 3,841 in Fall 2030, with low and high scenarios of 3,632 and 4,171. Online graduate headcount is projected flat at 5,763, with an 80% interval of 3,682 to 7,844 by Fall 2030. In the backtest the undergraduate model did about as well as the naive forecast, not clearly better, and the damped-trend model I first tried for the online series lost to naive at every horizon, so I replaced it. `make forecast` reruns both and rewrites data/marts/mart_projection and reports/backtest.md.
 
 ## Undergraduate headcount
 
@@ -34,7 +34,7 @@ The transitions into Fall 2020 and Fall 2021 are covid-affected and left out of 
 
 The series is every Gies graduate student in an online program (a program code ending in U), 982 in Fall 2017 and 5,763 in Fall 2026. There are no Gies online codes before Fall 2017. The projection is exponential smoothing with additive errors and no trend (statsmodels ETSModel), with an 80% prediction interval. The fitted smoothing weight is 0.9999, so the point forecast is the last value and the interval carries the uncertainty. Ten falls is a short series, and the first five are the launch ramp.
 
-The plan called for a damped trend. It carried the 2017 to 2021 ramp forward: from Fall 2021 it forecast 10,083 for Fall 2025 against an actual 5,466, and it lost to the naive forecast by 8 to 54 percentage points at every horizon. I replaced it with the no-trend model on Oct 24, 2026, and the backtest still reports both.
+I started with a damped trend. It carried the 2017 to 2021 ramp forward: from Fall 2021 it forecast 10,083 for Fall 2025 against an actual 5,466, and it lost to the naive forecast by 8 to 54 percentage points at every horizon. I replaced it with the no-trend model on Oct 24, 2026, and the backtest still reports both.
 
 ## Backtest
 
@@ -52,7 +52,7 @@ The model with three-year mean intake has a lower error than naive at every hori
 
 | Online graduate headcount | 1 year | 2 years | 3 years | 4 years |
 |---|---:|---:|---:|---:|
-| Damped-trend ETS (the plan's model) | 15.5% (+8.0%, 5) | 33.1% (+17.2%, 4) | 49.6% (+24.9%, 3) | 60.1% (+60.1%, 2) |
+| Damped-trend ETS (first tried) | 15.5% (+8.0%, 5) | 33.1% (+17.2%, 4) | 49.6% (+24.9%, 3) | 60.1% (+60.1%, 2) |
 | ETS without trend (used) | 7.6% (+0.2%, 5) | 12.5% (+0.2%, 4) | 10.8% (−2.3%, 3) | 6.0% (−1.3%, 2) |
 | Naive | 7.6% (+0.2%, 5) | 12.5% (+0.2%, 4) | 10.8% (−2.3%, 3) | 6.0% (−1.3%, 2) |
 | Drift | 14.8% (+14.8%, 5) | 32.0% (+32.0%, 4) | 47.9% (+47.9%, 3) | 72.3% (+72.3%, 2) |
@@ -67,10 +67,8 @@ The what-if reads only verified Common Data Set rows (data/manual/cds_c1.csv). I
 
 ## What would change the outlook
 
-Each 50 more first-time freshmen a year adds 143 undergraduates by Fall 2030. Each 0.01 added to c adds 109. If freshmen hold at Fall 2026's 901 instead of the three-year mean, the base reaches 4,180 by Fall 2030 instead of 3,841.
-
-Holding freshmen at Fall 2026's 901 instead of the three-year mean of 783 would add about 340 undergraduates by Fall 2030, about as much as the whole high scenario. A one-point change in the share who continue moves Fall 2030 by about 110, so intake, not continuation, is the number to watch.
+Each 50 more first-time freshmen a year adds 143 undergraduates by Fall 2030. Each 0.01 added to c adds 109. If freshmen hold at Fall 2026's 901 instead of the three-year mean, the base reaches 4,180 by Fall 2030 instead of 3,841. Intake, not continuation, is the number to watch.
 
 ## Decisions
 
-Om made these on Oct 24, 2026: leave the transitions into Fall 2020 and Fall 2021 out of c; hold intake at the three-year mean, after the backtest; project four falls, to Fall 2030, the horizons the backtest checks; replace the damped-trend model for the online series with exponential smoothing without trend, after the backtest.
+I made these on Oct 24, 2026: leave the transitions into Fall 2020 and Fall 2021 out of c; hold intake at the three-year mean, after the backtest; project four falls, to Fall 2030, the horizons the backtest checks; replace the damped-trend model for the online series with exponential smoothing without trend, after the backtest.

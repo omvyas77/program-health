@@ -1,4 +1,4 @@
--- 6b.3 Gies undergraduate majors measured by junior and senior headcount, Fall 2017 to Fall 2026
+-- B3 Gies undergraduate majors measured by junior and senior headcount, Fall 2017 to Fall 2026
 -- Most first- and second-year students sit in Business Undeclared, so juniors and seniors show
 -- where students land. Nondegree students have no class level and are left out.
 with majors as (

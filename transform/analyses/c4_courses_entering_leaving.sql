@@ -1,4 +1,4 @@
--- 6c.4 Gies undergraduate courses graded in only one of Fall 2015 and Fall 2025
+-- C4 Gies undergraduate courses graded in only one of Fall 2015 and Fall 2025
 with courses as (
     select
         yearterm,

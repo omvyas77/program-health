@@ -1,4 +1,4 @@
--- 6d.5 Spring 2027 Gies courses that gained or lost primary sections since the previous snapshot
+-- D5 Spring 2027 Gies courses that gained or lost primary sections since the previous snapshot
 select
     snapshot_date as "Snapshot",
     days_since_registration_open as "Days since registration opened",

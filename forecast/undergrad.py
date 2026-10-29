@@ -8,13 +8,12 @@ import numpy as np
 
 from ingest.paths import WAREHOUSE
 
-# Transitions left out of c, keyed by the later fall: 2019 to 2020 and 2020 to 2021. Chosen by
-# Om on Oct 24, 2026; 2021 to 2022 is typical and stays in.
+# Transitions left out of c, keyed by the later fall: 2019 to 2020 and 2020 to 2021. 2021 to 2022
+# is typical and stays in.
 COVID_FALLS = {2020, 2021}
 C_WINDOW = 5
 INTAKE_WINDOW = 3
-# mean3 matched the naive forecast in the backtest; latest lost to it at every horizon. Om chose
-# mean3 on Oct 24, 2026.
+# mean3 matched the naive forecast in the backtest; latest lost to it at every horizon.
 INTAKE_RULE = "mean3"
 F_SHIFT = 0.05
 C_PERCENTILES = (10, 90)

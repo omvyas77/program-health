@@ -1,12 +1,12 @@
 # Tableau spec
 
-Six dashboards in one Tableau Public workbook, built from the Google Sheet the pipeline writes, published at https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview. Each dashboard answers one question. Every title states a finding and takes its numbers from fields, so it stays true when the weekly refresh changes the data. The check values are the numbers each sheet showed on Oct 25, 2026 (Oct 28 for the registration watch), from docs/findings.md and the marts; tick each one off when the sheet is built.
+Six dashboards in one Tableau Public workbook, built from the Google Sheet the pipeline writes, published at https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview. Each dashboard answers one question. Every title states a finding and takes its numbers from fields, so it stays true when the weekly refresh changes the data. The check values are the numbers each sheet showed on Oct 25, 2026 (Oct 28 for the registration watch), from docs/findings.md and the marts.
 
 ## Connecting
 
 1. In Tableau Public, Connect, To a Server, Google Sheets. Sign in with the Google account that owns the Sheet and pick **gph-marts**.
 2. The Sheet has one tab per mart. Make one data source per tab used below, each holding that one table and named after it: mart_gies_enrollment, mart_peer_metrics, mart_funnel, mart_course_terms, mart_course_watch_list, mart_section_spread, mart_course_sections, mart_registration_watch, mart_refresh_log. No joins or relationships are needed; a parameter carries the course selection across data sources.
-3. Tableau renames fields for display: underscores become spaces and each word is capitalized, so data_year shows as Data Year and is_illinois as Is Illinois. This spec uses those names. If your Tableau shows the raw names, the mapping is mechanical.
+3. Tableau renames fields for display: underscores become spaces and each word is capitalized, so data_year shows as Data Year and is_illinois as Is Illinois. This spec uses those names.
 4. Check types once, in each data source's Data pane:
    - Every field starting Is (Is Illinois, Is Provisional, Is Undergraduate, Is On Watch List, Is Term At Threshold) and Published: Boolean. If one comes in as a string, change its type to Boolean.
    - Snapshot Date: Date.
@@ -293,7 +293,7 @@ Layout: the Course Choice control and the grade-band legend under the title; Gra
 - Reference band on the date axis, Per Table, constant values from #2020-01-01# to #2021-03-01#, fill #F0EFEC, label "Covid grading terms (credit/no credit allowed)".
 - Tooltip: "<Yearterm>: <A Range Share> of grades in Gies undergraduate courses were in the A range, from <SUM(Students Graded)> graded students." (Yearterm on Detail.)
 - Title: "<Latest fall A share> of grades in Gies undergraduate courses were in the A range in Fall <latest fall>, up from <first fall A share> in Fall <first fall>" with **Latest Fall Year** = `{ FIXED : MAX(IF [Term] = 'Fall' THEN [Year] END) }`, **First Fall Year** = `{ FIXED : MIN(IF [Term] = 'Fall' THEN [Year] END) }`, and the two shares as `{ FIXED : SUM(IF [Term] = 'Fall' AND [Year] = [Latest Fall Year] AND [Is Undergraduate] THEN [Grade A] END) / SUM(IF [Term] = 'Fall' AND [Year] = [Latest Fall Year] AND [Is Undergraduate] THEN [Students Graded] END) }` and the same for First Fall Year.
-- Subtitle: "Grades describe grading, not learning. Within-course change accounts for 17.5 of the 21.7-point rise from Fall 2015 to Fall 2025". The two figures are typed from docs/findings.md, 6c.3, so recheck them when a new fall arrives.
+- Subtitle: "Grades describe grading, not learning. Within-course change accounts for 17.5 of the 21.7-point rise from Fall 2015 to Fall 2025". The two figures are typed from docs/findings.md, C3, so recheck them when a new fall arrives.
 - Check: 54.4% in Fall 2010, 80.0% in Fall 2025; 2020-sp to 2021-sp inside the shaded band.
 
 ### Info text
@@ -385,7 +385,7 @@ Layout: the Course Choice control under the title; Sections By Term, Students By
 - Columns: Term Date, continuous, with the axis range copied from Sections By Term, so each point sits over its bar. Rows: Students Per Primary Section, one decimal. Marks: Line, 2 pt, #2A78D6, markers on.
 - Tooltip: "<Course>, <Yearterm>: <Students Per Primary Section> graded students per primary section."
 - Title: "<Course Choice>: <latest value> graded students per primary section in Fall <Latest Graded Fall>, against <Fall 2019 value> in Fall 2019", with **Per Section Latest Fall** = `[Students Latest Fall] / [Sections Latest Fall]` and **Per Section Fall 2019** = `[Students Fall 2019] / [Sections Fall 2019]`.
-- Check: ACCY 201 201.3 in Fall 2019 and 162.7 in Fall 2025. Gies-wide, across courses with both counts: 55.9 and 69.8 (docs/findings.md, 6d.2).
+- Check: ACCY 201 201.3 in Fall 2019 and 162.7 in Fall 2025. Gies-wide, across courses with both counts: 55.9 and 69.8 (docs/findings.md, D2).
 
 ### Info text
 

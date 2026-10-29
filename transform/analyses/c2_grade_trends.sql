@@ -1,4 +1,4 @@
--- 6c.2 Fitted linear trend per year in undergraduate grades, covid_grading terms left out
+-- C2 Fitted linear trend per year in undergraduate grades, covid_grading terms left out
 -- Least-squares slope on term-level rates, fall and spring terms fitted separately.
 with by_group as (
     select

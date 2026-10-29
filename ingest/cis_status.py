@@ -44,7 +44,7 @@ KNOWN_STATUSES = {
     "Closed",
     "CrossListOpen",
     "CrossListOpen (Restricted)",
-    # seen Oct 23, 2026 on the two sections whose API section status is P
+    # the two sections whose API section status is P
     "Pending",
 }
 

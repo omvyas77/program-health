@@ -1,4 +1,4 @@
--- 6a.1 Illinois against the other 17 Big Ten schools, latest data year of each metric
+-- A1 Illinois against the other 17 Big Ten schools, latest data year of each metric
 -- Peer statistics leave Illinois out; the public median also leaves out Northwestern and USC.
 -- Rank 1 is the highest value. Change runs from the most recent year at least five years before
 -- the latest, which is six years for business_major_share_of_ug (IPEDS collects it in even years).

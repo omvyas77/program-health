@@ -1,8 +1,8 @@
 # Headcount in Gies's online graduate programs, fall to fall, forecast with exponential smoothing
 # and no trend. The series starts in Fall 2017, when the first online code appears, and its first
-# five falls are the launch ramp. The plan's damped-trend model carried that ramp forward and lost
-# to the naive forecast at every horizon in the backtest, so Om chose the no-trend model on Oct
-# 24, 2026; the backtest still runs both.
+# five falls are the launch ramp. A damped-trend model carried that ramp forward and lost to the
+# naive forecast at every horizon in the backtest, so this uses no trend; the backtest still runs
+# both.
 
 import duckdb
 import pandas as pd

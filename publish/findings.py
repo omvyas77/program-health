@@ -16,7 +16,7 @@ ANALYSES = TRANSFORM / "analyses"
 COMPILED = TRANSFORM / "target" / "compiled" / "gph" / "analyses"
 OUT = DOCS / "findings.md"
 # Empty until Spring 2027 registration opens on 2026-11-02 and snapshots after it exist.
-MAY_BE_EMPTY = {"f6d_5_registration_changes", "f6d_6_registration_after_open"}
+MAY_BE_EMPTY = {"d5_registration_changes", "d6_registration_after_open"}
 NUMBER = re.compile(r"^[+-]?[\d,]+(\.\d+)?(%| pts)?$")
 HEADER = (
     "# Findings\n\n"

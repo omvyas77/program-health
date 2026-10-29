@@ -1,4 +1,4 @@
--- 6d.3 Gies courses where primary sections and graded students moved in opposite directions, Fall 2019 to Fall 2025
+-- D3 Gies courses where primary sections and graded students moved in opposite directions, Fall 2019 to Fall 2025
 -- Sections are distinct CRNs in the catalog; graded students come from the GPA dataset, which
 -- leaves out sections with 20 or fewer graded students. Courses must appear in both terms in
 -- both sources.

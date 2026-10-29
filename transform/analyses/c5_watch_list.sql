@@ -1,4 +1,4 @@
--- 6c.5 Watch list: Gies undergraduate courses averaging 150 or more graded students per term offered, with 15% or more at C or below or withdrawing in at least two of the last four long terms
+-- C5 Watch list: Gies undergraduate courses averaging 150 or more graded students per term offered, with 15% or more at C or below or withdrawing in at least two of the last four long terms
 -- Thresholds chosen Oct 24, 2026, and kept as the watch_* vars in dbt_project.yml; the list itself
 -- is mart_course_watch_list. A course on this list is a question for its department about
 -- preparation, placement, and support, not a verdict on its teaching.

@@ -507,7 +507,7 @@ models:
     data_type: boolean
 - name: mart_registration_watch
   description: Primary sections per Gies course in each daily Spring 2027 snapshot, with sections added
-    and removed and, from Oct 27, 2026, the course pages' enrollment status. Closed share is not a fill
+    and removed and, from Oct 28, 2026, the course pages' enrollment status. Closed share is not a fill
     rate.
   config:
     contract:

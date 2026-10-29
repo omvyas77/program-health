@@ -1,6 +1,6 @@
 # CDS C1 verification checklist
 
-Open each file, find C1 at the place given, and check every value in data/manual/cds_c1_draft.csv against it. When a row is right, copy it to data/manual/cds_c1.csv with your initials and the date in verified_by and verified_on. Leave a value blank where the school doesn't report it; don't fill gaps.
+Open each file, find C1 at the place given, and check every value in data/manual/cds_c1_draft.csv against it. When a row is right, copy it to data/manual/cds_c1.csv with the checker's name and the date in verified_by and verified_on. Leave a value blank where the school doesn't report it; don't fill gaps.
 
 Values marked as read from the page image were typed from a rendered page because the PDF draws its numbers as shapes; check those digit by digit.
 

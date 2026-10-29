@@ -1,4 +1,4 @@
--- 6c.3 Change in A-range share in Gies undergraduate courses, Fall 2015 to Fall 2025, split into within-course change, course mix, and their interaction
+-- C3 Change in A-range share in Gies undergraduate courses, Fall 2015 to Fall 2025, split into within-course change, course mix, and their interaction
 -- The split uses courses taught in both terms, weighted by their share of graded students.
 -- Within-course: sum of w0 * (s1 - s0). Mix: sum of s0 * (w1 - w0). Interaction: sum of
 -- (w1 - w0) * (s1 - s0). The three add up to the change among courses taught in both terms.

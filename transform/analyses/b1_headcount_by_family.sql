@@ -1,4 +1,4 @@
--- 6b.1 Gies headcount by program family and modality, Fall 2017 to Fall 2026
+-- B1 Gies headcount by program family and modality, Fall 2017 to Fall 2026
 -- DMI through Fall 2025, DAIR for Fall 2026.
 with families as (
     select level, program_family, modality, fall_year, sum(headcount) as headcount

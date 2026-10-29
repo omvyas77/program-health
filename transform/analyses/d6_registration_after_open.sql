@@ -1,4 +1,4 @@
--- 6d.6 Spring 2027 Gies courses that added primary sections 3, 7, and 14 days after registration opened
+-- D6 Spring 2027 Gies courses that added primary sections 3, 7, and 14 days after registration opened
 -- Day 3 is Nov 5, day 7 is Nov 9, and day 14 is Nov 16, 2026.
 with at_open as (
     select subject, number, primary_sections

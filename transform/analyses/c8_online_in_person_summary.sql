@@ -1,4 +1,4 @@
--- 6c.8 Online minus in-person, across the course-term pairs in 6c.7
+-- C8 Online minus in-person, across the course-term pairs in C7
 -- Medians of the paired differences, so one large course does not set the result.
 with modes as (
     select

@@ -1,6 +1,6 @@
 # Common Data Set files for the 18 peers, 2024-25 and 2025-26, listed in config/cds_files.csv.
-# Section C1 is pre-extracted into data/manual/cds_c1_draft.csv for Om to check against each
-# file; a value moves to data/manual/cds_c1.csv only after it has been checked by hand.
+# Section C1 is pre-extracted into data/manual/cds_c1_draft.csv to be checked against each
+# file by hand; a value moves to data/manual/cds_c1.csv only after it has been checked by hand.
 
 import argparse
 import csv

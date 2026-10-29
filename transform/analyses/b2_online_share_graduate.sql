@@ -1,4 +1,4 @@
--- 6b.2 Online programs' share of Gies graduate headcount, Fall 2012 to Fall 2026
+-- B2 Online programs' share of Gies graduate headcount, Fall 2012 to Fall 2026
 -- DMI lists no Gies program code ending in U, the online marker, before Fall 2017.
 select
     fall_year as "Fall",

@@ -1,4 +1,4 @@
--- 6c.6 Spread of section GPAs within Gies undergraduate courses with three or more sections, last four long terms
+-- C6 Spread of section GPAs within Gies undergraduate courses with three or more sections, last four long terms
 -- Sorted by course. No section or instructor is identified.
 with last_four as (
     select yearterm, year, term

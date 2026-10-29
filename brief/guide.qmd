@@ -31,8 +31,7 @@ jupyter: python3
 
 ```{python}
 #| output: asis
-# The annotated screenshot, once it exists, capped in height so the guide stays one page;
-# the page reads complete without it.
+# An optional annotated screenshot, capped in height so the guide stays one page.
 from pathlib import Path
 
 if Path("guide_screenshot.png").exists():
