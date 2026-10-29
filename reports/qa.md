@@ -165,6 +165,8 @@ https://gies-program-health.streamlit.app/, opened in a fresh browser and compar
 
 Two fixes came out of it. The closed-share chart scaled its day axis to the one status pass and ticked in half days; both registration charts now share one axis of whole days from the first snapshot to opening day. And the marts were cached by name only, which on Community Cloud would have kept serving the first snapshot after later pushes; the cache now keys on the file's modification time.
 
+A second pass that evening, reading it as a first-time visitor would, changed the rest: every page now opens with what the project is and links to the brief, the dashboards, and the code; the registration page opens on all Gies courses, with the Gies-wide closed share, instead of one course; chart titles moved out of the charts, where a phone cut them short and one was clipped under its heading; the scenario tables moved into a Show the numbers section; transfers show as whole students; and the fully closed table gives dates instead of days from opening.
+
 ## Not run yet
 
 | Check | Waiting on |

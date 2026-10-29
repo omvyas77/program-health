@@ -78,10 +78,13 @@ def shown(frame):
 
 st.title("Enrollment scenarios")
 st.write(
-    "Gies undergraduate headcount is projected as a stock and flow: next fall's undergraduates "
-    "are the first-time freshmen and new transfers who arrive plus the share of this fall's "
-    "undergraduates who continue. Online graduate headcount is projected with exponential "
-    "smoothing. Every input starts at the base scenario; change one to see your own."
+    "How many undergraduates and online graduate students could Gies have by Fall 2030? The "
+    "inputs start at the base scenario; change one to see your own next to it."
+)
+st.caption(
+    "Undergraduates are projected as a stock and flow: next fall's are the first-time freshmen "
+    "and new transfers who arrive plus the share of this fall's who continue. Online graduate "
+    "headcount is projected with exponential smoothing."
 )
 
 left, middle, right, last = st.columns(4)
@@ -97,7 +100,7 @@ transfers = middle.number_input(
     min_value=0.0,
     value=round(float(base.new_transfers), 1),
     step=1.0,
-    format="%.1f",
+    format="%.0f",
 )
 continuing = right.number_input(
     "Continuing share (%)",
@@ -118,7 +121,7 @@ growth = last.number_input(
 
 defaults = {
     "first-time freshmen": (round(float(base.first_time_freshmen), 1), freshmen, "{:,.0f}"),
-    "new transfers": (round(float(base.new_transfers), 1), transfers, "{:,.1f}"),
+    "new transfers": (round(float(base.new_transfers), 1), transfers, "{:,.0f}"),
     "continuing share": (round(100 * float(base.continuing_share), 1), continuing, "{:.1f}%"),
 }
 undergrad_changes = [
@@ -146,53 +149,53 @@ else:
     online_yours = list(online_base.values)
 
 last_fall = undergrad_base.index.max()
-st.markdown(
-    model.change_line(
-        "undergraduates", last_fall, undergrad_yours[-1], undergrad_base.iloc[-1], undergrad_changes
-    )
-)
-long, band = chart_frames(undergrad, undergrad_yours, bool(undergrad_changes), band_scenarios=True)
 direction = "up" if undergrad_base.iloc[-1] > undergrad_actual.iloc[-1] else "down"
+charts.heading(
+    f"Base scenario: {undergrad_base.iloc[-1]:,.0f} undergraduates in Fall {last_fall}",
+    f"{direction.capitalize()} from {undergrad_actual.iloc[-1]:,.0f} in Fall "
+    f"{undergrad_actual.index.max()}",
+)
+# The chart title already gives the base, so the comparison line appears once an input changes.
+if undergrad_changes:
+    st.markdown(
+        model.change_line(
+            "undergraduates",
+            last_fall,
+            undergrad_yours[-1],
+            undergrad_base.iloc[-1],
+            undergrad_changes,
+        )
+    )
+long, band = chart_frames(undergrad, undergrad_yours, bool(undergrad_changes), band_scenarios=True)
 st.altair_chart(
-    charts.scenario_chart(
-        long,
-        band,
-        f"Base scenario: {undergrad_base.iloc[-1]:,.0f} Gies undergraduates in Fall {last_fall}",
-        f"{direction.capitalize()} from {undergrad_actual.iloc[-1]:,.0f} in Fall "
-        f"{undergrad_actual.index.max()}",
-        "Undergraduates",
-        "Low to high scenarios",
-    ),
-    width="stretch",
+    charts.scenario_chart(long, band, "Undergraduates", "Low to high scenarios"), width="stretch"
 )
 st.caption(
     "Shaded: the low and high scenarios, with the continuing share at its 10th and 90th "
     "percentiles since 2013 and freshmen 5% below or above base. In a backtest from 2016 on, "
     "this model matched the naive forecast (next fall equals this fall) rather than beating it. "
-    "The method is in docs/projection_method.md."
+    f"[How the projection works]({marts.METHOD})."
 )
 
-st.markdown(
-    model.change_line(
-        "online graduate students",
-        online_base.index.max(),
-        online_yours[-1],
-        online_base.iloc[-1],
-        online_changes,
-    )
-)
-long, band = chart_frames(online, online_yours, bool(online_changes), band_scenarios=False)
 projected = online[online.scenario == "base"].set_index("fall_year")
+charts.heading(
+    f"Base: online graduate headcount holds at {online_base.iloc[-1]:,.0f}",
+    f"80% range by Fall {online_base.index.max()}: {projected.low.iloc[-1]:,.0f} to "
+    f"{projected.high.iloc[-1]:,.0f}",
+)
+if online_changes:
+    st.markdown(
+        model.change_line(
+            "online graduate students",
+            online_base.index.max(),
+            online_yours[-1],
+            online_base.iloc[-1],
+            online_changes,
+        )
+    )
+long, band = chart_frames(online, online_yours, bool(online_changes), band_scenarios=False)
 st.altair_chart(
-    charts.scenario_chart(
-        long,
-        band,
-        f"Base: online graduate headcount holds at {online_base.iloc[-1]:,.0f}",
-        f"80% range by Fall {online_base.index.max()}: {projected.low.iloc[-1]:,.0f} to "
-        f"{projected.high.iloc[-1]:,.0f}",
-        "Graduate students in online programs",
-        "80% interval",
-    ),
+    charts.scenario_chart(long, band, "Graduate students in online programs", "80% interval"),
     width="stretch",
 )
 st.caption(
@@ -203,10 +206,11 @@ st.caption(
 
 undergrad_table = table(undergrad, undergrad_yours, band_scenarios=True)
 online_table = table(online, online_yours, band_scenarios=False)
-st.subheader("Undergraduate headcount")
-st.table(shown(undergrad_table))
-st.subheader("Online graduate headcount")
-st.table(shown(online_table))
+with st.expander("Show the numbers"):
+    st.markdown("**Undergraduate headcount**")
+    st.table(shown(undergrad_table))
+    st.markdown("**Online graduate headcount**")
+    st.table(shown(online_table))
 download = pd.concat(
     [
         undergrad_table.reset_index().assign(Series="Gies undergraduate headcount"),

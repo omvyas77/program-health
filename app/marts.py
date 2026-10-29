@@ -8,6 +8,9 @@ import streamlit as st
 
 MARTS = Path(__file__).resolve().parent.parent / "data" / "marts"
 REPO = "https://github.com/omvyas77/program-health"
+BRIEF = f"{REPO}/blob/main/brief/brief.pdf"
+METHOD = f"{REPO}/blob/main/docs/projection_method.md"
+DASHBOARDS = "https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview"
 
 
 @st.cache_data

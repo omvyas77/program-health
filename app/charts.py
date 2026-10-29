@@ -3,6 +3,7 @@
 # color alone.
 
 import altair as alt
+import streamlit as st
 
 BLUE = "#2a78d6"
 ORANGE = "#eb6834"
@@ -12,7 +13,15 @@ COLORS = {"Actual": BLUE, "Base": BLUE, "Your scenario": ORANGE}
 DASHES = {"Actual": [1, 0], "Base": [6, 4], "Your scenario": [1, 0]}
 
 
-def scenario_chart(long, band, title, subtitle, y_title, band_label):
+def heading(title, subtitle=None):
+    # Chart titles are written as text above the chart: a Vega title doesn't wrap, so a phone cut
+    # it short, and under a subheader it was clipped.
+    st.markdown(f"**{title}**")
+    if subtitle:
+        st.caption(subtitle)
+
+
+def scenario_chart(long, band, y_title, band_label):
     # Only the lines present get a legend entry; the user's line appears once an input changes.
     shown = [line for line in LINES if line in set(long.line)]
     colors = [COLORS[line] for line in shown]
@@ -65,9 +74,8 @@ def scenario_chart(long, band, title, subtitle, y_title, band_label):
     )
     return (
         (shaded + lines + points + rule)
-        .properties(title=alt.TitleParams(title, subtitle=subtitle), height=360)
+        .properties(height=360)
         .configure_axis(gridColor=GRID, domainColor=GRID)
-        .configure_title(anchor="start", fontSize=15)
     )
 
 
@@ -82,7 +90,7 @@ def day_axis(span):
     )
 
 
-def sections_chart(frame, title, span):
+def sections_chart(frame, span):
     x = day_axis(span)
     y = alt.Y("primary_sections:Q", title="Primary sections", scale=alt.Scale(zero=True))
     line = alt.Chart(frame).mark_line(color=BLUE, strokeWidth=2).encode(x=x, y=y)
@@ -102,13 +110,12 @@ def sections_chart(frame, title, span):
     opening = alt.Chart().mark_rule(color="#8a8984", strokeWidth=1).encode(x=alt.datum(0))
     return (
         (line + dots + opening)
-        .properties(title=title, height=300)
+        .properties(height=300)
         .configure_axis(gridColor=GRID, domainColor=GRID)
-        .configure_title(anchor="start", fontSize=15)
     )
 
 
-def closed_share_chart(frame, title, span):
+def closed_share_chart(frame, span):
     x = day_axis(span)
     y = alt.Y(
         "closed_percent:Q", title="Primary sections closed (%)", scale=alt.Scale(domain=[0, 100])
@@ -132,7 +139,6 @@ def closed_share_chart(frame, title, span):
     opening = alt.Chart().mark_rule(color="#8a8984", strokeWidth=1).encode(x=alt.datum(0))
     return (
         (line + dots + opening)
-        .properties(title=title, height=260)
+        .properties(height=260)
         .configure_axis(gridColor=GRID, domainColor=GRID)
-        .configure_title(anchor="start", fontSize=15)
     )

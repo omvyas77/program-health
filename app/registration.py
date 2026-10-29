@@ -28,19 +28,22 @@ st.write(
     f"{int((latest.primary_sections > 0).sum()):,} courses."
 )
 
-courses = sorted(watch.course.unique())
-largest = latest.sort_values(["primary_sections", "course"], ascending=[False, True]).course.iloc[0]
-course = st.selectbox("Course", courses, index=courses.index(largest))
-one = watch[watch.course == course].sort_values("snapshot_date")
+# The page opens on all of Gies, the view that answers how the schedule is filling; a course is
+# one pick away.
+ALL = "All Gies courses"
+COUNTS = ["primary_sections", "sections_with_status", "closed_sections", "restricted_sections"]
+course = st.selectbox("Course", [ALL, *sorted(watch.course.unique())])
+if course == ALL:
+    one = watch.groupby(["snapshot_date", "days_since_registration_open"], as_index=False)[
+        COUNTS
+    ].sum(min_count=1)
+    one["closed_share"] = one.closed_sections / one.sections_with_status
+else:
+    one = watch[watch.course == course]
+one = one.sort_values("snapshot_date")
 now = int(one.primary_sections.iloc[-1])
-st.altair_chart(
-    charts.sections_chart(
-        one,
-        f"{course}: {now} primary section{'s' if now != 1 else ''} as of {as_of:%b %-d}",
-        span,
-    ),
-    width="stretch",
-)
+charts.heading(f"{course}: {now:,} primary section{'s' if now != 1 else ''} as of {as_of:%b %-d}")
+st.altair_chart(charts.sections_chart(one, span), width="stretch")
 
 st.subheader("Enrollment status")
 if watch.sections_with_status.fillna(0).sum() == 0:
@@ -54,30 +57,30 @@ else:
         st.info(f"No enrollment status is recorded for {course} yet.")
     else:
         last = known.iloc[-1]
-        st.altair_chart(
-            charts.closed_share_chart(
-                known,
-                f"{course}: {int(last.closed_sections)} of {int(last.sections_with_status)} "
-                f"primary sections closed as of {last.snapshot_date:%b %-d}",
-                span,
-            ),
-            width="stretch",
+        closed, total = int(last.closed_sections), int(last.sections_with_status)
+        charts.heading(
+            f"{course}: {closed:,} of {total:,} primary sections closed as of "
+            f"{last.snapshot_date:%b %-d} ({100 * closed / total:.1f}%)"
         )
+        st.altair_chart(charts.closed_share_chart(known, span), width="stretch")
     full = watch[
         (watch.sections_with_status > 0) & (watch.closed_sections == watch.sections_with_status)
     ]
     if full.empty:
         st.write("No Gies course has had every primary section closed yet.")
     else:
-        first = full.groupby("course").days_since_registration_open.min().rename("first_day")
+        first = full.groupby("course").snapshot_date.min().rename("first_day")
         now_closed = latest.set_index("course")[["sections_with_status", "closed_share"]]
         table = first.to_frame().join(now_closed).reset_index().sort_values(["first_day", "course"])
-        st.write("Courses that had every primary section closed, earliest first")
+        st.markdown("**Courses that had every primary section closed, earliest first**")
         st.dataframe(
-            table.assign(closed_share=(100 * table.closed_share).round(1)).rename(
+            table.assign(
+                first_day=table.first_day.dt.strftime("%b %-d"),
+                closed_share=(100 * table.closed_share).round(1),
+            ).rename(
                 columns={
                     "course": "Course",
-                    "first_day": "First day all closed (days since opening)",
+                    "first_day": "First day all closed",
                     "sections_with_status": "Primary sections now",
                     "closed_share": "Closed now (%)",
                 }
