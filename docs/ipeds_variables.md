@@ -159,7 +159,7 @@ Descriptions:
 
 | Variable | Title in the dictionary | How it's used |
 | --- | --- | --- |
-| CIPCODE | CIP Code - 2020 Classification | Read as text in its NN.NNNN form. The business flag comes from config/cip_business.csv in Phase 5. |
+| CIPCODE | CIP Code - 2020 Classification | Read as text in its NN.NNNN form. The business flag comes from config/cip_business.csv. |
 | MAJORNUM | First or Second Major | Only first majors are counted. |
 | AWLEVEL | Award Level code | Selects bachelor's and master's degrees. |
 | CTOTALT | Grand total | The count. |
