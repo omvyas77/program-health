@@ -5,7 +5,7 @@ The checks I ran before sharing the project: that it rebuilds from a clone, that
 | Check | Result |
 |---|---|
 | A fresh clone runs make all | Pass. Exit 0 in 11 minutes, dbt PASS=153, and the rebuilt marts match the committed ones. |
-| Number audit | Pass. Every analytic number in the brief is computed by brief/numbers.py; none is typed by hand in the brief, the guide, or the README. |
+| Number audit | Pass. Every analytic number in the brief is computed by brief/numbers.py; none is typed by hand in the brief or the guide. The README's three headline findings are typed and listed under Number audit with their sources. |
 | Privacy | Pass. No instructor names in any committed file. |
 | Links | Pass. 17 of 17 resolve, among them the Tableau workbook and the Streamlit app. |
 | PDFs render | Pass. brief/brief.pdf is 4 pages and brief/guide.pdf is 1 page; both link to the dashboards, the app, and the repository. |
@@ -31,13 +31,16 @@ Every number in the brief's text comes from an inline expression in brief/brief.
 |---|---|---|---|
 | brief, guide, README | 18, 17, 16 | Big Ten universities, the peers other than Illinois, the public ones | config/peers.csv |
 | brief | 52 | The CIP code family for business | NCES CIP 2020 |
-| brief | July 1, 2026, 2026-27, 2027-28 | When AACSB's 2026 standards took effect, the transition year, and the first year they are required | aacsb.edu/accreditation/standards |
+| brief | July 1, 2026, 2026-27, 2027-28 | When AACSB's 2026 standards took effect, the transition year, and the first year they are required | aacsb.edu/educators/global-standards |
 | brief | Standards 5, 6, 7 | Assurance of learning, learner progression, teaching effectiveness and impact | AACSB's 2026 standards |
 | brief | 80% | Width of the projection's interval | forecast/projection.py |
 | brief | 2019 to 2021 | Penn State's IPEDS years reported for all campuses | docs/data_notes.md |
 | guide, README | 20, 21 | The GPA dataset leaves out sections of 20 or fewer students | The dataset's README |
 | guide | 25th, 75th | The peer band is the interquartile range | docs/tableau_spec.md |
 | guide, README | 8:14, Oct 28, 2026 | The approved start time and the first day the status pass ran | Tech Services' reply; .github/workflows/status.yml |
+| README | 5,155, 10,095, 4,781, 4,940 | Gies headcount Fall 2017 and Fall 2026, students added in online graduate programs and in all | docs/findings.md, B1 |
+| README | 58.3%, 80.0%, 17.5, 21.7 | A-range share Fall 2015 and Fall 2025, within-course change and total change in points | docs/findings.md, C3 |
+| README | 3,841, Fall 2016 | Base projection for Fall 2030 and the first backtest origin | data/marts/mart_projection; reports/backtest.md |
 
 The outlook sensitivities in projection_method.md were also recomputed by hand from the stock-and-flow recursion.
 

@@ -8,9 +8,17 @@ An independent look at how the Gies College of Business is doing, built only fro
 - The Streamlit app, for enrollment scenarios and the registration watch: [gies-program-health.streamlit.app](https://gies-program-health.streamlit.app/)
 - The analysis tables behind every finding, each with its SQL: [docs/findings.md](docs/findings.md)
 
-![Gies headcount by program group, Fall 2017 to Fall 2026](brief/figures/enrollment.svg)
+## What it found
 
-![A-range share of undergraduate grades, Gies and campus, and the split of the rise](brief/figures/grades.svg)
+- **Growth is online.** Gies grew from 5,155 students in Fall 2017 to 10,095 in Fall 2026, and online graduate programs account for 4,781 of the 4,940 added.
+- **A grades rose inside courses.** The A-range share in Gies undergraduate courses went from 58.3% in Fall 2015 to 80.0% in Fall 2025, and 17.5 of the 21.7 points came from higher shares within the same courses, not from students moving to higher-graded ones.
+- **The projection only matches a naive forecast.** It puts undergraduate headcount at 3,841 by Fall 2030, but in a backtest from Fall 2016 it did no better than assuming next fall equals this fall, so I present it as a scenario, not a prediction.
+
+![The Overview dashboard on Tableau Public](docs/images/overview.png)
+
+## My role
+
+I designed and built every part of this: the ingest modules, the dbt models and their tests, the scheduled GitHub Actions jobs, the Google Sheet feed, the Tableau workbook, the Streamlit app, and the brief. The choices that shape the numbers were mine: the 18-school Big Ten peer set, the watch-list thresholds (150 graded students a term, and 15% at C or below or withdrawing in two of the last four long terms), holding projected intake at the three-year mean and dropping the damped-trend model after it lost the backtest, and asking the university's Tech Services for permission before reading the course pages each day. Built with Claude Code as a coding assistant; every definition, threshold, and finding was my call.
 
 ## How it works
 
