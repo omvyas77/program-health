@@ -301,7 +301,9 @@ if SNAPSHOT_DAYS < 0:
 elif SNAPSHOT_DAYS == 0:
     registration_status = "registration opens that day"
 else:
-    registration_status = f"registration had been open {word(SNAPSHOT_DAYS)} days"
+    registration_status = (
+        f"registration had been open {word(SNAPSHOT_DAYS)} day{'s' if SNAPSHOT_DAYS != 1 else ''}"
+    )
 registration_sections = count(
     one(f"""
     select sum(primary_sections) from mart_registration_watch

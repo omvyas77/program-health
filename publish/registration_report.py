@@ -55,8 +55,10 @@ def report(watch):
         "",
     ]
     added = latest[latest.sections_added_since_open > 0]
-    if days <= 0:
+    if days < 0:
         lines.append("Registration hasn't opened yet.")
+    elif days == 0:
+        lines.append("Registration opens today; additions show from the next snapshot.")
     elif added.empty:
         lines.append("No Gies course has added a primary section since registration opened.")
     else:
