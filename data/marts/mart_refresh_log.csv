@@ -65,3 +65,17 @@ run_utc,trigger,git_sha,mart,rows,sources_changed,new_ipeds_files,new_catalog_te
 2026-11-02T20:48:07Z,schedule,645450cd964e4a1a1f60334ba328841521a51c51,mart_registration_watch,2019,change check failed,,,,,,False
 2026-11-02T20:48:07Z,schedule,645450cd964e4a1a1f60334ba328841521a51c51,mart_section_spread,1039,change check failed,,,,,,False
 2026-11-02T20:48:07Z,schedule,645450cd964e4a1a1f60334ba328841521a51c51,mart_sections_offered,6506,change check failed,,,,,,False
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_business_completions,6121,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_course_sections,6578,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_course_terms,5327,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_course_watch_list,314,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_funnel,203,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_gies_enrollment,328,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_gies_new_students,60,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_gies_outcomes,487,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_peer_metrics,2996,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_projection,53,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_projection_assumptions,3,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_registration_watch,2242,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_section_spread,1330,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_sections_offered,6506,gpa: 1 file,,2027-sp.csv,152,1,0,True
