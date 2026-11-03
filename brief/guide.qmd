@@ -38,7 +38,7 @@ if Path("guide_screenshot.png").exists():
     print("![](guide_screenshot.png){height=2.0in fig-align=\"center\"}")
 ```
 
-The dashboard shows how Gies programs are doing, from enrollment and Illinois's standing among the 18 Big Ten universities to course grades and the Spring 2027 schedule. It is meant to point to questions worth asking, and every chart says what it can and can't show. It is on [Tableau Public](https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview), and the enrollment scenarios and the registration watch are also in a [Streamlit app](https://gies-program-health.streamlit.app/).
+The dashboard shows how Gies programs are doing, from enrollment and Illinois's standing among the 18 Big Ten universities to course grades and the Spring 2027 schedule. It is meant to point to questions worth asking, and every chart says what it can and can't show. It is on [Tableau Public](https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview), and the enrollment scenarios and the registration watch are also in a [Streamlit app](https://huggingface.co/spaces/omvyas77/gies-program-health).
 
 ## The six dashboards
 

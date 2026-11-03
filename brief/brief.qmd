@@ -42,7 +42,7 @@ from brief import numbers as n
 #v(-0.6em)
 #text(font: "Source Sans 3", size: 10.5pt, fill: rgb("#555555"))[Enrollment, Big Ten peers, course grades, and scheduling at Gies, from public data. Om Vyas, #datetime.today().display("[month repr:long] [day padding:none], [year]").]
 #v(-0.3em)
-#text(size: 8.5pt, fill: rgb("#555555"))[#emph[An independent analysis built only from public data, not affiliated with or endorsed by the University of Illinois.] Dashboards: #link("https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview")[Tableau Public]. App: #link("https://gies-program-health.streamlit.app/")[gies-program-health.streamlit.app]. Code and data: #link("https://github.com/omvyas77/program-health")[github.com/omvyas77/program-health].]
+#text(size: 8.5pt, fill: rgb("#555555"))[#emph[An independent analysis built only from public data, not affiliated with or endorsed by the University of Illinois.] Dashboards: #link("https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview")[Tableau Public]. App: #link("https://huggingface.co/spaces/omvyas77/gies-program-health")[Streamlit on Hugging Face]. Code and data: #link("https://github.com/omvyas77/program-health")[github.com/omvyas77/program-health].]
 ```
 
 ## Summary

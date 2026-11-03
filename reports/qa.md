@@ -101,7 +101,7 @@ Check values after the Nov 3 GPA update, once the workbook has the new data:
 
 ## Streamlit app, Oct 28 and 29, 2026
 
-https://gies-program-health.streamlit.app/, compared with data/marts.
+https://gies-program-health.streamlit.app/ on Oct 28 and 29, compared with data/marts.
 
 | Page | Values checked | Result |
 |---|---|---|
@@ -109,4 +109,4 @@ https://gies-program-health.streamlit.app/, compared with data/marts.
 | Enrollment scenarios, changed input | 900 freshmen a year gives 4,176 in Fall 2030, 335 above base | Pass |
 | Registration watch | Follows the daily snapshot: 507 primary sections across 223 courses on Oct 29; every section closed in ACCY 321, BADM 303, and BADM 366 | Pass |
 
-The marts are cached by file modification time, so the app picks up each day's snapshot without a restart. On Nov 3 the app loaded once in four tries over five minutes, with blank pages and one Community Cloud error page in between; it runs cleanly on that day's data under Streamlit's AppTest, so the problem is the hosting, which only the owner's logs and a reboot can address.
+The marts are cached by file modification time, so the app picks up each day's snapshot without a restart. On Nov 3 the app loaded once in four tries over five minutes, with blank pages and one Community Cloud error page in between; it runs cleanly on that day's data under Streamlit's AppTest, so the problem is the hosting: one of the page's script files took 40 seconds and returned HTTP 500, and the page never finished loading. The app moved that day to a Hugging Face Space, https://huggingface.co/spaces/omvyas77/gies-program-health, which builds from this repository and reads the marts from GitHub. Checked on Nov 3: both pages load, and the registration page reads Nov 3, one day after opening, with 22 of 507 primary sections closed (4.3%).

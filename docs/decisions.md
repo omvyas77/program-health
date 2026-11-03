@@ -8,7 +8,7 @@ The choices that shape what this project says, newest last, each with the reason
 
 **A Google Sheet between the pipeline and Tableau Public.** Tableau Public can't connect to a database. It saves an extract with each workbook and refreshes it on its own only from Google Sheets. So the weekly refresh writes each mart to a tab of one Sheet, and the dashboards read the Sheet. The dbt contracts on the exported marts exist because the workbook depends on those column names.
 
-**No AWS and nothing paid.** GitHub Actions runs the schedules, Streamlit Community Cloud hosts the app, Tableau Public hosts the dashboards, and Google Sheets carries the data between them, all free for a public project. Anyone can see and rerun every piece, and nothing depends on an account I'd have to keep paying for.
+**No AWS and nothing paid.** GitHub Actions runs the schedules, a Hugging Face Space hosts the app, Tableau Public hosts the dashboards, and Google Sheets carries the data between them, all free for a public project. Anyone can see and rerun every piece, and nothing depends on an account I'd have to keep paying for.
 
 **Streamlit only for the scenarios and the registration watch.** Tableau carries the standing views. Two things it handles poorly: inputs that rerun a model, like the enrollment scenarios, and data that changes every day, like registration. Tableau Public refreshes once a day at best and can't run Python. The app reads the committed marts and redeploys on every push, so it picks up each day's snapshot.
 
@@ -63,3 +63,7 @@ The choices that shape what this project says, newest last, each with the reason
 ## Snapshot dates (Oct 28, 2026)
 
 **API snapshots are named by the Central date, the day they describe,** as the status pass already was. The watch pairs each day's statuses with that day's snapshot, and GitHub starts the snapshot job hours late: a run after 7 pm Central is already the next day in UTC, so under UTC names it took the next day's name, stopped that day's own run, and would have been paired with the next morning's statuses. It happened once: the Oct 26 snapshot, taken at 7:49 pm, was filed as Oct 27 and is renamed. See data_notes.md.
+
+## App hosting (Nov 3, 2026)
+
+**The app moved from Streamlit Community Cloud to a Hugging Face Space.** On Nov 3 the Community Cloud app loaded about one time in four: the platform's server sometimes took 40 seconds and then failed to deliver one of the page's script files, and the page then never finished loading. The code ran cleanly on that day's data, so nothing in the repository could fix it. The Space runs the same app in a container I define, builds from this repository, and reads the marts from GitHub, so it needs no deploy step when the data changes. https://huggingface.co/spaces/omvyas77/gies-program-health

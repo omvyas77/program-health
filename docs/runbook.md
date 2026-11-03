@@ -89,7 +89,9 @@ GitHub disables scheduled workflows in a public repository after 60 days without
 
 ## The Streamlit app
 
-The app is at https://gies-program-health.streamlit.app/. Community Cloud pulls every push to main into the running app without restarting it; app/marts.py caches each mart by its file time, so the registration page picks up each daily snapshot. The app sleeps after 12 hours without traffic, and anyone can wake it with one click. Open it once to wake it before sharing the link.
+The app runs as a Hugging Face Space, https://huggingface.co/spaces/omvyas77/gies-program-health. The Space holds only a Dockerfile and a README: the image clones this repository at build time, and GPH_MARTS_URL points the app at data/marts on GitHub, so each day's commit shows up within ten minutes (app/marts.py caches each mart for 600 s) without a rebuild. A change to the app's code needs a rebuild: on the Space's Settings page, choose Factory rebuild. A free Space sleeps after 48 hours without visitors and wakes in under a minute when someone opens it, so open it once before sharing the link.
+
+To run the app locally, make app reads the committed marts instead.
 
 ## Publishing by hand
 

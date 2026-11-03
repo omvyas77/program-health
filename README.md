@@ -5,7 +5,7 @@ An independent look at how the Gies College of Business is doing, built only fro
 - The brief, four pages: [brief/brief.pdf](brief/brief.pdf)
 - The one-page guide to the dashboards: [brief/guide.pdf](brief/guide.pdf)
 - The Tableau Public dashboards: [Gies program health on Tableau Public](https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview)
-- The Streamlit app, for enrollment scenarios and the registration watch: [gies-program-health.streamlit.app](https://gies-program-health.streamlit.app/)
+- The Streamlit app, for enrollment scenarios and the registration watch, on Hugging Face: [huggingface.co/spaces/omvyas77/gies-program-health](https://huggingface.co/spaces/omvyas77/gies-program-health)
 - The analysis tables behind every finding, each with its SQL: [docs/findings.md](docs/findings.md)
 
 ## What it found
