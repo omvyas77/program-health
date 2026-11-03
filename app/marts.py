@@ -1,12 +1,16 @@
 # Reads the committed marts in data/marts. Community Cloud puts this folder on the import path but
-# not the repo root, so the path is built here rather than taken from ingest/paths.py.
+# not the repo root, so the path is built here rather than taken from ingest/paths.py. Where the app
+# runs from a fixed copy of the code (the Hugging Face Space), GPH_MARTS_URL points it at the marts
+# on GitHub instead, so each day's commit reaches it without a rebuild.
 
+import os
 from pathlib import Path
 
 import pandas as pd
 import streamlit as st
 
 MARTS = Path(__file__).resolve().parent.parent / "data" / "marts"
+REMOTE = os.environ.get("GPH_MARTS_URL")
 REPO = "https://github.com/omvyas77/program-health"
 BRIEF = f"{REPO}/blob/main/brief/brief.pdf"
 METHOD = f"{REPO}/blob/main/docs/projection_method.md"
@@ -18,7 +22,14 @@ def _read(path, mtime_ns):
     return pd.read_parquet(path)
 
 
+@st.cache_data(ttl=600)
+def _fetch(url):
+    return pd.read_parquet(url)
+
+
 def read(name):
+    if REMOTE:
+        return _fetch(f"{REMOTE}/{name}.parquet")
     # Community Cloud pulls each push into the running app without restarting it, so a cache keyed
     # on the name alone would keep serving yesterday's snapshot. The file's mtime changes on pull.
     path = MARTS / f"{name}.parquet"

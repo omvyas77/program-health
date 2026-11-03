@@ -17,11 +17,11 @@ span = [int(watch.days_since_registration_open.min()), max(0, days)]
 
 st.title("Spring 2027 registration watch")
 if days < 0:
-    status = f"registration opens in {-days} days, on {opens:%b %-d}"
+    status = f"registration opens in {-days} day{'s' if days != -1 else ''}, on {opens:%b %-d}"
 elif days == 0:
     status = "registration opens today"
 else:
-    status = f"registration opened {days} days ago, on {opens:%b %-d}"
+    status = f"registration opened {days} day{'s' if days != 1 else ''} ago, on {opens:%b %-d}"
 st.write(
     f"As of the {as_of:%b %-d, %Y} snapshot, {status}. Gies lists "
     f"{int(latest.primary_sections.sum()):,} primary sections across "

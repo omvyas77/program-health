@@ -1,5 +1,5 @@
 # Gies program health: enrollment scenarios and the Spring 2027 registration watch, read from the
-# committed marts in data/marts. No network calls at runtime.
+# committed marts in data/marts, or from GitHub where GPH_MARTS_URL is set (app/marts.py).
 
 import marts
 import streamlit as st
