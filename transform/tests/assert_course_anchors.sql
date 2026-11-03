@@ -1,4 +1,5 @@
--- Course anchors from the GPA dataset, as of wadefagen/datasets commit c6618ca.
+-- Course anchors from the GPA dataset, as of wadefagen/datasets commit c6618ca and unchanged at
+-- c8d2678, whose Oct 29, 2026 update only added terms.
 with gies_ug as (
     select
         yearterm,

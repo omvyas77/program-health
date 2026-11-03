@@ -54,7 +54,9 @@ Quirks in the sources and what I did about each. Dated by when I found them.
 
 **Where grades are recorded changed over time (Oct 25, 2026).** The GPA data lists each section that recorded grades, and that was sometimes the discussion rather than the lecture. In Fall 2019, 40 of the 346 Gies sections in the data were discussion-type; by Fall 2025 none were. ACCY 201 ran 3 primary sections in both falls, but its grades sat under 20 sections in Fall 2019 and 2 in Fall 2025. Counts of graded sections, and anything divided by them, move with this bookkeeping as well as with class size.
 
-**The source has no Spring 2012 (Oct 28, 2026).** The dataset's changelog for Mar 25, 2026 says the rows labeled Spring 2012 were a copy of Summer 2012 and were removed. The extract has 2012-su and 2012-fa and nothing for 2012-sp; Summer 2011 is missing too. On a chart with one bar per term name, 2011-fa sits next to 2012-fa with no visible gap, so the Grades dashboard's definitions say so. Trends by fall are unaffected.
+**The source had no Spring 2012 until Oct 29 (Oct 28, 2026).** The dataset's changelog for Mar 25, 2026 says the rows labeled Spring 2012 were a copy of Summer 2012 and were removed, and Summer 2011 was missing too.
+
+**The Oct 29 update backfills history and adds Spring 2026 (Nov 3, 2026).** The dataset's Oct 29 update added Spring and Summer 2026 and, through new access under Senate item EP.25.072, the terms that were unavailable before: Fall 2005 to Summer 2009, Summer 2011, and a real Spring 2012. Every term from Spring 2010 on is unchanged, row for row and student for student, so the update only adds. Two of its new rows carry Windows-1252 characters in the instructor column, which is dropped, in an otherwise UTF-8 file; ingest/sources.py now reads a line that isn't UTF-8 as Windows-1252, and the weekly refresh of Nov 2 had stopped on it without publishing. The grade trends now start in Fall 2005 rather than Fall 2010, and the last four long terms behind the watch list and section spread now run Fall 2024 to Spring 2026.
 
 ## Course catalog and TRE
 

@@ -10,7 +10,7 @@ IPEDS is institution-level. It gives Illinois's campus-wide retention and gradua
 
 ## UIUC GPA dataset
 
-wadefagen/datasets on GitHub, gpa/uiuc-gpa-dataset.csv, read at commit c6618ca (Oct 15, 2026); the file itself last changed on Mar 25, 2026. One row per section with 21 or more graded students, from Spring 2010 to Winter 2026. Data through Fall 2024 came from FOIA requests; from Spring 2025 it comes through Senate item EP.25.072. The Primary Instructor column is dropped at ingest.
+wadefagen/datasets on GitHub, gpa/uiuc-gpa-dataset.csv, read at commit c8d2678 (Nov 3, 2026); the file itself last changed on Oct 29, 2026. One row per section with 21 or more graded students, from Fall 2005 to Summer 2026. Data through Fall 2024 came from FOIA requests; from Spring 2025 it comes through Senate item EP.25.072. The Primary Instructor column is dropped at ingest.
 
 ## Course catalog
 

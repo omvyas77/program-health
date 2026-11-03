@@ -1,6 +1,7 @@
+import codecs
 import csv
 
-from ingest import refresh
+from ingest import refresh, sources
 from ingest.paths import ROOT
 
 MANIFEST = {
@@ -46,3 +47,15 @@ def test_snapshot_requirements_pin_the_same_versions():
 
     main, snapshot = pins("requirements.txt"), pins("requirements-snapshot.txt")
     assert {package: main.get(package) for package in snapshot} == snapshot
+
+
+def test_a_csv_with_a_few_windows_1252_lines_still_reads():
+    raw = (
+        codecs.BOM_UTF8
+        + b"Subject,Course Title\n"
+        + "ACCY,Café Économie\n".encode()
+        + "SPAN,Política y sociedad\n".encode("cp1252")
+    )
+    data = sources.read_text_csv(raw)
+    assert list(data.columns) == ["Subject", "Course Title"]
+    assert list(data["Course Title"]) == ["Café Économie", "Política y sociedad"]

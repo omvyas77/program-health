@@ -1,7 +1,7 @@
 -- C1 Grades in undergraduate courses by long term, Gies subjects next to the whole campus
 -- Sections with 21 or more graded students. covid_grading terms allowed credit/no credit and
--- nearly eliminated W, so they are flagged and left out of fitted trends. Spring 2012 was
--- removed from the source as a duplicate.
+-- nearly eliminated W, so they are flagged and left out of fitted trends. The source starts in
+-- Fall 2005; its Oct 29, 2026 update filled in Spring 2012, which it had removed as a duplicate.
 with by_group as (
     select
         yearterm,

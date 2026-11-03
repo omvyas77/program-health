@@ -1,5 +1,6 @@
 # Download, manifest, and CSV helpers shared by the ingest modules.
 
+import codecs
 import csv
 import hashlib
 import io
@@ -72,6 +73,26 @@ def wadefagen_url(commit, path):
     return f"https://raw.githubusercontent.com/wadefagen/datasets/{commit}/{path}"
 
 
+def decode_text(raw):
+    # UTF-8, except that a line which isn't is read as Windows-1252. The GPA dataset's Oct 29, 2026
+    # update put two Windows-1252 rows in an otherwise UTF-8 file, and decoding the whole file
+    # one way would garble the other.
+    raw = raw.removeprefix(codecs.BOM_UTF8)
+    try:
+        return raw.decode("utf-8")
+    except UnicodeDecodeError:
+        pass
+    lines, fallback = [], 0
+    for line in raw.split(b"\n"):
+        try:
+            lines.append(line.decode("utf-8"))
+        except UnicodeDecodeError:
+            lines.append(line.decode("cp1252", errors="replace"))
+            fallback += 1
+    log.warning("%d lines were not UTF-8 and were read as Windows-1252", fallback)
+    return "\n".join(lines)
+
+
 def read_text_csv(raw):
     # Every column stays text so nothing is coerced on the way in; typing happens in dbt.
-    return pd.read_csv(io.StringIO(raw.decode("utf-8-sig")), dtype=str, keep_default_na=False)
+    return pd.read_csv(io.StringIO(decode_text(raw)), dtype=str, keep_default_na=False)

@@ -1,6 +1,8 @@
--- GPA dataset anchors, as of wadefagen/datasets commit c6618ca. The
--- row count covers the terms that commit holds, through Winter 2026, so a later commit that adds
--- terms still passes and one that revises those terms fails.
+-- GPA dataset anchors, as of wadefagen/datasets commit c8d2678 (the Oct 29, 2026 update, which
+-- added Spring and Summer 2026 and the previously unavailable Fall 2005 to Summer 2009, Summer
+-- 2011, and Spring 2012). The row count covers every term through Winter 2026, so a later commit
+-- that adds new terms still passes and one that revises or backfills those terms fails. Every
+-- term from Spring 2010 on matched commit c6618ca row for row and student for student.
 with checks as (
     select
         count(*) filter (where year < 2026 or yearterm = '2026-wi') as rows_total,
@@ -22,7 +24,7 @@ select *
 from checks
 -- coalesce: a missing value must fail the test, not slip through as null.
 where not coalesce(
-    rows_total = 79918 and smallest_section = 21 and rows_not_summing = 0
+    rows_total = 107758 and smallest_section = 21 and rows_not_summing = 0
     and fall_2025_graded = 26571 and fall_2025_courses = 126,
     false
 )
