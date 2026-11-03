@@ -1,4 +1,4 @@
-# QA, Oct 26 to 29, 2026
+# QA, Oct 26 to Nov 3, 2026
 
 The checks I ran before sharing the project: that it rebuilds from a clone, that every number in the brief is computed, that no person is named, that every link resolves, and that the published dashboards and app show what the marts say.
 
@@ -9,8 +9,8 @@ The checks I ran before sharing the project: that it rebuilds from a clone, that
 | Privacy | Pass. No instructor names in any committed file. |
 | Links | Pass. 17 of 17 resolve, among them the Tableau workbook and the Streamlit app. |
 | PDFs render | Pass. brief/brief.pdf is 4 pages and brief/guide.pdf is 1 page; both link to the dashboards, the app, and the repository. |
-| Scheduled jobs | Fixed. Both Oct 26 snapshot runs failed; the cause is fixed and a run by hand passed. Oct 27 has no snapshot and no status (data_notes.md). |
-| Published dashboards and app | Pass: every title number matches the marts. Display fixes still open are listed below. |
+| Scheduled jobs | Fixed. Both Oct 26 snapshot runs failed, and the Nov 2 weekly refresh stopped on a GPA file that wasn't all UTF-8; both causes are fixed and the reruns passed. Oct 27 has no snapshot and no status (data_notes.md). |
+| Published dashboards and app | Pass on Oct 28 and 29: every title number matched the marts. On Nov 3 the workbook was still on Oct 29 data and the app loaded unreliably; both are listed below. |
 
 ## A fresh clone runs make all
 
@@ -36,7 +36,7 @@ Every number in the brief's text comes from an inline expression in brief/brief.
 | brief | 80% | Width of the projection's interval | forecast/projection.py |
 | brief | 2019 to 2021 | Penn State's IPEDS years reported for all campuses | docs/data_notes.md |
 | guide, README | 20, 21 | The GPA dataset leaves out sections of 20 or fewer students | The dataset's README |
-| guide | 25th, 75th | The peer band is the interquartile range | docs/tableau_spec.md |
+| guide | 25th, 75th | The peer band is the interquartile range | mart_peer_metrics, peer_p25 and peer_p75 |
 | guide, README | 8:14, Oct 28, 2026 | The approved start time and the first day the status pass ran | Tech Services' reply; .github/workflows/status.yml |
 | README | 5,155, 10,095, 4,781, 4,940 | Gies headcount Fall 2017 and Fall 2026, students added in online graduate programs and in all | docs/findings.md, B1 |
 | README | 58.3%, 80.0%, 17.5, 21.7 | A-range share Fall 2015 and Fall 2025, within-course change and total change in points | docs/findings.md, C3 |
@@ -65,10 +65,13 @@ Every URL in the README, docs/, and brief/ was requested once, 1 s apart. All re
 | ci | Every push | Pass |
 | snapshot | Oct 26 | Failed. The job builds only the registration watch's models, and dbt's default test selection also picked a test that reads mart_course_sections. Fixed with --indirect-selection cautious in snapshot.yml and status.yml. |
 | status | Oct 27 | Never started before the 8:44 window closed, because scheduled jobs here start hours late. The workflow now starts the evening before and relays (runbook.md). |
+| status | Oct 28 to Nov 3 | Pass every day at 8:14 Central, before and after the Nov 1 change from CDT to CST. |
+| snapshot | Oct 31 | The first run got HTTP 403 from the Course Explorer API; the evening backup run passed, so no day is missing. |
+| refresh | Nov 2 | Failed before publishing. The GPA dataset's Oct 29 update has two Windows-1252 rows in an otherwise UTF-8 file. ingest/sources.py now reads such lines as Windows-1252, the row-count anchor moved to the new commit after every term from Spring 2010 on matched the old one, and a run by hand on Nov 3 passed and published. |
 
 ## Published dashboards, Oct 28 and 29, 2026
 
-Title numbers were read off the published workbook and compared with the check values in docs/tableau_spec.md.
+Title numbers were read off the published workbook and compared with the marts.
 
 | Dashboard | Values checked | Result |
 |---|---|---|
@@ -79,13 +82,22 @@ Title numbers were read off the published workbook and compared with the check v
 | Sections | ACCY 201: 3 primary sections in Fall 2025 and Fall 2019; 162.7 graded students per section against 201.3 | Pass |
 | Registration | Follows the daily snapshot: 507 primary sections and 2.4% closed as of Oct 29, 2026 | Pass |
 
-Display fixes still open, none of which changes a number:
+The Oct 29 republish fixed the spaces before colons, the closed-share axis titles and reference labels, the cut-off course titles, and the Definitions button; the first upload is gone from the profile.
 
-- The footer's date reads "Oct 26,2026", with no space after the comma.
-- Overview's legend names and the headcount table's row names are cut off.
-- The watch list totals carry no course names and don't line up with the list's rows.
-- The Grades info button reads "Defintions", and its text doesn't mention the missing Spring 2012 (data_notes.md).
-- The two closed-share sheets label their axis "Days Since Registration Open" while the curves above them say "Days from the start of registration".
+On Nov 3 the workbook still showed Oct 29 data, so it isn't syncing with the Google Sheet; it was last published Oct 29 at 10:23 am Central. Still open that day:
+
+- The watch list totals carry no course names and don't line up with the list's rows, and the watch list's subtitle is cut off.
+- The workbook's description repeats its title.
+- Not rechecked since Oct 29: the footer's date format, Overview's cut-off legend and row names, and the "Peer median" and "A range" labels.
+
+Check values after the Nov 3 GPA update, once the workbook has the new data:
+
+| Dashboard | New values |
+|---|---|
+| Grades | ACCY 201 70.4% in Spring 2026; 80.0% in Fall 2025, up from 47.0% in Fall 2005 |
+| Course Watch | Same 5 courses over Fall 2024 to Spring 2026; FIN 300 25.0% in 2026-sp and 23.2% over four terms; totals ACCY 201 440, 16.7%, 4.7% and FIN 300 213, 23.2%, 7.6%; widest section spread 0.82 points, FIN 300 in 2024-fa |
+| Sections | Unchanged for ACCY 201: 3 primary sections in Fall 2025 and Fall 2019, 162.7 graded students per section against 201.3 |
+| Registration | Nov 3: 507 primary sections, registration open one day, 22 of 507 closed (4.3%); ACCY 201 0 of 3 |
 
 ## Streamlit app, Oct 28 and 29, 2026
 
@@ -97,4 +109,4 @@ https://gies-program-health.streamlit.app/, compared with data/marts.
 | Enrollment scenarios, changed input | 900 freshmen a year gives 4,176 in Fall 2030, 335 above base | Pass |
 | Registration watch | Follows the daily snapshot: 507 primary sections across 223 courses on Oct 29; every section closed in ACCY 321, BADM 303, and BADM 366 | Pass |
 
-The marts are cached by file modification time, so the app picks up each day's snapshot without a restart.
+The marts are cached by file modification time, so the app picks up each day's snapshot without a restart. On Nov 3 the app loaded once in four tries over five minutes, with blank pages and one Community Cloud error page in between; it runs cleanly on that day's data under Streamlit's AppTest, so the problem is the hosting, which only the owner's logs and a reboot can address.

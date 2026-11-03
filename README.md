@@ -85,6 +85,6 @@ Every source is public; docs/data_sources.md has the details and docs/data_notes
 
 ## Decisions and documentation
 
-docs/decisions.md records each choice and why: DuckDB and dbt instead of a hosted warehouse, a Google Sheet between the pipeline and Tableau Public, nothing paid, and the definitions behind every number. docs/ipeds_variables.md lists every IPEDS variable used with its dictionary description, and docs/tableau_spec.md specifies the dashboards field by field.
+docs/decisions.md records each choice and why: DuckDB and dbt instead of a hosted warehouse, a Google Sheet between the pipeline and Tableau Public, nothing paid, and the definitions behind every number. docs/ipeds_variables.md lists every IPEDS variable used with its dictionary description.
 
 This project is not affiliated with or endorsed by the University of Illinois. It uses no university logos or brand marks.
