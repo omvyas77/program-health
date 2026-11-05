@@ -1,37 +1,47 @@
 # Spring 2027 registration watch
 
-As of the Nov 4, 2026 snapshot, registration opened 2 days ago, on Nov 2, 2026. Gies lists 506 primary sections across 223 courses.
+As of the Nov 5, 2026 snapshot, registration opened 3 days ago, on Nov 2, 2026. Gies lists 506 primary sections across 223 courses.
 
 ## Sections added since registration opened
 
 No Gies course has added a primary section since registration opened.
 
-## Since the previous snapshot, Nov 3, 2026
+## Since the previous snapshot, Nov 4, 2026
 
-| Course | Primary sections | Added | Removed |
-|---|---:|---:|---:|
-| FIN 418 | 2 | 0 | 1 |
+No Gies course gained or lost a primary section.
 
 ## Closed sections
 
-As of the Nov 4, 2026 status pass, 20 of 506 Gies primary sections (4.0%) were closed, and 481 were Open (Restricted).
+As of the Nov 5, 2026 status pass, 37 of 506 Gies primary sections (7.3%) were closed, and 464 were Open (Restricted).
 
 | Course with every primary section closed | Sections |
 |---|---:|
 | ACCY 321 | 2 |
 | BADM 303 | 2 |
+| BADM 331 | 1 |
+| BADM 362 | 1 |
 | BADM 366 | 2 |
 | FIN 241 | 1 |
+| FIN 434 | 1 |
 
-Since the Nov 3, 2026 pass:
+Since the Nov 4, 2026 pass:
 
 | Course | Closed before | Closed now | Reopened |
 |---|---:|---:|---:|
-| ACCY 202 | 1 | 0 | 1 |
-| ACCY 303 | 0 | 1 | 0 |
-| BADM 275 | 0 | 1 | 0 |
-| FIN 300 | 4 | 2 | 2 |
-| FIN 442 | 1 | 0 | 1 |
+| ACCY 301 | 1 | 1 | 1 |
+| ACCY 312 | 0 | 1 | 0 |
+| ACCY 405 | 0 | 2 | 0 |
+| ACCY 410 | 0 | 6 | 0 |
+| ACCY 419 | 0 | 1 | 0 |
+| ACCY 451 | 1 | 2 | 0 |
+| BADM 331 | 0 | 1 | 0 |
+| BADM 362 | 0 | 1 | 0 |
+| BADM 449 | 0 | 2 | 0 |
+| FIN 411 | 0 | 1 | 0 |
+| FIN 423 | 0 | 1 | 0 |
+| FIN 434 | 0 | 1 | 0 |
+| FIN 464 | 0 | 1 | 0 |
+| FIN 500 | 2 | 0 | 2 |
 
 Enrollment status comes from the public course pages, read once a day at 8:14 am Central with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only. A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change. Primary sections are lectures, lecture-discussions, online lectures, and seminars, not discussions or labs.
 
