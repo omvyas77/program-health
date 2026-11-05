@@ -12,6 +12,8 @@ sources:
       - name: ipeds_releases
       - name: ipeds_exclusions
       - name: cip_business
+      - name: cip_education_series
+      - name: cip_soe_map
       - name: term_flags
       - name: registration
 

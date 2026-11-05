@@ -1,0 +1,16 @@
+series,label,is_teacher_prep
+13.01,"Education, General",false
+13.02,"Bilingual, Multilingual, and Multicultural Education",false
+13.03,Curriculum and Instruction,false
+13.04,Educational Administration and Supervision,false
+13.05,Educational/Instructional Media Design,false
+13.06,"Educational Assessment, Evaluation, and Research",false
+13.07,International and Comparative Education,false
+13.09,Social and Philosophical Foundations of Education,false
+13.10,Special Education and Teaching,true
+13.11,Student Counseling and Personnel Services,false
+13.12,"Teacher Education and Professional Development, Specific Levels and Methods",true
+13.13,"Teacher Education and Professional Development, Specific Subject Areas",true
+13.14,Teaching English or French as a Second or Foreign Language,true
+13.15,Teaching Assistants/Aides,false
+13.99,"Education, Other",false

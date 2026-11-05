@@ -11,3 +11,5 @@
 
 {#- Fall and spring only; summer and winter terms are small and stay out of trends. -#}
 {% macro term_order(year, term) %}({{ year }} * 10 + case {{ term }} when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end){% endmacro %}
+
+{% macro fmt_pct_change(new, old) %}printf('%+.0f%%', 100 * (({{ new }}) / ({{ old }}) - 1)){% endmacro %}

@@ -25,3 +25,7 @@ vars:
   watch_min_graded: 150
   watch_min_rate: 0.15
   watch_min_terms: 2
+  # The School of Education addendum: UW-Madison's UNITID, and Penn State, left out of the
+  # combined peer line because its 2019-20 and 2020-21 completions files are excluded.
+  soe_unitid: 240444
+  soe_peer_line_excludes: [214777]

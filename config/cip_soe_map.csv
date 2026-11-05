@@ -1,0 +1,13 @@
+cipcode,field_group,department,confidence,note
+13,Education,"Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education",high,"Every CIP 13 code at UW-Madison. A prefix, not a six-digit code: the mart matches cipcode like '13.%'."
+31.0505,Kinesiology and health,Kinesiology,high,Kinesiology BS and graduate degrees.
+31.0599,Kinesiology and health,Kinesiology,medium,"First awards in 2020-21, matching the Health Promotion and Health Equity BS; not confirmed against the School's records."
+51.0913,Kinesiology and health,Kinesiology,high,Athletic training.
+51.2306,Kinesiology and health,Kinesiology,high,Occupational therapy (MS and then OTD).
+50.0301,Arts,Dance,high,
+50.0701,Arts,Art,high,"Art BFA, BS, MA, MFA."
+50.0501,Arts,Theatre and Drama,medium,"The department is listed in the School today; check which award years it was housed elsewhere before using a trend."
+42.2803,Psychology and counseling,Counseling Psychology,high,
+42.2805,Psychology and counseling,Educational Psychology,medium,School psychology.
+42.2806,Psychology and counseling,Educational Psychology,high,
+51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,Rehabilitation psychology and counseling.

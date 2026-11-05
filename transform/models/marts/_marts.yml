@@ -745,3 +745,130 @@ models:
     data_type: bigint
   - name: students_per_graded_section
     data_type: double
+- name: mart_education_completions
+  description: IPEDS education degrees (CIP 13) for the 18 Big Ten schools by school, award year, degree
+    level, and four-digit CIP series, plus each school's all-fields total (series 99). Degrees only, first
+    majors only. Built for the UW-Madison School of Education addendum.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - unitid
+        - academic_year
+        - degree_level
+        - series
+  columns:
+  - name: unitid
+    data_type: integer
+    data_tests:
+    - not_null
+    - relationships:
+        arguments:
+          to: ref('stg_config__peers')
+          field: unitid
+  - name: school
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: is_wisconsin
+    data_type: boolean
+  - name: academic_year
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: award_year_end
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: degree_level
+    data_type: varchar
+    data_tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values: ["Bachelor''s", "Master''s", "Doctoral"]
+  - name: series
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: series_label
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: is_education
+    data_type: boolean
+  - name: is_teacher_prep
+    data_type: boolean
+  - name: completions
+    data_type: bigint
+    data_tests:
+    - not_null
+    - value_between:
+        arguments:
+          min_value: 0
+          max_value: 100000
+  - name: is_provisional
+    data_type: boolean
+    data_tests:
+    - not_null
+  - name: source_file
+    data_type: varchar
+    data_tests:
+    - not_null
+- name: mart_soe_portfolio
+  description: UW-Madison degrees in the fields the School of Education houses today, through a first-pass
+    CIP map with a confidence per code (config/cip_soe_map.csv). Not a count of School of Education
+    degrees until reconciled against RADAR's Trends in Degrees.
+  config:
+    contract:
+      enforced: true
+  data_tests:
+  - unique_combination:
+      arguments:
+        columns:
+        - academic_year
+        - degree_level
+        - cipcode
+  columns:
+  - name: academic_year
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: award_year_end
+    data_type: integer
+    data_tests:
+    - not_null
+  - name: degree_level
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: cipcode
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: field_group
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: department
+    data_type: varchar
+    data_tests:
+    - not_null
+  - name: confidence
+    data_type: varchar
+    data_tests:
+    - not_null
+    - accepted_values:
+        arguments:
+          values: ["high", "medium"]
+  - name: completions
+    data_type: bigint
+    data_tests:
+    - not_null
+  - name: is_provisional
+    data_type: boolean
+    data_tests:
+    - not_null

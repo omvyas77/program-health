@@ -1376,6 +1376,7 @@ order by 1, subject, number
 | 2026-11-01 | -1 | 508 | 223 | 0 | 0 |  |
 | 2026-11-02 | 0 | 507 | 223 | 0 | 1 |  |
 | 2026-11-03 | 1 | 507 | 223 | 0 | 0 | 0 |
+| 2026-11-04 | 2 | 506 | 223 | 0 | 1 | 0 |
 
 <details><summary>SQL</summary>
 
@@ -1407,6 +1408,7 @@ order by snapshot_date
 | 2026-10-31 | -2 | BADM 311 | 2 | 0 | 1 |
 | 2026-10-31 | -2 | BUS 199 | 4 | 2 | 0 |
 | 2026-11-02 | 0 | FIN 490 | 2 | 0 | 1 |
+| 2026-11-04 | 2 | FIN 418 | 2 | 0 | 1 |
 
 <details><summary>SQL</summary>
 
@@ -1598,6 +1600,270 @@ select
 from by_role
 group by role, yearterm, year, term
 order by role, (year * 10 + case term when 'Spring' then 1 when 'Summer' then 2 when 'Fall' then 3 else 0 end)
+```
+
+</details>
+
+## F1 Education degrees (CIP 13) at the 18 Big Ten schools, three-year averages, 2014-15 to 2016-17 against 2022-23 to 2024-25
+
+| School | Bachelor's, early | Bachelor's, late | Bachelor's change | Bachelor's rank | Master's, early | Master's, late | Master's change | Doctoral, early | Doctoral, late | Doctoral change |
+|---|---:|---:|---:|---|---:|---:|---:|---:|---:|---:|
+| Wisconsin | 122 | 180 | +47% | 10 of 18 | 114 | 174 | +52% | 58 | 56 | -3% |
+| Ohio State | 325 | 402 | +24% | 1 of 18 | 289 | 213 | -26% | 62 | 86 | +37% |
+| Penn State | 351 | 376 | +7% | 2 of 18 | 164 | 84 | -48% | 86 | 59 | -32% |
+| Minnesota | 325 | 342 | +5% | 3 of 18 | 533 | 268 | -50% | 73 | 51 | -31% |
+| Indiana | 451 | 289 | -36% | 4 of 18 | 242 | 138 | -43% | 66 | 87 | +32% |
+| Nebraska | 290 | 272 | -6% | 5 of 18 | 200 | 140 | -30% | 63 | 49 | -22% |
+| Washington | 176 | 227 | +29% | 6 of 18 | 328 | 320 | -2% | 50 | 39 | -22% |
+| Illinois | 203 | 219 | +8% | 7 of 18 | 251 | 266 | +6% | 60 | 93 | +56% |
+| Michigan State | 263 | 203 | -23% | 8 of 18 | 404 | 219 | -46% | 81 | 58 | -29% |
+| Purdue | 281 | 187 | -34% | 9 of 18 | 179 | 235 | +31% | 36 | 37 | +1% |
+| Iowa | 94 | 160 | +70% | 11 of 18 | 92 | 117 | +28% | 34 | 36 | +6% |
+| Maryland | 251 | 123 | -51% | 12 of 18 | 276 | 143 | -48% | 60 | 47 | -22% |
+| Oregon | 90 | 106 | +17% | 13 of 18 | 151 | 147 | -2% | 24 | 24 | -1% |
+| UCLA |  | 105 |  | 14 of 18 | 206 | 201 | -3% | 74 | 66 | -11% |
+| Michigan | 84 | 61 | -27% | 15 of 18 | 168 | 163 | -3% | 23 | 19 | -16% |
+| Northwestern | 12 | 11 |  | 16 of 18 | 106 | 68 | -36% | 5 | 3 |  |
+| Rutgers |  | 1 |  | 17 of 18 | 277 | 231 | -16% | 38 | 35 | -8% |
+| USC | 0 |  |  | 18 of 18 | 491 | 498 | +2% | 198 | 315 | +59% |
+
+<details><summary>SQL</summary>
+
+```sql
+-- F1 Education degrees (CIP 13) at the 18 Big Ten schools, three-year averages, 2014-15 to 2016-17 against 2022-23 to 2024-25
+-- First majors only. Each average is over the years a school reported; Penn State's 2019-20 and
+-- 2020-21 files are excluded (docs/data_notes.md) but neither window uses them. 2024-25 is a
+-- provisional IPEDS release. Rank 1 is the most degrees in the later window.
+with windows as (
+    select
+        school,
+        is_wisconsin,
+        degree_level,
+        case
+            when award_year_end between 2015 and 2017 then 'early'
+            when award_year_end between 2023 and 2025 then 'late'
+        end as span,
+        award_year_end,
+        sum(completions) as n
+    from "mart_education_completions"
+    where is_education and (award_year_end between 2015 and 2017 or award_year_end between 2023 and 2025)
+    group by all
+),
+
+averages as (
+    select
+        school,
+        is_wisconsin,
+        degree_level,
+        avg(n) filter (where span = 'early') as early,
+        avg(n) filter (where span = 'late') as late
+    from windows
+    group by all
+),
+
+pivoted as (
+    select
+        school,
+        is_wisconsin,
+        max(early) filter (where degree_level = 'Bachelor''s') as ba_early,
+        max(late) filter (where degree_level = 'Bachelor''s') as ba_late,
+        max(early) filter (where degree_level = 'Master''s') as ma_early,
+        max(late) filter (where degree_level = 'Master''s') as ma_late,
+        max(early) filter (where degree_level = 'Doctoral') as doc_early,
+        max(late) filter (where degree_level = 'Doctoral') as doc_late
+    from averages
+    group by all
+)
+
+select
+    school as "School",
+    printf('%,d', cast(round(ba_early) as bigint)) as "Bachelor's, early",
+    printf('%,d', cast(round(ba_late) as bigint)) as "Bachelor's, late",
+    case when ba_early >= 20 then printf('%+.0f%%', 100 * ((ba_late) / (ba_early) - 1)) end as "Bachelor's change",
+    rank() over (order by coalesce(ba_late, 0) desc) || ' of 18' as "Bachelor's rank",
+    printf('%,d', cast(round(ma_early) as bigint)) as "Master's, early",
+    printf('%,d', cast(round(ma_late) as bigint)) as "Master's, late",
+    case when ma_early >= 20 then printf('%+.0f%%', 100 * ((ma_late) / (ma_early) - 1)) end as "Master's change",
+    printf('%,d', cast(round(doc_early) as bigint)) as "Doctoral, early",
+    printf('%,d', cast(round(doc_late) as bigint)) as "Doctoral, late",
+    case when doc_early >= 20 then printf('%+.0f%%', 100 * ((doc_late) / (doc_early) - 1)) end as "Doctoral change"
+from pivoted
+order by is_wisconsin desc, coalesce(ba_late, 0) desc
+```
+
+</details>
+
+## F2 Education degrees by award year, UW-Madison against the other Big Ten schools combined, indexed to 2014-15 = 100
+
+| Degree level | Award year | UW-Madison | Other 16 combined | UW-Madison index | Other 16 index |
+|---|---|---:|---:|---:|---:|
+| Bachelor's | 2014-15 | 134 | 2,964 | 100 | 100 |
+| Bachelor's | 2015-16 | 117 | 2,816 | 87 | 95 |
+| Bachelor's | 2016-17 | 115 | 2,752 | 86 | 93 |
+| Bachelor's | 2017-18 | 116 | 2,753 | 87 | 93 |
+| Bachelor's | 2018-19 | 128 | 2,744 | 96 | 93 |
+| Bachelor's | 2019-20 | 179 | 2,807 | 134 | 95 |
+| Bachelor's | 2020-21 | 172 | 2,692 | 128 | 91 |
+| Bachelor's | 2021-22 | 135 | 2,633 | 101 | 89 |
+| Bachelor's | 2022-23 | 143 | 2,674 | 107 | 90 |
+| Bachelor's | 2023-24 | 184 | 2,595 | 137 | 88 |
+| Bachelor's | 2024-25 | 212 | 2,851 | 158 | 96 |
+| Master's | 2014-15 | 109 | 4,272 | 100 | 100 |
+| Master's | 2015-16 | 87 | 4,196 | 80 | 98 |
+| Master's | 2016-17 | 147 | 4,112 | 135 | 96 |
+| Master's | 2017-18 | 144 | 4,086 | 132 | 96 |
+| Master's | 2018-19 | 155 | 4,120 | 142 | 96 |
+| Master's | 2019-20 | 155 | 3,891 | 142 | 91 |
+| Master's | 2020-21 | 187 | 4,032 | 172 | 94 |
+| Master's | 2021-22 | 222 | 4,103 | 204 | 96 |
+| Master's | 2022-23 | 199 | 3,901 | 183 | 91 |
+| Master's | 2023-24 | 160 | 3,152 | 147 | 74 |
+| Master's | 2024-25 | 164 | 3,053 | 150 | 71 |
+
+<details><summary>SQL</summary>
+
+```sql
+-- F2 Education degrees by award year, UW-Madison against the other Big Ten schools combined, indexed to 2014-15 = 100
+-- The combined line leaves out Penn State (var soe_peer_line_excludes), whose 2019-20 and
+-- 2020-21 files are excluded, so it is the same 16 schools every year. 2024-25 is provisional.
+with yearly as (
+    select
+        award_year_end,
+        academic_year,
+        degree_level,
+        sum(completions) filter (where is_wisconsin) as wisconsin,
+        sum(completions) filter (
+            where not is_wisconsin and unitid not in (214777)
+        ) as others
+    from "mart_education_completions"
+    where is_education and degree_level in ('Bachelor''s', 'Master''s')
+    group by all
+),
+
+indexed as (
+    select
+        *,
+        100.0 * wisconsin / first(wisconsin) over w as wisconsin_index,
+        100.0 * others / first(others) over w as others_index
+    from yearly
+    window w as (partition by degree_level order by award_year_end)
+)
+
+select
+    degree_level as "Degree level",
+    academic_year as "Award year",
+    printf('%,d', cast(round(wisconsin) as bigint)) as "UW-Madison",
+    printf('%,d', cast(round(others) as bigint)) as "Other 16 combined",
+    printf('%.0f', wisconsin_index) as "UW-Madison index",
+    printf('%.0f', others_index) as "Other 16 index"
+from indexed
+order by degree_level, award_year_end
+```
+
+</details>
+
+## F3 Where UW-Madison's growth in education degrees came from, by CIP series, three-year totals 2014-15 to 2016-17 against 2022-23 to 2024-25
+
+| Degree level | Series | Field | 2014-15 to 2016-17 | 2022-23 to 2024-25 | Change | Share of level's change |
+|---|---:|---|---:|---:|---:|---:|
+| Bachelor's | 13.09 | Social and Philosophical Foundations of Education | 0 | 85 | +85 | 49.1% |
+| Bachelor's | 13.13 | Teacher Education and Professional Development, Specific Subject Areas | 40 | 88 | +48 | 27.7% |
+| Bachelor's | 13.12 | Teacher Education and Professional Development, Specific Levels and Methods | 249 | 293 | +44 | 25.4% |
+| Bachelor's | 13.10 | Special Education and Teaching | 77 | 73 | -4 | -2.3% |
+| Master's | 13.03 | Curriculum and Instruction | 120 | 262 | +142 | 78.9% |
+| Master's | 13.10 | Special Education and Teaching | 19 | 79 | +60 | 33.3% |
+| Master's | 13.13 | Teacher Education and Professional Development, Specific Subject Areas | 4 | 2 | -2 | -1.1% |
+| Master's | 13.09 | Social and Philosophical Foundations of Education | 15 | 12 | -3 | -1.7% |
+| Master's | 13.04 | Educational Administration and Supervision | 185 | 168 | -17 | -9.4% |
+
+<details><summary>SQL</summary>
+
+```sql
+-- F3 Where UW-Madison's growth in education degrees came from, by CIP series, three-year totals 2014-15 to 2016-17 against 2022-23 to 2024-25
+-- Totals, not averages, so the rows add to the change. A series new to the later window is a
+-- program that began conferring degrees in between, or a program recoded into it. Series are
+-- four-digit, so 13.1099, which first appears in 2024-25 as 13.1001 falls, stays in the
+-- Special Education row.
+with spans as (
+    select
+        degree_level,
+        series,
+        series_label,
+        sum(completions) filter (where award_year_end between 2015 and 2017) as early,
+        sum(completions) filter (where award_year_end between 2023 and 2025) as late
+    from "mart_education_completions"
+    where is_wisconsin and is_education and degree_level in ('Bachelor''s', 'Master''s')
+    group by all
+),
+
+changes as (
+    select
+        *,
+        coalesce(late, 0) - coalesce(early, 0) as change,
+        sum(coalesce(late, 0) - coalesce(early, 0)) over (partition by degree_level) as level_change
+    from spans
+)
+
+select
+    degree_level as "Degree level",
+    series as "Series",
+    series_label as "Field",
+    printf('%,d', cast(round(coalesce(early, 0)) as bigint)) as "2014-15 to 2016-17",
+    printf('%,d', cast(round(coalesce(late, 0)) as bigint)) as "2022-23 to 2024-25",
+    printf('%+,d', cast(round(change) as bigint)) as "Change",
+    printf('%.1f%%', 100 * (change / level_change)) as "Share of level's change"
+from changes
+where coalesce(early, 0) + coalesce(late, 0) > 0
+order by degree_level, changes.change desc
+```
+
+</details>
+
+## F4 UW-Madison degrees in the fields the School of Education houses today, 2024-25, through the first-pass CIP map
+
+| Field group | Bachelor's | Master's | Doctoral | All degrees | Share of mapped degrees | From medium-confidence codes |
+|---|---:|---:|---:|---:|---:|---:|
+| Education | 212 | 164 | 50 | 426 | 43.3% | 0 |
+| Kinesiology and health | 247 | 15 | 27 | 289 | 29.4% | 103 |
+| Psychology and counseling | 40 | 100 | 21 | 161 | 16.4% | 48 |
+| Arts | 91 | 15 | 2 | 108 | 11.0% | 14 |
+
+<details><summary>SQL</summary>
+
+```sql
+-- F4 UW-Madison degrees in the fields the School of Education houses today, 2024-25, through the first-pass CIP map
+-- A first pass, not School of Education totals: IPEDS reports by field, and config/cip_soe_map.csv
+-- carries a confidence for each code. Reconcile against RADAR's Trends in Degrees before use.
+-- 2024-25 is a provisional IPEDS release.
+with latest as (
+    select field_group, degree_level, confidence, sum(completions) as n
+    from "mart_soe_portfolio"
+    where award_year_end = 2025
+    group by all
+),
+
+groups as (
+    select
+        field_group,
+        sum(n) filter (where degree_level = 'Bachelor''s') as ba,
+        sum(n) filter (where degree_level = 'Master''s') as ma,
+        sum(n) filter (where degree_level = 'Doctoral') as doc,
+        sum(n) as total,
+        sum(n) filter (where confidence = 'medium') as medium
+    from latest
+    group by all
+)
+
+select
+    field_group as "Field group",
+    printf('%,d', cast(round(coalesce(ba, 0)) as bigint)) as "Bachelor's",
+    printf('%,d', cast(round(coalesce(ma, 0)) as bigint)) as "Master's",
+    printf('%,d', cast(round(coalesce(doc, 0)) as bigint)) as "Doctoral",
+    printf('%,d', cast(round(total) as bigint)) as "All degrees",
+    printf('%.1f%%', 100 * (total / sum(total) over ())) as "Share of mapped degrees",
+    printf('%,d', cast(round(coalesce(medium, 0)) as bigint)) as "From medium-confidence codes"
+from groups
+order by total desc
 ```
 
 </details>

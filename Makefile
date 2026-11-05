@@ -1,5 +1,5 @@
 .DEFAULT_GOAL := help
-.PHONY: help snapshot ingest build docs findings forecast export app publish report brief guide all
+.PHONY: help snapshot ingest build docs findings forecast export app publish report brief soe-note guide all
 
 PYTHON := .venv/bin/python
 DBT := .venv/bin/dbt
@@ -51,6 +51,10 @@ brief: build ## render brief/brief.pdf from the warehouse
 	$(DBT) compile --project-dir transform --profiles-dir transform --select "resource_type:analysis" -q
 	$(PYTHON) -m brief.figures
 	QUARTO_PYTHON=$(abspath $(PYTHON)) quarto render brief/brief.qmd --to typst
+
+soe-note: ## render brief/soe_note.pdf, the UW-Madison School of Education addendum
+	$(PYTHON) -m publish.export mart_education_completions mart_soe_portfolio
+	$(PYTHON) -m brief.soe_note
 
 guide: ## render brief/guide.pdf
 	QUARTO_PYTHON=$(abspath $(PYTHON)) quarto render brief/guide.qmd --to typst

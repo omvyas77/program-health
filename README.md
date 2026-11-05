@@ -7,6 +7,7 @@ An independent look at how the Gies College of Business is doing, built only fro
 - The Tableau Public dashboards: [Gies program health on Tableau Public](https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview)
 - The Streamlit app, for enrollment scenarios and the registration watch, on Hugging Face: [huggingface.co/spaces/omvyas77/gies-program-health](https://huggingface.co/spaces/omvyas77/gies-program-health)
 - The analysis tables behind every finding, each with its SQL: [docs/findings.md](docs/findings.md)
+- **New:** the same pipeline pointed at the UW–Madison School of Education, a one-page note: [brief/soe_note.pdf](brief/soe_note.pdf), with the method in [docs/soe_addendum.md](docs/soe_addendum.md)
 
 ## What it found
 
@@ -15,6 +16,12 @@ An independent look at how the Gies College of Business is doing, built only fro
 - **The projection only matches a naive forecast.** It puts undergraduate headcount at 3,841 by Fall 2030, but in a backtest from Fall 2016 it did no better than assuming next fall equals this fall, so I present it as a scenario, not a prediction.
 
 ![The Overview dashboard on Tableau Public](docs/images/overview.png)
+
+## Addendum: the UW–Madison School of Education
+
+The IPEDS files the pipeline already reads cover every field at all 18 schools, so I pointed it at a second school without adding a source. UW–Madison's education degrees grew while the Big Ten's fell: comparing 2014-15 to 2016-17 with 2022-23 to 2024-25, its education bachelor's rose 47% and master's 52%, while the other 16 schools combined fell 5% and 20%. About half of the bachelor's growth is in one CIP series that matches a newer program, Educational Policy Studies, and master's degrees have fallen from a 2021-22 peak. Because IPEDS reports by field rather than by school, the School-level view runs through a CIP map with a confidence on every code, and the note lists the reconciliation I'd do first with internal data. [The note](brief/soe_note.pdf) · [method and map](docs/soe_addendum.md) · tables F1 to F4 in [findings](docs/findings.md).
+
+![UW-Madison education degrees against the other Big Ten schools, indexed to 2014-15](brief/figures/soe_index.png)
 
 ## My role
 

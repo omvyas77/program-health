@@ -13,6 +13,7 @@ streamlit==1.66.1
 altair==6.3.0
 statsmodels==0.15.0
 matplotlib==3.11.2
+reportlab==5.0.1
 jupyter==1.1.1
 pytest==9.1.1
 ruff==0.17.2

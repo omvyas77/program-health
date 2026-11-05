@@ -1,0 +1,415 @@
+academic_year,award_year_end,degree_level,cipcode,field_group,department,confidence,completions,is_provisional
+2014-15,2015,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,33,false
+2014-15,2015,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,82,false
+2014-15,2015,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2014-15,2015,Bachelor's,13.1308,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2014-15,2015,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,10,false
+2014-15,2015,Bachelor's,13.1316,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2014-15,2015,Bachelor's,13.1318,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,4,false
+2014-15,2015,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,98,false
+2014-15,2015,Bachelor's,50.0301,Arts,Dance,high,9,false
+2014-15,2015,Bachelor's,50.0501,Arts,Theatre and Drama,medium,23,false
+2014-15,2015,Bachelor's,50.0701,Arts,Art,high,69,false
+2014-15,2015,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,69,false
+2014-15,2015,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,4,false
+2014-15,2015,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,18,false
+2014-15,2015,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,24,false
+2014-15,2015,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2014-15,2015,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2014-15,2015,Doctoral,13.1101,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2014-15,2015,Doctoral,13.1201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2014-15,2015,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,5,false
+2014-15,2015,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,2,false
+2014-15,2015,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,11,false
+2014-15,2015,Doctoral,50.0501,Arts,Theatre and Drama,medium,1,false
+2014-15,2015,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,4,false
+2014-15,2015,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,38,false
+2014-15,2015,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,60,false
+2014-15,2015,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2014-15,2015,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,8,false
+2014-15,2015,Master's,13.1101,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2014-15,2015,Master's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2014-15,2015,Master's,13.1311,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2014-15,2015,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2014-15,2015,Master's,13.1316,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2014-15,2015,Master's,31.0505,Kinesiology and health,Kinesiology,high,8,false
+2014-15,2015,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,14,false
+2014-15,2015,Master's,42.2806,Psychology and counseling,Educational Psychology,high,31,false
+2014-15,2015,Master's,50.0501,Arts,Theatre and Drama,medium,16,false
+2014-15,2015,Master's,50.0701,Arts,Art,high,44,false
+2014-15,2015,Master's,51.2306,Kinesiology and health,Kinesiology,high,24,false
+2014-15,2015,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,24,false
+2015-16,2016,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,23,false
+2015-16,2016,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,89,false
+2015-16,2016,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2015-16,2016,Bachelor's,13.1308,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2015-16,2016,Bachelor's,13.1316,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Bachelor's,13.1318,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2015-16,2016,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,99,false
+2015-16,2016,Bachelor's,50.0301,Arts,Dance,high,8,false
+2015-16,2016,Bachelor's,50.0501,Arts,Theatre and Drama,medium,16,false
+2015-16,2016,Bachelor's,50.0701,Arts,Art,high,56,false
+2015-16,2016,Bachelor's,51.0913,Kinesiology and health,Kinesiology,high,20,false
+2015-16,2016,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,85,false
+2015-16,2016,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2015-16,2016,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,32,false
+2015-16,2016,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,13,false
+2015-16,2016,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2015-16,2016,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2015-16,2016,Doctoral,13.1101,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Doctoral,13.1201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,2,false
+2015-16,2016,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,7,false
+2015-16,2016,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,12,false
+2015-16,2016,Doctoral,50.0501,Arts,Theatre and Drama,medium,1,false
+2015-16,2016,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,5,false
+2015-16,2016,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,22,false
+2015-16,2016,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,59,false
+2015-16,2016,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,4,false
+2015-16,2016,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Master's,13.1101,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Master's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2015-16,2016,Master's,13.1311,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Master's,13.1316,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2015-16,2016,Master's,31.0505,Kinesiology and health,Kinesiology,high,11,false
+2015-16,2016,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,14,false
+2015-16,2016,Master's,42.2806,Psychology and counseling,Educational Psychology,high,29,false
+2015-16,2016,Master's,50.0501,Arts,Theatre and Drama,medium,7,false
+2015-16,2016,Master's,50.0701,Arts,Art,high,84,false
+2015-16,2016,Master's,51.2306,Kinesiology and health,Kinesiology,high,25,false
+2015-16,2016,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,13,false
+2016-17,2017,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,21,false
+2016-17,2017,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,78,false
+2016-17,2017,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2016-17,2017,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,9,false
+2016-17,2017,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2016-17,2017,Bachelor's,13.1318,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2016-17,2017,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,89,false
+2016-17,2017,Bachelor's,50.0301,Arts,Dance,high,9,false
+2016-17,2017,Bachelor's,50.0501,Arts,Theatre and Drama,medium,14,false
+2016-17,2017,Bachelor's,50.0701,Arts,Art,high,60,false
+2016-17,2017,Bachelor's,51.0913,Kinesiology and health,Kinesiology,high,14,false
+2016-17,2017,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,78,false
+2016-17,2017,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2016-17,2017,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,31,false
+2016-17,2017,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,22,false
+2016-17,2017,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,5,false
+2016-17,2017,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2016-17,2017,Doctoral,13.1201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2016-17,2017,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,6,false
+2016-17,2017,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,4,false
+2016-17,2017,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,12,false
+2016-17,2017,Doctoral,50.0501,Arts,Theatre and Drama,medium,3,false
+2016-17,2017,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,6,false
+2016-17,2017,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,60,false
+2016-17,2017,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,66,false
+2016-17,2017,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,9,false
+2016-17,2017,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,11,false
+2016-17,2017,Master's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2016-17,2017,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2016-17,2017,Master's,31.0505,Kinesiology and health,Kinesiology,high,10,false
+2016-17,2017,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,8,false
+2016-17,2017,Master's,42.2806,Psychology and counseling,Educational Psychology,high,31,false
+2016-17,2017,Master's,50.0501,Arts,Theatre and Drama,medium,1,false
+2016-17,2017,Master's,50.0701,Arts,Art,high,42,false
+2016-17,2017,Master's,51.2306,Kinesiology and health,Kinesiology,high,25,false
+2016-17,2017,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,13,false
+2017-18,2018,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2017-18,2018,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,22,false
+2017-18,2018,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,79,false
+2017-18,2018,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2017-18,2018,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,5,false
+2017-18,2018,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2017-18,2018,Bachelor's,13.1318,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2017-18,2018,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,88,false
+2017-18,2018,Bachelor's,50.0301,Arts,Dance,high,6,false
+2017-18,2018,Bachelor's,50.0501,Arts,Theatre and Drama,medium,10,false
+2017-18,2018,Bachelor's,50.0701,Arts,Art,high,56,false
+2017-18,2018,Bachelor's,51.0913,Kinesiology and health,Kinesiology,high,24,false
+2017-18,2018,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,91,false
+2017-18,2018,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2017-18,2018,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,25,false
+2017-18,2018,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2017-18,2018,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,5,false
+2017-18,2018,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2017-18,2018,Doctoral,13.1201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2017-18,2018,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,2,false
+2017-18,2018,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,9,false
+2017-18,2018,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,15,false
+2017-18,2018,Doctoral,50.0501,Arts,Theatre and Drama,medium,3,false
+2017-18,2018,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,8,false
+2017-18,2018,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,70,false
+2017-18,2018,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,52,false
+2017-18,2018,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,15,false
+2017-18,2018,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2017-18,2018,Master's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2017-18,2018,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2017-18,2018,Master's,31.0505,Kinesiology and health,Kinesiology,high,9,false
+2017-18,2018,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,7,false
+2017-18,2018,Master's,42.2806,Psychology and counseling,Educational Psychology,high,26,false
+2017-18,2018,Master's,50.0501,Arts,Theatre and Drama,medium,7,false
+2017-18,2018,Master's,50.0701,Arts,Art,high,39,false
+2017-18,2018,Master's,51.2306,Kinesiology and health,Kinesiology,high,26,false
+2017-18,2018,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,20,false
+2018-19,2019,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,15,false
+2018-19,2019,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,9,false
+2018-19,2019,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,82,false
+2018-19,2019,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,5,false
+2018-19,2019,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,10,false
+2018-19,2019,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2018-19,2019,Bachelor's,13.1318,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2018-19,2019,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,108,false
+2018-19,2019,Bachelor's,50.0301,Arts,Dance,high,7,false
+2018-19,2019,Bachelor's,50.0501,Arts,Theatre and Drama,medium,17,false
+2018-19,2019,Bachelor's,50.0701,Arts,Art,high,51,false
+2018-19,2019,Bachelor's,51.0913,Kinesiology and health,Kinesiology,high,20,false
+2018-19,2019,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,75,false
+2018-19,2019,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2018-19,2019,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,28,false
+2018-19,2019,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,9,false
+2018-19,2019,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2018-19,2019,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2018-19,2019,Doctoral,13.1201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2018-19,2019,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,3,false
+2018-19,2019,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,5,false
+2018-19,2019,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,17,false
+2018-19,2019,Doctoral,50.0501,Arts,Theatre and Drama,medium,1,false
+2018-19,2019,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,5,false
+2018-19,2019,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,71,false
+2018-19,2019,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,73,false
+2018-19,2019,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2018-19,2019,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,8,false
+2018-19,2019,Master's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2018-19,2019,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2018-19,2019,Master's,31.0505,Kinesiology and health,Kinesiology,high,8,false
+2018-19,2019,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,23,false
+2018-19,2019,Master's,42.2806,Psychology and counseling,Educational Psychology,high,29,false
+2018-19,2019,Master's,50.0501,Arts,Theatre and Drama,medium,1,false
+2018-19,2019,Master's,50.0701,Arts,Art,high,41,false
+2018-19,2019,Master's,51.2306,Kinesiology and health,Kinesiology,high,27,false
+2018-19,2019,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,17,false
+2019-20,2020,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,14,false
+2019-20,2020,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,30,false
+2019-20,2020,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,110,false
+2019-20,2020,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2019-20,2020,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,10,false
+2019-20,2020,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,8,false
+2019-20,2020,Bachelor's,13.1318,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2019-20,2020,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,92,false
+2019-20,2020,Bachelor's,31.0599,Kinesiology and health,Kinesiology,medium,2,false
+2019-20,2020,Bachelor's,50.0301,Arts,Dance,high,12,false
+2019-20,2020,Bachelor's,50.0501,Arts,Theatre and Drama,medium,8,false
+2019-20,2020,Bachelor's,50.0701,Arts,Art,high,62,false
+2019-20,2020,Bachelor's,51.0913,Kinesiology and health,Kinesiology,high,14,false
+2019-20,2020,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,83,false
+2019-20,2020,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2019-20,2020,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,23,false
+2019-20,2020,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,16,false
+2019-20,2020,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,11,false
+2019-20,2020,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2019-20,2020,Doctoral,13.1201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2019-20,2020,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,2,false
+2019-20,2020,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,7,false
+2019-20,2020,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,11,false
+2019-20,2020,Doctoral,50.0501,Arts,Theatre and Drama,medium,2,false
+2019-20,2020,Doctoral,51.2306,Kinesiology and health,Kinesiology,high,6,false
+2019-20,2020,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,5,false
+2019-20,2020,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,64,false
+2019-20,2020,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,79,false
+2019-20,2020,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2019-20,2020,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,11,false
+2019-20,2020,Master's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2019-20,2020,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2019-20,2020,Master's,31.0505,Kinesiology and health,Kinesiology,high,6,false
+2019-20,2020,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,10,false
+2019-20,2020,Master's,42.2806,Psychology and counseling,Educational Psychology,high,30,false
+2019-20,2020,Master's,50.0501,Arts,Theatre and Drama,medium,1,false
+2019-20,2020,Master's,50.0701,Arts,Art,high,48,false
+2019-20,2020,Master's,51.2306,Kinesiology and health,Kinesiology,high,26,false
+2019-20,2020,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,9,false
+2020-21,2021,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,26,false
+2020-21,2021,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,32,false
+2020-21,2021,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,84,false
+2020-21,2021,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,5,false
+2020-21,2021,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,13,false
+2020-21,2021,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,12,false
+2020-21,2021,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,94,false
+2020-21,2021,Bachelor's,31.0599,Kinesiology and health,Kinesiology,medium,41,false
+2020-21,2021,Bachelor's,50.0301,Arts,Dance,high,6,false
+2020-21,2021,Bachelor's,50.0501,Arts,Theatre and Drama,medium,15,false
+2020-21,2021,Bachelor's,50.0701,Arts,Art,high,55,false
+2020-21,2021,Bachelor's,51.0913,Kinesiology and health,Kinesiology,high,20,false
+2020-21,2021,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,54,false
+2020-21,2021,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,2,false
+2020-21,2021,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,17,false
+2020-21,2021,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,10,false
+2020-21,2021,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,9,false
+2020-21,2021,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2020-21,2021,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,2,false
+2020-21,2021,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,6,false
+2020-21,2021,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,17,false
+2020-21,2021,Doctoral,50.0501,Arts,Theatre and Drama,medium,1,false
+2020-21,2021,Doctoral,51.2306,Kinesiology and health,Kinesiology,high,4,false
+2020-21,2021,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,1,false
+2020-21,2021,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,79,false
+2020-21,2021,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,85,false
+2020-21,2021,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2020-21,2021,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,15,false
+2020-21,2021,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2020-21,2021,Master's,31.0505,Kinesiology and health,Kinesiology,high,7,false
+2020-21,2021,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,12,false
+2020-21,2021,Master's,42.2806,Psychology and counseling,Educational Psychology,high,39,false
+2020-21,2021,Master's,50.0501,Arts,Theatre and Drama,medium,2,false
+2020-21,2021,Master's,50.0701,Arts,Art,high,36,false
+2020-21,2021,Master's,51.2306,Kinesiology and health,Kinesiology,high,26,false
+2020-21,2021,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,10,false
+2021-22,2022,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,33,false
+2021-22,2022,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,16,false
+2021-22,2022,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,68,false
+2021-22,2022,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,5,false
+2021-22,2022,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2021-22,2022,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2021-22,2022,Bachelor's,13.1318,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2021-22,2022,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,95,false
+2021-22,2022,Bachelor's,31.0599,Kinesiology and health,Kinesiology,medium,77,false
+2021-22,2022,Bachelor's,50.0301,Arts,Dance,high,9,false
+2021-22,2022,Bachelor's,50.0501,Arts,Theatre and Drama,medium,15,false
+2021-22,2022,Bachelor's,50.0701,Arts,Art,high,55,false
+2021-22,2022,Bachelor's,51.0913,Kinesiology and health,Kinesiology,high,0,false
+2021-22,2022,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,46,false
+2021-22,2022,Doctoral,13.0201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2021-22,2022,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,26,false
+2021-22,2022,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,27,false
+2021-22,2022,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,9,false
+2021-22,2022,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,4,false
+2021-22,2022,Doctoral,13.1201,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2021-22,2022,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,7,false
+2021-22,2022,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,6,false
+2021-22,2022,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,12,false
+2021-22,2022,Doctoral,50.0501,Arts,Theatre and Drama,medium,3,false
+2021-22,2022,Doctoral,51.2306,Kinesiology and health,Kinesiology,high,0,false
+2021-22,2022,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,9,false
+2021-22,2022,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,92,false
+2021-22,2022,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,82,false
+2021-22,2022,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,14,false
+2021-22,2022,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,33,false
+2021-22,2022,Master's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,false
+2021-22,2022,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2021-22,2022,Master's,31.0505,Kinesiology and health,Kinesiology,high,12,false
+2021-22,2022,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,7,false
+2021-22,2022,Master's,42.2805,Psychology and counseling,Educational Psychology,medium,11,false
+2021-22,2022,Master's,42.2806,Psychology and counseling,Educational Psychology,high,46,false
+2021-22,2022,Master's,50.0501,Arts,Theatre and Drama,medium,3,false
+2021-22,2022,Master's,50.0701,Arts,Art,high,25,false
+2021-22,2022,Master's,51.2306,Kinesiology and health,Kinesiology,high,25,false
+2021-22,2022,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,21,false
+2022-23,2023,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,21,false
+2022-23,2023,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,21,false
+2022-23,2023,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,74,false
+2022-23,2023,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,13,false
+2022-23,2023,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,false
+2022-23,2023,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,8,false
+2022-23,2023,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,86,false
+2022-23,2023,Bachelor's,31.0599,Kinesiology and health,Kinesiology,medium,79,false
+2022-23,2023,Bachelor's,50.0301,Arts,Dance,high,9,false
+2022-23,2023,Bachelor's,50.0501,Arts,Theatre and Drama,medium,10,false
+2022-23,2023,Bachelor's,50.0701,Arts,Art,high,54,false
+2022-23,2023,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,34,false
+2022-23,2023,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,24,false
+2022-23,2023,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,26,false
+2022-23,2023,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,12,false
+2022-23,2023,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2022-23,2023,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,4,false
+2022-23,2023,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,6,false
+2022-23,2023,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,13,false
+2022-23,2023,Doctoral,50.0501,Arts,Theatre and Drama,medium,3,false
+2022-23,2023,Doctoral,51.2306,Kinesiology and health,Kinesiology,high,7,false
+2022-23,2023,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,3,false
+2022-23,2023,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,105,false
+2022-23,2023,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,70,false
+2022-23,2023,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2022-23,2023,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,22,false
+2022-23,2023,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2022-23,2023,Master's,31.0505,Kinesiology and health,Kinesiology,high,9,false
+2022-23,2023,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,7,false
+2022-23,2023,Master's,42.2805,Psychology and counseling,Educational Psychology,medium,40,false
+2022-23,2023,Master's,42.2806,Psychology and counseling,Educational Psychology,high,48,false
+2022-23,2023,Master's,50.0501,Arts,Theatre and Drama,medium,0,false
+2022-23,2023,Master's,50.0701,Arts,Art,high,19,false
+2022-23,2023,Master's,51.0913,Kinesiology and health,Kinesiology,high,12,false
+2022-23,2023,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,18,false
+2023-24,2024,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,26,false
+2023-24,2024,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,17,false
+2023-24,2024,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,112,false
+2023-24,2024,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,12,false
+2023-24,2024,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2023-24,2024,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,10,false
+2023-24,2024,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,118,false
+2023-24,2024,Bachelor's,31.0599,Kinesiology and health,Kinesiology,medium,88,false
+2023-24,2024,Bachelor's,50.0301,Arts,Dance,high,8,false
+2023-24,2024,Bachelor's,50.0501,Arts,Theatre and Drama,medium,8,false
+2023-24,2024,Bachelor's,50.0701,Arts,Art,high,53,false
+2023-24,2024,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,28,false
+2023-24,2024,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,21,false
+2023-24,2024,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,22,false
+2023-24,2024,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,7,false
+2023-24,2024,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,4,false
+2023-24,2024,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,5,false
+2023-24,2024,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,4,false
+2023-24,2024,Doctoral,42.2805,Psychology and counseling,Educational Psychology,medium,6,false
+2023-24,2024,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,13,false
+2023-24,2024,Doctoral,50.0501,Arts,Theatre and Drama,medium,0,false
+2023-24,2024,Doctoral,51.2306,Kinesiology and health,Kinesiology,high,30,false
+2023-24,2024,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,6,false
+2023-24,2024,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,79,false
+2023-24,2024,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,53,false
+2023-24,2024,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,3,false
+2023-24,2024,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,24,false
+2023-24,2024,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,1,false
+2023-24,2024,Master's,31.0505,Kinesiology and health,Kinesiology,high,0,false
+2023-24,2024,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,13,false
+2023-24,2024,Master's,42.2805,Psychology and counseling,Educational Psychology,medium,42,false
+2023-24,2024,Master's,42.2806,Psychology and counseling,Educational Psychology,high,50,false
+2023-24,2024,Master's,50.0501,Arts,Theatre and Drama,medium,0,false
+2023-24,2024,Master's,50.0701,Arts,Art,high,15,false
+2023-24,2024,Master's,51.0913,Kinesiology and health,Kinesiology,high,13,false
+2023-24,2024,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,23,false
+2024-25,2025,Bachelor's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,38,true
+2024-25,2025,Bachelor's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,10,true
+2024-25,2025,Bachelor's,13.1099,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,25,true
+2024-25,2025,Bachelor's,13.1202,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,107,true
+2024-25,2025,Bachelor's,13.1302,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,11,true
+2024-25,2025,Bachelor's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,4,true
+2024-25,2025,Bachelor's,13.1314,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,17,true
+2024-25,2025,Bachelor's,31.0505,Kinesiology and health,Kinesiology,high,144,true
+2024-25,2025,Bachelor's,31.0599,Kinesiology and health,Kinesiology,medium,103,true
+2024-25,2025,Bachelor's,50.0301,Arts,Dance,high,8,true
+2024-25,2025,Bachelor's,50.0501,Arts,Theatre and Drama,medium,11,true
+2024-25,2025,Bachelor's,50.0701,Arts,Art,high,72,true
+2024-25,2025,Bachelor's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,40,true
+2024-25,2025,Doctoral,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,18,true
+2024-25,2025,Doctoral,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,22,true
+2024-25,2025,Doctoral,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,6,true
+2024-25,2025,Doctoral,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,4,true
+2024-25,2025,Doctoral,31.0505,Kinesiology and health,Kinesiology,high,0,true
+2024-25,2025,Doctoral,42.2803,Psychology and counseling,Counseling Psychology,high,5,true
+2024-25,2025,Doctoral,42.2805,Psychology and counseling,Educational Psychology,medium,8,true
+2024-25,2025,Doctoral,42.2806,Psychology and counseling,Educational Psychology,high,7,true
+2024-25,2025,Doctoral,50.0501,Arts,Theatre and Drama,medium,2,true
+2024-25,2025,Doctoral,51.2306,Kinesiology and health,Kinesiology,high,27,true
+2024-25,2025,Doctoral,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,1,true
+2024-25,2025,Master's,13.0301,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,78,true
+2024-25,2025,Master's,13.0401,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,45,true
+2024-25,2025,Master's,13.0901,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,8,true
+2024-25,2025,Master's,13.1001,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,33,true
+2024-25,2025,Master's,13.1312,Education,Curriculum and Instruction; Educational Leadership and Policy Analysis; Educational Policy Studies; Rehabilitation Psychology and Special Education,high,0,true
+2024-25,2025,Master's,31.0505,Kinesiology and health,Kinesiology,high,0,true
+2024-25,2025,Master's,42.2803,Psychology and counseling,Counseling Psychology,high,7,true
+2024-25,2025,Master's,42.2805,Psychology and counseling,Educational Psychology,medium,40,true
+2024-25,2025,Master's,42.2806,Psychology and counseling,Educational Psychology,high,35,true
+2024-25,2025,Master's,50.0501,Arts,Theatre and Drama,medium,1,true
+2024-25,2025,Master's,50.0701,Arts,Art,high,14,true
+2024-25,2025,Master's,51.0913,Kinesiology and health,Kinesiology,high,15,true
+2024-25,2025,Master's,51.2310,Psychology and counseling,Rehabilitation Psychology and Special Education,high,18,true
