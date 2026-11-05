@@ -79,3 +79,19 @@ run_utc,trigger,git_sha,mart,rows,sources_changed,new_ipeds_files,new_catalog_te
 2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_registration_watch,2242,gpa: 1 file,,2027-sp.csv,152,1,0,True
 2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_section_spread,1330,gpa: 1 file,,2027-sp.csv,152,1,0,True
 2026-11-03T17:55:25Z,workflow_dispatch,2adf0bb0cb2556c37ce00edfab543e1b9a621076,mart_sections_offered,6506,gpa: 1 file,,2027-sp.csv,152,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_business_completions,6121,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_course_sections,6578,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_course_terms,5327,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_course_watch_list,314,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_education_completions,3453,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_funnel,203,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_gies_enrollment,328,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_gies_new_students,60,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_gies_outcomes,487,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_peer_metrics,2996,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_projection,53,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_projection_assumptions,3,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_registration_watch,2688,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_section_spread,1330,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_sections_offered,6506,none,,2027-sp.csv,184,1,0,True
+2026-11-05T17:02:04Z,workflow_dispatch,9c8bac4a8c6fa17c777c08527c3d99a2977ec81f,mart_soe_portfolio,414,none,,2027-sp.csv,184,1,0,True
