@@ -1,14 +1,13 @@
-# gies-program-health
+# program-health
 
-An independent look at how the Gies College of Business is doing, built only from public data: enrollment by program, Illinois against the other 17 Big Ten universities, course grades, and how the Spring 2027 schedule fills. I built it as a working sample for analytics roles in higher education, so it runs like a small production pipeline, with tests, scheduled refreshes, and documented decisions, rather than as a one-off notebook. It isn't affiliated with or endorsed by the University of Illinois.
+An independent look at how the Gies College of Business is doing, built only from public data: enrollment by program, Illinois against the other 17 Big Ten universities, course grades, and how the Spring 2027 schedule fills. It runs like a small production pipeline, with tests, scheduled refreshes, and documented decisions, rather than as a one-off notebook. It isn't affiliated with or endorsed by the University of Illinois.
 
 - The brief, four pages: [brief/brief.pdf](brief/brief.pdf)
 - The one-page guide to the dashboards: [brief/guide.pdf](brief/guide.pdf)
 - The Tableau Public dashboards: [Gies program health on Tableau Public](https://public.tableau.com/app/profile/om.vyas/viz/GiesProgramHealth/Overview)
 - The Streamlit app, for enrollment scenarios and the registration watch, on Hugging Face: [huggingface.co/spaces/omvyas77/gies-program-health](https://huggingface.co/spaces/omvyas77/gies-program-health)
 - The analysis tables behind every finding, each with its SQL: [docs/findings.md](docs/findings.md)
-- **New:** the same pipeline pointed at the UW–Madison School of Education, a one-page note: [brief/soe_note.pdf](brief/soe_note.pdf), with the method in [docs/soe_addendum.md](docs/soe_addendum.md)
-
+- **New:** - The same pipeline pointed at a second school, the UW–Madison School of Education, without adding a source: [one-page note](brief/soe_note.pdf) · [method](docs/soe_addendum.md)
 ## What it found
 
 - **Growth is online.** Gies grew from 5,155 students in Fall 2017 to 10,095 in Fall 2026, and online graduate programs account for 4,781 of the 4,940 added.
