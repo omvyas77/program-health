@@ -1,6 +1,6 @@
 # Spring 2027 registration watch
 
-As of the Nov 9, 2026 snapshot, registration opened 7 days ago, on Nov 2, 2026. Gies lists 508 primary sections across 223 courses.
+As of the Nov 10, 2026 snapshot, registration opened 8 days ago, on Nov 2, 2026. Gies lists 508 primary sections across 223 courses.
 
 ## Sections added since registration opened
 
@@ -9,19 +9,19 @@ As of the Nov 9, 2026 snapshot, registration opened 7 days ago, on Nov 2, 2026. 
 | ACCY 201 | 4 | 1 |
 | MBA 590 | 6 | 1 |
 
-## Since the previous snapshot, Nov 8, 2026
+## Since the previous snapshot, Nov 9, 2026
 
 No Gies course gained or lost a primary section.
 
 ## Closed sections
 
-As of the Nov 9, 2026 status pass, 96 of 508 Gies primary sections (18.9%) were closed, and 406 were Open (Restricted).
+As of the Nov 10, 2026 status pass, 98 of 508 Gies primary sections (19.3%) were closed, and 404 were Open (Restricted).
 
 | Course with every primary section closed | Sections |
 |---|---:|
-| ACCY 303 | 6 |
 | ACCY 304 | 6 |
 | ACCY 321 | 2 |
+| BADM 300 | 2 |
 | BADM 303 | 2 |
 | BADM 329 | 1 |
 | BADM 330 | 1 |
@@ -44,12 +44,15 @@ As of the Nov 9, 2026 status pass, 96 of 508 Gies primary sections (18.9%) were 
 | FIN 461 | 1 |
 | FIN 464 | 2 |
 
-Since the Nov 8, 2026 pass:
+Since the Nov 9, 2026 pass:
 
 | Course | Closed before | Closed now | Reopened |
 |---|---:|---:|---:|
-| ACCY 410 | 5 | 6 | 0 |
-| BADM 449 | 6 | 7 | 0 |
+| ACCY 303 | 6 | 5 | 1 |
+| BADM 300 | 1 | 2 | 0 |
+| BADM 449 | 7 | 7 | 1 |
+| FIN 418 | 0 | 1 | 0 |
+| FIN 463 | 0 | 1 | 0 |
 
 Enrollment status comes from the public course pages, read once a day at 8:14 am Central with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only. A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change. Primary sections are lectures, lecture-discussions, online lectures, and seminars, not discussions or labs.
 
