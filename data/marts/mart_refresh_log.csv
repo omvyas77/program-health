@@ -111,3 +111,19 @@ run_utc,trigger,git_sha,mart,rows,sources_changed,new_ipeds_files,new_catalog_te
 2026-11-09T21:29:12Z,schedule,3be23f63bd62dd405bfc5357c9506a7da8b399c2,mart_section_spread,1330,none,,2027-sp.csv,184,1,0,True
 2026-11-09T21:29:12Z,schedule,3be23f63bd62dd405bfc5357c9506a7da8b399c2,mart_sections_offered,6506,none,,2027-sp.csv,184,1,0,True
 2026-11-09T21:29:12Z,schedule,3be23f63bd62dd405bfc5357c9506a7da8b399c2,mart_soe_portfolio,414,none,,2027-sp.csv,184,1,0,True
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_business_completions,6121,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_course_sections,6578,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_course_terms,5327,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_course_watch_list,314,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_education_completions,3453,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_funnel,203,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_gies_enrollment,328,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_gies_new_students,60,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_gies_outcomes,487,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_peer_metrics,2996,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_projection,53,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_projection_assumptions,3,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_registration_watch,5141,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_section_spread,1330,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_sections_offered,6506,change check failed,,,,,,False
+2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_soe_portfolio,414,change check failed,,,,,,False
