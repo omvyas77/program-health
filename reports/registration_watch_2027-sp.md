@@ -1,25 +1,27 @@
 # Spring 2027 registration watch
 
-As of the Nov 16, 2026 snapshot, registration opened 14 days ago, on Nov 2, 2026. Gies lists 509 primary sections across 223 courses.
+As of the Nov 17, 2026 snapshot, registration opened 15 days ago, on Nov 2, 2026. Gies lists 508 primary sections across 223 courses.
 
 ## Sections added since registration opened
 
 | Course | Primary sections | Added since registration opened |
 |---|---:|---:|
-| ACCY 201 | 4 | 1 |
 | MBA 590 | 7 | 2 |
 
-## Since the previous snapshot, Nov 15, 2026
+## Since the previous snapshot, Nov 16, 2026
 
-No Gies course gained or lost a primary section.
+| Course | Primary sections | Added | Removed |
+|---|---:|---:|---:|
+| ACCY 201 | 3 | 0 | 1 |
 
 ## Closed sections
 
-As of the Nov 16, 2026 status pass, 142 of 509 Gies primary sections (27.9%) were closed, and 362 were Open (Restricted).
+As of the Nov 17, 2026 status pass, 146 of 508 Gies primary sections (28.7%) were closed, and 358 were Open (Restricted).
 
 | Course with every primary section closed | Sections |
 |---|---:|
 | ACCY 321 | 2 |
+| ACCY 375 | 1 |
 | ACCY 449 | 2 |
 | BADM 300 | 2 |
 | BADM 303 | 2 |
@@ -36,7 +38,6 @@ As of the Nov 16, 2026 status pass, 142 of 509 Gies primary sections (27.9%) wer
 | BDI 367 | 1 |
 | BDI 475 | 1 |
 | FIN 241 | 1 |
-| FIN 412 | 1 |
 | FIN 423 | 2 |
 | FIN 434 | 1 |
 | FIN 435 | 3 |
@@ -44,10 +45,36 @@ As of the Nov 16, 2026 status pass, 142 of 509 Gies primary sections (27.9%) wer
 | FIN 443 | 1 |
 | FIN 461 | 1 |
 | FIN 464 | 2 |
+| FIN 536 | 1 |
 
-Since the Nov 15, 2026 pass:
+Since the Nov 16, 2026 pass:
 
-No Gies course's closed count changed.
+| Course | Closed before | Closed now | Reopened |
+|---|---:|---:|---:|
+| ACCY 201 | 0 | 1 | 0 |
+| ACCY 301 | 3 | 4 | 0 |
+| ACCY 303 | 3 | 4 | 0 |
+| ACCY 304 | 3 | 4 | 0 |
+| ACCY 312 | 3 | 2 | 1 |
+| ACCY 375 | 0 | 1 | 0 |
+| ACCY 405 | 5 | 3 | 2 |
+| ACCY 451 | 7 | 6 | 1 |
+| ACCY 512 | 2 | 1 | 1 |
+| ACCY 515 | 1 | 2 | 0 |
+| ACCY 552 | 1 | 0 | 1 |
+| ACCY 575 | 5 | 6 | 0 |
+| BADM 211 | 6 | 7 | 0 |
+| BADM 275 | 4 | 6 | 0 |
+| BADM 323 | 1 | 0 | 1 |
+| BADM 352 | 2 | 1 | 1 |
+| BADM 449 | 8 | 7 | 1 |
+| BUS 201 | 2 | 5 | 0 |
+| BUS 302 | 0 | 1 | 0 |
+| FIN 300 | 5 | 4 | 1 |
+| FIN 321 | 2 | 3 | 0 |
+| FIN 412 | 1 | 0 | 1 |
+| FIN 463 | 1 | 0 | 1 |
+| FIN 536 | 0 | 1 | 0 |
 
 Enrollment status comes from the public course pages, read once a day at 8:14 am Central with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only. A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change. Primary sections are lectures, lecture-discussions, online lectures, and seminars, not discussions or labs.
 
