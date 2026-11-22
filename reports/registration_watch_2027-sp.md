@@ -1,6 +1,6 @@
 # Spring 2027 registration watch
 
-As of the Nov 21, 2026 snapshot, registration opened 19 days ago, on Nov 2, 2026. Gies lists 509 primary sections across 223 courses.
+As of the Nov 22, 2026 snapshot, registration opened 20 days ago, on Nov 2, 2026. Gies lists 509 primary sections across 223 courses.
 
 ## Sections added since registration opened
 
@@ -9,13 +9,13 @@ As of the Nov 21, 2026 snapshot, registration opened 19 days ago, on Nov 2, 2026
 | FIN 490 | 3 | 1 |
 | MBA 590 | 7 | 2 |
 
-## Since the previous snapshot, Nov 20, 2026
+## Since the previous snapshot, Nov 21, 2026
 
 No Gies course gained or lost a primary section.
 
 ## Closed sections
 
-As of the Nov 21, 2026 status pass, 163 of 509 Gies primary sections (32.0%) were closed, and 341 were Open (Restricted).
+As of the Nov 22, 2026 status pass, 162 of 509 Gies primary sections (31.8%) were closed, and 342 were Open (Restricted).
 
 | Course with every primary section closed | Sections |
 |---|---:|
@@ -44,19 +44,11 @@ As of the Nov 21, 2026 status pass, 163 of 509 Gies primary sections (32.0%) wer
 | FIN 461 | 1 |
 | FIN 536 | 1 |
 
-Since the Nov 20, 2026 pass:
+Since the Nov 21, 2026 pass:
 
 | Course | Closed before | Closed now | Reopened |
 |---|---:|---:|---:|
-| ACCY 202 | 1 | 2 | 0 |
-| ACCY 301 | 2 | 1 | 1 |
-| ACCY 398 | 0 | 1 | 0 |
-| ACCY 552 | 1 | 0 | 1 |
-| BADM 211 | 8 | 7 | 2 |
-| BADM 311 | 1 | 0 | 1 |
-| BADM 370 | 0 | 1 | 0 |
-| BADM 449 | 6 | 7 | 0 |
-| BUS 302 | 1 | 2 | 0 |
+| FIN 321 | 3 | 2 | 1 |
 
 Enrollment status comes from the public course pages, read once a day at 8:14 am Central with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only. A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change. Primary sections are lectures, lecture-discussions, online lectures, and seminars, not discussions or labs.
 
