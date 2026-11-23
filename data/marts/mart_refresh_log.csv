@@ -127,3 +127,19 @@ run_utc,trigger,git_sha,mart,rows,sources_changed,new_ipeds_files,new_catalog_te
 2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_section_spread,1330,change check failed,,,,,,False
 2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_sections_offered,6506,change check failed,,,,,,False
 2026-11-16T21:02:22Z,schedule,a3e6ba2ec5f58521926595e94b8f5430c25c8280,mart_soe_portfolio,414,change check failed,,,,,,False
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_business_completions,6121,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_course_sections,6578,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_course_terms,5327,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_course_watch_list,314,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_education_completions,3453,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_funnel,203,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_gies_enrollment,328,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_gies_new_students,60,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_gies_outcomes,487,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_peer_metrics,2996,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_projection,53,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_projection_assumptions,3,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_registration_watch,6702,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_section_spread,1330,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_sections_offered,6506,none,,2027-sp.csv,184,1,0,True
+2026-11-23T22:40:54Z,schedule,adf94fad20debb19c6cb67d67960249193f0642c,mart_soe_portfolio,414,none,,2027-sp.csv,184,1,0,True
