@@ -39,6 +39,8 @@ jobs:
 
       - name: Check sources and ingest what changed
         id: ingest
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
         run: python -m ingest.refresh --out "$RUNNER_TEMP/refresh.json"
 
       - name: Open an issue for files the refresh won't ingest on its own

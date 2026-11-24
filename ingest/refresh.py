@@ -14,6 +14,7 @@ import csv
 import hashlib
 import json
 import logging
+import os
 import sys
 import tempfile
 from pathlib import Path
@@ -117,7 +118,12 @@ def check_wadefagen(session, manifest):
 
 
 def new_catalog_terms(session, manifest):
-    response = fetch(session, CATALOG_LISTING)
+    # Unauthenticated GitHub API calls share the runner's 60-an-hour limit (HTTP 403 on Nov 16,
+    # 2026). The token goes on a session of its own so no other host ever sees it.
+    api = new_session()
+    if token := os.environ.get("GITHUB_TOKEN"):
+        api.headers["Authorization"] = f"Bearer {token}"
+    response = fetch(api, CATALOG_LISTING)
     assert response.status_code == 200, f"{CATALOG_LISTING}: HTTP {response.status_code}"
     upstream = {f"course-catalog/data/{item['name']}" for item in response.json()}
     known = {source for source in manifest if source.startswith("course-catalog/")}
