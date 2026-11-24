@@ -1,6 +1,6 @@
 # Spring 2027 registration watch
 
-As of the Nov 22, 2026 snapshot, registration opened 20 days ago, on Nov 2, 2026. Gies lists 509 primary sections across 223 courses.
+As of the Nov 23, 2026 snapshot, registration opened 21 days ago, on Nov 2, 2026. Gies lists 509 primary sections across 223 courses.
 
 ## Sections added since registration opened
 
@@ -9,13 +9,13 @@ As of the Nov 22, 2026 snapshot, registration opened 20 days ago, on Nov 2, 2026
 | FIN 490 | 3 | 1 |
 | MBA 590 | 7 | 2 |
 
-## Since the previous snapshot, Nov 21, 2026
+## Since the previous snapshot, Nov 22, 2026
 
 No Gies course gained or lost a primary section.
 
 ## Closed sections
 
-As of the Nov 22, 2026 status pass, 162 of 509 Gies primary sections (31.8%) were closed, and 342 were Open (Restricted).
+As of the Nov 23, 2026 status pass, 161 of 509 Gies primary sections (31.6%) were closed, and 343 were Open (Restricted).
 
 | Course with every primary section closed | Sections |
 |---|---:|
@@ -35,6 +35,7 @@ As of the Nov 22, 2026 status pass, 162 of 509 Gies primary sections (31.8%) wer
 | BADM 382 | 1 |
 | BADM 383 | 1 |
 | BDI 367 | 1 |
+| BDI 475 | 1 |
 | BUS 302 | 2 |
 | FIN 423 | 2 |
 | FIN 434 | 1 |
@@ -44,11 +45,13 @@ As of the Nov 22, 2026 status pass, 162 of 509 Gies primary sections (31.8%) wer
 | FIN 461 | 1 |
 | FIN 536 | 1 |
 
-Since the Nov 21, 2026 pass:
+Since the Nov 22, 2026 pass:
 
 | Course | Closed before | Closed now | Reopened |
 |---|---:|---:|---:|
-| FIN 321 | 3 | 2 | 1 |
+| BADM 275 | 7 | 6 | 1 |
+| BDI 475 | 0 | 1 | 0 |
+| BUS 201 | 9 | 8 | 1 |
 
 Enrollment status comes from the public course pages, read once a day at 8:14 am Central with permission from the university's Tech Services. Closed isn't the same as full, and Open (Restricted) means seats held for certain students; the closed share counts Closed only. A section added after registration opens can mean demand ran ahead of the schedule; it can also be a room or staffing change. Primary sections are lectures, lecture-discussions, online lectures, and seminars, not discussions or labs.
 
