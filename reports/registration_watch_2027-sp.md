@@ -1,6 +1,6 @@
 # Spring 2027 registration watch
 
-As of the Nov 26, 2026 snapshot, registration opened 24 days ago, on Nov 2, 2026. Gies lists 509 primary sections across 223 courses.
+As of the Nov 27, 2026 snapshot, registration opened 25 days ago, on Nov 2, 2026. Gies lists 509 primary sections across 223 courses.
 
 ## Sections added since registration opened
 
@@ -9,13 +9,13 @@ As of the Nov 26, 2026 snapshot, registration opened 24 days ago, on Nov 2, 2026
 | FIN 490 | 3 | 1 |
 | MBA 590 | 7 | 2 |
 
-## Since the previous snapshot, Nov 25, 2026
+## Since the previous snapshot, Nov 26, 2026
 
 No Gies course gained or lost a primary section.
 
 ## Closed sections
 
-As of the Nov 26, 2026 status pass, 175 of 509 Gies primary sections (34.4%) were closed, and 329 were Open (Restricted).
+As of the Nov 27, 2026 status pass, 175 of 509 Gies primary sections (34.4%) were closed, and 329 were Open (Restricted).
 
 | Course with every primary section closed | Sections |
 |---|---:|
@@ -49,7 +49,7 @@ As of the Nov 26, 2026 status pass, 175 of 509 Gies primary sections (34.4%) wer
 | FIN 461 | 1 |
 | FIN 536 | 1 |
 
-Since the Nov 25, 2026 pass:
+Since the Nov 26, 2026 pass:
 
 No Gies course's closed count changed.
 
